@@ -1,0 +1,6923 @@
+{
+  "tool": "scripts/ui-check.mjs",
+  "label": "VECTOR UI check — screenshots of a paper-only lab; every fill shown is an ESTIMATED PAPER FILL",
+  "base": "http://127.0.0.1:8797",
+  "startedAt": "2026-10-09T19:32:06.219Z",
+  "browser": {
+    "path": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "version": "Chrome/156.0.8078.12"
+  },
+  "viewports": [
+    {
+      "name": "360x780",
+      "width": 360,
+      "height": 780,
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "390x844",
+      "width": 390,
+      "height": 844,
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "430x932",
+      "width": 430,
+      "height": 932,
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "1440x900",
+      "width": 1440,
+      "height": 900,
+      "mobile": false,
+      "dsf": 1
+    }
+  ],
+  "serverStatus": {
+    "dataMode": "HISTORICAL_REAL",
+    "dataset": "iex-tops-2026-10-07",
+    "datasetSha256": "bb405b6835f5cfc8fd27d3552ef9d1572a42670e45d612223c689aad0e458256",
+    "replay": {
+      "session_id": "ses_mv1cu0lw3e7c4a1d2f",
+      "clock": 1791383400000,
+      "clockEt": "10:30",
+      "playing": false,
+      "status": "READY"
+    },
+    "model": "CONNECTED",
+    "killSwitch": false
+  },
+  "prepare": null,
+  "symbols": {
+    "research": "TOPP",
+    "trade": "NVDA",
+    "tradeBasis": "segment large: two-sided IEX quote <= 60 s old, spread 1 bps, 1403 trades in the scan window (most active qualifying row)"
+  },
+  "web": {
+    "assets/RCL_Convergence_Full_Dark.svg": "dbd5d59054914012",
+    "assets/RCL_Convergence_Full_Light.svg": "55f455e77cda1663",
+    "assets/RCL_Convergence_Mark_Dark.svg": "abc341bceffc1a48",
+    "assets/RCL_Convergence_Mark_Light.svg": "2932c8b89c428d91",
+    "assets/RCL_Copper_Steel_Full.svg": "d68a606c3e9d3a61",
+    "assets/RCL_Copper_Steel_Mark.svg": "dc6dff6697556313",
+    "index.html": "13dd41dceb9c9e38",
+    "js/api.js": "76760e15f31997d2",
+    "js/app.js": "16c5757358441005",
+    "js/charts.js": "d4d888cbc6c8849f",
+    "js/components.js": "a68756d767f473ae",
+    "js/dom.js": "6c9361e3cfd97f97",
+    "js/estimate.js": "68a00a8954de8a9f",
+    "js/format.js": "f48cb063cce8c1df",
+    "js/router.js": "83287433fe761226",
+    "js/status-strip.js": "0e8f4fb4e7b3e4b5",
+    "js/store.js": "3cf3851aab5641aa",
+    "js/strategy-schema.js": "dc4f2c683587440f",
+    "js/summaries.js": "537473f22e6340dc",
+    "js/views/about.js": "de68ee7aacb302a8",
+    "js/views/agents.js": "16a4ffbf0d2aeb47",
+    "js/views/common.js": "f3fb437df41a8406",
+    "js/views/journal.js": "84c6757323d03cbc",
+    "js/views/lab.js": "f5eedb38c0527aba",
+    "js/views/more.js": "a6afd073a45dbe52",
+    "js/views/overview.js": "9d540064026c2bbd",
+    "js/views/replay.js": "d1b15efa44660583",
+    "js/views/research.js": "9ec9f93aecdec3ad",
+    "js/views/sources.js": "d0532fde82db63a6",
+    "styles.css": "b90b91283ab54b00"
+  },
+  "assertions": [
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/overview",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 360, innerWidth 360, clientWidth 360, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/overview",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/overview",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/overview",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/overview",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/overview",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/overview",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 360, innerWidth 360, clientWidth 360, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "2 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research/TOPP",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 360, innerWidth 360, clientWidth 360, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research/TOPP",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research/TOPP",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research/TOPP",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research/TOPP",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research/TOPP",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/research/TOPP",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/lab",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 360, innerWidth 360, clientWidth 360, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/lab",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/lab",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/lab",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/lab",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "13 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/lab",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/lab",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/lab",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/agents",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 360, innerWidth 360, clientWidth 360, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/agents",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/agents",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/agents",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/agents",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "204 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/agents",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/agents",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/agents",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/replay",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 360, innerWidth 360, clientWidth 360, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/replay",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/replay",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/replay",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/replay",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "2 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/replay",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/replay",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/replay",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/journal",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 360, innerWidth 360, clientWidth 360, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/journal",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/journal",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/journal",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/journal",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "5 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/journal",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/journal",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/journal",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/sources",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 360, innerWidth 360, clientWidth 360, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/sources",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/sources",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/sources",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/sources",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "19 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/sources",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/sources",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/sources",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/about",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 360, innerWidth 360, clientWidth 360, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/about",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/about",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/about",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/about",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/about",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/about",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/more",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 360, innerWidth 360, clientWidth 360, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/more",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/more",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/more",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/more",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/more",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "360x780",
+      "route": "#/more",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/overview",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 390, innerWidth 390, clientWidth 390, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/overview",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/overview",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/overview",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/overview",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/overview",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/overview",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 390, innerWidth 390, clientWidth 390, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "2 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research/TOPP",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 390, innerWidth 390, clientWidth 390, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research/TOPP",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research/TOPP",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research/TOPP",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research/TOPP",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research/TOPP",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/research/TOPP",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/lab",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 390, innerWidth 390, clientWidth 390, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/lab",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/lab",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/lab",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/lab",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "13 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/lab",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/lab",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/lab",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/agents",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 390, innerWidth 390, clientWidth 390, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/agents",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/agents",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/agents",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/agents",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "204 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/agents",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/agents",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/agents",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/replay",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 390, innerWidth 390, clientWidth 390, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/replay",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/replay",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/replay",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/replay",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "2 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/replay",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/replay",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/replay",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/journal",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 390, innerWidth 390, clientWidth 390, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/journal",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/journal",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/journal",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/journal",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "5 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/journal",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/journal",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/journal",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/sources",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 390, innerWidth 390, clientWidth 390, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/sources",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/sources",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/sources",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/sources",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "19 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/sources",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/sources",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/sources",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/about",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 390, innerWidth 390, clientWidth 390, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/about",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/about",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/about",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/about",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/about",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/about",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/more",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 390, innerWidth 390, clientWidth 390, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/more",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/more",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/more",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/more",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/more",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "390x844",
+      "route": "#/more",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/overview",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 430, innerWidth 430, clientWidth 430, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/overview",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/overview",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/overview",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/overview",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/overview",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/overview",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 430, innerWidth 430, clientWidth 430, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "2 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research/TOPP",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 430, innerWidth 430, clientWidth 430, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research/TOPP",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research/TOPP",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research/TOPP",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research/TOPP",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research/TOPP",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/research/TOPP",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/lab",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 430, innerWidth 430, clientWidth 430, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/lab",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/lab",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/lab",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/lab",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "13 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/lab",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/lab",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/lab",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/agents",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 430, innerWidth 430, clientWidth 430, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/agents",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/agents",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/agents",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/agents",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "204 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/agents",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/agents",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/agents",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/replay",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 430, innerWidth 430, clientWidth 430, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/replay",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/replay",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/replay",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/replay",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "2 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/replay",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/replay",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/replay",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/journal",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 430, innerWidth 430, clientWidth 430, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/journal",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/journal",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/journal",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/journal",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "5 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/journal",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/journal",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/journal",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/sources",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 430, innerWidth 430, clientWidth 430, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/sources",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/sources",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/sources",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/sources",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "19 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/sources",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/sources",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/sources",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/about",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 430, innerWidth 430, clientWidth 430, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/about",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/about",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/about",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/about",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/about",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/about",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/more",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 430, innerWidth 430, clientWidth 430, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/more",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/more",
+      "name": "bottom_nav_44px",
+      "pass": true,
+      "detail": "5 links; heights Overview 58px, Research 58px, Lab 58px, Journal 58px, More 58px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/more",
+      "name": "status_strip_two_rows",
+      "pass": true,
+      "detail": "2 row(s), 55px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/more",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/more",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "430x932",
+      "route": "#/more",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/overview",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 1425, innerWidth 1440, clientWidth 1425, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/overview",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/overview",
+      "name": "desktop_sidebar_visible",
+      "pass": true,
+      "detail": "sidebar visible; bottom nav hidden"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/overview",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/overview",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/overview",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 1425, innerWidth 1440, clientWidth 1425, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research",
+      "name": "desktop_sidebar_visible",
+      "pass": true,
+      "detail": "sidebar visible; bottom nav hidden"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research/TOPP",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 1425, innerWidth 1440, clientWidth 1425, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research/TOPP",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research/TOPP",
+      "name": "desktop_sidebar_visible",
+      "pass": true,
+      "detail": "sidebar visible; bottom nav hidden"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research/TOPP",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research/TOPP",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/research/TOPP",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/lab",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 1425, innerWidth 1440, clientWidth 1425, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/lab",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/lab",
+      "name": "desktop_sidebar_visible",
+      "pass": true,
+      "detail": "sidebar visible; bottom nav hidden"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/lab",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/lab",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/lab",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/agents",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 1425, innerWidth 1440, clientWidth 1425, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/agents",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/agents",
+      "name": "desktop_sidebar_visible",
+      "pass": true,
+      "detail": "sidebar visible; bottom nav hidden"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/agents",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/agents",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/agents",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/replay",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 1425, innerWidth 1440, clientWidth 1425, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/replay",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/replay",
+      "name": "desktop_sidebar_visible",
+      "pass": true,
+      "detail": "sidebar visible; bottom nav hidden"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/replay",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/replay",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/replay",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/journal",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 1425, innerWidth 1440, clientWidth 1425, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/journal",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/journal",
+      "name": "desktop_sidebar_visible",
+      "pass": true,
+      "detail": "sidebar visible; bottom nav hidden"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/journal",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/journal",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/journal",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/sources",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 1425, innerWidth 1440, clientWidth 1425, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/sources",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/sources",
+      "name": "desktop_sidebar_visible",
+      "pass": true,
+      "detail": "sidebar visible; bottom nav hidden"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/sources",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/sources",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/sources",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/about",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 1425, innerWidth 1440, clientWidth 1425, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/about",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/about",
+      "name": "desktop_sidebar_visible",
+      "pass": true,
+      "detail": "sidebar visible; bottom nav hidden"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/about",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/about",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/about",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/more",
+      "name": "no_horizontal_overflow",
+      "pass": true,
+      "detail": "scrollWidth 1440, innerWidth 1440, clientWidth 1440, visual scale 1"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/more",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: CONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/more",
+      "name": "desktop_sidebar_visible",
+      "pass": true,
+      "detail": "sidebar visible; bottom nav hidden"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/more",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/more",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "1440x900",
+      "route": "#/more",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    }
+  ],
+  "routes": [
+    {
+      "viewport": "360x780",
+      "route": "#/overview",
+      "screenshot": "receipts/ui-model-connected/360x780-overview.png",
+      "metrics": {
+        "innerWidth": 360,
+        "innerHeight": 780,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "Overview · VECTOR",
+        "docHeight": 8198
+      },
+      "errors": []
+    },
+    {
+      "viewport": "360x780",
+      "route": "#/research",
+      "screenshot": "receipts/ui-model-connected/360x780-research.png",
+      "metrics": {
+        "innerWidth": 360,
+        "innerHeight": 780,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 2,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Research · VECTOR",
+        "docHeight": 5904
+      },
+      "errors": []
+    },
+    {
+      "viewport": "360x780",
+      "route": "#/research/TOPP",
+      "screenshot": "receipts/ui-model-connected/360x780-research-TOPP.png",
+      "metrics": {
+        "innerWidth": 360,
+        "innerHeight": 780,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "TOPP · Research · VECTOR",
+        "docHeight": 15988
+      },
+      "errors": []
+    },
+    {
+      "viewport": "360x780",
+      "route": "#/lab",
+      "screenshot": "receipts/ui-model-connected/360x780-lab.png",
+      "metrics": {
+        "innerWidth": 360,
+        "innerHeight": 780,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 13,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Paper lab · VECTOR",
+        "docHeight": 4669
+      },
+      "errors": []
+    },
+    {
+      "viewport": "360x780",
+      "route": "#/agents",
+      "screenshot": "receipts/ui-model-connected/360x780-agents.png",
+      "metrics": {
+        "innerWidth": 360,
+        "innerHeight": 780,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 204,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Agents · VECTOR",
+        "docHeight": 12231
+      },
+      "errors": []
+    },
+    {
+      "viewport": "360x780",
+      "route": "#/replay",
+      "screenshot": "receipts/ui-model-connected/360x780-replay.png",
+      "metrics": {
+        "innerWidth": 360,
+        "innerHeight": 780,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 2,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Replay · VECTOR",
+        "docHeight": 2119
+      },
+      "errors": []
+    },
+    {
+      "viewport": "360x780",
+      "route": "#/journal",
+      "screenshot": "receipts/ui-model-connected/360x780-journal.png",
+      "metrics": {
+        "innerWidth": 360,
+        "innerHeight": 780,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 5,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Journal · VECTOR",
+        "docHeight": 6718
+      },
+      "errors": []
+    },
+    {
+      "viewport": "360x780",
+      "route": "#/sources",
+      "screenshot": "receipts/ui-model-connected/360x780-sources.png",
+      "metrics": {
+        "innerWidth": 360,
+        "innerHeight": 780,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 19,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Data sources · VECTOR",
+        "docHeight": 15525
+      },
+      "errors": []
+    },
+    {
+      "viewport": "360x780",
+      "route": "#/about",
+      "screenshot": "receipts/ui-model-connected/360x780-about.png",
+      "metrics": {
+        "innerWidth": 360,
+        "innerHeight": 780,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "About · VECTOR",
+        "docHeight": 2371
+      },
+      "errors": []
+    },
+    {
+      "viewport": "360x780",
+      "route": "#/more",
+      "screenshot": "receipts/ui-model-connected/360x780-more.png",
+      "metrics": {
+        "innerWidth": 360,
+        "innerHeight": 780,
+        "clientWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 72,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "More · VECTOR",
+        "docHeight": 852
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/overview",
+      "screenshot": "receipts/ui-model-connected/390x844-overview.png",
+      "metrics": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "Overview · VECTOR",
+        "docHeight": 7415
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/research",
+      "screenshot": "receipts/ui-model-connected/390x844-research.png",
+      "metrics": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 2,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Research · VECTOR",
+        "docHeight": 5873
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/research/TOPP",
+      "screenshot": "receipts/ui-model-connected/390x844-research-TOPP.png",
+      "metrics": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "TOPP · Research · VECTOR",
+        "docHeight": 15296
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/lab",
+      "screenshot": "receipts/ui-model-connected/390x844-lab.png",
+      "metrics": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 13,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Paper lab · VECTOR",
+        "docHeight": 4540
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/agents",
+      "screenshot": "receipts/ui-model-connected/390x844-agents.png",
+      "metrics": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 204,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Agents · VECTOR",
+        "docHeight": 11735
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/replay",
+      "screenshot": "receipts/ui-model-connected/390x844-replay.png",
+      "metrics": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 2,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Replay · VECTOR",
+        "docHeight": 2007
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/journal",
+      "screenshot": "receipts/ui-model-connected/390x844-journal.png",
+      "metrics": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 5,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Journal · VECTOR",
+        "docHeight": 6625
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/sources",
+      "screenshot": "receipts/ui-model-connected/390x844-sources.png",
+      "metrics": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 19,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Data sources · VECTOR",
+        "docHeight": 14283
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/about",
+      "screenshot": "receipts/ui-model-connected/390x844-about.png",
+      "metrics": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "About · VECTOR",
+        "docHeight": 2174
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/more",
+      "screenshot": "receipts/ui-model-connected/390x844-more.png",
+      "metrics": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 78,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "More · VECTOR",
+        "docHeight": 852
+      },
+      "errors": []
+    },
+    {
+      "viewport": "430x932",
+      "route": "#/overview",
+      "screenshot": "receipts/ui-model-connected/430x932-overview.png",
+      "metrics": {
+        "innerWidth": 430,
+        "innerHeight": 932,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "Overview · VECTOR",
+        "docHeight": 6533
+      },
+      "errors": []
+    },
+    {
+      "viewport": "430x932",
+      "route": "#/research",
+      "screenshot": "receipts/ui-model-connected/430x932-research.png",
+      "metrics": {
+        "innerWidth": 430,
+        "innerHeight": 932,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 2,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Research · VECTOR",
+        "docHeight": 5602
+      },
+      "errors": []
+    },
+    {
+      "viewport": "430x932",
+      "route": "#/research/TOPP",
+      "screenshot": "receipts/ui-model-connected/430x932-research-TOPP.png",
+      "metrics": {
+        "innerWidth": 430,
+        "innerHeight": 932,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "TOPP · Research · VECTOR",
+        "docHeight": 14347
+      },
+      "errors": []
+    },
+    {
+      "viewport": "430x932",
+      "route": "#/lab",
+      "screenshot": "receipts/ui-model-connected/430x932-lab.png",
+      "metrics": {
+        "innerWidth": 430,
+        "innerHeight": 932,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 13,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Paper lab · VECTOR",
+        "docHeight": 4365
+      },
+      "errors": []
+    },
+    {
+      "viewport": "430x932",
+      "route": "#/agents",
+      "screenshot": "receipts/ui-model-connected/430x932-agents.png",
+      "metrics": {
+        "innerWidth": 430,
+        "innerHeight": 932,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 204,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Agents · VECTOR",
+        "docHeight": 11159
+      },
+      "errors": []
+    },
+    {
+      "viewport": "430x932",
+      "route": "#/replay",
+      "screenshot": "receipts/ui-model-connected/430x932-replay.png",
+      "metrics": {
+        "innerWidth": 430,
+        "innerHeight": 932,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 2,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Replay · VECTOR",
+        "docHeight": 1984
+      },
+      "errors": []
+    },
+    {
+      "viewport": "430x932",
+      "route": "#/journal",
+      "screenshot": "receipts/ui-model-connected/430x932-journal.png",
+      "metrics": {
+        "innerWidth": 430,
+        "innerHeight": 932,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 5,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Journal · VECTOR",
+        "docHeight": 6293
+      },
+      "errors": []
+    },
+    {
+      "viewport": "430x932",
+      "route": "#/sources",
+      "screenshot": "receipts/ui-model-connected/430x932-sources.png",
+      "metrics": {
+        "innerWidth": 430,
+        "innerHeight": 932,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 19,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Data sources · VECTOR",
+        "docHeight": 13362
+      },
+      "errors": []
+    },
+    {
+      "viewport": "430x932",
+      "route": "#/about",
+      "screenshot": "receipts/ui-model-connected/430x932-about.png",
+      "metrics": {
+        "innerWidth": 430,
+        "innerHeight": 932,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "About · VECTOR",
+        "docHeight": 2078
+      },
+      "errors": []
+    },
+    {
+      "viewport": "430x932",
+      "route": "#/more",
+      "screenshot": "receipts/ui-model-connected/430x932-more.png",
+      "metrics": {
+        "innerWidth": 430,
+        "innerHeight": 932,
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "bodyScrollWidth": 430,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 55,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "Overview",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Lab",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            },
+            {
+              "text": "More",
+              "w": 86,
+              "h": 58,
+              "visible": true
+            }
+          ],
+          "minHeight": 58
+        },
+        "sidebarVisible": false,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "More · VECTOR",
+        "docHeight": 932
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/overview",
+      "screenshot": "receipts/ui-model-connected/1440x900-overview.png",
+      "metrics": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 44,
+          "rows": 1,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "Overview · VECTOR",
+        "docHeight": 3302
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/research",
+      "screenshot": "receipts/ui-model-connected/1440x900-research.png",
+      "metrics": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 44,
+          "rows": 1,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "bodyFontPx": 16,
+        "formControls": 2,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Research · VECTOR",
+        "docHeight": 3392
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/research/TOPP",
+      "screenshot": "receipts/ui-model-connected/1440x900-research-TOPP.png",
+      "metrics": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 44,
+          "rows": 1,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "TOPP · Research · VECTOR",
+        "docHeight": 9532
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/lab",
+      "screenshot": "receipts/ui-model-connected/1440x900-lab.png",
+      "metrics": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 44,
+          "rows": 1,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "bodyFontPx": 16,
+        "formControls": 13,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Paper lab · VECTOR",
+        "docHeight": 2133
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/agents",
+      "screenshot": "receipts/ui-model-connected/1440x900-agents.png",
+      "metrics": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 44,
+          "rows": 1,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "bodyFontPx": 16,
+        "formControls": 204,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Agents · VECTOR",
+        "docHeight": 3703
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/replay",
+      "screenshot": "receipts/ui-model-connected/1440x900-replay.png",
+      "metrics": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 44,
+          "rows": 1,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "bodyFontPx": 16,
+        "formControls": 2,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Replay · VECTOR",
+        "docHeight": 976
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/journal",
+      "screenshot": "receipts/ui-model-connected/1440x900-journal.png",
+      "metrics": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 44,
+          "rows": 1,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "bodyFontPx": 16,
+        "formControls": 5,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Journal · VECTOR",
+        "docHeight": 1919
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/sources",
+      "screenshot": "receipts/ui-model-connected/1440x900-sources.png",
+      "metrics": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 44,
+          "rows": 1,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "bodyFontPx": 16,
+        "formControls": 19,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Data sources · VECTOR",
+        "docHeight": 6398
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/about",
+      "screenshot": "receipts/ui-model-connected/1440x900-about.png",
+      "metrics": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 44,
+          "rows": 1,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "About · VECTOR",
+        "docHeight": 1070
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/more",
+      "screenshot": "receipts/ui-model-connected/1440x900-more.png",
+      "metrics": {
+        "innerWidth": 1440,
+        "innerHeight": 900,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "visualScale": 1,
+        "offenders": [],
+        "strip": {
+          "height": 44,
+          "rows": 1,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:30 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "CONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "CONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "bodyFontPx": 16,
+        "formControls": 0,
+        "formMinFontPx": null,
+        "artifacts": [],
+        "title": "More · VECTOR",
+        "docHeight": 900
+      },
+      "errors": []
+    }
+  ],
+  "flows": [],
+  "screenshots": [
+    "receipts/ui-model-connected/360x780-overview.png",
+    "receipts/ui-model-connected/360x780-research.png",
+    "receipts/ui-model-connected/360x780-research-TOPP.png",
+    "receipts/ui-model-connected/360x780-lab.png",
+    "receipts/ui-model-connected/360x780-agents.png",
+    "receipts/ui-model-connected/360x780-replay.png",
+    "receipts/ui-model-connected/360x780-journal.png",
+    "receipts/ui-model-connected/360x780-sources.png",
+    "receipts/ui-model-connected/360x780-about.png",
+    "receipts/ui-model-connected/360x780-more.png",
+    "receipts/ui-model-connected/390x844-overview.png",
+    "receipts/ui-model-connected/390x844-research.png",
+    "receipts/ui-model-connected/390x844-research-TOPP.png",
+    "receipts/ui-model-connected/390x844-lab.png",
+    "receipts/ui-model-connected/390x844-agents.png",
+    "receipts/ui-model-connected/390x844-replay.png",
+    "receipts/ui-model-connected/390x844-journal.png",
+    "receipts/ui-model-connected/390x844-sources.png",
+    "receipts/ui-model-connected/390x844-about.png",
+    "receipts/ui-model-connected/390x844-more.png",
+    "receipts/ui-model-connected/430x932-overview.png",
+    "receipts/ui-model-connected/430x932-research.png",
+    "receipts/ui-model-connected/430x932-research-TOPP.png",
+    "receipts/ui-model-connected/430x932-lab.png",
+    "receipts/ui-model-connected/430x932-agents.png",
+    "receipts/ui-model-connected/430x932-replay.png",
+    "receipts/ui-model-connected/430x932-journal.png",
+    "receipts/ui-model-connected/430x932-sources.png",
+    "receipts/ui-model-connected/430x932-about.png",
+    "receipts/ui-model-connected/430x932-more.png",
+    "receipts/ui-model-connected/1440x900-overview.png",
+    "receipts/ui-model-connected/1440x900-research.png",
+    "receipts/ui-model-connected/1440x900-research-TOPP.png",
+    "receipts/ui-model-connected/1440x900-lab.png",
+    "receipts/ui-model-connected/1440x900-agents.png",
+    "receipts/ui-model-connected/1440x900-replay.png",
+    "receipts/ui-model-connected/1440x900-journal.png",
+    "receipts/ui-model-connected/1440x900-sources.png",
+    "receipts/ui-model-connected/1440x900-about.png",
+    "receipts/ui-model-connected/1440x900-more.png"
+  ],
+  "finishedAt": "2026-10-09T19:33:20.971Z",
+  "summary": {
+    "assertions": 288,
+    "passed": 288,
+    "failed": 0,
+    "routeChecks": 40,
+    "screenshots": 40,
+    "flows": [],
+    "failures": []
+  }
+}

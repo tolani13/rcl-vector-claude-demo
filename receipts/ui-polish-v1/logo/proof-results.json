@@ -1,0 +1,549 @@
+{
+  "generated": "2026-10-10T01:45:24.081Z",
+  "chrome": "156.0.8078.12",
+  "ffmpeg": "ffmpeg version 8.0.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers\r",
+  "windowCss": [
+    1302,
+    590
+  ],
+  "dprs": [
+    1,
+    2,
+    3
+  ],
+  "method": "headless Chrome --force-color-profile=srgb screenshots (fresh profile per shot) of old.html (retired SVGs) vs new.html (shipped markup, PNG everywhere), new-webp.html (NOT shipped: WebP lockup candidate, blocked by the server static allow-list) and control.html (native-resolution viewBox crops scaled only by Chrome); ffmpeg psnr/ssim on rgb24 crops of each logo region",
+  "results": [
+    {
+      "candidate": "new",
+      "dpr": 1,
+      "region": "mark32",
+      "cssBox": [
+        16,
+        16,
+        32,
+        32
+      ],
+      "psnr_dB": 33.848854,
+      "ssim": 0.993114
+    },
+    {
+      "candidate": "new",
+      "dpr": 1,
+      "region": "mark40",
+      "cssBox": [
+        64,
+        16,
+        40,
+        40
+      ],
+      "psnr_dB": 30.44302,
+      "ssim": 0.981759
+    },
+    {
+      "candidate": "new",
+      "dpr": 1,
+      "region": "full814",
+      "cssBox": [
+        16,
+        72,
+        814,
+        502
+      ],
+      "psnr_dB": "inf",
+      "ssim": 1
+    },
+    {
+      "candidate": "new",
+      "dpr": 1,
+      "region": "full440",
+      "cssBox": [
+        846,
+        72,
+        440,
+        271
+      ],
+      "psnr_dB": 61.423755,
+      "ssim": 0.999964
+    },
+    {
+      "candidate": "new",
+      "dpr": 2,
+      "region": "mark32",
+      "cssBox": [
+        16,
+        16,
+        32,
+        32
+      ],
+      "psnr_dB": 35.509295,
+      "ssim": 0.992244
+    },
+    {
+      "candidate": "new",
+      "dpr": 2,
+      "region": "mark40",
+      "cssBox": [
+        64,
+        16,
+        40,
+        40
+      ],
+      "psnr_dB": 33.028657,
+      "ssim": 0.982911
+    },
+    {
+      "candidate": "new",
+      "dpr": 2,
+      "region": "full814",
+      "cssBox": [
+        16,
+        72,
+        814,
+        502
+      ],
+      "psnr_dB": 43.863998,
+      "ssim": 0.998078
+    },
+    {
+      "candidate": "new",
+      "dpr": 2,
+      "region": "full440",
+      "cssBox": [
+        846,
+        72,
+        440,
+        271
+      ],
+      "psnr_dB": 59.699057,
+      "ssim": 0.999917
+    },
+    {
+      "candidate": "new",
+      "dpr": 3,
+      "region": "mark32",
+      "cssBox": [
+        16,
+        16,
+        32,
+        32
+      ],
+      "psnr_dB": 37.104862,
+      "ssim": 0.990601
+    },
+    {
+      "candidate": "new",
+      "dpr": 3,
+      "region": "mark40",
+      "cssBox": [
+        64,
+        16,
+        40,
+        40
+      ],
+      "psnr_dB": 37.877726,
+      "ssim": 0.990418
+    },
+    {
+      "candidate": "new",
+      "dpr": 3,
+      "region": "full814",
+      "cssBox": [
+        16,
+        72,
+        814,
+        502
+      ],
+      "psnr_dB": 43.701132,
+      "ssim": 1
+    },
+    {
+      "candidate": "new",
+      "dpr": 3,
+      "region": "full440",
+      "cssBox": [
+        846,
+        72,
+        440,
+        271
+      ],
+      "psnr_dB": 53.564231,
+      "ssim": 0.999075
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 1,
+      "region": "mark32",
+      "cssBox": [
+        16,
+        16,
+        32,
+        32
+      ],
+      "psnr_dB": 33.848854,
+      "ssim": 0.993114
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 1,
+      "region": "mark40",
+      "cssBox": [
+        64,
+        16,
+        40,
+        40
+      ],
+      "psnr_dB": 30.44302,
+      "ssim": 0.981759
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 1,
+      "region": "full814",
+      "cssBox": [
+        16,
+        72,
+        814,
+        502
+      ],
+      "psnr_dB": 41.585487,
+      "ssim": 0.970866
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 1,
+      "region": "full440",
+      "cssBox": [
+        846,
+        72,
+        440,
+        271
+      ],
+      "psnr_dB": 43.627152,
+      "ssim": 0.984316
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 2,
+      "region": "mark32",
+      "cssBox": [
+        16,
+        16,
+        32,
+        32
+      ],
+      "psnr_dB": 35.509295,
+      "ssim": 0.992244
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 2,
+      "region": "mark40",
+      "cssBox": [
+        64,
+        16,
+        40,
+        40
+      ],
+      "psnr_dB": 33.028657,
+      "ssim": 0.982911
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 2,
+      "region": "full814",
+      "cssBox": [
+        16,
+        72,
+        814,
+        502
+      ],
+      "psnr_dB": 40.780738,
+      "ssim": 0.973609
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 2,
+      "region": "full440",
+      "cssBox": [
+        846,
+        72,
+        440,
+        271
+      ],
+      "psnr_dB": 43.309698,
+      "ssim": 0.978735
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 3,
+      "region": "mark32",
+      "cssBox": [
+        16,
+        16,
+        32,
+        32
+      ],
+      "psnr_dB": 37.104862,
+      "ssim": 0.990601
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 3,
+      "region": "mark40",
+      "cssBox": [
+        64,
+        16,
+        40,
+        40
+      ],
+      "psnr_dB": 37.877726,
+      "ssim": 0.990418
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 3,
+      "region": "full814",
+      "cssBox": [
+        16,
+        72,
+        814,
+        502
+      ],
+      "psnr_dB": 40.455914,
+      "ssim": 0.972081
+    },
+    {
+      "candidate": "new-webp",
+      "dpr": 3,
+      "region": "full440",
+      "cssBox": [
+        846,
+        72,
+        440,
+        271
+      ],
+      "psnr_dB": 43.04272,
+      "ssim": 0.975133
+    },
+    {
+      "candidate": "control",
+      "dpr": 1,
+      "region": "mark32",
+      "cssBox": [
+        16,
+        16,
+        32,
+        32
+      ],
+      "psnr_dB": 32.152431,
+      "ssim": 0.990643
+    },
+    {
+      "candidate": "control",
+      "dpr": 1,
+      "region": "mark40",
+      "cssBox": [
+        64,
+        16,
+        40,
+        40
+      ],
+      "psnr_dB": 31.399749,
+      "ssim": 0.987034
+    },
+    {
+      "candidate": "control",
+      "dpr": 1,
+      "region": "full814",
+      "cssBox": [
+        16,
+        72,
+        814,
+        502
+      ],
+      "psnr_dB": "inf",
+      "ssim": 1
+    },
+    {
+      "candidate": "control",
+      "dpr": 1,
+      "region": "full440",
+      "cssBox": [
+        846,
+        72,
+        440,
+        271
+      ],
+      "psnr_dB": 61.423755,
+      "ssim": 0.999964
+    },
+    {
+      "candidate": "control",
+      "dpr": 2,
+      "region": "mark32",
+      "cssBox": [
+        16,
+        16,
+        32,
+        32
+      ],
+      "psnr_dB": 33.063385,
+      "ssim": 0.986757
+    },
+    {
+      "candidate": "control",
+      "dpr": 2,
+      "region": "mark40",
+      "cssBox": [
+        64,
+        16,
+        40,
+        40
+      ],
+      "psnr_dB": 32.631484,
+      "ssim": 0.981477
+    },
+    {
+      "candidate": "control",
+      "dpr": 2,
+      "region": "full814",
+      "cssBox": [
+        16,
+        72,
+        814,
+        502
+      ],
+      "psnr_dB": 43.863998,
+      "ssim": 0.998078
+    },
+    {
+      "candidate": "control",
+      "dpr": 2,
+      "region": "full440",
+      "cssBox": [
+        846,
+        72,
+        440,
+        271
+      ],
+      "psnr_dB": 59.699057,
+      "ssim": 0.999917
+    },
+    {
+      "candidate": "control",
+      "dpr": 3,
+      "region": "mark32",
+      "cssBox": [
+        16,
+        16,
+        32,
+        32
+      ],
+      "psnr_dB": "inf",
+      "ssim": 1
+    },
+    {
+      "candidate": "control",
+      "dpr": 3,
+      "region": "mark40",
+      "cssBox": [
+        64,
+        16,
+        40,
+        40
+      ],
+      "psnr_dB": 53.868101,
+      "ssim": 0.999865
+    },
+    {
+      "candidate": "control",
+      "dpr": 3,
+      "region": "full814",
+      "cssBox": [
+        16,
+        72,
+        814,
+        502
+      ],
+      "psnr_dB": 43.701132,
+      "ssim": 1
+    },
+    {
+      "candidate": "control",
+      "dpr": 3,
+      "region": "full440",
+      "cssBox": [
+        846,
+        72,
+        440,
+        271
+      ],
+      "psnr_dB": 53.564231,
+      "ssim": 0.999075
+    }
+  ],
+  "sideBySide": [
+    "receipts/ui-polish-v1/logo/side-by-side-mark32-dpr1.png",
+    "receipts/ui-polish-v1/logo/side-by-side-mark40-dpr1.png",
+    "receipts/ui-polish-v1/logo/side-by-side-mark32-dpr2.png",
+    "receipts/ui-polish-v1/logo/side-by-side-mark40-dpr2.png",
+    "receipts/ui-polish-v1/logo/side-by-side-mark32-dpr3.png",
+    "receipts/ui-polish-v1/logo/side-by-side-mark40-dpr3.png",
+    "receipts/ui-polish-v1/logo/side-by-side-full814-dpr1.png",
+    "receipts/ui-polish-v1/logo/side-by-side-full440-dpr2.png",
+    "receipts/ui-polish-v1/logo/side-by-side-full814-webp-candidate-dpr1.png"
+  ],
+  "bytesBefore": {
+    "files": [
+      {
+        "file": "RCL_Copper_Steel_Mark.svg",
+        "bytes": 2629089
+      },
+      {
+        "file": "RCL_Copper_Steel_Full.svg",
+        "bytes": 2629102
+      }
+    ],
+    "total": 5258191
+  },
+  "bytesAfter": {
+    "files": [
+      {
+        "file": "RCL_Copper_Steel_Full_814x502.png",
+        "bytes": 449642,
+        "sha256": "04aaa1a664a4633f6e420c60ee98db34c1491c8ab40872defa0da4904c5883c1"
+      },
+      {
+        "file": "RCL_Copper_Steel_Mark_120.png",
+        "bytes": 20065,
+        "sha256": "0bdc1be5e83fca2700f0bba3793c5be9003ce5cd7084db79f21e71c5c1a2f36d"
+      },
+      {
+        "file": "RCL_Copper_Steel_Mark_32.png",
+        "bytes": 2328,
+        "sha256": "552d140e1bc51f3d5692ffcccada912e984a6db36006d8ad58ad65c50ab85468"
+      },
+      {
+        "file": "RCL_Copper_Steel_Mark_40.png",
+        "bytes": 3329,
+        "sha256": "7050c78c554f29533b3f569198ab8da231e832f2e71031f74521e06eebc140ff"
+      },
+      {
+        "file": "RCL_Copper_Steel_Mark_64.png",
+        "bytes": 7066,
+        "sha256": "74d54f8f9a5f4c5454a338370ee9b3fd35747323a6a2a61f8a6165c569179145"
+      },
+      {
+        "file": "RCL_Copper_Steel_Mark_80.png",
+        "bytes": 10179,
+        "sha256": "7c93032719d5ebc6f55ca30d0623b969d3662f041a1d0704a7b6ece61fd3cef3"
+      },
+      {
+        "file": "RCL_Copper_Steel_Mark_96.png",
+        "bytes": 13778,
+        "sha256": "29d0f176fc11625acdcae3e31e0791755b30e9f5124daf887d3de9750b5ad1b9"
+      }
+    ],
+    "total": 506387
+  }
+}

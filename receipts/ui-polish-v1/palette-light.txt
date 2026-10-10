@@ -1,0 +1,92 @@
+VECTOR ui-polish-v1 — chart palette validation, light (print) mode
+Generated 2026-10-10T01:54:53.662Z with scripts/validate-palette.js (copy of the dataviz skill's validator).
+Surface: #F5F3EE (--bone; wired in web/charts.css under @media print, where each chart block prints on bone).
+
+==== SHIPPED categorical palette (light / print): one slot, copper (--copper #B87333)
+$ node scripts/validate-palette.js "#B87333" --mode light --surface "#F5F3EE"
+
+Palette (light, surface #F5F3EE, categorical): 1 slots
+  [PASS] Lightness band         all 1 inside L 0.43–0.77
+  [PASS] Chroma floor           all 1 >= 0.1
+  [PASS] CVD separation         n/a
+  [PASS] Normal-vision floor    n/a
+  [PASS] Contrast vs surface    all 1 >= 3:1
+
+  → ALL CHECKS PASS  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 0)
+
+
+==== EVIDENCE: the RCL ramps cannot make a 4-series categorical palette in light mode either
+a) RCL brand tokens as-is:
+$ node scripts/validate-palette.js "#B87333,#A7A7A7,#F5F3EE,#D08C4E" --mode light --surface "#F5F3EE"
+
+Palette (light, surface #F5F3EE, categorical): 4 slots
+  [FAIL] Lightness band         outside band: [["#F5F3EE",0.964]]
+  [FAIL] Chroma floor           below floor (reads gray): [["#A7A7A7",0],["#F5F3EE",0.007]]
+  [PASS] CVD separation         worst adjacent #A7A7A7↔#B87333 ΔE 14.7 (deutan) · tritan 16.7
+  [PASS] Normal-vision floor    worst adjacent #A7A7A7↔#B87333 ΔE 16.1 (normal)
+  [WARN] Contrast vs surface    below 3:1 — relief required (visible labels or table view): [["#A7A7A7",2.17],["#F5F3EE",1],["#D08C4E",2.51]]
+
+  → FAILED — fix the marked checks  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 1)
+
+b) copper and steel steps inside the light band:
+$ node scripts/validate-palette.js "#A25F1A,#808080,#D38C4D,#555555" --mode light --surface "#F5F3EE"
+
+Palette (light, surface #F5F3EE, categorical): 4 slots
+  [PASS] Lightness band         all 4 inside L 0.43–0.77
+  [FAIL] Chroma floor           below floor (reads gray): [["#808080",0],["#555555",0]]
+  [PASS] CVD separation         worst adjacent #808080↔#A25F1A ΔE 11.4 (deutan) · tritan 13.6
+  [FAIL] Normal-vision floor    worst adjacent #808080↔#A25F1A ΔE 12.7 (normal) — below 15, hard to tell apart even with full color vision
+  [WARN] Contrast vs surface    below 3:1 — relief required (visible labels or table view): [["#D38C4D",2.48]]
+
+  → FAILED — fix the marked checks  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 1)
+
+c) maximum distinct set (2 copper steps; documented, NOT shipped):
+$ node scripts/validate-palette.js "#965407,#C88243" --mode light --surface "#F5F3EE" --pairs all
+
+Palette (light, surface #F5F3EE, categorical): 2 slots
+  [PASS] Lightness band         all 2 inside L 0.43–0.77
+  [PASS] Chroma floor           all 2 >= 0.1
+  [PASS] CVD separation         worst all-pairs #C88243↔#965407 ΔE 15.4 (deutan) · tritan 15.5
+  [PASS] Normal-vision floor    worst all-pairs #C88243↔#965407 ΔE 15.4 (normal)
+  [WARN] Contrast vs surface    below 3:1 — relief required (visible labels or table view): [["#C88243",2.81]]
+
+  → ALL CHECKS PASS  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 0)
+
+
+==== POLARITY (print): --up / --down shades + steel-shade neutral, stacked buyer / seller / unclassified
+Same scope note as dark: band/chroma rows do not apply to status tokens or the gray midpoint. Lightness was split
+(buyer L 0.62, seller L 0.54, neutral L 0.40) so the pair stays apart under CVD:
+$ node scripts/validate-palette.js "#6A9174,#A95047,#484848" --mode light --surface "#F5F3EE" --pairs all
+
+Palette (light, surface #F5F3EE, categorical): 3 slots
+  [FAIL] Lightness band         outside band: [["#484848",0.402]]
+  [FAIL] Chroma floor           below floor (reads gray): [["#6A9174",0.061],["#484848",0]]
+  [PASS] CVD separation         worst all-pairs #A95047↔#6A9174 ΔE 8.0 (deutan) · tritan 21.0
+  [PASS] Normal-vision floor    worst all-pairs #A95047↔#6A9174 ΔE 18.0 (normal)
+  [PASS] Contrast vs surface    all 3 >= 3:1
+
+  → FAILED — fix the marked checks  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 1)
+
+
+==== WCAG contrast of the other print colours on bone (validator contrast())
+  --viz-buy  (--up shade L 0.62)               #6A9174  3.20:1  >= 3 PASS
+  --viz-sell (--down shade L 0.54)             #A95047  4.82:1  >= 3 PASS
+  --viz-neutral (steel shade L 0.40)           #484848  8.25:1  >= 3 PASS
+  --viz-wick (steel shade L 0.60)              #808080  3.56:1  >= 3 PASS
+  --viz-ink   = --obsidian                     #0B0B0B  17.75:1  >= 4.5 PASS
+  --viz-ink-2 (steel shade L 0.40)             #484848  8.25:1  >= 4.5 PASS
+  --viz-ink-3 (steel shade L 0.50, axis text)  #636363  5.42:1  >= 4.5 PASS
+  --viz-spark (steel shade L 0.50)             #636363  5.42:1  >= 3 PASS
+  --viz-grid (bone shade L 0.90)               #E0DED9  1.21:1  (recessive by design)
+  --viz-axis (bone shade L 0.82)               #C6C4BF  1.57:1  (recessive by design)
+

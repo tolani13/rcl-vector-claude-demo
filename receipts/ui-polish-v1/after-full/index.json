@@ -1,0 +1,102 @@
+{
+  "base": "http://127.0.0.1:8799",
+  "capturedAt": "2026-10-10T02:26:56.229Z",
+  "results": [
+    {
+      "route": "overview",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\overview-390x844.png"
+    },
+    {
+      "route": "replay",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\replay-390x844.png"
+    },
+    {
+      "route": "agents",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\agents-390x844.png"
+    },
+    {
+      "route": "journal",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\journal-390x844.png"
+    },
+    {
+      "route": "research",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\research-390x844.png"
+    },
+    {
+      "route": "lab",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\lab-390x844.png"
+    },
+    {
+      "route": "overview",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\overview-1440x900.png"
+    },
+    {
+      "route": "replay",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\replay-1440x900.png"
+    },
+    {
+      "route": "agents",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\agents-1440x900.png"
+    },
+    {
+      "route": "journal",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\journal-1440x900.png"
+    },
+    {
+      "route": "research",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\research-1440x900.png"
+    },
+    {
+      "route": "lab",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "receipts\\ui-polish-v1\\after-full\\lab-1440x900.png"
+    }
+  ]
+}

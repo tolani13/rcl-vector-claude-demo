@@ -1,0 +1,7 @@
+/* Identical geometry for old.html / new.html / new-png.html. #0B0B0B = --obsidian (the app background). */
+html, body { margin: 0; background: #0B0B0B; }
+img { position: absolute; display: block; }
+.m32 { left: 16px; top: 16px; width: 32px; height: 32px; }
+.m40 { left: 64px; top: 16px; width: 40px; height: 40px; }
+.f814 { left: 16px; top: 72px; width: 814px; height: 502px; }
+.f440 { left: 846px; top: 72px; width: 440px; height: auto; } /* the About card's current max-width in web/styles.css */

@@ -1,0 +1,345 @@
+{
+  "label": "TEST FIXTURE — NOT MARKET DATA",
+  "scenario": "model-disconnected",
+  "covers": [
+    "model_confirm agent with no connected model is BLOCKED (MODEL_DISCONNECTED)"
+  ],
+  "description": "An agent whose strategy requires model confirmation is started with no model configured: it is set BLOCKED with reason MODEL_DISCONNECTED and proposes nothing.",
+  "generatedBy": "node --test test/agents (fixture scenario; synthetic data, not market observations)",
+  "generatedAt": "2026-10-10T01:27:14.636Z",
+  "dataset": {
+    "id": "test-fixture-agents-2099-01-05",
+    "provider": "TEST FIXTURE — NOT MARKET DATA",
+    "tradeDate": "2099-01-05"
+  },
+  "chain": {
+    "ok": true,
+    "checked": 11,
+    "brokenAt": null
+  },
+  "rows": [
+    {
+      "seq": 1,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634629,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "cowboy-micro",
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "d0dbd33ba265a14256c7b88628a43517b51b3e05a0c976a8a37460e4b73ef620",
+      "payload": {
+        "kind": "agent",
+        "lens": "cowboy",
+        "name": "Cowboy · Microcap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "micro",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 2,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634629,
+      "portfolio_id": "pragmatist-micro",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "pragmatist-micro",
+      "prev_hash": "d0dbd33ba265a14256c7b88628a43517b51b3e05a0c976a8a37460e4b73ef620",
+      "hash": "cbfb736317c12ccdac2a15bf6fafc8cb40e9993ae0ee20b2b4618b823e9d90e7",
+      "payload": {
+        "kind": "agent",
+        "lens": "pragmatist",
+        "name": "Pragmatist · Microcap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "micro",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 3,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634629,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "tightwad-micro",
+      "prev_hash": "cbfb736317c12ccdac2a15bf6fafc8cb40e9993ae0ee20b2b4618b823e9d90e7",
+      "hash": "b831949b03a4236931b1c325de84ec84e4e07d951d3212e6c490da07eefb129e",
+      "payload": {
+        "kind": "agent",
+        "lens": "tightwad",
+        "name": "Tightwad · Microcap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "micro",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 4,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634629,
+      "portfolio_id": "cowboy-large",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "cowboy-large",
+      "prev_hash": "b831949b03a4236931b1c325de84ec84e4e07d951d3212e6c490da07eefb129e",
+      "hash": "4a529d8556223b4c1b7eed32b37abff850820134f2dd5286d2ac4ae8c30dfe0b",
+      "payload": {
+        "kind": "agent",
+        "lens": "cowboy",
+        "name": "Cowboy · Large-cap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "large",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 5,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634629,
+      "portfolio_id": "pragmatist-large",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "pragmatist-large",
+      "prev_hash": "4a529d8556223b4c1b7eed32b37abff850820134f2dd5286d2ac4ae8c30dfe0b",
+      "hash": "c1772f70554fc8153000fd0e6b8b42a41fce3585bec3cef4069e8a21bb297bb9",
+      "payload": {
+        "kind": "agent",
+        "lens": "pragmatist",
+        "name": "Pragmatist · Large-cap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "large",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 6,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634629,
+      "portfolio_id": "tightwad-large",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "tightwad-large",
+      "prev_hash": "c1772f70554fc8153000fd0e6b8b42a41fce3585bec3cef4069e8a21bb297bb9",
+      "hash": "4172791b5e9878fa758e2b7959ab920594a295c7ead469f534e7615fc6ef8373",
+      "payload": {
+        "kind": "agent",
+        "lens": "tightwad",
+        "name": "Tightwad · Large-cap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "large",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 7,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634629,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "sandbox",
+      "prev_hash": "4172791b5e9878fa758e2b7959ab920594a295c7ead469f534e7615fc6ef8373",
+      "hash": "f1f3ba60130f1b6c21c6bac66c0bbbb2de37b68422908dfc14041d35ba09c1d5",
+      "payload": {
+        "kind": "sandbox",
+        "lens": null,
+        "name": "Manual sandbox",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": null,
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 8,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634629,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "human",
+      "type": "REPLAY_RESET",
+      "ref_id": "ses_mv1ps72ce524198fd2",
+      "prev_hash": "f1f3ba60130f1b6c21c6bac66c0bbbb2de37b68422908dfc14041d35ba09c1d5",
+      "hash": "51feffa67fcde71fa8bf81da6d82e94ac5f615771580444ea78c4ea7de0ea27b",
+      "payload": {
+        "agents": [
+          {
+            "decisionMode": "model_confirm",
+            "id": "agent-cowboy-micro",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "cowboy-micro",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "test:cowboy-micro",
+            "strategy_source": "override"
+          },
+          {
+            "decisionMode": "rules",
+            "id": "agent-pragmatist-micro",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "pragmatist-micro",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "preset:pragmatist-micro",
+            "strategy_source": "preset"
+          },
+          {
+            "decisionMode": "rules",
+            "id": "agent-tightwad-micro",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "tightwad-micro",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "preset:tightwad-micro",
+            "strategy_source": "preset"
+          },
+          {
+            "decisionMode": "rules",
+            "id": "agent-cowboy-large",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "cowboy-large",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "preset:cowboy-large",
+            "strategy_source": "preset"
+          },
+          {
+            "decisionMode": "rules",
+            "id": "agent-pragmatist-large",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "pragmatist-large",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "preset:pragmatist-large",
+            "strategy_source": "preset"
+          },
+          {
+            "decisionMode": "rules",
+            "id": "agent-tightwad-large",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "tightwad-large",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "preset:tightwad-large",
+            "strategy_source": "preset"
+          }
+        ],
+        "coverage_end": null,
+        "dataset": {
+          "id": "test-fixture-agents-2099-01-05",
+          "provider": "TEST FIXTURE — NOT MARKET DATA",
+          "sha256": null,
+          "status": "complete",
+          "trade_date": "2099-01-05"
+        },
+        "ds": "test-fixture-agents-2099-01-05",
+        "killSwitchEngaged": false,
+        "note": "New session: seed money is the only simulated input; the replay reveals only what was knowable at the clock.",
+        "previous_session_id": null,
+        "restorePresets": true,
+        "session_close": 4071330000000,
+        "status": "READY",
+        "t_end": 4071330000000,
+        "t_start": 4071306600000,
+        "truncated": false
+      }
+    },
+    {
+      "seq": 9,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634629,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-cowboy-micro",
+      "prev_hash": "51feffa67fcde71fa8bf81da6d82e94ac5f615771580444ea78c4ea7de0ea27b",
+      "hash": "da4f7ad6e23c39874ca485e5d83fb1a33bf82ebfb3b1818af2fdf75c91a3a0ca",
+      "payload": {
+        "action": "start",
+        "by": "test",
+        "from": "PAUSED",
+        "reason": "started by test",
+        "to": "RUNNING"
+      }
+    },
+    {
+      "seq": 10,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306660000,
+      "ts_wall": 1791595634630,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "da4f7ad6e23c39874ca485e5d83fb1a33bf82ebfb3b1818af2fdf75c91a3a0ca",
+      "hash": "52d8a14715c2d86413023b2b2b3dc689d102d4aa680eba1d910e1eb00b65baef",
+      "payload": {
+        "active": 1,
+        "candidates": 0,
+        "decisionMode": "model_confirm",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 1,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 1
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 1,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 11,
+      "session_id": "ses_mv1ps72ce524198fd2",
+      "ts_sim": 4071306660000,
+      "ts_wall": 1791595634631,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "system",
+      "type": "AGENT_BLOCKED",
+      "ref_id": "agent-cowboy-micro",
+      "prev_hash": "52d8a14715c2d86413023b2b2b3dc689d102d4aa680eba1d910e1eb00b65baef",
+      "hash": "5c29294aa578e550ac1cade6f3fa0c7988178425df7db752893ac2b378139bb2",
+      "payload": {
+        "cancelledPendingEntries": [],
+        "detail": "decisionMode model_confirm requires a connected model; none is configured/connected",
+        "managementActions": [],
+        "note": "MODEL DISCONNECTED / ASSESSMENT NOT RUN — inference-dependent entry decisions are disabled and no entry was proposed. Rule-based management actions planned this step (stale-entry / orphan cancels, breakeven trails, time exits) were still sent through the policy gate; the agent's pending entry orders were cancelled; protective stop-loss / take-profit orders keep working. While BLOCKED the agent does not run, so time exits and breakeven trails are not evaluated (TIME_EXIT_SUSPENDED). A human must resume the agent after a model is connected.",
+        "previousState": "RUNNING",
+        "reason": "MODEL_DISCONNECTED"
+      }
+    }
+  ]
+}

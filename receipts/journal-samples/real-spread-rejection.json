@@ -1,0 +1,319 @@
+{
+  "label": "REAL IEX HISTORICAL DATA — PAPER FILLS ARE ESTIMATES (not exchange executions); seed money is simulated",
+  "scenario": "spread-rejection",
+  "covers": [
+    "spread/liquidity gate"
+  ],
+  "description": "POLICY_DENY SPREAD_TOO_WIDE on an agent entry.",
+  "dataset": "iex-tops-2026-10-07",
+  "session_id": "ses_mv1aur6xae911e68a0",
+  "generatedBy": "node --disable-warning=ExperimentalWarning test/api/e2e-real-replay.mjs --base http://127.0.0.1:8795 --ds iex-tops-2026-10-07 --db data/qa-copy.db --chunk 13 --db-copy-of data/vector.db",
+  "generatedAt": "2026-10-09T18:30:55.378Z",
+  "chain": {
+    "ok": true,
+    "checked": 5013,
+    "brokenAt": null,
+    "mode": "incremental",
+    "newlyChecked": 2488,
+    "verifiedMs": 33,
+    "scope": "full journal (all sessions)",
+    "note": "Rows appended since the last verification in this server process were re-hashed and linked to the verified prefix; verify=full re-hashes every row."
+  },
+  "rows": [
+    {
+      "seq": 2659,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381000000,
+      "ts_wall": 1791570564786,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "INTENT_PROPOSED",
+      "ref_id": "int_mv1auv1u423c4317c0",
+      "prev_hash": "6015b72cc72cc5f133eb27ee549745da22793149d9ada670e3807a992071ab51",
+      "hash": "a46622d83eb5702b2e8292c670f5669c0d23d8def0070655c5f259fa7585d553",
+      "payload": {
+        "decisionMode": "rules",
+        "detail": {
+          "bidU": 5159,
+          "budgetU": 500000,
+          "cappedByDisplayed": false,
+          "estCostU": 498316,
+          "estPxU": 6734,
+          "refAskU": 6700,
+          "stopAtOrAboveBid": true,
+          "stopU": 6700,
+          "stopVsBidBps": 2987,
+          "takeProfitAltU": 23500,
+          "takeProfitU": 16800
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": "agent-cowboy-micro",
+          "attach": {
+            "stop_loss_px_u": 6700,
+            "take_profit_px_u": 16800,
+            "time_exit_band_bps": 1000,
+            "time_exit_min": 15
+          },
+          "budget_usd": 50,
+          "created_ts": 1791381000000,
+          "evidence_refs": [
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791380940000",
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791380940000",
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791380040000"
+          ],
+          "expires_ts": 1791381060000,
+          "id": "int_mv1auv1u423c4317c0",
+          "instrument": {
+            "kind": "equity",
+            "sym": "GIPR"
+          },
+          "order_type": "market",
+          "portfolio_id": "cowboy-micro",
+          "qty": 74,
+          "quote_ts": 1791380988103,
+          "rationale": "RULES handwritten-notes-example (EXPLORATORY DEFAULTS — NOT VALIDATED): ret_w 22.8% over 15 min (ref $0.4878 -> last $0.5992), accel 1.7%, relVol n/a (RELVOL_INSUFFICIENT_HISTORY), inferred aggressor share (quote rule vs IEX BBO; IEX-only) 38.4%, IEX spread 2599 bps, quote age 12 s. Buy 74 sh market (est $0.6734/sh incl 50 bps slippage; est cost $49.8316 <= budget $50.0000). Stop $0.6700 (at entry ref) — trigger, not a guaranteed price. WARNING: stop $0.6700 is at/above the as-of IEX bid $0.5159 (2987 bps above): expected to trigger on the first evaluated minute after activation (spread-induced; modelled loss ~ spread + slippage + fees, not a price move). Take-profit $1.6800 (2.5x ask ref; alternative reading 250% gain 3.5x = $2.3500, not used). Time exit 15 min if within +/-10%. Signal metrics are not recommendations.",
+          "side": "buy",
+          "source": "rules",
+          "strategy_id": "handwritten-notes-example"
+        },
+        "kind": "entry",
+        "model": null,
+        "note": "Typed proposal only — it executes nothing unless the deterministic policy gate accepts it.",
+        "signal": {
+          "accel": 0.016619454304867443,
+          "asOf": 1791381000000,
+          "baselineMin": 5,
+          "baselineVolume": 11935,
+          "buyShare": 0.3841258296208746,
+          "buyShareLabel": "inferred aggressor share (quote rule vs IEX BBO; IEX-only)",
+          "classifiedShare": 0.4980528889693896,
+          "halted": false,
+          "priceMinuteT": 1791380940000,
+          "priceU": 5992,
+          "quote": {
+            "ask": 6700,
+            "askSize": 399,
+            "bid": 5159,
+            "bidSize": 104,
+            "minuteRowT": 1791380940000,
+            "quoteTs": 1791380988103,
+            "twoSided": true
+          },
+          "quoteAgeMs": 11897,
+          "reasons": [
+            "RELVOL_INSUFFICIENT_HISTORY"
+          ],
+          "refMinuteT": 1791380040000,
+          "refPriceU": 4878,
+          "relVol": null,
+          "ret_w": 0.22837228372283724,
+          "spreadBps": 2599,
+          "sym": "GIPR",
+          "tradesW": 123,
+          "volumeW": 22084,
+          "windowMin": 15
+        },
+        "source": "rules",
+        "strategy": {
+          "id": "handwritten-notes-example",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        }
+      }
+    },
+    {
+      "seq": 2660,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381000000,
+      "ts_wall": 1791570564788,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "policy",
+      "type": "POLICY_DENY",
+      "ref_id": "int_mv1auv1u423c4317c0",
+      "prev_hash": "a46622d83eb5702b2e8292c670f5669c0d23d8def0070655c5f259fa7585d553",
+      "hash": "abef5cbe6562cc35b66d1aa7fcb6de33f5855bff8010eda924a755740c904c90",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "detail": "kill switch released",
+            "pass": true,
+            "rule": "kill_switch"
+          },
+          {
+            "detail": "agent agent-cowboy-micro RUNNING with grant for cowboy-micro/open",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: agent intent (agent_authority applies)",
+            "pass": true,
+            "rule": "human_confirmed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a modify/cancel",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "detail": "equity allowed",
+            "pass": true,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "GIPR allowed",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "detail": "estimated cost $49.8316 (74 x $0.6734 + fees $0.0000) <= $1000.0000",
+            "pass": true,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "detail": "available cash $10000.0000 covers $49.8316 (cash $10000.0000 - reserved $0.0000 for 0 open buy order(s), fees included)",
+            "pass": true,
+            "rule": "cash_sufficient"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a sell",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "detail": "day P&L $0.0000; cap $1500.0000",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "detail": "1/8 positions after entry",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "detail": "position 0.50% of equity (held $0.0000 + pending buys $0.0000 (0 order(s)) + this $49.8316) <= 25%",
+            "pass": true,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "detail": "INFORMATIONAL (docs/OPEN_QUESTIONS.md #4, ambiguity stop-at-entry): stop $0.6700 is at/above the as-of IEX bid $0.5159 (2987 bps above) and is expected to trigger on its first evaluated minute (spread-induced loss); not denied because handwritten-notes-example is the documented handwritten-notes example",
+            "informational": true,
+            "pass": true,
+            "rule": "protective_exit_required",
+            "stopVsBidBps": 2987
+          },
+          {
+            "detail": "1/6 orders this minute",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "detail": "quote age 12s <= 300s",
+            "pass": true,
+            "rule": "quote_fresh"
+          },
+          {
+            "code": "SPREAD_TOO_WIDE",
+            "detail": "spread 2599 bps > max 1500 bps",
+            "pass": false,
+            "rule": "max_spread_bps"
+          },
+          {
+            "detail": "displayed ask size 399 >= 100",
+            "pass": true,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 60s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 3/3 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "DENIED",
+        "estimate": {
+          "asOfEstimateOnly": true,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "costU": 498316,
+          "feesU": 0,
+          "multiplier": 1,
+          "priceU": 6734,
+          "qty": 74,
+          "segment": "micro",
+          "sizedFromBudget": false,
+          "slippageBps": 50,
+          "spendCapU": 500000
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": "agent-cowboy-micro",
+          "attach": {
+            "stop_loss_px_u": 6700,
+            "take_profit_px_u": 16800,
+            "time_exit_band_bps": 1000,
+            "time_exit_min": 15
+          },
+          "budget_usd": 50,
+          "created_ts": 1791381000000,
+          "evidence_refs": [
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791380940000",
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791380940000",
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791380040000"
+          ],
+          "expires_ts": 1791381060000,
+          "id": "int_mv1auv1u423c4317c0",
+          "instrument": {
+            "kind": "equity",
+            "sym": "GIPR"
+          },
+          "order_type": "market",
+          "portfolio_id": "cowboy-micro",
+          "qty": 74,
+          "quote_ts": 1791380988103,
+          "rationale": "RULES handwritten-notes-example (EXPLORATORY DEFAULTS — NOT VALIDATED): ret_w 22.8% over 15 min (ref $0.4878 -> last $0.5992), accel 1.7%, relVol n/a (RELVOL_INSUFFICIENT_HISTORY), inferred aggressor share (quote rule vs IEX BBO; IEX-only) 38.4%, IEX spread 2599 bps, quote age 12 s. Buy 74 sh market (est $0.6734/sh incl 50 bps slippage; est cost $49.8316 <= budget $50.0000). Stop $0.6700 (at entry ref) — trigger, not a guaranteed price. WARNING: stop $0.6700 is at/above the as-of IEX bid $0.5159 (2987 bps above): expected to trigger on the first evaluated minute after activation (spread-induced; modelled loss ~ spread + slippage + fees, not a price move). Take-profit $1.6800 (2.5x ask ref; alternative reading 250% gain 3.5x = $2.3500, not used). Time exit 15 min if within +/-10%. Signal metrics are not recommendations.",
+          "side": "buy",
+          "source": "rules",
+          "strategy_id": "handwritten-notes-example"
+        },
+        "policy": {
+          "id": "policy:cowboy-micro",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": [
+          {
+            "code": "SPREAD_TOO_WIDE",
+            "detail": "spread 2599 bps > max 1500 bps"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "base": "http://127.0.0.1:8798",
+  "capturedAt": "2026-10-10T01:31:27.054Z",
+  "results": [
+    {
+      "route": "overview",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\overview-390x844.png"
+    },
+    {
+      "route": "replay",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\replay-390x844.png"
+    },
+    {
+      "route": "agents",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\agents-390x844.png"
+    },
+    {
+      "route": "journal",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\journal-390x844.png"
+    },
+    {
+      "route": "research",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\research-390x844.png"
+    },
+    {
+      "route": "lab",
+      "size": "390x844",
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\lab-390x844.png"
+    },
+    {
+      "route": "overview",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\overview-1440x900.png"
+    },
+    {
+      "route": "replay",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\replay-1440x900.png"
+    },
+    {
+      "route": "agents",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\agents-1440x900.png"
+    },
+    {
+      "route": "journal",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\journal-1440x900.png"
+    },
+    {
+      "route": "research",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\research-1440x900.png"
+    },
+    {
+      "route": "lab",
+      "size": "1440x900",
+      "scrollWidth": 1440,
+      "innerWidth": 1440,
+      "overflow": false,
+      "file": "C:\\AI_Projects\\Claude\\vector-claude\\receipts\\ui-polish-v1\\before-clean\\lab-1440x900.png"
+    }
+  ]
+}

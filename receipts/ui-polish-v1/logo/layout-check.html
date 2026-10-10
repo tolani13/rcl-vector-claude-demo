@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- E11 layout check: does wrapping the logo <img> in <picture> move it inside the real web/styles.css lockups?
+     Each pair renders the same markup with a plain <img> (A) and with <picture><source type=image/webp> (B). Only layout is
+     measured, so the marks' <source> simply reuses the lockup WebP (no mark WebP is shipped); see layout-check-output.txt. -->
+<html lang="en"><head><meta charset="utf-8"><title>RCL logo layout check</title>
+<link rel="stylesheet" href="../../../web/styles.css"></head>
+<body>
+  <header class="topbar" id="topA"><a class="lockup" href="#"><img src="../../../web/assets/RCL_Copper_Steel_Mark_32.png" alt="" width="32" height="32"><span class="brand-text"><span class="wordmark">VECTOR</span><span class="brand-sub">Recursive Chaos Labs</span></span></a></header>
+  <header class="topbar" id="topB"><a class="lockup" href="#"><picture><source type="image/webp" srcset="../../../web/assets/RCL_Copper_Steel_Full_814x502.webp"><img src="../../../web/assets/RCL_Copper_Steel_Mark_32.png" alt="" width="32" height="32"></picture><span class="brand-text"><span class="wordmark">VECTOR</span><span class="brand-sub">Recursive Chaos Labs</span></span></a></header>
+  <div class="side-brand" id="sideA"><a class="lockup" href="#"><img src="../../../web/assets/RCL_Copper_Steel_Mark_40.png" alt="" width="40" height="40"><span class="wordmark">VECTOR</span></a></div>
+  <div class="side-brand" id="sideB"><a class="lockup" href="#"><picture><source type="image/webp" srcset="../../../web/assets/RCL_Copper_Steel_Full_814x502.webp"><img src="../../../web/assets/RCL_Copper_Steel_Mark_40.png" alt="" width="40" height="40"></picture><span class="wordmark">VECTOR</span></a></div>
+  <section class="card" id="aboutA"><img class="about-lockup" src="../../../web/assets/RCL_Copper_Steel_Full_814x502.png" alt="" width="814" height="502"><p class="brand-motto">Refining Chaos Into Clarity.</p></section>
+  <section class="card" id="aboutB"><picture><source type="image/webp" srcset="../../../web/assets/RCL_Copper_Steel_Full_814x502.webp"><img class="about-lockup" src="../../../web/assets/RCL_Copper_Steel_Full_814x502.png" alt="" width="814" height="502"></picture><p class="brand-motto">Refining Chaos Into Clarity.</p></section>
+  <pre id="out"></pre>
+  <script>
+    addEventListener('load', () => {
+      const rows = [];
+      for (const id of ['topA', 'topB', 'sideA', 'sideB', 'aboutA', 'aboutB']) {
+        const box = document.getElementById(id); const lock = box.querySelector('.lockup') || box; const img = box.querySelector('img');
+        const L = lock.getBoundingClientRect(), I = img.getBoundingClientRect(), P = box.querySelector('p')?.getBoundingClientRect();
+        rows.push(`${id} container=${L.width.toFixed(1)}x${L.height.toFixed(1)} img=${I.width.toFixed(1)}x${I.height.toFixed(1)} imgTopInContainer=${(I.top - L.top).toFixed(1)} imgCenterOffset=${((I.top + I.height / 2) - (L.top + L.height / 2)).toFixed(1)}${P ? ` mottoGap=${(P.top - I.bottom).toFixed(1)}` : ''} current=${img.currentSrc.split('/').pop()}`);
+      }
+      document.getElementById('out').textContent = rows.join('\n');
+    });
+  </script>
+</body></html>

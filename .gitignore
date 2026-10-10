@@ -1,0 +1,10 @@
+node_modules/
+data/*.db
+data/*.db-*
+data/raw/
+data/test-*/
+.env
+*.log
+
+# hosted demo: ship the clean IEX database (no keys, no real-account data)
+!data/vector.db

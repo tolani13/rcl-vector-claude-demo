@@ -1,0 +1,3428 @@
+{
+  "label": "TEST FIXTURE — NOT MARKET DATA",
+  "scenario": "kill-switch",
+  "covers": [
+    "global kill switch",
+    "KEEP_PROTECTIVE",
+    "start refused while engaged",
+    "release keeps agents STOPPED"
+  ],
+  "description": "Kill switch engaged with KEEP_PROTECTIVE while one entry is filled (stop + take-profit working) and another is pending: the pending entry and its bracket are cancelled, protective orders keep working, every agent is STOPPED, starts are refused while engaged, and after release agents stay STOPPED until started individually.",
+  "generatedBy": "node --test test/agents (fixture scenario; synthetic data, not market observations)",
+  "generatedAt": "2026-10-10T01:27:14.473Z",
+  "dataset": {
+    "id": "test-fixture-agents-2099-01-05",
+    "provider": "TEST FIXTURE — NOT MARKET DATA",
+    "tradeDate": "2099-01-05"
+  },
+  "chain": {
+    "ok": true,
+    "checked": 80,
+    "brokenAt": null
+  },
+  "rows": [
+    {
+      "seq": 1,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634420,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "cowboy-micro",
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "fe8a1d6548ccc11bd36b26be330d3d7d9381076b8ed0c4199cf7481cc4a34d5a",
+      "payload": {
+        "kind": "agent",
+        "lens": "cowboy",
+        "name": "Cowboy · Microcap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "micro",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 2,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634420,
+      "portfolio_id": "pragmatist-micro",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "pragmatist-micro",
+      "prev_hash": "fe8a1d6548ccc11bd36b26be330d3d7d9381076b8ed0c4199cf7481cc4a34d5a",
+      "hash": "5b86db511cd66d3d9b1cd47b5ed0e31bf08b0de2503c9d15f8e6989682fa1b67",
+      "payload": {
+        "kind": "agent",
+        "lens": "pragmatist",
+        "name": "Pragmatist · Microcap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "micro",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 3,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634420,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "tightwad-micro",
+      "prev_hash": "5b86db511cd66d3d9b1cd47b5ed0e31bf08b0de2503c9d15f8e6989682fa1b67",
+      "hash": "3484d3928225278cfb7c978293ad476862281a4466bf89763840148519f3c8a6",
+      "payload": {
+        "kind": "agent",
+        "lens": "tightwad",
+        "name": "Tightwad · Microcap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "micro",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 4,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634420,
+      "portfolio_id": "cowboy-large",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "cowboy-large",
+      "prev_hash": "3484d3928225278cfb7c978293ad476862281a4466bf89763840148519f3c8a6",
+      "hash": "95167fb30fc8a40300d6b3777f254653b26cee4ebe3077e0fedfa52d0840f790",
+      "payload": {
+        "kind": "agent",
+        "lens": "cowboy",
+        "name": "Cowboy · Large-cap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "large",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 5,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634420,
+      "portfolio_id": "pragmatist-large",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "pragmatist-large",
+      "prev_hash": "95167fb30fc8a40300d6b3777f254653b26cee4ebe3077e0fedfa52d0840f790",
+      "hash": "e7c5f50502b99de5608a89d772594cf45477bf9f0bf6cf8c2d4217178e5c52f5",
+      "payload": {
+        "kind": "agent",
+        "lens": "pragmatist",
+        "name": "Pragmatist · Large-cap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "large",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 6,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634420,
+      "portfolio_id": "tightwad-large",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "tightwad-large",
+      "prev_hash": "e7c5f50502b99de5608a89d772594cf45477bf9f0bf6cf8c2d4217178e5c52f5",
+      "hash": "8f31a55de6f2229200018a975b840c3a9607090ba2bcc690d8341e1d9bd474f8",
+      "payload": {
+        "kind": "agent",
+        "lens": "tightwad",
+        "name": "Tightwad · Large-cap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "large",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 7,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634420,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "sandbox",
+      "prev_hash": "8f31a55de6f2229200018a975b840c3a9607090ba2bcc690d8341e1d9bd474f8",
+      "hash": "6e303e185a9332a79b475930e1c85f4364116f72804f17f57740e96a81c44089",
+      "payload": {
+        "kind": "sandbox",
+        "lens": null,
+        "name": "Manual sandbox",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": null,
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 8,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634420,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "human",
+      "type": "REPLAY_RESET",
+      "ref_id": "ses_mv1ps6wj233b5d20f5",
+      "prev_hash": "6e303e185a9332a79b475930e1c85f4364116f72804f17f57740e96a81c44089",
+      "hash": "4c5bcd8755f8fb19c53b9bb7132e547b93096686dbe05932d88dbeabdfc423b4",
+      "payload": {
+        "agents": [
+          {
+            "decisionMode": "rules",
+            "id": "agent-cowboy-micro",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "cowboy-micro",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "test:cowboy-micro",
+            "strategy_source": "override"
+          },
+          {
+            "decisionMode": "rules",
+            "id": "agent-pragmatist-micro",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "pragmatist-micro",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "preset:pragmatist-micro",
+            "strategy_source": "preset"
+          },
+          {
+            "decisionMode": "rules",
+            "id": "agent-tightwad-micro",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "tightwad-micro",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "preset:tightwad-micro",
+            "strategy_source": "preset"
+          },
+          {
+            "decisionMode": "rules",
+            "id": "agent-cowboy-large",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "cowboy-large",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "preset:cowboy-large",
+            "strategy_source": "preset"
+          },
+          {
+            "decisionMode": "rules",
+            "id": "agent-pragmatist-large",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "pragmatist-large",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "preset:pragmatist-large",
+            "strategy_source": "preset"
+          },
+          {
+            "decisionMode": "rules",
+            "id": "agent-tightwad-large",
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "portfolio_id": "tightwad-large",
+            "previousState": null,
+            "state": "PAUSED",
+            "strategyChanged": false,
+            "strategy_id": "preset:tightwad-large",
+            "strategy_source": "preset"
+          }
+        ],
+        "coverage_end": null,
+        "dataset": {
+          "id": "test-fixture-agents-2099-01-05",
+          "provider": "TEST FIXTURE — NOT MARKET DATA",
+          "sha256": null,
+          "status": "complete",
+          "trade_date": "2099-01-05"
+        },
+        "ds": "test-fixture-agents-2099-01-05",
+        "killSwitchEngaged": false,
+        "note": "New session: seed money is the only simulated input; the replay reveals only what was knowable at the clock.",
+        "previous_session_id": null,
+        "restorePresets": true,
+        "session_close": 4071330000000,
+        "status": "READY",
+        "t_end": 4071330000000,
+        "t_start": 4071306600000,
+        "truncated": false
+      }
+    },
+    {
+      "seq": 9,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634421,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-cowboy-micro",
+      "prev_hash": "4c5bcd8755f8fb19c53b9bb7132e547b93096686dbe05932d88dbeabdfc423b4",
+      "hash": "ee42ab3ca8a9d3b1afc3a0ba98dd6548617fdfd9246dd6b5076ed1bfafde4ddc",
+      "payload": {
+        "action": "start",
+        "by": "test",
+        "from": "PAUSED",
+        "reason": "started by test",
+        "to": "RUNNING"
+      }
+    },
+    {
+      "seq": 10,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595634421,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-tightwad-micro",
+      "prev_hash": "ee42ab3ca8a9d3b1afc3a0ba98dd6548617fdfd9246dd6b5076ed1bfafde4ddc",
+      "hash": "7e1c8a2b7ff3d6ef0765e7e058392113f4fa1d3a75f6cd95070ef4440cebb647",
+      "payload": {
+        "action": "start",
+        "by": "test",
+        "from": "PAUSED",
+        "reason": "started by test",
+        "to": "RUNNING"
+      }
+    },
+    {
+      "seq": 11,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306660000,
+      "ts_wall": 1791595634425,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "7e1c8a2b7ff3d6ef0765e7e058392113f4fa1d3a75f6cd95070ef4440cebb647",
+      "hash": "1a909942e4e1658f8849baf912a0fe89c0d187b4ada74b481ff7cc1dd20b4de1",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 12,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306660000,
+      "ts_wall": 1791595634425,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "1a909942e4e1658f8849baf912a0fe89c0d187b4ada74b481ff7cc1dd20b4de1",
+      "hash": "09b1a900bedf3c1a4a70c3dce08ef072382df4881a21804e8e6a824e5c2b43a6",
+      "payload": {
+        "active": 0,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 0,
+        "segment": "micro",
+        "skipped": {},
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 13,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306720000,
+      "ts_wall": 1791595634426,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "09b1a900bedf3c1a4a70c3dce08ef072382df4881a21804e8e6a824e5c2b43a6",
+      "hash": "5bd795b612ab50b72aa0d1a1e93f4f2385362cffb210abd0e3df3812c01b650e",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 14,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306720000,
+      "ts_wall": 1791595634427,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "5bd795b612ab50b72aa0d1a1e93f4f2385362cffb210abd0e3df3812c01b650e",
+      "hash": "3cbd4d7a597c8386817a5332e589afbc3aeaac6b75e8c1ac8978842824adbe04",
+      "payload": {
+        "active": 0,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 0,
+        "segment": "micro",
+        "skipped": {},
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 15,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306780000,
+      "ts_wall": 1791595634428,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "3cbd4d7a597c8386817a5332e589afbc3aeaac6b75e8c1ac8978842824adbe04",
+      "hash": "88b9e0258c9e6b88f1237a0d6f74cd0576b8ce35d15efdd5a01a5d51167656d0",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 16,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306780000,
+      "ts_wall": 1791595634429,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "88b9e0258c9e6b88f1237a0d6f74cd0576b8ce35d15efdd5a01a5d51167656d0",
+      "hash": "e5efb84a8b6b7bbd1078250613a798228193d345b75d0e823f401b1f8b94ecaa",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 17,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306840000,
+      "ts_wall": 1791595634430,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "e5efb84a8b6b7bbd1078250613a798228193d345b75d0e823f401b1f8b94ecaa",
+      "hash": "94248143376edc7503a05e757202fa47a7b2ecfadcc95a8f82fe184a210c98a9",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 18,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306840000,
+      "ts_wall": 1791595634430,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "94248143376edc7503a05e757202fa47a7b2ecfadcc95a8f82fe184a210c98a9",
+      "hash": "437bfa1f21093e43fc25a1b6a37753d8a467bdcc57573306373cf3232d2d2842",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 19,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306900000,
+      "ts_wall": 1791595634431,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "437bfa1f21093e43fc25a1b6a37753d8a467bdcc57573306373cf3232d2d2842",
+      "hash": "73dfaca571207e8b879bbb73eb3849ad0b28ec2030af2b0c9791638558230163",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 20,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306900000,
+      "ts_wall": 1791595634432,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "73dfaca571207e8b879bbb73eb3849ad0b28ec2030af2b0c9791638558230163",
+      "hash": "ef491b0ec406b0ba9a57ff16f922c2f4f76f57bd5f217da05cf98eaa8450151b",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 21,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306960000,
+      "ts_wall": 1791595634433,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "ef491b0ec406b0ba9a57ff16f922c2f4f76f57bd5f217da05cf98eaa8450151b",
+      "hash": "38043ca3e978f227f8dadfc715dfc581628bd9a463b406d745ad89c71bfceb9d",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 22,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071306960000,
+      "ts_wall": 1791595634434,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "38043ca3e978f227f8dadfc715dfc581628bd9a463b406d745ad89c71bfceb9d",
+      "hash": "8080c0a868c544303cc4ff8e82bb605e9fbb46a7c0c72c8aa17625b92e91c60e",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 23,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307020000,
+      "ts_wall": 1791595634435,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "8080c0a868c544303cc4ff8e82bb605e9fbb46a7c0c72c8aa17625b92e91c60e",
+      "hash": "d421b94295d0a095890fde750734e15938970d529c92d180cb3f118ddbf50eaa",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 24,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307020000,
+      "ts_wall": 1791595634435,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "d421b94295d0a095890fde750734e15938970d529c92d180cb3f118ddbf50eaa",
+      "hash": "c6b854dcbdfb1f242900132d6e41f05b923834b0f288a3258e75be9eeedb5f57",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 25,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307080000,
+      "ts_wall": 1791595634436,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "c6b854dcbdfb1f242900132d6e41f05b923834b0f288a3258e75be9eeedb5f57",
+      "hash": "f7e2e2c3d66ff411060c424c7a9eee87f1d9f432b7c32de432fcc736c1030d40",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 26,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307080000,
+      "ts_wall": 1791595634437,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "f7e2e2c3d66ff411060c424c7a9eee87f1d9f432b7c32de432fcc736c1030d40",
+      "hash": "f4e8b0edcc055b46971c0f1458d00da4740e0dc23119601f138f37c28d8d9e0f",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 27,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307140000,
+      "ts_wall": 1791595634438,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "f4e8b0edcc055b46971c0f1458d00da4740e0dc23119601f138f37c28d8d9e0f",
+      "hash": "58bbb549f7f96e4ebfb01e865c149d014bab135e5a55e4b926e17fb67e0cd039",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 28,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307140000,
+      "ts_wall": 1791595634438,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "58bbb549f7f96e4ebfb01e865c149d014bab135e5a55e4b926e17fb67e0cd039",
+      "hash": "def553491aadceef903e68274982a9939884fc44b2110620001d73592395e38a",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 29,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307200000,
+      "ts_wall": 1791595634439,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "def553491aadceef903e68274982a9939884fc44b2110620001d73592395e38a",
+      "hash": "2462c8fd06d5baedb113576ab1b083043d70899f194461dd1f8f358c0e7a4ae2",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 30,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307200000,
+      "ts_wall": 1791595634440,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "2462c8fd06d5baedb113576ab1b083043d70899f194461dd1f8f358c0e7a4ae2",
+      "hash": "ba9302be127e70476f6f7baa04dd3e5422c87c549cd62986c9106854219167b1",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 31,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307260000,
+      "ts_wall": 1791595634441,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "ba9302be127e70476f6f7baa04dd3e5422c87c549cd62986c9106854219167b1",
+      "hash": "47b282c1bd3ee1f7127c58fe3fe3755623bf7bf56c45cb5b2b45caf4233e919e",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 32,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307260000,
+      "ts_wall": 1791595634443,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "47b282c1bd3ee1f7127c58fe3fe3755623bf7bf56c45cb5b2b45caf4233e919e",
+      "hash": "abbabaad596ce2cd7c418fd617055e7f99a18160e2f1234b15c44d23deaaa6ff",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 33,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307320000,
+      "ts_wall": 1791595634444,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "abbabaad596ce2cd7c418fd617055e7f99a18160e2f1234b15c44d23deaaa6ff",
+      "hash": "af6282eba3752356138265563e3e6de279e4c93151ec6a46e8a92d9f23d291d5",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 34,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307320000,
+      "ts_wall": 1791595634445,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "af6282eba3752356138265563e3e6de279e4c93151ec6a46e8a92d9f23d291d5",
+      "hash": "fe01051e52b7a7590ee737f697693b0be7d66f56bfcc840362a12b8d0cbd7fee",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 35,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307380000,
+      "ts_wall": 1791595634446,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "fe01051e52b7a7590ee737f697693b0be7d66f56bfcc840362a12b8d0cbd7fee",
+      "hash": "d377f52a95f3cccc82a82eecc2b8c3f60f5df80c39a07aa0c726431442363dae",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 36,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307380000,
+      "ts_wall": 1791595634446,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "d377f52a95f3cccc82a82eecc2b8c3f60f5df80c39a07aa0c726431442363dae",
+      "hash": "dbfb9d40091e3a6bd245444ac763ccd971060fd086ef13ca12f4d7cc6b6631d7",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 37,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307440000,
+      "ts_wall": 1791595634447,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "dbfb9d40091e3a6bd245444ac763ccd971060fd086ef13ca12f4d7cc6b6631d7",
+      "hash": "182797c0b5da8fe34e73a02878802c7ced6712ab9f251510a223a60093f736e0",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 38,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307440000,
+      "ts_wall": 1791595634447,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "182797c0b5da8fe34e73a02878802c7ced6712ab9f251510a223a60093f736e0",
+      "hash": "79c242e89fddf141526eae62a9abb4d8dc3b20f4d9d5e97fe11d44a4c0fcd6e2",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 39,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307500000,
+      "ts_wall": 1791595634448,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "79c242e89fddf141526eae62a9abb4d8dc3b20f4d9d5e97fe11d44a4c0fcd6e2",
+      "hash": "8bcb21af97dbc77b3baacf0189469a8bd11ca7128fe39ee9d57e57c22b749484",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 40,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307500000,
+      "ts_wall": 1791595634449,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "8bcb21af97dbc77b3baacf0189469a8bd11ca7128fe39ee9d57e57c22b749484",
+      "hash": "85555250d9a42359039a490f6dcbd2053d30812b79078d263132268bbf3bb499",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "INSUFFICIENT_DATA": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 41,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307560000,
+      "ts_wall": 1791595634450,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "85555250d9a42359039a490f6dcbd2053d30812b79078d263132268bbf3bb499",
+      "hash": "43f27d58673e5f9f7f5a867d6ed87746725ad0dae6b753739d22b26f50d92569",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 42,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307560000,
+      "ts_wall": 1791595634450,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "43f27d58673e5f9f7f5a867d6ed87746725ad0dae6b753739d22b26f50d92569",
+      "hash": "a8294de4e565dde6a0c4c46026b4a01eea4015151492bfb9c6b6978f465ba7d4",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "BUYSHARE_BELOW_MIN": 2,
+          "RELVOL_UNAVAILABLE": 2,
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 43,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307620000,
+      "ts_wall": 1791595634451,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "a8294de4e565dde6a0c4c46026b4a01eea4015151492bfb9c6b6978f465ba7d4",
+      "hash": "e844b408b48219fdd9f304955939c108ceb225146c56df6d2a67737da458311c",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RET_BELOW_MIN": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 44,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307620000,
+      "ts_wall": 1791595634452,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "e844b408b48219fdd9f304955939c108ceb225146c56df6d2a67737da458311c",
+      "hash": "4b58d1cdbc2ca50e0540c04cb2f6e4337b07a5873178d9b6bde8892b065805f1",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "BUYSHARE_BELOW_MIN": 2,
+          "RELVOL_UNAVAILABLE": 2,
+          "RET_BELOW_MIN": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 45,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634453,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "4b58d1cdbc2ca50e0540c04cb2f6e4337b07a5873178d9b6bde8892b065805f1",
+      "hash": "37af174c3967d84c2b8e8af065fa48d4483070d47ad047d69cd6ff9951335708",
+      "payload": {
+        "active": 2,
+        "candidates": 2,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [
+          {
+            "kind": "entry",
+            "sym": "FIXA"
+          },
+          {
+            "kind": "entry",
+            "sym": "FIXE"
+          }
+        ],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {},
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [
+          {
+            "accel": 0.15999999999999992,
+            "baselineMin": 13,
+            "baselineVolume": 13000,
+            "buyShare": 0.711864406779661,
+            "halted": false,
+            "priceU": 5800,
+            "quoteAgeMs": 30000,
+            "relVol": null,
+            "ret_w": 0.15999999999999992,
+            "spreadBps": 34,
+            "sym": "FIXA",
+            "tradesW": 40,
+            "volumeW": 9000
+          },
+          {
+            "accel": 0.15999999999999992,
+            "baselineMin": 13,
+            "baselineVolume": 13000,
+            "buyShare": 0.711864406779661,
+            "halted": false,
+            "priceU": 5800,
+            "quoteAgeMs": 30000,
+            "relVol": null,
+            "ret_w": 0.15999999999999992,
+            "spreadBps": 34,
+            "sym": "FIXE",
+            "tradesW": 40,
+            "volumeW": 9000
+          }
+        ],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 46,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634453,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "INTENT_PROPOSED",
+      "ref_id": "int_mv1ps6xha75e732868",
+      "prev_hash": "37af174c3967d84c2b8e8af065fa48d4483070d47ad047d69cd6ff9951335708",
+      "hash": "ec895d1f63be1ccd3b504a65565199cde651343bac1df8ec1a2f764ee6819570",
+      "payload": {
+        "decisionMode": "rules",
+        "detail": {
+          "bidU": 5790,
+          "budgetU": 1000000,
+          "cappedByDisplayed": false,
+          "estCostU": 998640,
+          "estPxU": 5840,
+          "refAskU": 5810,
+          "stopAtOrAboveBid": false,
+          "stopU": 5229,
+          "stopVsBidBps": -969,
+          "takeProfitAltU": null,
+          "takeProfitU": 8134
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": "agent-cowboy-micro",
+          "attach": {
+            "stop_loss_px_u": 5229,
+            "take_profit_px_u": 8134
+          },
+          "budget_usd": 100,
+          "created_ts": 4071307680000,
+          "evidence_refs": [
+            "iex-m1:test-fixture-agents-2099-01-05:FIXA:4071307620000",
+            "iex-m1:test-fixture-agents-2099-01-05:FIXA:4071307620000",
+            "iex-m1:test-fixture-agents-2099-01-05:FIXA:4071307320000"
+          ],
+          "expires_ts": 4071307740000,
+          "id": "int_mv1ps6xha75e732868",
+          "instrument": {
+            "kind": "equity",
+            "sym": "FIXA"
+          },
+          "order_type": "market",
+          "portfolio_id": "cowboy-micro",
+          "qty": 171,
+          "quote_ts": 4071307650000,
+          "rationale": "RULES test:cowboy-micro (EXPLORATORY DEFAULTS — NOT VALIDATED): ret_w 16.0% over 5 min (ref $0.5000 -> last $0.5800), accel 16.0%, relVol n/a (BASELINE_TOO_SHORT), inferred aggressor share (quote rule vs IEX BBO; IEX-only) 71.2%, IEX spread 34 bps, quote age 30 s. Buy 171 sh market (est $0.5840/sh incl 50 bps slippage; est cost $99.8640 <= budget $100.0000). Stop $0.5229 (10% below ask ref) — trigger, not a guaranteed price. Take-profit $0.8134 (+40% of ask ref). Signal metrics are not recommendations.",
+          "side": "buy",
+          "source": "rules",
+          "strategy_id": "test:cowboy-micro"
+        },
+        "kind": "entry",
+        "model": null,
+        "note": "Typed proposal only — it executes nothing unless the deterministic policy gate accepts it.",
+        "signal": {
+          "accel": 0.15999999999999992,
+          "asOf": 4071307680000,
+          "baselineMin": 13,
+          "baselineVolume": 13000,
+          "buyShare": 0.711864406779661,
+          "buyShareLabel": "inferred aggressor share (quote rule vs IEX BBO; IEX-only)",
+          "classifiedShare": 0.6555555555555556,
+          "halted": false,
+          "priceMinuteT": 4071307620000,
+          "priceU": 5800,
+          "quote": {
+            "ask": 5810,
+            "askSize": 1000,
+            "bid": 5790,
+            "bidSize": 1000,
+            "minuteRowT": 4071307620000,
+            "quoteTs": 4071307650000,
+            "twoSided": true
+          },
+          "quoteAgeMs": 30000,
+          "reasons": [
+            "BASELINE_TOO_SHORT"
+          ],
+          "refMinuteT": 4071307320000,
+          "refPriceU": 5000,
+          "relVol": null,
+          "ret_w": 0.15999999999999992,
+          "spreadBps": 34,
+          "sym": "FIXA",
+          "tradesW": 40,
+          "volumeW": 9000,
+          "windowMin": 5
+        },
+        "source": "rules",
+        "strategy": {
+          "id": "test:cowboy-micro",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        }
+      }
+    },
+    {
+      "seq": 47,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634455,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "policy",
+      "type": "POLICY_ACCEPT",
+      "ref_id": "int_mv1ps6xha75e732868",
+      "prev_hash": "ec895d1f63be1ccd3b504a65565199cde651343bac1df8ec1a2f764ee6819570",
+      "hash": "353636183a85a655dd823f6b2cce7cca3944e4c177b1ccab949f2e3b437b4707",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "detail": "kill switch released",
+            "pass": true,
+            "rule": "kill_switch"
+          },
+          {
+            "detail": "agent agent-cowboy-micro RUNNING with grant for cowboy-micro/open",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: agent intent (agent_authority applies)",
+            "pass": true,
+            "rule": "human_confirmed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a modify/cancel",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "detail": "equity allowed",
+            "pass": true,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "FIXA allowed",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "detail": "estimated cost $99.8640 (171 x $0.5840 + fees $0.0000) <= $1000.0000",
+            "pass": true,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "detail": "available cash $10000.0000 covers $99.8640 (cash $10000.0000 - reserved $0.0000 for 0 open buy order(s), fees included)",
+            "pass": true,
+            "rule": "cash_sufficient"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a sell",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "detail": "day P&L $0.0000; cap $1500.0000",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "detail": "1/8 positions after entry",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "detail": "position 1.00% of equity (held $0.0000 + pending buys $0.0000 (0 order(s)) + this $99.8640) <= 25%",
+            "pass": true,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "detail": "stop $0.5229 < as-of IEX bid $0.5790 (969 bps below)",
+            "pass": true,
+            "rule": "protective_exit_required"
+          },
+          {
+            "detail": "1/6 orders this minute",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "detail": "quote age 30s <= 300s",
+            "pass": true,
+            "rule": "quote_fresh"
+          },
+          {
+            "detail": "spread 34 bps <= 1500 bps",
+            "pass": true,
+            "rule": "max_spread_bps"
+          },
+          {
+            "detail": "displayed ask size 1000 >= 100",
+            "pass": true,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 60s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 3/3 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "ACCEPTED",
+        "estimate": {
+          "asOfEstimateOnly": true,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "costU": 998640,
+          "feesU": 0,
+          "multiplier": 1,
+          "priceU": 5840,
+          "qty": 171,
+          "segment": "micro",
+          "sizedFromBudget": false,
+          "slippageBps": 50,
+          "spendCapU": 1000000
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": "agent-cowboy-micro",
+          "attach": {
+            "stop_loss_px_u": 5229,
+            "take_profit_px_u": 8134
+          },
+          "budget_usd": 100,
+          "created_ts": 4071307680000,
+          "evidence_refs": [
+            "iex-m1:test-fixture-agents-2099-01-05:FIXA:4071307620000",
+            "iex-m1:test-fixture-agents-2099-01-05:FIXA:4071307620000",
+            "iex-m1:test-fixture-agents-2099-01-05:FIXA:4071307320000"
+          ],
+          "expires_ts": 4071307740000,
+          "id": "int_mv1ps6xha75e732868",
+          "instrument": {
+            "kind": "equity",
+            "sym": "FIXA"
+          },
+          "order_type": "market",
+          "portfolio_id": "cowboy-micro",
+          "qty": 171,
+          "quote_ts": 4071307650000,
+          "rationale": "RULES test:cowboy-micro (EXPLORATORY DEFAULTS — NOT VALIDATED): ret_w 16.0% over 5 min (ref $0.5000 -> last $0.5800), accel 16.0%, relVol n/a (BASELINE_TOO_SHORT), inferred aggressor share (quote rule vs IEX BBO; IEX-only) 71.2%, IEX spread 34 bps, quote age 30 s. Buy 171 sh market (est $0.5840/sh incl 50 bps slippage; est cost $99.8640 <= budget $100.0000). Stop $0.5229 (10% below ask ref) — trigger, not a guaranteed price. Take-profit $0.8134 (+40% of ask ref). Signal metrics are not recommendations.",
+          "side": "buy",
+          "source": "rules",
+          "strategy_id": "test:cowboy-micro"
+        },
+        "policy": {
+          "id": "policy:cowboy-micro",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": []
+      }
+    },
+    {
+      "seq": 48,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634457,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1ps6xlf64c9e8a16",
+      "prev_hash": "353636183a85a655dd823f6b2cce7cca3944e4c177b1ccab949f2e3b437b4707",
+      "hash": "eede30f811eada47aac973df4fc4eaa0cb305f87a67d4ce58b47d2ec1d8a6649",
+      "payload": {
+        "created_ts": 4071307680000,
+        "estimatedOnly": true,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXA",
+        "intent_id": "int_mv1ps6xha75e732868",
+        "kind": "equity",
+        "limit_px": null,
+        "oco_group": null,
+        "order_id": "ord_mv1ps6xlf64c9e8a16",
+        "paperOnly": true,
+        "parent_id": null,
+        "protective": false,
+        "qty": 171,
+        "quote": {
+          "ageMs": 30000,
+          "asOf": 4071307680000,
+          "ask": 5810,
+          "askSize": 1000,
+          "bid": 5790,
+          "bidSize": 1000,
+          "ds": "test-fixture-agents-2099-01-05",
+          "halted": false,
+          "minuteRowT": 4071307620000,
+          "quoteTs": 4071307650000,
+          "spreadBps": 34,
+          "status": "OBSERVED",
+          "sym": "FIXA",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "reason": "entry via test:cowboy-micro",
+        "role": "entry",
+        "side": "buy",
+        "spendCap": {
+          "candidates": [
+            {
+              "maxSpendU": 10000000,
+              "source": "policy:max_trade_spend_usd"
+            },
+            {
+              "maxSpendU": 1000000,
+              "source": "intent:budget_usd"
+            }
+          ],
+          "maxSpendU": 1000000,
+          "source": "intent:budget_usd"
+        },
+        "status": "working",
+        "stop_px": null,
+        "sym": "FIXA",
+        "triggered_ts": null,
+        "type": "market"
+      }
+    },
+    {
+      "seq": 49,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634457,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1ps6xlb5d0ec40e0",
+      "prev_hash": "eede30f811eada47aac973df4fc4eaa0cb305f87a67d4ce58b47d2ec1d8a6649",
+      "hash": "f558351b3537d1d084944a64f0ddaec595d7ed40350a32205a5d0435fc8aa57f",
+      "payload": {
+        "bracketChildOf": "ord_mv1ps6xlf64c9e8a16",
+        "created_ts": 4071307680000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXA",
+        "intent_id": "int_mv1ps6xha75e732868",
+        "kind": "equity",
+        "limit_px": null,
+        "note": "pending_parent until the entry fills; qty then = shares the bracket holds",
+        "oco_group": "oco_ord_mv1ps6xlf64c9e8a16",
+        "order_id": "ord_mv1ps6xlb5d0ec40e0",
+        "parent_id": "ord_mv1ps6xlf64c9e8a16",
+        "protective": true,
+        "qty": 171,
+        "quote": {
+          "ageMs": 30000,
+          "asOf": 4071307680000,
+          "ask": 5810,
+          "askSize": 1000,
+          "bid": 5790,
+          "bidSize": 1000,
+          "ds": "test-fixture-agents-2099-01-05",
+          "halted": false,
+          "minuteRowT": 4071307620000,
+          "quoteTs": 4071307650000,
+          "spreadBps": 34,
+          "status": "OBSERVED",
+          "sym": "FIXA",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "stop_loss",
+        "side": "sell",
+        "status": "pending_parent",
+        "stopCheck": {
+          "bidU": 5790,
+          "stopAtOrAboveBid": false,
+          "stopPxU": 5229,
+          "stopVsBidBps": -969
+        },
+        "stop_px": 5229,
+        "sym": "FIXA",
+        "triggered_ts": null,
+        "type": "stop"
+      }
+    },
+    {
+      "seq": 50,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634457,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1ps6xlecb7bfbe1c",
+      "prev_hash": "f558351b3537d1d084944a64f0ddaec595d7ed40350a32205a5d0435fc8aa57f",
+      "hash": "1e31ca75d6480d7b1017908f79d466fb2db89ff7c0c24d42bb99dfc9d896ec98",
+      "payload": {
+        "bracketChildOf": "ord_mv1ps6xlf64c9e8a16",
+        "created_ts": 4071307680000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXA",
+        "intent_id": "int_mv1ps6xha75e732868",
+        "kind": "equity",
+        "limit_px": 8134,
+        "note": "pending_parent until the entry fills; qty then = shares the bracket holds",
+        "oco_group": "oco_ord_mv1ps6xlf64c9e8a16",
+        "order_id": "ord_mv1ps6xlecb7bfbe1c",
+        "parent_id": "ord_mv1ps6xlf64c9e8a16",
+        "protective": true,
+        "qty": 171,
+        "quote": {
+          "ageMs": 30000,
+          "asOf": 4071307680000,
+          "ask": 5810,
+          "askSize": 1000,
+          "bid": 5790,
+          "bidSize": 1000,
+          "ds": "test-fixture-agents-2099-01-05",
+          "halted": false,
+          "minuteRowT": 4071307620000,
+          "quoteTs": 4071307650000,
+          "spreadBps": 34,
+          "status": "OBSERVED",
+          "sym": "FIXA",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "take_profit",
+        "side": "sell",
+        "status": "pending_parent",
+        "stop_px": null,
+        "sym": "FIXA",
+        "triggered_ts": null,
+        "type": "limit"
+      }
+    },
+    {
+      "seq": 51,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634457,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "INTENT_PROPOSED",
+      "ref_id": "int_mv1ps6xl24531b3909",
+      "prev_hash": "1e31ca75d6480d7b1017908f79d466fb2db89ff7c0c24d42bb99dfc9d896ec98",
+      "hash": "458fc8cebf3248f79bda367f0f9eb8e4884a6cbdbf04d0b2544912506cf181f9",
+      "payload": {
+        "decisionMode": "rules",
+        "detail": {
+          "bidU": 5790,
+          "budgetU": 1000000,
+          "cappedByDisplayed": false,
+          "estCostU": 998640,
+          "estPxU": 5840,
+          "refAskU": 5810,
+          "stopAtOrAboveBid": false,
+          "stopU": 5229,
+          "stopVsBidBps": -969,
+          "takeProfitAltU": null,
+          "takeProfitU": 8134
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": "agent-cowboy-micro",
+          "attach": {
+            "stop_loss_px_u": 5229,
+            "take_profit_px_u": 8134
+          },
+          "budget_usd": 100,
+          "created_ts": 4071307680000,
+          "evidence_refs": [
+            "iex-m1:test-fixture-agents-2099-01-05:FIXE:4071307620000",
+            "iex-m1:test-fixture-agents-2099-01-05:FIXE:4071307620000",
+            "iex-m1:test-fixture-agents-2099-01-05:FIXE:4071307320000"
+          ],
+          "expires_ts": 4071307740000,
+          "id": "int_mv1ps6xl24531b3909",
+          "instrument": {
+            "kind": "equity",
+            "sym": "FIXE"
+          },
+          "order_type": "market",
+          "portfolio_id": "cowboy-micro",
+          "qty": 171,
+          "quote_ts": 4071307650000,
+          "rationale": "RULES test:cowboy-micro (EXPLORATORY DEFAULTS — NOT VALIDATED): ret_w 16.0% over 5 min (ref $0.5000 -> last $0.5800), accel 16.0%, relVol n/a (BASELINE_TOO_SHORT), inferred aggressor share (quote rule vs IEX BBO; IEX-only) 71.2%, IEX spread 34 bps, quote age 30 s. Buy 171 sh market (est $0.5840/sh incl 50 bps slippage; est cost $99.8640 <= budget $100.0000). Stop $0.5229 (10% below ask ref) — trigger, not a guaranteed price. Take-profit $0.8134 (+40% of ask ref). Signal metrics are not recommendations.",
+          "side": "buy",
+          "source": "rules",
+          "strategy_id": "test:cowboy-micro"
+        },
+        "kind": "entry",
+        "model": null,
+        "note": "Typed proposal only — it executes nothing unless the deterministic policy gate accepts it.",
+        "signal": {
+          "accel": 0.15999999999999992,
+          "asOf": 4071307680000,
+          "baselineMin": 13,
+          "baselineVolume": 13000,
+          "buyShare": 0.711864406779661,
+          "buyShareLabel": "inferred aggressor share (quote rule vs IEX BBO; IEX-only)",
+          "classifiedShare": 0.6555555555555556,
+          "halted": false,
+          "priceMinuteT": 4071307620000,
+          "priceU": 5800,
+          "quote": {
+            "ask": 5810,
+            "askSize": 1000,
+            "bid": 5790,
+            "bidSize": 1000,
+            "minuteRowT": 4071307620000,
+            "quoteTs": 4071307650000,
+            "twoSided": true
+          },
+          "quoteAgeMs": 30000,
+          "reasons": [
+            "BASELINE_TOO_SHORT"
+          ],
+          "refMinuteT": 4071307320000,
+          "refPriceU": 5000,
+          "relVol": null,
+          "ret_w": 0.15999999999999992,
+          "spreadBps": 34,
+          "sym": "FIXE",
+          "tradesW": 40,
+          "volumeW": 9000,
+          "windowMin": 5
+        },
+        "source": "rules",
+        "strategy": {
+          "id": "test:cowboy-micro",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        }
+      }
+    },
+    {
+      "seq": 52,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634458,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "policy",
+      "type": "POLICY_ACCEPT",
+      "ref_id": "int_mv1ps6xl24531b3909",
+      "prev_hash": "458fc8cebf3248f79bda367f0f9eb8e4884a6cbdbf04d0b2544912506cf181f9",
+      "hash": "073aa0fa3db9b85513f8c9729561574aff6c3c14ec94e220995ae114d6ebde94",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "detail": "kill switch released",
+            "pass": true,
+            "rule": "kill_switch"
+          },
+          {
+            "detail": "agent agent-cowboy-micro RUNNING with grant for cowboy-micro/open",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: agent intent (agent_authority applies)",
+            "pass": true,
+            "rule": "human_confirmed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a modify/cancel",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "detail": "equity allowed",
+            "pass": true,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "FIXE allowed",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "detail": "estimated cost $99.8640 (171 x $0.5840 + fees $0.0000) <= $1000.0000",
+            "pass": true,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "detail": "available cash $9900.1360 covers $99.8640 (cash $10000.0000 - reserved $99.8640 for 1 open buy order(s), fees included)",
+            "pass": true,
+            "rule": "cash_sufficient"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a sell",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "detail": "day P&L $0.0000; cap $1500.0000",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "detail": "2/8 positions after entry",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "detail": "position 1.00% of equity (held $0.0000 + pending buys $0.0000 (0 order(s)) + this $99.8640) <= 25%",
+            "pass": true,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "detail": "stop $0.5229 < as-of IEX bid $0.5790 (969 bps below)",
+            "pass": true,
+            "rule": "protective_exit_required"
+          },
+          {
+            "detail": "4/6 orders this minute",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "detail": "quote age 30s <= 300s",
+            "pass": true,
+            "rule": "quote_fresh"
+          },
+          {
+            "detail": "spread 34 bps <= 1500 bps",
+            "pass": true,
+            "rule": "max_spread_bps"
+          },
+          {
+            "detail": "displayed ask size 1000 >= 100",
+            "pass": true,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 60s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 3/3 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "ACCEPTED",
+        "estimate": {
+          "asOfEstimateOnly": true,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "costU": 998640,
+          "feesU": 0,
+          "multiplier": 1,
+          "priceU": 5840,
+          "qty": 171,
+          "segment": "micro",
+          "sizedFromBudget": false,
+          "slippageBps": 50,
+          "spendCapU": 1000000
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": "agent-cowboy-micro",
+          "attach": {
+            "stop_loss_px_u": 5229,
+            "take_profit_px_u": 8134
+          },
+          "budget_usd": 100,
+          "created_ts": 4071307680000,
+          "evidence_refs": [
+            "iex-m1:test-fixture-agents-2099-01-05:FIXE:4071307620000",
+            "iex-m1:test-fixture-agents-2099-01-05:FIXE:4071307620000",
+            "iex-m1:test-fixture-agents-2099-01-05:FIXE:4071307320000"
+          ],
+          "expires_ts": 4071307740000,
+          "id": "int_mv1ps6xl24531b3909",
+          "instrument": {
+            "kind": "equity",
+            "sym": "FIXE"
+          },
+          "order_type": "market",
+          "portfolio_id": "cowboy-micro",
+          "qty": 171,
+          "quote_ts": 4071307650000,
+          "rationale": "RULES test:cowboy-micro (EXPLORATORY DEFAULTS — NOT VALIDATED): ret_w 16.0% over 5 min (ref $0.5000 -> last $0.5800), accel 16.0%, relVol n/a (BASELINE_TOO_SHORT), inferred aggressor share (quote rule vs IEX BBO; IEX-only) 71.2%, IEX spread 34 bps, quote age 30 s. Buy 171 sh market (est $0.5840/sh incl 50 bps slippage; est cost $99.8640 <= budget $100.0000). Stop $0.5229 (10% below ask ref) — trigger, not a guaranteed price. Take-profit $0.8134 (+40% of ask ref). Signal metrics are not recommendations.",
+          "side": "buy",
+          "source": "rules",
+          "strategy_id": "test:cowboy-micro"
+        },
+        "policy": {
+          "id": "policy:cowboy-micro",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": []
+      }
+    },
+    {
+      "seq": 53,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634459,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1ps6xn3b0c5cfe5f",
+      "prev_hash": "073aa0fa3db9b85513f8c9729561574aff6c3c14ec94e220995ae114d6ebde94",
+      "hash": "fd21fe6d71747f507289f778b863965e4117c8c7da809852c8e3b4137b0c1844",
+      "payload": {
+        "created_ts": 4071307680000,
+        "estimatedOnly": true,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXE",
+        "intent_id": "int_mv1ps6xl24531b3909",
+        "kind": "equity",
+        "limit_px": null,
+        "oco_group": null,
+        "order_id": "ord_mv1ps6xn3b0c5cfe5f",
+        "paperOnly": true,
+        "parent_id": null,
+        "protective": false,
+        "qty": 171,
+        "quote": {
+          "ageMs": 30000,
+          "asOf": 4071307680000,
+          "ask": 5810,
+          "askSize": 1000,
+          "bid": 5790,
+          "bidSize": 1000,
+          "ds": "test-fixture-agents-2099-01-05",
+          "halted": false,
+          "minuteRowT": 4071307620000,
+          "quoteTs": 4071307650000,
+          "spreadBps": 34,
+          "status": "OBSERVED",
+          "sym": "FIXE",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "reason": "entry via test:cowboy-micro",
+        "role": "entry",
+        "side": "buy",
+        "spendCap": {
+          "candidates": [
+            {
+              "maxSpendU": 10000000,
+              "source": "policy:max_trade_spend_usd"
+            },
+            {
+              "maxSpendU": 1000000,
+              "source": "intent:budget_usd"
+            }
+          ],
+          "maxSpendU": 1000000,
+          "source": "intent:budget_usd"
+        },
+        "status": "working",
+        "stop_px": null,
+        "sym": "FIXE",
+        "triggered_ts": null,
+        "type": "market"
+      }
+    },
+    {
+      "seq": 54,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634459,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1ps6xnd424200792",
+      "prev_hash": "fd21fe6d71747f507289f778b863965e4117c8c7da809852c8e3b4137b0c1844",
+      "hash": "6f0db8d985cfe0ea52eedf87781cb4b224937c5ab611cafbdf1104c8f32f05bf",
+      "payload": {
+        "bracketChildOf": "ord_mv1ps6xn3b0c5cfe5f",
+        "created_ts": 4071307680000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXE",
+        "intent_id": "int_mv1ps6xl24531b3909",
+        "kind": "equity",
+        "limit_px": null,
+        "note": "pending_parent until the entry fills; qty then = shares the bracket holds",
+        "oco_group": "oco_ord_mv1ps6xn3b0c5cfe5f",
+        "order_id": "ord_mv1ps6xnd424200792",
+        "parent_id": "ord_mv1ps6xn3b0c5cfe5f",
+        "protective": true,
+        "qty": 171,
+        "quote": {
+          "ageMs": 30000,
+          "asOf": 4071307680000,
+          "ask": 5810,
+          "askSize": 1000,
+          "bid": 5790,
+          "bidSize": 1000,
+          "ds": "test-fixture-agents-2099-01-05",
+          "halted": false,
+          "minuteRowT": 4071307620000,
+          "quoteTs": 4071307650000,
+          "spreadBps": 34,
+          "status": "OBSERVED",
+          "sym": "FIXE",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "stop_loss",
+        "side": "sell",
+        "status": "pending_parent",
+        "stopCheck": {
+          "bidU": 5790,
+          "stopAtOrAboveBid": false,
+          "stopPxU": 5229,
+          "stopVsBidBps": -969
+        },
+        "stop_px": 5229,
+        "sym": "FIXE",
+        "triggered_ts": null,
+        "type": "stop"
+      }
+    },
+    {
+      "seq": 55,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634459,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1ps6xn17376b324a",
+      "prev_hash": "6f0db8d985cfe0ea52eedf87781cb4b224937c5ab611cafbdf1104c8f32f05bf",
+      "hash": "7f9a2247d465d4365d6b1b993befb9a90194e63e97fdcf5c317b717536405ff4",
+      "payload": {
+        "bracketChildOf": "ord_mv1ps6xn3b0c5cfe5f",
+        "created_ts": 4071307680000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXE",
+        "intent_id": "int_mv1ps6xl24531b3909",
+        "kind": "equity",
+        "limit_px": 8134,
+        "note": "pending_parent until the entry fills; qty then = shares the bracket holds",
+        "oco_group": "oco_ord_mv1ps6xn3b0c5cfe5f",
+        "order_id": "ord_mv1ps6xn17376b324a",
+        "parent_id": "ord_mv1ps6xn3b0c5cfe5f",
+        "protective": true,
+        "qty": 171,
+        "quote": {
+          "ageMs": 30000,
+          "asOf": 4071307680000,
+          "ask": 5810,
+          "askSize": 1000,
+          "bid": 5790,
+          "bidSize": 1000,
+          "ds": "test-fixture-agents-2099-01-05",
+          "halted": false,
+          "minuteRowT": 4071307620000,
+          "quoteTs": 4071307650000,
+          "spreadBps": 34,
+          "status": "OBSERVED",
+          "sym": "FIXE",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "take_profit",
+        "side": "sell",
+        "status": "pending_parent",
+        "stop_px": null,
+        "sym": "FIXE",
+        "triggered_ts": null,
+        "type": "limit"
+      }
+    },
+    {
+      "seq": 56,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307680000,
+      "ts_wall": 1791595634460,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "7f9a2247d465d4365d6b1b993befb9a90194e63e97fdcf5c317b717536405ff4",
+      "hash": "e1161f72419204602f0f379fecf053b52232fd277445da0231c5f09f9490bfb2",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RELVOL_UNAVAILABLE": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RELVOL_UNAVAILABLE": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 57,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634461,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "engine",
+      "type": "FILL_ESTIMATED",
+      "ref_id": "fill_mv1ps6xp0d377a797c",
+      "prev_hash": "e1161f72419204602f0f379fecf053b52232fd277445da0231c5f09f9490bfb2",
+      "hash": "8b79bc2a735e337618423014f07599b8e67e228e76cb9f92e2e59141848487ea",
+      "payload": {
+        "assumptions": {
+          "affordabilityReduced": false,
+          "basePriceU": 5810,
+          "consumedEarlierThisMinute": 0,
+          "displayedSizeAtMinuteStart": 1000,
+          "displayedSizeCap": true,
+          "displayedSizeUsed": 1000,
+          "estimated": true,
+          "fees": {
+            "commissionPerOrderU": 0,
+            "commissionU": 0,
+            "rounding": "EACH_COMPONENT_UP_TO_WHOLE_U",
+            "secFeeRatePerMillionUsd": 27.8,
+            "secFeeU": 0,
+            "tafCapU": 83000,
+            "tafPerShareU": 1.66,
+            "tafU": 0,
+            "totalU": 0
+          },
+          "maxQuoteAgeMs": 300000,
+          "maxSpreadBps": 1500,
+          "model": "iex-conservative-minute-v1",
+          "multiplier": 1,
+          "notExchangeExecution": true,
+          "omitted": [
+            "queue position at IEX",
+            "hidden and odd-lot liquidity",
+            "NBBO vs IEX BBO differences (IEX top-of-book only)",
+            "liquidity and prices on other venues",
+            "partial-fill dynamics inside the minute",
+            "market impact beyond the slippage assumption",
+            "borrow/locate (never needed: no shorting)",
+            "corporate actions on the replay day",
+            "options exercise/assignment",
+            "IEX trade breaks arriving after the trade minute are not removed from that minute; once a break is knowable, the trade evidence of that minute is withheld"
+          ],
+          "priceBasis": "WORST_IN_MINUTE",
+          "qtyLimitedBy": [],
+          "qtyRequested": 171,
+          "requestedSegment": "micro",
+          "rule": "MARKET_BUY_WORST_ASK_IN_MINUTE",
+          "segment": "micro",
+          "sizeSource": "DISPLAYED",
+          "slippageBps": 50,
+          "spendCap": {
+            "maxSpendU": 1000000,
+            "spentBeforeU": 0
+          },
+          "spreadAtEndBps": 34,
+          "spreadAtStartBps": 34,
+          "tickRule": "REG_NMS_612_ROUNDED_AGAINST_TRADER",
+          "warnings": []
+        },
+        "cashAfterU": 99001360,
+        "cashBeforeU": 100000000,
+        "estimated": true,
+        "feesU": 0,
+        "fill_id": "fill_mv1ps6xp0d377a797c",
+        "grossU": 998640,
+        "instrument_id": "FIXA",
+        "kind": "equity",
+        "minuteT": 4071307680000,
+        "model": "iex-conservative-minute-v1",
+        "multiplier": 1,
+        "note": "ESTIMATED PAPER FILL — not an exchange execution",
+        "observed": {
+          "ds": "test-fixture-agents-2099-01-05",
+          "endQuote": {
+            "ask": 5810,
+            "askSize": 1000,
+            "bid": 5790,
+            "bidSize": 1000,
+            "quoteTs": 4071307710000
+          },
+          "halted": false,
+          "hasRow": true,
+          "maxAsk": 5810,
+          "maxBid": 5790,
+          "minAsk": 5810,
+          "minBid": 5790,
+          "minuteT": 4071307680000,
+          "startQuote": {
+            "ask": 5810,
+            "askSize": 1000,
+            "bid": 5790,
+            "bidSize": 1000,
+            "quoteTs": 4071307650000
+          },
+          "sym": "FIXA",
+          "trades": {
+            "c": 5800,
+            "h": 5800,
+            "l": 5800,
+            "n": 5,
+            "o": 5800,
+            "v": 1000,
+            "vwap": 5800
+          },
+          "unavailable": false,
+          "venue": "IEX"
+        },
+        "orderFilledQtyAfter": 171,
+        "orderQty": 171,
+        "orderStatusAfter": "filled",
+        "order_id": "ord_mv1ps6xlf64c9e8a16",
+        "positionQtyAfter": 171,
+        "positionQtyBefore": 0,
+        "priceU": 5840,
+        "qty": 171,
+        "realizedDeltaU": 0,
+        "role": "entry",
+        "side": "buy",
+        "sym": "FIXA"
+      }
+    },
+    {
+      "seq": 58,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634461,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "engine",
+      "type": "BRACKET_CHILD_ACTIVATED",
+      "ref_id": "ord_mv1ps6xlb5d0ec40e0",
+      "prev_hash": "8b79bc2a735e337618423014f07599b8e67e228e76cb9f92e2e59141848487ea",
+      "hash": "350994d43de55539d92e40e914a00c31bddb152a32b14d2093122fd984982221",
+      "payload": {
+        "created_ts": 4071307680000,
+        "eligibleFromMinute": 4071307740000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXA",
+        "intent_id": "int_mv1ps6xha75e732868",
+        "kind": "equity",
+        "limit_px": null,
+        "minuteT": 4071307680000,
+        "oco_group": "oco_ord_mv1ps6xlf64c9e8a16",
+        "order_id": "ord_mv1ps6xlb5d0ec40e0",
+        "parentFilledQty": 171,
+        "parent_id": "ord_mv1ps6xlf64c9e8a16",
+        "protectedQty": 171,
+        "protective": true,
+        "qty": 171,
+        "quote": {
+          "ageMs": 30000,
+          "asOf": 4071307740000,
+          "ask": 5810,
+          "askSize": 1000,
+          "bid": 5790,
+          "bidSize": 1000,
+          "ds": "test-fixture-agents-2099-01-05",
+          "halted": false,
+          "minuteRowT": 4071307680000,
+          "quoteTs": 4071307710000,
+          "spreadBps": 34,
+          "status": "OBSERVED",
+          "sym": "FIXA",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "stop_loss",
+        "side": "sell",
+        "status": "working",
+        "stopCheck": {
+          "bidU": 5790,
+          "stopAtOrAboveBid": false,
+          "stopPxU": 5229,
+          "stopVsBidBps": -969
+        },
+        "stop_px": 5229,
+        "sym": "FIXA",
+        "triggered_ts": null,
+        "type": "stop"
+      }
+    },
+    {
+      "seq": 59,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634461,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "engine",
+      "type": "BRACKET_CHILD_ACTIVATED",
+      "ref_id": "ord_mv1ps6xlecb7bfbe1c",
+      "prev_hash": "350994d43de55539d92e40e914a00c31bddb152a32b14d2093122fd984982221",
+      "hash": "a6104dd69c6860c567545fd37c0d1b7e8ff3d2c917fd14b635f49951e89516a1",
+      "payload": {
+        "created_ts": 4071307680000,
+        "eligibleFromMinute": 4071307740000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXA",
+        "intent_id": "int_mv1ps6xha75e732868",
+        "kind": "equity",
+        "limit_px": 8134,
+        "minuteT": 4071307680000,
+        "oco_group": "oco_ord_mv1ps6xlf64c9e8a16",
+        "order_id": "ord_mv1ps6xlecb7bfbe1c",
+        "parentFilledQty": 171,
+        "parent_id": "ord_mv1ps6xlf64c9e8a16",
+        "protectedQty": 171,
+        "protective": true,
+        "qty": 171,
+        "role": "take_profit",
+        "side": "sell",
+        "status": "working",
+        "stop_px": null,
+        "sym": "FIXA",
+        "triggered_ts": null,
+        "type": "limit"
+      }
+    },
+    {
+      "seq": 60,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634461,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "engine",
+      "type": "FILL_WITHHELD",
+      "ref_id": "ord_mv1ps6xn3b0c5cfe5f",
+      "prev_hash": "a6104dd69c6860c567545fd37c0d1b7e8ff3d2c917fd14b635f49951e89516a1",
+      "hash": "9915c0d9aae180b4351982afda1f11c1aa9234b41b5ed4c346224fe1e7346154",
+      "payload": {
+        "created_ts": 4071307680000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXE",
+        "intent_id": "int_mv1ps6xl24531b3909",
+        "kind": "equity",
+        "limit_px": null,
+        "minuteT": 4071307680000,
+        "note": "UNFILLABLE this minute — no fill manufactured; order stays open until it fills, is cancelled or expires",
+        "observed": {
+          "ds": "test-fixture-agents-2099-01-05",
+          "endQuote": {
+            "ask": 5810,
+            "askSize": 1000,
+            "bid": 5790,
+            "bidSize": 1000,
+            "quoteTs": 4071307710000
+          },
+          "halted": true,
+          "hasRow": true,
+          "maxAsk": 5810,
+          "maxBid": 5790,
+          "minAsk": 5810,
+          "minBid": 5790,
+          "minuteT": 4071307680000,
+          "startQuote": {
+            "ask": 5810,
+            "askSize": 1000,
+            "bid": 5790,
+            "bidSize": 1000,
+            "quoteTs": 4071307650000
+          },
+          "sym": "FIXE",
+          "trades": {
+            "c": 5800,
+            "h": 5800,
+            "l": 5800,
+            "n": 5,
+            "o": 5800,
+            "v": 1000,
+            "vwap": 5800
+          },
+          "unavailable": false,
+          "venue": "IEX"
+        },
+        "oco_group": null,
+        "order_id": "ord_mv1ps6xn3b0c5cfe5f",
+        "parent_id": null,
+        "protective": false,
+        "qty": 171,
+        "reason": "HALTED",
+        "retryNextMinute": "yes",
+        "role": "entry",
+        "side": "buy",
+        "status": "working",
+        "stop_px": null,
+        "sym": "FIXE",
+        "triggered_ts": null,
+        "type": "market"
+      }
+    },
+    {
+      "seq": 61,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634462,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "engine",
+      "type": "MARK_TO_MARKET",
+      "ref_id": null,
+      "prev_hash": "9915c0d9aae180b4351982afda1f11c1aa9234b41b5ed4c346224fe1e7346154",
+      "hash": "a387924d6502921f0b25be28575b97a4972dd94f011b810302bfa762b2566a2a",
+      "payload": {
+        "asOf": 4071307740000,
+        "basis": "IEX bid as-of (conservative for longs); LAST_TRADE_NO_BID / UNMARKED fallbacks; unmarked positions count as 0 equity",
+        "portfolios": [
+          {
+            "cashU": 99001360,
+            "equityU": 99991450,
+            "portfolio_id": "cowboy-micro",
+            "positions": [
+              {
+                "markBasis": "IEX_BID",
+                "markU": 5790,
+                "qty": 171,
+                "sym": "FIXA"
+              }
+            ],
+            "realizedU": 0,
+            "unmarked": 0,
+            "unrealizedU": -8550
+          }
+        ]
+      }
+    },
+    {
+      "seq": 62,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634463,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "a387924d6502921f0b25be28575b97a4972dd94f011b810302bfa762b2566a2a",
+      "hash": "8d391b57f34020d5036e0a21023191d340a920479442dc97abe7bbfac84a83f8",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 2,
+        "nearMisses": {},
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 5,
+        "planned": [],
+        "positions": [
+          {
+            "markBasis": "IEX_BID",
+            "markU": 5790,
+            "qty": 171,
+            "sym": "FIXA"
+          }
+        ],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "ALREADY_HOLDING": 1,
+          "ENTRY_ALREADY_OPEN": 1,
+          "MAX_ENTRIES_PER_SYMBOL": 2
+        },
+        "strategy_id": "test:cowboy-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 5
+      }
+    },
+    {
+      "seq": 63,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634464,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "agent",
+      "type": "AGENT_SCAN",
+      "ref_id": null,
+      "prev_hash": "8d391b57f34020d5036e0a21023191d340a920479442dc97abe7bbfac84a83f8",
+      "hash": "d4a0594c5962a4d0db806c23ede893f6902ccf36b8a01b115deab801676a9276",
+      "payload": {
+        "active": 2,
+        "candidates": 0,
+        "decisionMode": "rules",
+        "monitored": 0,
+        "nearMisses": {
+          "RELVOL_UNAVAILABLE": 2
+        },
+        "note": "Signal metrics as of the replay clock (IEX-only) — not recommendations. skipped = entry-rule rejections by reason; nearMisses = symbols failing exactly one threshold rule.",
+        "openOrders": 0,
+        "planned": [],
+        "positions": [],
+        "scanned": 2,
+        "segment": "micro",
+        "skipped": {
+          "RELVOL_UNAVAILABLE": 2
+        },
+        "strategy_id": "preset:tightwad-micro",
+        "strategy_label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+        "topCandidates": [],
+        "universe": 2,
+        "windowMin": 15
+      }
+    },
+    {
+      "seq": 64,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634465,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "human",
+      "type": "KILL_SWITCH_ENGAGED",
+      "ref_id": "kill_switch",
+      "prev_hash": "d4a0594c5962a4d0db806c23ede893f6902ccf36b8a01b115deab801676a9276",
+      "hash": "9faf2acf95eb84e54246035e7939641957e737d8a2e958d0ccabe01bcc0f6814",
+      "payload": {
+        "alreadyEngaged": false,
+        "at": 1791595634465,
+        "at_sim": 4071307740000,
+        "by": "test-operator",
+        "effects": "cancel all open non-protective orders; keep working protective orders (stop-loss / take-profit, and already-submitted time-exit orders); set all agents STOPPED (pending time-exit RULES are agent-monitored and are suspended while STOPPED: TIME_EXIT_SUSPENDED)",
+        "engaged": true,
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "test"
+      }
+    },
+    {
+      "seq": 65,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634465,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "ORDER_CANCELLED",
+      "ref_id": "ord_mv1ps6xn3b0c5cfe5f",
+      "prev_hash": "9faf2acf95eb84e54246035e7939641957e737d8a2e958d0ccabe01bcc0f6814",
+      "hash": "c85095d27ebc74037e196dd3546e19acd5b6de5e47c8e90d1828b7b778c1bd45",
+      "payload": {
+        "by": "human",
+        "created_ts": 4071307680000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXE",
+        "intent_id": "int_mv1ps6xl24531b3909",
+        "kind": "equity",
+        "limit_px": null,
+        "oco_group": null,
+        "order_id": "ord_mv1ps6xn3b0c5cfe5f",
+        "parent_id": null,
+        "previousStatus": "working",
+        "protective": false,
+        "qty": 171,
+        "quote": {
+          "ageMs": 30000,
+          "asOf": 4071307740000,
+          "ask": 5810,
+          "askSize": 1000,
+          "bid": 5790,
+          "bidSize": 1000,
+          "ds": "test-fixture-agents-2099-01-05",
+          "halted": false,
+          "minuteRowT": 4071307680000,
+          "quoteTs": 4071307710000,
+          "spreadBps": 34,
+          "status": "OBSERVED",
+          "sym": "FIXE",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "reason": "KILL_SWITCH_ENGAGED",
+        "role": "entry",
+        "side": "buy",
+        "status": "cancelled",
+        "stop_px": null,
+        "sym": "FIXE",
+        "triggered_ts": null,
+        "type": "market"
+      }
+    },
+    {
+      "seq": 66,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634465,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "ORDER_CANCELLED",
+      "ref_id": "ord_mv1ps6xnd424200792",
+      "prev_hash": "c85095d27ebc74037e196dd3546e19acd5b6de5e47c8e90d1828b7b778c1bd45",
+      "hash": "22f07cb815fe181e47ff0dd43316c31a130178dedf00384bf140637383d67608",
+      "payload": {
+        "by": "human",
+        "created_ts": 4071307680000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXE",
+        "intent_id": "int_mv1ps6xl24531b3909",
+        "kind": "equity",
+        "limit_px": null,
+        "oco_group": "oco_ord_mv1ps6xn3b0c5cfe5f",
+        "order_id": "ord_mv1ps6xnd424200792",
+        "parent_id": "ord_mv1ps6xn3b0c5cfe5f",
+        "previousStatus": "pending_parent",
+        "protective": true,
+        "qty": 171,
+        "quote": {
+          "ageMs": 30000,
+          "asOf": 4071307740000,
+          "ask": 5810,
+          "askSize": 1000,
+          "bid": 5790,
+          "bidSize": 1000,
+          "ds": "test-fixture-agents-2099-01-05",
+          "halted": false,
+          "minuteRowT": 4071307680000,
+          "quoteTs": 4071307710000,
+          "spreadBps": 34,
+          "status": "OBSERVED",
+          "sym": "FIXE",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "reason": "PARENT_CANCELLED",
+        "role": "stop_loss",
+        "side": "sell",
+        "status": "cancelled",
+        "stop_px": 5229,
+        "sym": "FIXE",
+        "triggered_ts": null,
+        "type": "stop"
+      }
+    },
+    {
+      "seq": 67,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634465,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "ORDER_CANCELLED",
+      "ref_id": "ord_mv1ps6xn17376b324a",
+      "prev_hash": "22f07cb815fe181e47ff0dd43316c31a130178dedf00384bf140637383d67608",
+      "hash": "92b84c2406c1e745af4ad4586042e27170f05a49c285afb2f9bbedcd8eafb3da",
+      "payload": {
+        "by": "human",
+        "created_ts": 4071307680000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXE",
+        "intent_id": "int_mv1ps6xl24531b3909",
+        "kind": "equity",
+        "limit_px": 8134,
+        "oco_group": "oco_ord_mv1ps6xn3b0c5cfe5f",
+        "order_id": "ord_mv1ps6xn17376b324a",
+        "parent_id": "ord_mv1ps6xn3b0c5cfe5f",
+        "previousStatus": "pending_parent",
+        "protective": true,
+        "qty": 171,
+        "quote": {
+          "ageMs": 30000,
+          "asOf": 4071307740000,
+          "ask": 5810,
+          "askSize": 1000,
+          "bid": 5790,
+          "bidSize": 1000,
+          "ds": "test-fixture-agents-2099-01-05",
+          "halted": false,
+          "minuteRowT": 4071307680000,
+          "quoteTs": 4071307710000,
+          "spreadBps": 34,
+          "status": "OBSERVED",
+          "sym": "FIXE",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "reason": "PARENT_CANCELLED",
+        "role": "take_profit",
+        "side": "sell",
+        "status": "cancelled",
+        "stop_px": null,
+        "sym": "FIXE",
+        "triggered_ts": null,
+        "type": "limit"
+      }
+    },
+    {
+      "seq": 68,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634465,
+      "portfolio_id": "cowboy-large",
+      "agent_id": "agent-cowboy-large",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-cowboy-large",
+      "prev_hash": "92b84c2406c1e745af4ad4586042e27170f05a49c285afb2f9bbedcd8eafb3da",
+      "hash": "9e433e5b21137a0da05cb7b7e175cf3c8d415d9d66490042e93b57d37285f55e",
+      "payload": {
+        "by": "test-operator",
+        "from": "PAUSED",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 69,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634465,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-cowboy-micro",
+      "prev_hash": "9e433e5b21137a0da05cb7b7e175cf3c8d415d9d66490042e93b57d37285f55e",
+      "hash": "1e35abde3f0ffc6bce66cf28d081c3f2429e896cf9059a76b40f9c4e64c79c41",
+      "payload": {
+        "by": "test-operator",
+        "from": "RUNNING",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 70,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634466,
+      "portfolio_id": "pragmatist-large",
+      "agent_id": "agent-pragmatist-large",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-pragmatist-large",
+      "prev_hash": "1e35abde3f0ffc6bce66cf28d081c3f2429e896cf9059a76b40f9c4e64c79c41",
+      "hash": "cf029319dad1505e83df998e9d0096a23ef11a8c758fa718fc8b7c04ac0e1da0",
+      "payload": {
+        "by": "test-operator",
+        "from": "PAUSED",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 71,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634466,
+      "portfolio_id": "pragmatist-micro",
+      "agent_id": "agent-pragmatist-micro",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-pragmatist-micro",
+      "prev_hash": "cf029319dad1505e83df998e9d0096a23ef11a8c758fa718fc8b7c04ac0e1da0",
+      "hash": "f5984813580755825158154843761963c9846d4f918f8fa761bcd2b43e6d4b07",
+      "payload": {
+        "by": "test-operator",
+        "from": "PAUSED",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 72,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634466,
+      "portfolio_id": "tightwad-large",
+      "agent_id": "agent-tightwad-large",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-tightwad-large",
+      "prev_hash": "f5984813580755825158154843761963c9846d4f918f8fa761bcd2b43e6d4b07",
+      "hash": "035065037d88594cb8f799029de2a23f88069641a5e7f75d96b33971fbca1ec5",
+      "payload": {
+        "by": "test-operator",
+        "from": "PAUSED",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 73,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634466,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-tightwad-micro",
+      "prev_hash": "035065037d88594cb8f799029de2a23f88069641a5e7f75d96b33971fbca1ec5",
+      "hash": "1f4a087d705a0fd9cc06d2a75c7ba1eef99441ed4197b48033db7fea26d42afa",
+      "payload": {
+        "by": "test-operator",
+        "from": "RUNNING",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 74,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634466,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "human",
+      "type": "KILL_SWITCH_EFFECTS",
+      "ref_id": "kill_switch",
+      "prev_hash": "1f4a087d705a0fd9cc06d2a75c7ba1eef99441ed4197b48033db7fea26d42afa",
+      "hash": "3e882f0bd94a01c3d78464ee0ca2d67cbe467030ed3ae81fe8faa5fbd551ae27",
+      "payload": {
+        "agentsStopped": [
+          "agent-cowboy-large",
+          "agent-cowboy-micro",
+          "agent-pragmatist-large",
+          "agent-pragmatist-micro",
+          "agent-tightwad-large",
+          "agent-tightwad-micro"
+        ],
+        "cancelled": [
+          "ord_mv1ps6xn3b0c5cfe5f",
+          "ord_mv1ps6xnd424200792",
+          "ord_mv1ps6xn17376b324a"
+        ],
+        "keptProtective": [
+          "ord_mv1ps6xlb5d0ec40e0",
+          "ord_mv1ps6xlecb7bfbe1c"
+        ],
+        "note": "Agents stay STOPPED after release until a human starts each one.",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "timeExitsSuspended": {}
+      }
+    },
+    {
+      "seq": 75,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634469,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "AGENT_CONTROL_REFUSED",
+      "ref_id": "agent-cowboy-micro",
+      "prev_hash": "3e882f0bd94a01c3d78464ee0ca2d67cbe467030ed3ae81fe8faa5fbd551ae27",
+      "hash": "f9f6cbcff026dd97063ffc3010df7d6b1601bb1b6afc4f4f0512f94482e973a6",
+      "payload": {
+        "action": "start",
+        "code": "KILL_SWITCH_ENGAGED",
+        "message": "kill switch engaged: agents cannot be started until it is released",
+        "state": "STOPPED"
+      }
+    },
+    {
+      "seq": 76,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307740000,
+      "ts_wall": 1791595634469,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "AGENT_CONTROL_REFUSED",
+      "ref_id": "agent-cowboy-micro",
+      "prev_hash": "f9f6cbcff026dd97063ffc3010df7d6b1601bb1b6afc4f4f0512f94482e973a6",
+      "hash": "7b1e2b16a6b9493f3d3a7f0d542bbb593e1ae4674659fbb1d19e5bbbbb3603cd",
+      "payload": {
+        "action": "resume",
+        "code": "KILL_SWITCH_ENGAGED",
+        "message": "kill switch engaged: agents cannot be started until it is released",
+        "state": "STOPPED"
+      }
+    },
+    {
+      "seq": 77,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307800000,
+      "ts_wall": 1791595634471,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "engine",
+      "type": "MARK_TO_MARKET",
+      "ref_id": null,
+      "prev_hash": "7b1e2b16a6b9493f3d3a7f0d542bbb593e1ae4674659fbb1d19e5bbbbb3603cd",
+      "hash": "d271cfd6966d35d6172ca69e0779f91edfcfacf057584383f6f0762ce13ceed8",
+      "payload": {
+        "asOf": 4071307800000,
+        "basis": "IEX bid as-of (conservative for longs); LAST_TRADE_NO_BID / UNMARKED fallbacks; unmarked positions count as 0 equity",
+        "portfolios": [
+          {
+            "cashU": 99001360,
+            "equityU": 99991450,
+            "portfolio_id": "cowboy-micro",
+            "positions": [
+              {
+                "markBasis": "IEX_BID",
+                "markU": 5790,
+                "qty": 171,
+                "sym": "FIXA"
+              }
+            ],
+            "realizedU": 0,
+            "unmarked": 0,
+            "unrealizedU": -8550
+          }
+        ]
+      }
+    },
+    {
+      "seq": 78,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307860000,
+      "ts_wall": 1791595634471,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "engine",
+      "type": "MARK_TO_MARKET",
+      "ref_id": null,
+      "prev_hash": "d271cfd6966d35d6172ca69e0779f91edfcfacf057584383f6f0762ce13ceed8",
+      "hash": "186c664307ebd6c584858338d726a0455f154d2f94549a8442da66fae170e05e",
+      "payload": {
+        "asOf": 4071307860000,
+        "basis": "IEX bid as-of (conservative for longs); LAST_TRADE_NO_BID / UNMARKED fallbacks; unmarked positions count as 0 equity",
+        "portfolios": [
+          {
+            "cashU": 99001360,
+            "equityU": 99991450,
+            "portfolio_id": "cowboy-micro",
+            "positions": [
+              {
+                "markBasis": "IEX_BID",
+                "markU": 5790,
+                "qty": 171,
+                "sym": "FIXA"
+              }
+            ],
+            "realizedU": 0,
+            "unmarked": 0,
+            "unrealizedU": -8550
+          }
+        ]
+      }
+    },
+    {
+      "seq": 79,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307860000,
+      "ts_wall": 1791595634472,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "human",
+      "type": "KILL_SWITCH_RELEASED",
+      "ref_id": "kill_switch",
+      "prev_hash": "186c664307ebd6c584858338d726a0455f154d2f94549a8442da66fae170e05e",
+      "hash": "d1626c6a7764f31fc4388a9acafb7b60cf9b8a2bee9305682aa86018d6a632a7",
+      "payload": {
+        "by": "test-operator",
+        "engagedAt": 1791595634465,
+        "note": "Agents remain STOPPED; each must be started individually by a human."
+      }
+    },
+    {
+      "seq": 80,
+      "session_id": "ses_mv1ps6wj233b5d20f5",
+      "ts_sim": 4071307860000,
+      "ts_wall": 1791595634472,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-cowboy-micro",
+      "prev_hash": "d1626c6a7764f31fc4388a9acafb7b60cf9b8a2bee9305682aa86018d6a632a7",
+      "hash": "64080ef2bf335f98970a248d682fc39996548d90d25580151ed242b5b6be5dc3",
+      "payload": {
+        "action": "start",
+        "by": "test",
+        "from": "STOPPED",
+        "reason": "started by test",
+        "to": "RUNNING"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "source": "GDELT DOC 2.0 artlist (on-demand media metadata only: title/url/domain/seendate)",
+  "run_by": "orchestrator session (has network)",
+  "generated_at": "2026-10-09T05:23:23.002Z",
+  "attempts": [
+    {
+      "sym": "TOPP",
+      "name": "Toppoint Holdings Inc. Common Stock",
+      "asOf_et": "2026-10-07 10:30 ET",
+      "result": {
+        "status": "PROVIDER_FAULT",
+        "ds": "gdelt-TOPP-20261009T052404Z",
+        "stored": null,
+        "count": 0,
+        "sample": []
+      }
+    },
+    {
+      "sym": "NVDA",
+      "name": "NVIDIA Corporation - Common Stock",
+      "asOf_et": "2026-10-07 10:30 ET",
+      "result": {
+        "status": "PROVIDER_FAULT",
+        "ds": "gdelt-NVDA-20261009T052447Z",
+        "stored": null,
+        "count": 0,
+        "sample": []
+      }
+    }
+  ]
+}

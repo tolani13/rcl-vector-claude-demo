@@ -1,0 +1,996 @@
+{
+  "tool": "scripts/ui-check.mjs (overflow tripwire)",
+  "base": "http://127.0.0.1:8796",
+  "startedAt": "2026-10-10T03:28:39.807Z",
+  "finishedAt": "2026-10-10T03:29:03.930Z",
+  "browser": {
+    "path": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "version": "Chrome/156.0.8078.12"
+  },
+  "serverStatus": {
+    "dataMode": "HISTORICAL_REAL",
+    "dataset": "iex-tops-2026-10-07",
+    "datasetSha256": "bb405b6835f5cfc8fd27d3552ef9d1572a42670e45d612223c689aad0e458256",
+    "replay": {
+      "session_id": "ses_mv1tueu00ed04777ed",
+      "clock": 1791379800000,
+      "clockEt": "09:30",
+      "playing": false,
+      "status": "READY"
+    },
+    "model": "CONNECTED",
+    "killSwitch": false
+  },
+  "prepare": null,
+  "symbols": null,
+  "web": {
+    "assets/RCL_Convergence_Full_Dark.svg": "dbd5d59054914012",
+    "assets/RCL_Convergence_Full_Light.svg": "55f455e77cda1663",
+    "assets/RCL_Convergence_Mark_Dark.svg": "abc341bceffc1a48",
+    "assets/RCL_Convergence_Mark_Light.svg": "2932c8b89c428d91",
+    "assets/RCL_Copper_Steel_Full_814x502.png": "04aaa1a664a4633f",
+    "assets/RCL_Copper_Steel_Mark_120.png": "0bdc1be5e83fca27",
+    "assets/RCL_Copper_Steel_Mark_32.png": "552d140e1bc51f3d",
+    "assets/RCL_Copper_Steel_Mark_40.png": "7050c78c554f2953",
+    "assets/RCL_Copper_Steel_Mark_64.png": "74d54f8f9a5f4c54",
+    "assets/RCL_Copper_Steel_Mark_80.png": "7c93032719d5ebc6",
+    "assets/RCL_Copper_Steel_Mark_96.png": "29d0f176fc11625a",
+    "charts.css": "9132ef9650d6ac12",
+    "index.html": "7a031972582957bc",
+    "js/api.js": "76760e15f31997d2",
+    "js/app.js": "11004650793a7cc1",
+    "js/charts.js": "5b69c35a38cffab2",
+    "js/components.js": "30fe88f8fc5627ec",
+    "js/dom.js": "6c9361e3cfd97f97",
+    "js/estimate.js": "68a00a8954de8a9f",
+    "js/format.js": "f48cb063cce8c1df",
+    "js/router.js": "4bc11c97ea8b7cc2",
+    "js/status-strip.js": "0e8f4fb4e7b3e4b5",
+    "js/store.js": "3cf3851aab5641aa",
+    "js/strategy-schema.js": "dc4f2c683587440f",
+    "js/summaries.js": "537473f22e6340dc",
+    "js/views/about.js": "f4c6504f015579fc",
+    "js/views/agents.js": "9494f27ab41e103c",
+    "js/views/common.js": "f3fb437df41a8406",
+    "js/views/journal.js": "3d500dc51012061d",
+    "js/views/lab.js": "f5eedb38c0527aba",
+    "js/views/model-settings.js": "1e72f7656d43563b",
+    "js/views/more.js": "5812bc9c2516c746",
+    "js/views/overview.js": "987ef62172282a4c",
+    "js/views/real.js": "b97b478afd09824e",
+    "js/views/replay.js": "d1b15efa44660583",
+    "js/views/research.js": "9ec9f93aecdec3ad",
+    "js/views/sources.js": "f14454d091be1ad6",
+    "styles.css": "05e8f0719c7a3af9"
+  },
+  "sizes": [
+    {
+      "name": "360x780",
+      "kind": "phone",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "390x844",
+      "kind": "phone",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "430x932",
+      "kind": "phone",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "768x1024",
+      "kind": "tablet",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "1024x1366",
+      "kind": "tablet",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "1024x768",
+      "kind": "tablet",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "1440x900",
+      "kind": "desktop",
+      "mobile": false,
+      "dsf": 1
+    },
+    {
+      "name": "1920x1080",
+      "kind": "desktop",
+      "mobile": false,
+      "dsf": 1
+    }
+  ],
+  "routes": [
+    "#/real",
+    "#/sources",
+    "#/more"
+  ],
+  "rule": "FAIL when documentElement.scrollWidth or body.scrollWidth exceeds window.innerWidth (or the root clientWidth beside a desktop scrollbar), or the layout viewport is wider than the emulated width / visual scale is not 1. overflow_tripwire = as rendered; overflow_tripwire_expanded = after opening every <details>. roots = offending elements whose parent does not overflow (where the overflow enters); widest = offending elements without overflowing descendants, furthest right first. Elements inside an overflow-x clipping/scrolling ancestor are not offenders.",
+  "fatal": null,
+  "summary": {
+    "checks": 48,
+    "failed": 0,
+    "failingPairs": 0,
+    "pairs": []
+  },
+  "failures": [],
+  "checks": [
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/real",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/real",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 17
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/real",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/real",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 17
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/real",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/real",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 17
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/real",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/real",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 17
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/real",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/real",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 17
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/real",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/real",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 17
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/real",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/real",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 17
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1440,
+      "bodyScrollWidth": 1440,
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1440,
+      "bodyScrollWidth": 1440,
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/real",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/real",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 17,
+        "open": 17
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1920,
+      "bodyScrollWidth": 1920,
+      "innerWidth": 1920,
+      "clientWidth": 1920,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1920,
+      "bodyScrollWidth": 1920,
+      "innerWidth": 1920,
+      "clientWidth": 1920,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    }
+  ]
+}

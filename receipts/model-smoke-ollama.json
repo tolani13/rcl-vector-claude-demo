@@ -1,0 +1,681 @@
+{
+  "kind": "LIVE SMOKE — local Ollama model, zero cost; paper-only research output, not a recommendation",
+  "generated_at": "2026-10-09T18:55:56.274Z",
+  "provider": "ollama",
+  "model": "qwen3:8b",
+  "endpoint": "http://127.0.0.1:11434",
+  "ds": "iex-tops-2026-10-07",
+  "asOf": 1791383400000,
+  "asOf_et": "2026-10-07 10:30 ET",
+  "packet_version": "vector-evidence-packet-v3",
+  "status_semantics": "Per-lens OK = schema-, evidence-id- and bracket-coherence-valid; NOT fact-checked (see each lens verification and reviewer_notes).",
+  "training_cutoff": {
+    "value": "2025-04-29",
+    "source": "operator-supplied for this run (--training-cutoff)",
+    "effective": "2025-04-29",
+    "effective_source": "configured"
+  },
+  "db": {
+    "mode": "disposable copy",
+    "source": "data\\vector.db",
+    "source_opened": "read-only (never written)",
+    "copy": "data\\smoke-copy-44820-7d470743.db",
+    "copy_ms": 241,
+    "copy_deleted": true
+  },
+  "dataset": {
+    "id": "iex-tops-2026-10-07",
+    "provider": "IEX Exchange HIST — TOPS 1.6 (IEX-TP v1)",
+    "status": "complete",
+    "sha256": "bb405b6835f5cfc8fd27d3552ef9d1572a42670e45d612223c689aad0e458256",
+    "source_url": "https://www.googleapis.com/download/storage/v1/b/iex/o/data%2Ffeeds%2F20261007%2F20261007_IEXTP1_TOPS1.6.pcap.gz?generation=1791429956031216&alt=media"
+  },
+  "selection": {
+    "method": "as-of only: penny-tier universe (latest IEX price < $1.00 as of asOf), ranked by IEX trade count from 09:30 ET to asOf",
+    "universe_size": 233,
+    "top5_by_trades": [
+      {
+        "sym": "TOPP",
+        "trades": 945,
+        "volume": 467297
+      },
+      {
+        "sym": "CRBU",
+        "trades": 887,
+        "volume": 210977
+      },
+      {
+        "sym": "GIPR",
+        "trades": 381,
+        "volume": 102066
+      },
+      {
+        "sym": "INV",
+        "trades": 232,
+        "volume": 28502
+      },
+      {
+        "sym": "OLB",
+        "trades": 173,
+        "volume": 75258
+      }
+    ]
+  },
+  "sym": "TOPP",
+  "provider_status": {
+    "status": "CONNECTED",
+    "detail": "Ollama reachable at http://127.0.0.1:11434; model qwen3:8b available; every request sets num_ctx 16384; loaded now with context 16384",
+    "contextTokens": 16384,
+    "warnings": []
+  },
+  "effective_context": {
+    "tokens": 16384,
+    "source": "requested per call (options.num_ctx; VECTOR_OLLAMA_NUM_CTX)"
+  },
+  "provider_config_warnings": [],
+  "num_ctx_requested": 16384,
+  "packet_sha256": "d812b7cb55299b08b90fff7b31c84e4cbde7aa96c53e09eaf2758895c1948c38",
+  "evidence_ids": [
+    "ev_27ff63f4e9361c43a515d9b6",
+    "ev_6ae454efb34a9a1095547e13",
+    "ev_fd1866f339980768ffc4cb7c",
+    "ev_a053fe762874ef2b868320ac",
+    "ev_9814f18db6a9c25d20ac2751",
+    "ev_f72a2dcf0c123878c33034b8",
+    "ev_044d1703d8ef8472efdb4b86",
+    "ev_f05e6f3d5adbf356fa4fc6e9",
+    "ev_ead77c4e0a7efd9d2353d30b",
+    "ev_e8384a3b49144f7574425106",
+    "ev_10e029aa859cb6a09530c384",
+    "ev_62e5e074ab66604ab552b05d",
+    "ev_6f325c3f0c68ae940eb9d3d6",
+    "ev_6a5ff98462b2d8821b90e8cb",
+    "ev_828232383192f955abb32c51",
+    "ev_bcd7e89c772512d93898772b"
+  ],
+  "evidence_items": [
+    {
+      "id": "ev_27ff63f4e9361c43a515d9b6",
+      "kind": "market_quote",
+      "title": "IEX top-of-book for TOPP as of 10:30 ET",
+      "provider": "IEX Exchange HIST — TOPS 1.6 (IEX-TP v1)",
+      "knowable_ts": 1791383400000,
+      "event_ts": 1791383384919
+    },
+    {
+      "id": "ev_6ae454efb34a9a1095547e13",
+      "kind": "market_price",
+      "title": "IEX last trade and intraday returns for TOPP as of 10:30 ET",
+      "provider": "IEX Exchange HIST — TOPS 1.6 (IEX-TP v1)",
+      "knowable_ts": 1791383400000,
+      "event_ts": 1791383340000
+    },
+    {
+      "id": "ev_fd1866f339980768ffc4cb7c",
+      "kind": "market_volume",
+      "title": "IEX volume for TOPP, session to date vs early baseline, as of 10:30 ET",
+      "provider": "IEX Exchange HIST — TOPS 1.6 (IEX-TP v1)",
+      "knowable_ts": 1791383400000,
+      "event_ts": 1791383340000
+    },
+    {
+      "id": "ev_a053fe762874ef2b868320ac",
+      "kind": "market_aggressor_inferred",
+      "title": "Inferred aggressor shares for TOPP (IEX-only) as of 10:30 ET",
+      "provider": "IEX Exchange HIST — TOPS 1.6 (IEX-TP v1)",
+      "knowable_ts": 1791383400000,
+      "event_ts": 1791383340000
+    },
+    {
+      "id": "ev_9814f18db6a9c25d20ac2751",
+      "kind": "market_trading_status",
+      "title": "IEX trading status and halts for TOPP as of 10:30 ET",
+      "provider": "IEX Exchange HIST — TOPS 1.6 (IEX-TP v1)",
+      "knowable_ts": 1791383400000,
+      "event_ts": 1791371207425
+    },
+    {
+      "id": "ev_f72a2dcf0c123878c33034b8",
+      "kind": "finra_short_volume",
+      "title": "FINRA daily short-sale volume for TOPP, 5 day(s) before 2026-10-07",
+      "provider": "FINRA Reg SHO Daily Short Sale Volume — consolidated NMS file (CNMSshvol)",
+      "knowable_ts": 1791324000000,
+      "event_ts": 1791316800000
+    },
+    {
+      "id": "ev_044d1703d8ef8472efdb4b86",
+      "kind": "macro_observation",
+      "title": "10-year U.S. Treasury constant-maturity yield (DGS10) observation 2026-10-05",
+      "provider": "Federal Reserve Bank of St. Louis — FRED (fredgraph.csv)",
+      "knowable_ts": 1791331200000,
+      "event_ts": 1791158400000
+    },
+    {
+      "id": "ev_f05e6f3d5adbf356fa4fc6e9",
+      "kind": "macro_observation",
+      "title": "2-year U.S. Treasury constant-maturity yield (DGS2) observation 2026-10-05",
+      "provider": "Federal Reserve Bank of St. Louis — FRED (fredgraph.csv)",
+      "knowable_ts": 1791331200000,
+      "event_ts": 1791158400000
+    },
+    {
+      "id": "ev_ead77c4e0a7efd9d2353d30b",
+      "kind": "macro_observation",
+      "title": "10-year minus 2-year Treasury constant-maturity spread (T10Y2Y) observation 2026-10-05",
+      "provider": "Federal Reserve Bank of St. Louis — FRED (fredgraph.csv)",
+      "knowable_ts": 1791331200000,
+      "event_ts": 1791158400000
+    },
+    {
+      "id": "ev_e8384a3b49144f7574425106",
+      "kind": "macro_observation",
+      "title": "Cboe Volatility Index (VIX), daily close (VIXCLS) observation 2026-10-05",
+      "provider": "Federal Reserve Bank of St. Louis — FRED (fredgraph.csv)",
+      "knowable_ts": 1791345600000,
+      "event_ts": 1791158400000
+    },
+    {
+      "id": "ev_10e029aa859cb6a09530c384",
+      "kind": "macro_observation",
+      "title": "S&P 500 index level, daily close (SP500) observation 2026-10-05",
+      "provider": "Federal Reserve Bank of St. Louis — FRED (fredgraph.csv)",
+      "knowable_ts": 1791345600000,
+      "event_ts": 1791158400000
+    },
+    {
+      "id": "ev_62e5e074ab66604ab552b05d",
+      "kind": "macro_observation",
+      "title": "WTI crude oil spot price, Cushing OK (DCOILWTICO) observation 2026-09-29",
+      "provider": "Federal Reserve Bank of St. Louis — FRED (fredgraph.csv)",
+      "knowable_ts": 1790827200000,
+      "event_ts": 1790640000000
+    },
+    {
+      "id": "ev_6f325c3f0c68ae940eb9d3d6",
+      "kind": "macro_observation",
+      "title": "Nominal broad U.S. dollar index (DTWEXBGS) observation 2026-10-02",
+      "provider": "Federal Reserve Bank of St. Louis — FRED (fredgraph.csv)",
+      "knowable_ts": 1791232200000,
+      "event_ts": 1790899200000
+    },
+    {
+      "id": "ev_6a5ff98462b2d8821b90e8cb",
+      "kind": "macro_observation",
+      "title": "Effective federal funds rate, monthly average (FEDFUNDS) observation 2026-09-01",
+      "provider": "Federal Reserve Bank of St. Louis — FRED (fredgraph.csv)",
+      "knowable_ts": 1791086400000,
+      "event_ts": 1788220800000
+    },
+    {
+      "id": "ev_828232383192f955abb32c51",
+      "kind": "macro_observation",
+      "title": "CPI for all urban consumers, all items, U.S. city average (SA) (CPIAUCSL) observation 2026-08-01",
+      "provider": "Federal Reserve Bank of St. Louis — FRED (fredgraph.csv)",
+      "knowable_ts": 1789876800000,
+      "event_ts": 1785542400000
+    },
+    {
+      "id": "ev_bcd7e89c772512d93898772b",
+      "kind": "macro_observation",
+      "title": "Civilian unemployment rate (SA) (UNRATE) observation 2026-08-01",
+      "provider": "Federal Reserve Bank of St. Louis — FRED (fredgraph.csv)",
+      "knowable_ts": 1789012800000,
+      "event_ts": 1785542400000
+    }
+  ],
+  "unavailable": [
+    {
+      "kind": "symbol_identity",
+      "status": "UNAVAILABLE_NOT_VERIFIED",
+      "detail": "no symbol-directory snapshot published at or before the as-of time is ingested; identity (name, exchange, ETF flag) omitted to avoid look-ahead"
+    },
+    {
+      "kind": "sector_industry",
+      "status": "BLOCKED",
+      "detail": "sector/industry (SEC SIC code) requires SEC EDGAR access, which is not configured (SEC_USER_AGENT is not set); no classification is included or inferred"
+    },
+    {
+      "kind": "analyst_views",
+      "status": "UNAVAILABLE_NOT_VERIFIED",
+      "detail": "no licensed analyst or commentator source is connected; analyst views, ratings and price targets are not included and must not be inferred"
+    },
+    {
+      "kind": "filings_news_financing",
+      "status": "NO_VERIFIED_DATA",
+      "detail": "no SEC filings, news, financing or dilution evidence is included in this packet"
+    },
+    {
+      "kind": "other_venues",
+      "status": "NO_VERIFIED_DATA",
+      "detail": "quotes/trades from venues other than IEX are not available"
+    }
+  ],
+  "packet_user_message": "VECTOR EVIDENCE PACKET - the ONLY information you may use.\nEvery item was published/knowable at or before the as-of time below; nothing later exists for you. Cite items by \"id\".\nException: macro_observation values are the LATEST FRED vintage at fetch time and may include revisions made after the as-of time (see each vintage_caveat).\n\nMETA {\"as_of_et\":\"2026-10-07 10:30 ET\",\"as_of_ms\":1791383400000,\"market_coverage\":\"IEX Exchange only (top-of-book quotes and trades on IEX). Not consolidated: IEX BBO is not the NBBO and IEX volume is a fraction of total U.S. volume. OTC securities not covered.\",\"market_data\":\"IEX Exchange HIST — TOPS 1.6 (IEX-TP v1) (dataset iex-tops-2026-10-07, status complete)\",\"packet_version\":\"vector-evidence-packet-v3\",\"paper_only\":true,\"session_phase\":\"regular session\",\"sym\":\"TOPP\",\"trade_date\":\"2026-10-07\",\"units\":\"prices USD per share (converted from IEX 1e-4 fixed point); volumes in shares; IEX-only unless an item says otherwise\"}\n\nITEMS (one JSON object per line):\n{\"data\":{\"ask_size\":8367,\"ask_usd\":0.2415,\"bid_size\":3300,\"bid_usd\":0.2345,\"extended_session_quote\":false,\"halted\":false,\"mid_usd\":0.238,\"quote_age_sec\":15,\"quote_time_et\":\"10:29:44 ET\",\"recent_15m\":{\"max_two_sided_spread_usd\":0.07,\"quote_updates\":206},\"round_trip_cross_cost_pct\":2.941,\"spread_bps\":294,\"spread_pct_of_mid\":2.941,\"spread_usd\":0.007,\"two_sided\":true,\"venue\":\"IEX (BBO only, not the consolidated NBBO)\"},\"id\":\"ev_27ff63f4e9361c43a515d9b6\",\"kind\":\"market_quote\",\"knowable_at\":\"2026-10-07 10:30 ET\",\"title\":\"IEX top-of-book for TOPP as of 10:30 ET\"}\n{\"data\":{\"last_trade_minute_et\":\"10:29 ET\",\"last_trade_usd\":0.24,\"premarket\":{\"status\":\"NO_PREMARKET_TRADES\"},\"recent_15m\":{\"recent_15m_high_usd\":0.2449,\"recent_15m_low_usd\":0.21},\"regular_session\":{\"first_trade_minute_et\":\"09:30 ET\",\"first_trade_usd\":0.2323,\"ret_since_first_trade_pct\":3.31,\"session_high_usd\":0.2677,\"session_low_usd\":0.185},\"returns\":[{\"last_trade_older_than_window\":false,\"ref_before_regular_session\":false,\"ref_minute_et\":\"10:24 ET\",\"ref_usd\":0.2223,\"ret_pct\":7.96,\"window_min\":5},{\"last_trade_older_than_window\":false,\"ref_before_regular_session\":false,\"ref_minute_et\":\"10:14 ET\",\"ref_usd\":0.2099,\"ret_pct\":14.34,\"window_min\":15},{\"status\":\"NO_VERIFIED_DATA\",\"window_min\":60}],\"venue\":\"IEX trades only\"},\"id\":\"ev_6ae454efb34a9a1095547e13\",\"kind\":\"market_price\",\"knowable_at\":\"2026-10-07 10:30 ET\",\"title\":\"IEX last trade and intraday returns for TOPP as of 10:30 ET\"}\n{\"data\":{\"early_baseline\":{\"per_min_volume\":7447.1,\"trades\":512,\"window_et\":\"09:30 ET-10:00 ET\"},\"premarket\":{\"trades\":0,\"volume\":0},\"recent\":{\"per_min_volume\":10678.9,\"trades\":305,\"window_min\":15},\"recent_overlaps_baseline\":false,\"recent_vs_early_ratio\":1.43,\"regular_session\":{\"active_minutes\":60,\"minutes_elapsed\":60,\"session_vwap_usd\":0.2164,\"trades\":945,\"volume\":467297},\"scope\":\"IEX executions only - a small share of consolidated volume\"},\"id\":\"ev_fd1866f339980768ffc4cb7c\",\"kind\":\"market_volume\",\"knowable_at\":\"2026-10-07 10:30 ET\",\"title\":\"IEX volume for TOPP, session to date vs early baseline, as of 10:30 ET\"}\n{\"data\":{\"caveat\":\"Inferred aggressor share (quote rule vs IEX BBO; IEX-only). Trades at/above the prevailing IEX ask count as buyer-initiated, at/below the IEX bid as seller-initiated; trades inside the spread or without a two-sided quote are unclassified. This is an inference about IEX executions only, not observed intent; volume alone is not buying intent.\",\"min_classified_shares_for_share\":1000,\"premarket\":{\"buy_share\":null,\"buyer_initiated\":0,\"classified_share_of_volume\":null,\"seller_initiated\":0,\"unclassified\":0},\"recent_15m\":{\"buy_share\":0.522,\"buyer_initiated\":28298,\"classified_share_of_volume\":0.339,\"seller_initiated\":25930,\"unclassified\":105956},\"regular_session\":{\"buy_share\":0.379,\"buyer_initiated\":53228,\"classified_share_of_volume\":0.301,\"seller_initiated\":87358,\"unclassified\":326711}},\"id\":\"ev_a053fe762874ef2b868320ac\",\"kind\":\"market_aggressor_inferred\",\"knowable_at\":\"2026-10-07 10:30 ET\",\"title\":\"Inferred aggressor shares for TOPP (IEX-only) as of 10:30 ET\"}\n{\"data\":{\"code_legend\":\"T trading, H halted, P paused, O order-acceptance period\",\"halted_now\":false,\"halted_or_unavailable_minutes\":0,\"halted_or_unavailable_minutes_et\":[],\"operational_halt_now\":false,\"reason\":\"\",\"source\":\"IEX trading-status / operational-halt messages; other venues not covered\",\"status_known\":true,\"status_time_et\":\"07:06:47 ET\",\"trading_status_code\":\"T\"},\"id\":\"ev_9814f18db6a9c25d20ac2751\",\"kind\":\"market_trading_status\",\"knowable_at\":\"2026-10-07 10:30 ET\",\"title\":\"IEX trading status and halts for TOPP as of 10:30 ET\"}\n{\"data\":{\"caveat\":\"FINRA-reported off-exchange (TRF/ADF/ORF) short-sale volume only; not consolidated volume and not short interest.\",\"rows\":[{\"date\":\"2026-10-06\",\"markets\":\"B,Q\",\"short_exempt_vol\":2583,\"short_ratio\":0.045,\"short_vol\":3941,\"total_vol\":86920.424117},{\"date\":\"2026-10-05\",\"markets\":\"Q\",\"short_exempt_vol\":2131,\"short_ratio\":0.132,\"short_vol\":22487,\"total_vol\":170466.2735},{\"date\":\"2026-10-02\",\"markets\":\"Q\",\"short_exempt_vol\":0,\"short_ratio\":0.226,\"short_vol\":4143,\"total_vol\":18322.0507},{\"date\":\"2026-10-01\",\"markets\":\"Q\",\"short_exempt_vol\":8040,\"short_ratio\":0.482,\"short_vol\":12012,\"total_vol\":24926.2735},{\"date\":\"2026-09-30\",\"markets\":\"Q,N\",\"short_exempt_vol\":0,\"short_ratio\":0.126,\"short_vol\":13083,\"total_vol\":104123.2735}]},\"id\":\"ev_f72a2dcf0c123878c33034b8\",\"kind\":\"finra_short_volume\",\"knowable_at\":\"2026-10-06 18:00 ET\",\"title\":\"FINRA daily short-sale volume for TOPP, 5 day(s) before 2026-10-07\"}\n{\"data\":{\"date\":\"2026-10-05\",\"frequency\":\"Daily\",\"knowable_rule\":\"next Federal Reserve business day after the observation date (weekends and federal holidays skipped), 16:30 ET (H.15 daily update ~16:15 ET); never earlier than observation date + 2 day(s) (stored lag)\",\"previous\":{\"date\":\"2026-10-02\",\"value\":5.28},\"series\":\"DGS10\",\"title\":\"10-year U.S. Treasury constant-maturity yield\",\"units\":\"Percent\",\"value\":5.31,\"value_vintage\":\"LATEST_AT_FETCH\",\"vintage_caveat\":\"Latest FRED vintage at fetch time (fetched 2026-10-09 01:23 ET); the value may differ from the first-published figure; ALFRED real-time vintages are not used.\"},\"id\":\"ev_044d1703d8ef8472efdb4b86\",\"kind\":\"macro_observation\",\"knowable_at\":\"2026-10-06 20:00 ET\",\"title\":\"10-year U.S. Treasury constant-maturity yield (DGS10) observation 2026-10-05\"}\n{\"data\":{\"date\":\"2026-10-05\",\"frequency\":\"Daily\",\"knowable_rule\":\"next Federal Reserve business day after the observation date (weekends and federal holidays skipped), 16:30 ET (H.15 daily update ~16:15 ET); never earlier than observation date + 2 day(s) (stored lag)\",\"previous\":{\"date\":\"2026-10-02\",\"value\":4.83},\"series\":\"DGS2\",\"title\":\"2-year U.S. Treasury constant-maturity yield\",\"units\":\"Percent\",\"value\":4.84,\"value_vintage\":\"LATEST_AT_FETCH\",\"vintage_caveat\":\"Latest FRED vintage at fetch time (fetched 2026-10-09 01:23 ET); the value may differ from the first-published figure; ALFRED real-time vintages are not used.\"},\"id\":\"ev_f05e6f3d5adbf356fa4fc6e9\",\"kind\":\"macro_observation\",\"knowable_at\":\"2026-10-06 20:00 ET\",\"title\":\"2-year U.S. Treasury constant-maturity yield (DGS2) observation 2026-10-05\"}\n{\"data\":{\"date\":\"2026-10-05\",\"frequency\":\"Daily\",\"knowable_rule\":\"next Federal Reserve business day after the observation date (weekends and federal holidays skipped), 16:30 ET (H.15 daily update ~16:15 ET); never earlier than observation date + 2 day(s) (stored lag)\",\"previous\":{\"date\":\"2026-10-02\",\"value\":0.45},\"series\":\"T10Y2Y\",\"title\":\"10-year minus 2-year Treasury constant-maturity spread\",\"units\":\"Percent\",\"value\":0.47,\"value_vintage\":\"LATEST_AT_FETCH\",\"vintage_caveat\":\"Latest FRED vintage at fetch time (fetched 2026-10-09 01:23 ET); the value may differ from the first-published figure; ALFRED real-time vintages are not used.\"},\"id\":\"ev_ead77c4e0a7efd9d2353d30b\",\"kind\":\"macro_observation\",\"knowable_at\":\"2026-10-06 20:00 ET\",\"title\":\"10-year minus 2-year Treasury constant-maturity spread (T10Y2Y) observation 2026-10-05\"}\n{\"data\":{\"date\":\"2026-10-05\",\"frequency\":\"Daily\",\"knowable_rule\":\"observation date + 2 publication-lag day(s), at 00:00 ET; never earlier than observation date + 2 day(s) (stored lag)\",\"previous\":{\"date\":\"2026-10-02\",\"value\":15.31},\"series\":\"VIXCLS\",\"title\":\"Cboe Volatility Index (VIX), daily close\",\"units\":\"Index\",\"value\":15.52,\"value_vintage\":\"LATEST_AT_FETCH\",\"vintage_caveat\":\"Latest FRED vintage at fetch time (fetched 2026-10-09 01:23 ET); the value may differ from the first-published figure; ALFRED real-time vintages are not used.\"},\"id\":\"ev_e8384a3b49144f7574425106\",\"kind\":\"macro_observation\",\"knowable_at\":\"2026-10-07 00:00 ET\",\"title\":\"Cboe Volatility Index (VIX), daily close (VIXCLS) observation 2026-10-05\"}\n{\"data\":{\"date\":\"2026-10-05\",\"frequency\":\"Daily\",\"knowable_rule\":\"observation date + 2 publication-lag day(s), at 00:00 ET; never earlier than observation date + 2 day(s) (stored lag)\",\"previous\":{\"date\":\"2026-10-02\",\"value\":7722.72},\"series\":\"SP500\",\"title\":\"S&P 500 index level, daily close\",\"units\":\"Index level (not a total return)\",\"value\":7773.95,\"value_vintage\":\"LATEST_AT_FETCH\",\"vintage_caveat\":\"Latest FRED vintage at fetch time (fetched 2026-10-09 01:23 ET); the value may differ from the first-published figure; ALFRED real-time vintages are not used.\"},\"id\":\"ev_10e029aa859cb6a09530c384\",\"kind\":\"macro_observation\",\"knowable_at\":\"2026-10-07 00:00 ET\",\"title\":\"S&P 500 index level, daily close (SP500) observation 2026-10-05\"}\n{\"data\":{\"date\":\"2026-09-29\",\"frequency\":\"Daily\",\"knowable_rule\":\"released weekly: the first Wednesday strictly after the observation date (Thursday when a federal holiday falls Mon–Wed of that week), knowable at the end of that day ET; never earlier than observation date + 2 day(s) (stored lag)\",\"previous\":{\"date\":\"2026-09-28\",\"value\":99.37},\"series\":\"DCOILWTICO\",\"title\":\"WTI crude oil spot price, Cushing OK\",\"units\":\"U.S. dollars per barrel\",\"value\":96.16,\"value_vintage\":\"LATEST_AT_FETCH\",\"vintage_caveat\":\"Latest FRED vintage at fetch time (fetched 2026-10-09 01:23 ET); the value may differ from the first-published figure; ALFRED real-time vintages are not used.\"},\"id\":\"ev_62e5e074ab66604ab552b05d\",\"kind\":\"macro_observation\",\"knowable_at\":\"2026-10-01 00:00 ET\",\"title\":\"WTI crude oil spot price, Cushing OK (DCOILWTICO) observation 2026-09-29\"}\n{\"data\":{\"date\":\"2026-10-02\",\"frequency\":\"Daily\",\"knowable_rule\":\"released weekly: the Monday after the observation's Mon–Fri week (next business day if that Monday is a federal holiday), 16:30 ET (H.10 ~16:15 ET); never earlier than observation date + 2 day(s) (stored lag)\",\"previous\":{\"date\":\"2026-10-01\",\"value\":121.7882},\"series\":\"DTWEXBGS\",\"title\":\"Nominal broad U.S. dollar index\",\"units\":\"Index (Jan 2006 = 100)\",\"value\":121.3848,\"value_vintage\":\"LATEST_AT_FETCH\",\"vintage_caveat\":\"Latest FRED vintage at fetch time (fetched 2026-10-09 01:23 ET); the value may differ from the first-published figure; ALFRED real-time vintages are not used.\"},\"id\":\"ev_6f325c3f0c68ae940eb9d3d6\",\"kind\":\"macro_observation\",\"knowable_at\":\"2026-10-05 16:30 ET\",\"title\":\"Nominal broad U.S. dollar index (DTWEXBGS) observation 2026-10-02\"}\n{\"data\":{\"date\":\"2026-09-01\",\"frequency\":\"Monthly\",\"knowable_rule\":\"observation date + 33 publication-lag day(s), at 00:00 ET; never earlier than observation date + 33 day(s) (stored lag)\",\"previous\":{\"date\":\"2026-08-01\",\"value\":3.63},\"series\":\"FEDFUNDS\",\"title\":\"Effective federal funds rate, monthly average\",\"units\":\"Percent\",\"value\":3.75,\"value_vintage\":\"LATEST_AT_FETCH\",\"vintage_caveat\":\"Latest FRED vintage at fetch time (fetched 2026-10-09 01:23 ET); the value may differ from the first-published figure; ALFRED real-time vintages are not used.\"},\"id\":\"ev_6a5ff98462b2d8821b90e8cb\",\"kind\":\"macro_observation\",\"knowable_at\":\"2026-10-04 00:00 ET\",\"title\":\"Effective federal funds rate, monthly average (FEDFUNDS) observation 2026-09-01\"}\n{\"data\":{\"date\":\"2026-08-01\",\"frequency\":\"Monthly\",\"knowable_rule\":\"observation date + 50 publication-lag day(s), at 00:00 ET; never earlier than observation date + 50 day(s) (stored lag)\",\"previous\":{\"date\":\"2026-07-01\",\"value\":332.813},\"series\":\"CPIAUCSL\",\"title\":\"CPI for all urban consumers, all items, U.S. city average (SA)\",\"units\":\"Index (1982-84 = 100), seasonally adjusted\",\"value\":334.131,\"value_vintage\":\"LATEST_AT_FETCH\",\"vintage_caveat\":\"Latest FRED vintage at fetch time (fetched 2026-10-09 01:23 ET); the value may differ from the first-published figure; ALFRED real-time vintages are not used.\"},\"id\":\"ev_828232383192f955abb32c51\",\"kind\":\"macro_observation\",\"knowable_at\":\"2026-09-20 00:00 ET\",\"title\":\"CPI for all urban consumers, all items, U.S. city average (SA) (CPIAUCSL) observation 2026-08-01\"}\n{\"data\":{\"date\":\"2026-08-01\",\"frequency\":\"Monthly\",\"knowable_rule\":\"observation date + 40 publication-lag day(s), at 00:00 ET; never earlier than observation date + 40 day(s) (stored lag)\",\"previous\":{\"date\":\"2026-07-01\",\"value\":4.1},\"series\":\"UNRATE\",\"title\":\"Civilian unemployment rate (SA)\",\"units\":\"Percent, seasonally adjusted\",\"value\":4.1,\"value_vintage\":\"LATEST_AT_FETCH\",\"vintage_caveat\":\"Latest FRED vintage at fetch time (fetched 2026-10-09 01:23 ET); the value may differ from the first-published figure; ALFRED real-time vintages are not used.\"},\"id\":\"ev_bcd7e89c772512d93898772b\",\"kind\":\"macro_observation\",\"knowable_at\":\"2026-09-10 00:00 ET\",\"title\":\"Civilian unemployment rate (SA) (UNRATE) observation 2026-08-01\"}\n\nNOT AVAILABLE (treat as unknown, do not guess):\n{\"detail\":\"no symbol-directory snapshot published at or before the as-of time is ingested; identity (name, exchange, ETF flag) omitted to avoid look-ahead\",\"kind\":\"symbol_identity\",\"status\":\"UNAVAILABLE_NOT_VERIFIED\"}\n{\"detail\":\"sector/industry (SEC SIC code) requires SEC EDGAR access, which is not configured (SEC_USER_AGENT is not set); no classification is included or inferred\",\"kind\":\"sector_industry\",\"status\":\"BLOCKED\"}\n{\"detail\":\"no licensed analyst or commentator source is connected; analyst views, ratings and price targets are not included and must not be inferred\",\"kind\":\"analyst_views\",\"status\":\"UNAVAILABLE_NOT_VERIFIED\"}\n{\"detail\":\"no SEC filings, news, financing or dilution evidence is included in this packet\",\"kind\":\"filings_news_financing\",\"status\":\"NO_VERIFIED_DATA\"}\n{\"detail\":\"quotes/trades from venues other than IEX are not available\",\"kind\":\"other_venues\",\"status\":\"NO_VERIFIED_DATA\"}\n\nTask: give your lens assessment of TOPP as of 2026-10-07 10:30 ET as one JSON object.\nREMINDER (hard rules): use ONLY this packet and never invent facts, news, prices or volumes; cite only the \"id\" values above and list every id you use in evidence_refs; the data is IEX-only (not the consolidated NBBO); quote numbers with their exact field and window; any proposed entry needs stop_loss_px_usd below the current bid plus take_profit_px_usd or time_exit_min, and stop_px_usd only for stop/stop_limit orders; reply with one JSON object only.",
+  "hindsight_guard": {
+    "trade_date": "2026-10-07",
+    "model": "qwen3:8b",
+    "ok": true,
+    "risk": false,
+    "code": null,
+    "trainingCutoff": "2025-04-29",
+    "source": "configured",
+    "marginDays": 90,
+    "safeAfter": "2025-07-28",
+    "allowOverride": false,
+    "detail": "replay date 2026-10-07 is after 2025-07-28"
+  },
+  "session_id": "smoke-ollama-20261009185556",
+  "wall_ms": 450165,
+  "run_status": "COMPLETED",
+  "hindsight": null,
+  "stances": {
+    "cowboy": "consider_entry",
+    "pragmatist": "consider_entry",
+    "tightwad": "avoid"
+  },
+  "lenses": [
+    {
+      "lens": "cowboy",
+      "status": "OK",
+      "error_kind": null,
+      "assessment_id": "asmt_mv1bxhlt01ab5b4544",
+      "served_model": "qwen3:8b",
+      "latency_ms": 69832,
+      "usage": {
+        "in": 7325,
+        "out": 1601
+      },
+      "output": {
+        "lens": "cowboy",
+        "stance": "consider_entry",
+        "thesis": "Recent 15m volume (10,678.9 shares/min) is 1.43x the early baseline (7,447.1 shares/min) [ev_fd1866f339980768ffc4cb7c], with buyer-initiated aggressor shares at 37.9% of volume [ev_a053fe762874ef2b868320ac]. The last trade hit 0.24 (14.34% gain in 15m) [ev_6ae454efb34a9a1095547e13], and the bid/ask spread (0.007) suggests liquidity to absorb incremental buying [ev_27ff63f4e9361c43a515d9b6].",
+        "counter_thesis": "The spread (2.94% of mid) and round-trip cost (2.94%) erode potential gains [ev_27ff63f4e9361c43a515d9b6]. The recent 15m high (0.2449) is only 1.8% above the current bid, implying limited upside momentum.",
+        "exposure": "Buy at bid 0.2345 (limit), stop loss at 0.2315 (0.003 below bid), take profit at 0.2677 (session high). Risk: $0.003 per share (0.2345-0.2315) minus spread cost. Max upside: 14.2% (0.2677-0.2345).",
+        "liquidity_and_spread": "Bid size 3,300, ask size 8,367 [ev_27ff63f4e9361c43a515d9b6]. Spread 0.007 (2.94% of mid). Round-trip cross cost 2.94%. Paper fills are credible with current bid/ask.",
+        "unknowns": [
+          "Off-exchange volume",
+          "Short interest",
+          "Other venues' data",
+          "Share count/float"
+        ],
+        "evidence_refs": [
+          "ev_fd1866f339980768ffc4cb7c",
+          "ev_a053fe762874ef2b868320ac",
+          "ev_6ae454efb34a9a1095547e13",
+          "ev_27ff63f4e9361c43a515d9b6"
+        ],
+        "confidence": {
+          "level": "medium",
+          "calibration_note": "Multiple volume/price signals align, but spread cost and limited price momentum reduce confidence."
+        },
+        "proposed_intent": {
+          "action": "open",
+          "side": "buy",
+          "order_type": "limit",
+          "budget_usd": 2345,
+          "qty": 10000,
+          "limit_px_usd": 0.2345,
+          "stop_px_usd": null,
+          "stop_loss_px_usd": 0.2315,
+          "take_profit_px_usd": 0.2677,
+          "time_exit_min": 60,
+          "expires_in_min": 30,
+          "rationale": "Expanding volume and buyer-initiated aggressor shares suggest a short-term rally, with stop loss below bid to mitigate spread risk.",
+          "evidence_refs": [
+            "ev_fd1866f339980768ffc4cb7c",
+            "ev_a053fe762874ef2b868320ac",
+            "ev_6ae454efb34a9a1095547e13",
+            "ev_27ff63f4e9361c43a515d9b6"
+          ]
+        }
+      },
+      "error": null,
+      "raw_excerpt": null,
+      "intent": {
+        "status": "VALID",
+        "intent": {
+          "action": "open",
+          "instrument": {
+            "kind": "equity",
+            "sym": "TOPP"
+          },
+          "side": "buy",
+          "qty": 10000,
+          "budget_usd": 2345,
+          "order_type": "limit",
+          "limit_px_u": 2345,
+          "attach": {
+            "stop_loss_px_u": 2315,
+            "take_profit_px_u": 2677,
+            "time_exit_min": 60
+          },
+          "rationale": "Expanding volume and buyer-initiated aggressor shares suggest a short-term rally, with stop loss below bid to mitigate spread risk.",
+          "evidence_refs": [
+            "ev_fd1866f339980768ffc4cb7c",
+            "ev_a053fe762874ef2b868320ac",
+            "ev_6ae454efb34a9a1095547e13",
+            "ev_27ff63f4e9361c43a515d9b6"
+          ],
+          "source": "model",
+          "agent_id": "draft:cowboy",
+          "portfolio_id": "cowboy-micro",
+          "strategy_id": null,
+          "quote_ts": 1791383384919,
+          "created_ts": 1791383400000,
+          "expires_ts": 1791385200000
+        },
+        "errors": []
+      },
+      "verification": {
+        "checked": true,
+        "numbers_checked": 29,
+        "unmatched": [
+          {
+            "field": "$.counter_thesis",
+            "value": "1.8"
+          },
+          {
+            "field": "$.exposure",
+            "value": "14.2"
+          }
+        ],
+        "flags": [],
+        "note": "Numbers in the model text that match no packet value (within the rounding shown, including fraction/percent conversions). Numbers the model derived itself also appear here. This is a consistency aid, not a fact check; integers 0-10 are not checked."
+      },
+      "requested_model": "qwen3:8b",
+      "fallback_used": false,
+      "attempts": 2,
+      "repair_of": "asmt_mv1bvzpu13651dbafa",
+      "first_attempt_error": "SEMANTIC_INVALID: $.proposed_intent.stop_px_usd: must be null for order_type limit (stop_px_usd is the entry trigger of a stop/stop_limit order; the protective stop belongs in stop_loss_px_usd)"
+    },
+    {
+      "lens": "pragmatist",
+      "status": "OK",
+      "error_kind": null,
+      "assessment_id": "asmt_mv1c10g4cc90e874ed",
+      "served_model": "qwen3:8b",
+      "latency_ms": 63790,
+      "usage": {
+        "in": 7305,
+        "out": 1454
+      },
+      "output": {
+        "lens": "pragmatist",
+        "stance": "consider_entry",
+        "thesis": "The IEX top-of-book shows a bid of $0.2345 with 3,300 shares and an ask of $0.2415 with 8,367 shares (ev_27ff63f4e9361c43a515d9b6). Recent 15m volume is 10,678 shares/min (ev_fd1866f339980768ffc4cb7c), and buyer-initiated trades account for 37.9% of regular-session volume (ev_a053fe762874ef2b868320ac). The spread of $0.007 (2.94% of mid) and 2.94% round-trip cost are material, but liquidity appears sufficient for a limit order.",
+        "counter_thesis": "The spread of 2.94% of mid and 2.94% round-trip cost (ev_27ff63f4e9361c43a515d9b6) may erode returns, and IEX volume is a fraction of total market volume (packet META). Without evidence of other-venue liquidity or financing catalysts, the position is speculative.",
+        "exposure": "Proposed limit-buy at bid $0.2345 (size 3,300 shares), stop-loss at $0.2250 (1.5% below bid), take-profit at $0.2500 (6.5% above bid). Worst-case loss: $0.0095/share (spread + slippage).",
+        "liquidity_and_spread": "Spread: $0.007 (294 bps or 2.94% of mid). Displayed size: 3,300 bid shares. Trade frequency: 10,673 shares/min in recent 15m (ev_fd1866f339980768ffc4cb7c). A paper fill is credibly estimable within displayed size.",
+        "unknowns": [
+          "filings_news_financing",
+          "other_venues",
+          "share_count",
+          "float",
+          "dilution"
+        ],
+        "evidence_refs": [
+          "ev_27ff63f4e9361c43a515d9b6",
+          "ev_fd1866f339980768ffc4cb7c",
+          "ev_a053fe762874ef2b868320ac"
+        ],
+        "confidence": {
+          "level": "medium",
+          "calibration_note": "Spread cost and limited-venue liquidity warrant medium confidence; key unknowns (filings, other venues) reduce certainty."
+        },
+        "proposed_intent": {
+          "action": "open",
+          "side": "buy",
+          "order_type": "limit",
+          "budget_usd": 773.85,
+          "qty": 3300,
+          "limit_px_usd": 0.2345,
+          "stop_px_usd": null,
+          "stop_loss_px_usd": 0.225,
+          "take_profit_px_usd": 0.25,
+          "time_exit_min": 120,
+          "expires_in_min": 60,
+          "rationale": "Limit order at bid with stop-loss below current bid and take-profit above mid, accounting for spread and slippage costs (ev_27ff63f4e9361c43a515d9b6). Size capped by displayed bid size (ev_27ff63f4e9361c43a515d9b6).",
+          "evidence_refs": [
+            "ev_27ff63f4e9361c43a515d9b6",
+            "ev_fd1866f339980768ffc4cb7c"
+          ]
+        }
+      },
+      "error": null,
+      "raw_excerpt": null,
+      "intent": {
+        "status": "VALID",
+        "intent": {
+          "action": "open",
+          "instrument": {
+            "kind": "equity",
+            "sym": "TOPP"
+          },
+          "side": "buy",
+          "qty": 3300,
+          "budget_usd": 773.85,
+          "order_type": "limit",
+          "limit_px_u": 2345,
+          "attach": {
+            "stop_loss_px_u": 2250,
+            "take_profit_px_u": 2500,
+            "time_exit_min": 120
+          },
+          "rationale": "Limit order at bid with stop-loss below current bid and take-profit above mid, accounting for spread and slippage costs (ev_27ff63f4e9361c43a515d9b6). Size capped by displayed bid size (ev_27ff63f4e9361c43a515d9b6).",
+          "evidence_refs": [
+            "ev_27ff63f4e9361c43a515d9b6",
+            "ev_fd1866f339980768ffc4cb7c"
+          ],
+          "source": "model",
+          "agent_id": "draft:pragmatist",
+          "portfolio_id": "pragmatist-micro",
+          "strategy_id": null,
+          "quote_ts": 1791383384919,
+          "created_ts": 1791383400000,
+          "expires_ts": 1791387000000
+        },
+        "errors": []
+      },
+      "verification": {
+        "checked": true,
+        "numbers_checked": 25,
+        "unmatched": [
+          {
+            "field": "$.thesis",
+            "value": "10,678"
+          },
+          {
+            "field": "$.exposure",
+            "value": "1.5"
+          },
+          {
+            "field": "$.exposure",
+            "value": "6.5"
+          },
+          {
+            "field": "$.exposure",
+            "value": "0.0095"
+          },
+          {
+            "field": "$.liquidity_and_spread",
+            "value": "10,673"
+          }
+        ],
+        "flags": [],
+        "note": "Numbers in the model text that match no packet value (within the rounding shown, including fraction/percent conversions). Numbers the model derived itself also appear here. This is a consistency aid, not a fact check; integers 0-10 are not checked."
+      },
+      "requested_model": "qwen3:8b",
+      "fallback_used": false,
+      "attempts": 2,
+      "repair_of": "asmt_mv1bzn81e8d0c3c6ba",
+      "first_attempt_error": "SEMANTIC_INVALID: $.proposed_intent.stop_px_usd: must be null for order_type limit (stop_px_usd is the entry trigger of a stop/stop_limit order; the protective stop belongs in stop_loss_px_usd)"
+    },
+    {
+      "lens": "tightwad",
+      "status": "OK",
+      "error_kind": null,
+      "assessment_id": "asmt_mv1c2mqn1a51d0bc17",
+      "served_model": "qwen3:8b",
+      "latency_ms": 75545,
+      "usage": {
+        "in": 6253,
+        "out": 1789
+      },
+      "output": {
+        "lens": "tightwad",
+        "stance": "avoid",
+        "thesis": "The wide spread (294 bps / 2.94% of mid) and thin liquidity (bid_size 3300, ask_size 8367) pose significant risk. Recent 15m max_two_sided_spread_usd 0.07 (70 bps) and round_trip_cross_cost_pct 2.941% indicate high slippage potential. The 15m volume surge (10678.9 shares/min) vs early baseline (7447.1) is unreliable due to IEX's small market share. Aggressor data shows 30.1% classified volume, but 69.9% unclassified trades may signal manipulation.",
+        "counter_thesis": "The 15m volume increase and 7.96% return in last 5 minutes suggest short-term momentum. The 10-year Treasury yield (5.31%) and S&P 500 (7773.95) imply broader market strength that could benefit low-cap stocks.",
+        "exposure": "A $5 entry at bid 0.2345 would risk $5 - (spread 0.007 + 2.941% round-trip cost) = $4.69 loss. Stop_loss_px_usd 0.2245 (below bid) would limit losses, but the 15m low 0.21 suggests potential for wider gaps.",
+        "liquidity_and_spread": "Spread 0.007 (294 bps / 2.94% of mid 0.238). Displayed size 3300 bid, 8367 ask. Trade frequency shows 10678.9 shares/min in recent 15m, but IEX volume is a fraction of total market. Paper fills are uncertain due to thin order book.",
+        "unknowns": [
+          "Filings/news/financing",
+          "Other venues' volume",
+          "Share count/float/dilution",
+          "Sector/industry classification"
+        ],
+        "evidence_refs": [
+          "ev_27ff63f4e9361c43a515d9b6",
+          "ev_6ae454efb34a9a1095547e13",
+          "ev_fd1866f339980768ffc4cb7c",
+          "ev_a053fe762874ef2b868320ac",
+          "ev_f72a2dcf0c123878c33034b8"
+        ],
+        "confidence": {
+          "level": "low",
+          "calibration_note": "Single-venue intraday data with no sector context or fundamental analysis. Spread risk and liquidity concerns dominate."
+        },
+        "proposed_intent": null
+      },
+      "error": null,
+      "raw_excerpt": null,
+      "intent": {
+        "status": "NONE",
+        "intent": null,
+        "errors": []
+      },
+      "verification": {
+        "checked": true,
+        "numbers_checked": 33,
+        "unmatched": [
+          {
+            "field": "$.thesis",
+            "value": "70"
+          },
+          {
+            "field": "$.thesis",
+            "value": "69.9"
+          },
+          {
+            "field": "$.exposure",
+            "value": "4.69"
+          },
+          {
+            "field": "$.exposure",
+            "value": "0.2245"
+          }
+        ],
+        "flags": [],
+        "note": "Numbers in the model text that match no packet value (within the rounding shown, including fraction/percent conversions). Numbers the model derived itself also appear here. This is a consistency aid, not a fact check; integers 0-10 are not checked."
+      },
+      "requested_model": "qwen3:8b",
+      "fallback_used": false,
+      "attempts": 1,
+      "repair_of": null,
+      "first_attempt_error": null
+    }
+  ],
+  "served_context": {
+    "tokens": 16384,
+    "source": "num_ctx 16384 (confirmed by /api/ps: 16384)"
+  },
+  "ollama_ps": {
+    "models": [
+      {
+        "name": "qwen3:8b",
+        "model": "qwen3:8b",
+        "size": 7812111399,
+        "digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "8.2B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-10-09T15:08:26.876003-04:00",
+        "size_vram": 6091104583,
+        "context_length": 16384
+      }
+    ]
+  },
+  "reviewer_notes": {
+    "generated_by": "test/intel/smoke-review.js (deterministic checks; a reading aid, not a fact check)",
+    "status_semantics": "Per-lens OK = schema-, evidence-id- and bracket-coherence-valid; NOT fact-checked. Read each output against packet_user_message.",
+    "context": {
+      "tokens": 16384,
+      "source": "num_ctx 16384 (confirmed by /api/ps: 16384)"
+    },
+    "per_lens": [
+      {
+        "lens": "cowboy",
+        "status": "OK",
+        "stance": "consider_entry",
+        "context_use": {
+          "prompt_tokens": 7325,
+          "output_tokens": 1601,
+          "context_tokens": 16384,
+          "share": 0.545
+        },
+        "observations": [
+          "\"session high). Risk: $0.003\" does not match regular_session.session_high_usd (0.2677)",
+          "number not found in the packet: 1.8 ($.counter_thesis)",
+          "number not found in the packet: 14.2 ($.exposure)"
+        ]
+      },
+      {
+        "lens": "pragmatist",
+        "status": "OK",
+        "stance": "consider_entry",
+        "context_use": {
+          "prompt_tokens": 7305,
+          "output_tokens": 1454,
+          "context_tokens": 16384,
+          "share": 0.535
+        },
+        "observations": [
+          "number not found in the packet: 10,678 ($.thesis)",
+          "number not found in the packet: 1.5 ($.exposure)",
+          "number not found in the packet: 6.5 ($.exposure)",
+          "number not found in the packet: 0.0095 ($.exposure)",
+          "number not found in the packet: 10,673 ($.liquidity_and_spread)",
+          "proposes an entry but exposure does not account for the round-trip spread cost (prompt rule 9)"
+        ]
+      },
+      {
+        "lens": "tightwad",
+        "status": "OK",
+        "stance": "avoid",
+        "context_use": {
+          "prompt_tokens": 6253,
+          "output_tokens": 1789,
+          "context_tokens": 16384,
+          "share": 0.491
+        },
+        "observations": [
+          "number not found in the packet: 70 ($.thesis)",
+          "number not found in the packet: 69.9 ($.thesis)",
+          "number not found in the packet: 4.69 ($.exposure)",
+          "number not found in the packet: 0.2245 ($.exposure)"
+        ]
+      }
+    ],
+    "human": {
+      "training_cutoff_basis": "2025-04-29 is an UPPER BOUND, not a documented cutoff: it is the publication date of the Qwen3 release post (https://qwenlm.github.io/blog/qwen3/, 'April 29, 2025 · Qwen Team'), which states no training-data cutoff. Independent physical bound: the local qwen3:8b weights were pulled on 2026-08-20 (Ollama modified_at), also before the 2026-10-07 replay date, so the model cannot have seen the replay day.",
+      "reviewer": "orchestrator (Claude builder)"
+    }
+  }
+}

@@ -1,0 +1,370 @@
+[
+  {
+    "vp": "390",
+    "route": "overview",
+    "files": [
+      "390-overview-benchmark.png",
+      "390-overview-benchmark-hover.png",
+      "390-overview-benchmark-keyboard.png",
+      "390-overview-benchmark-table.png",
+      "390-overview-macro-sparklines.png"
+    ],
+    "metricsAtRest": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "hoverTarget": "rect.v-overlay",
+    "tipMid": {
+      "visible": true,
+      "text": "10:10 ET−0.22%SPY−0.09%QQQ−0.15%IWM−0.31%DIA",
+      "inside": true,
+      "left": 157,
+      "right": 297,
+      "iw": 390
+    },
+    "metricsHover": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "edgeTarget": "rect.v-overlay",
+    "tipEdge": {
+      "visible": true,
+      "text": "10:44 ET−0.24%SPY+0.07%QQQ−0.23%IWM−0.42%DIA",
+      "inside": true,
+      "left": 215,
+      "right": 355,
+      "iw": 390
+    },
+    "metricsEdge": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "tipAfterLeave": false,
+    "keyboard": {
+      "role": "slider",
+      "tabindex": 0,
+      "now": "69",
+      "max": "74",
+      "text": "10:39 ET: SPY −0.15%, QQQ +0.10%, IWM −0.15%, DIA −0.30%",
+      "tip": true
+    },
+    "table": {
+      "rows": 75,
+      "cols": 5,
+      "head": [
+        "Time (ET)",
+        "SPY",
+        "QQQ",
+        "IWM",
+        "DIA"
+      ],
+      "scrollsY": true,
+      "scrollsX": true,
+      "firstRow": [
+        "09:30",
+        "+0.01%",
+        "+0.01%",
+        "+0.08%",
+        "+0.05%"
+      ],
+      "lastRow": [
+        "10:44",
+        "−0.24%",
+        "+0.07%",
+        "−0.23%",
+        "−0.42%"
+      ]
+    },
+    "metricsTable": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "errors": []
+  },
+  {
+    "vp": "390",
+    "route": "research/COST",
+    "files": [
+      "390-research-price-volume.png",
+      "390-research-price-volume-hover.png",
+      "390-research-price-volume-keyboard.png",
+      "390-research-price-volume-table.png"
+    ],
+    "metricsAtRest": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "hoverTarget": "rect.v-overlay",
+    "tipMid": {
+      "visible": true,
+      "text": "10:10 ET$941.62Close$941.73Open$941.73High$941.27Low242Volume (IEX)0▲Buyer-initiated (inferred)0▼Seller-initiated (inferred)242Unclassified",
+      "inside": true,
+      "left": 71,
+      "right": 355,
+      "iw": 390
+    },
+    "metricsHover": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "edgeTarget": "rect.v-overlay",
+    "tipEdge": {
+      "visible": true,
+      "text": "10:44 ET$943.06Close$942.79Open$943.06High$942.36Low630Volume (IEX)0▲Buyer-initiated (inferred)40▼Seller-initiated (inferred)590Unclassified",
+      "inside": true,
+      "left": 71,
+      "right": 355,
+      "iw": 390
+    },
+    "metricsEdge": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "tipAfterLeave": false,
+    "keyboard": {
+      "role": "slider",
+      "tabindex": 0,
+      "now": "69",
+      "max": "74",
+      "text": "10:39 ET: open $944.45, high $944.45, low $943.41, close $943.41; volume 361 (buyer-initiated, inferred 0; seller-initiated, inferred 128; unclassified 233)",
+      "tip": true
+    },
+    "table": {
+      "rows": 75,
+      "cols": 9,
+      "head": [
+        "Time (ET)",
+        "Open",
+        "High",
+        "Low",
+        "Close",
+        "Volume",
+        "▲Buyer-initiated (inferred)",
+        "▼Seller-initiated (inferred)",
+        "Unclassified"
+      ],
+      "scrollsY": true,
+      "scrollsX": true,
+      "firstRow": [
+        "09:30",
+        "$940.02",
+        "$940.02",
+        "$938.71",
+        "$939.21",
+        "378",
+        "0",
+        "0",
+        "378"
+      ],
+      "lastRow": [
+        "10:44",
+        "$942.79",
+        "$943.06",
+        "$942.36",
+        "$943.06",
+        "630",
+        "0",
+        "40",
+        "590"
+      ]
+    },
+    "metricsTable": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "errors": []
+  },
+  {
+    "vp": "1440",
+    "route": "overview",
+    "files": [
+      "1440-overview-benchmark.png",
+      "1440-overview-benchmark-hover.png",
+      "1440-overview-benchmark-keyboard.png",
+      "1440-overview-benchmark-table.png",
+      "1440-overview-benchmark-print.png",
+      "1440-overview-macro-sparklines.png"
+    ],
+    "metricsAtRest": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "hoverTarget": "rect.v-overlay",
+    "tipMid": {
+      "visible": true,
+      "text": "10:11 ET−0.20%SPY−0.07%QQQ−0.15%IWM—DIA",
+      "inside": true,
+      "left": 1231,
+      "right": 1359,
+      "iw": 1440
+    },
+    "metricsHover": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "edgeTarget": "rect.v-overlay",
+    "tipEdge": {
+      "visible": true,
+      "text": "10:44 ET−0.24%SPY+0.07%QQQ−0.23%IWM−0.42%DIA",
+      "inside": true,
+      "left": 1237,
+      "right": 1365,
+      "iw": 1440
+    },
+    "metricsEdge": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "tipAfterLeave": false,
+    "keyboard": {
+      "role": "slider",
+      "tabindex": 0,
+      "now": "69",
+      "max": "74",
+      "text": "10:39 ET: SPY −0.15%, QQQ +0.10%, IWM −0.15%, DIA −0.30%",
+      "tip": true
+    },
+    "table": {
+      "rows": 75,
+      "cols": 5,
+      "head": [
+        "Time (ET)",
+        "SPY",
+        "QQQ",
+        "IWM",
+        "DIA"
+      ],
+      "scrollsY": true,
+      "scrollsX": false,
+      "firstRow": [
+        "09:30",
+        "+0.01%",
+        "+0.01%",
+        "+0.08%",
+        "+0.05%"
+      ],
+      "lastRow": [
+        "10:44",
+        "−0.24%",
+        "+0.07%",
+        "−0.23%",
+        "−0.42%"
+      ]
+    },
+    "metricsTable": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "errors": []
+  },
+  {
+    "vp": "1440",
+    "route": "research/COST",
+    "files": [
+      "1440-research-price-volume.png",
+      "1440-research-price-volume-hover.png",
+      "1440-research-price-volume-keyboard.png",
+      "1440-research-price-volume-table.png",
+      "1440-research-price-volume-print.png"
+    ],
+    "metricsAtRest": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "hoverTarget": "rect.v-overlay",
+    "tipMid": {
+      "visible": true,
+      "text": "10:12 ET$942.03Close$941.49Open$942.03High$941.45Low23Volume (IEX)0▲Buyer-initiated (inferred)0▼Seller-initiated (inferred)23Unclassified",
+      "inside": true,
+      "left": 728,
+      "right": 982,
+      "iw": 1440
+    },
+    "metricsHover": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "edgeTarget": "rect.v-overlay",
+    "tipEdge": {
+      "visible": true,
+      "text": "10:44 ET$943.06Close$942.79Open$943.06High$942.36Low630Volume (IEX)0▲Buyer-initiated (inferred)40▼Seller-initiated (inferred)590Unclassified",
+      "inside": true,
+      "left": 722,
+      "right": 976,
+      "iw": 1440
+    },
+    "metricsEdge": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "tipAfterLeave": false,
+    "keyboard": {
+      "role": "slider",
+      "tabindex": 0,
+      "now": "69",
+      "max": "74",
+      "text": "10:39 ET: open $944.45, high $944.45, low $943.41, close $943.41; volume 361 (buyer-initiated, inferred 0; seller-initiated, inferred 128; unclassified 233)",
+      "tip": true
+    },
+    "table": {
+      "rows": 75,
+      "cols": 9,
+      "head": [
+        "Time (ET)",
+        "Open",
+        "High",
+        "Low",
+        "Close",
+        "Volume",
+        "▲Buyer-initiated (inferred)",
+        "▼Seller-initiated (inferred)",
+        "Unclassified"
+      ],
+      "scrollsY": true,
+      "scrollsX": true,
+      "firstRow": [
+        "09:30",
+        "$940.02",
+        "$940.02",
+        "$938.71",
+        "$939.21",
+        "378",
+        "0",
+        "0",
+        "378"
+      ],
+      "lastRow": [
+        "10:44",
+        "$942.79",
+        "$943.06",
+        "$942.36",
+        "$943.06",
+        "630",
+        "0",
+        "40",
+        "590"
+      ]
+    },
+    "metricsTable": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "errors": []
+  }
+]

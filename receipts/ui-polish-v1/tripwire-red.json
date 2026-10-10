@@ -1,0 +1,606 @@
+{
+  "tool": "scripts/ui-check.mjs",
+  "label": "VECTOR UI check — screenshots of a paper-only lab; every fill shown is an ESTIMATED PAPER FILL",
+  "mode": "check",
+  "base": "http://127.0.0.1:8798",
+  "startedAt": "2026-10-10T01:59:00.271Z",
+  "browser": {
+    "path": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "version": "Chrome/156.0.8078.12"
+  },
+  "viewports": [
+    {
+      "name": "768x1024",
+      "width": 768,
+      "height": 1024,
+      "kind": "tablet",
+      "orientation": "portrait",
+      "mobile": true,
+      "dsf": 2
+    }
+  ],
+  "routesSelected": [
+    "research"
+  ],
+  "serverStatus": {
+    "dataMode": "HISTORICAL_REAL",
+    "dataset": "iex-tops-2026-10-07",
+    "datasetSha256": "bb405b6835f5cfc8fd27d3552ef9d1572a42670e45d612223c689aad0e458256",
+    "replay": {
+      "session_id": "ses_mv1pvrd4048b6fcbbd",
+      "clock": 1791384300000,
+      "clockEt": "10:45",
+      "playing": false,
+      "status": "READY"
+    },
+    "model": "DISCONNECTED",
+    "killSwitch": false
+  },
+  "prepare": null,
+  "symbols": null,
+  "web": {
+    "assets/RCL_Convergence_Full_Dark.svg": "dbd5d59054914012",
+    "assets/RCL_Convergence_Full_Light.svg": "55f455e77cda1663",
+    "assets/RCL_Convergence_Mark_Dark.svg": "abc341bceffc1a48",
+    "assets/RCL_Convergence_Mark_Light.svg": "2932c8b89c428d91",
+    "assets/RCL_Copper_Steel_Full_814x502.png": "04aaa1a664a4633f",
+    "assets/RCL_Copper_Steel_Mark_120.png": "0bdc1be5e83fca27",
+    "assets/RCL_Copper_Steel_Mark_32.png": "552d140e1bc51f3d",
+    "assets/RCL_Copper_Steel_Mark_40.png": "7050c78c554f2953",
+    "assets/RCL_Copper_Steel_Mark_64.png": "74d54f8f9a5f4c54",
+    "assets/RCL_Copper_Steel_Mark_80.png": "7c93032719d5ebc6",
+    "assets/RCL_Copper_Steel_Mark_96.png": "29d0f176fc11625a",
+    "charts.css": "8000666e49913d46",
+    "index.html": "21b5afcaac6fdf18",
+    "js/api.js": "76760e15f31997d2",
+    "js/app.js": "16c5757358441005",
+    "js/charts.js": "b51af0e4d88d4086",
+    "js/components.js": "a68756d767f473ae",
+    "js/dom.js": "6c9361e3cfd97f97",
+    "js/estimate.js": "68a00a8954de8a9f",
+    "js/format.js": "f48cb063cce8c1df",
+    "js/router.js": "83287433fe761226",
+    "js/status-strip.js": "0e8f4fb4e7b3e4b5",
+    "js/store.js": "3cf3851aab5641aa",
+    "js/strategy-schema.js": "dc4f2c683587440f",
+    "js/summaries.js": "537473f22e6340dc",
+    "js/views/about.js": "256b2758281ee023",
+    "js/views/agents.js": "9494f27ab41e103c",
+    "js/views/common.js": "f3fb437df41a8406",
+    "js/views/journal.js": "01cf21a1e4e133ec",
+    "js/views/lab.js": "f5eedb38c0527aba",
+    "js/views/more.js": "d8dd4706ca9c27fd",
+    "js/views/overview.js": "bdc6d8a7df06f42a",
+    "js/views/replay.js": "d1b15efa44660583",
+    "js/views/research.js": "9ec9f93aecdec3ad",
+    "js/views/sources.js": "d0532fde82db63a6",
+    "styles.css": "e364096e5f5c7be1"
+  },
+  "assertions": [
+    {
+      "group": "route",
+      "viewport": "768x1024",
+      "route": "#/research",
+      "name": "no_horizontal_overflow",
+      "pass": false,
+      "detail": "scrollWidth 818, innerWidth 818, clientWidth 768, visual scale 1; sticking out: div.field.choice right=818, span.lbl right=818, div.seg.full right=818, button right=814"
+    },
+    {
+      "group": "route",
+      "viewport": "768x1024",
+      "route": "#/research",
+      "name": "status_strip_complete",
+      "pass": true,
+      "detail": "data mode: HISTORICAL_REAL; paper: PAPER ONLY — NO LIVE TRADING; model: DISCONNECTED; kill switch: OFF"
+    },
+    {
+      "group": "route",
+      "viewport": "768x1024",
+      "route": "#/research",
+      "name": "tablet_nav_44px",
+      "pass": false,
+      "detail": "sidebar: 9 targets; under 44x44 px: \"VECTOR overview\" a.lockup 159x32px"
+    },
+    {
+      "group": "route",
+      "viewport": "768x1024",
+      "route": "#/research",
+      "name": "status_strip_rows",
+      "pass": true,
+      "detail": "2 row(s) (max 2), 82px tall"
+    },
+    {
+      "group": "route",
+      "viewport": "768x1024",
+      "route": "#/research",
+      "name": "form_controls_16px",
+      "pass": true,
+      "detail": "2 form controls; smallest font 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "768x1024",
+      "route": "#/research",
+      "name": "body_font_16px",
+      "pass": true,
+      "detail": "body font-size 16px"
+    },
+    {
+      "group": "route",
+      "viewport": "768x1024",
+      "route": "#/research",
+      "name": "no_render_artifacts",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "route",
+      "viewport": "768x1024",
+      "route": "#/research",
+      "name": "no_uncaught_errors",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "group": "tripwire",
+      "viewport": "768x1024",
+      "route": "#/research",
+      "name": "overflow_tripwire",
+      "pass": false,
+      "detail": "documentElement.scrollWidth 818 > clientWidth 768 (the root's visible width); body.scrollWidth 818 > clientWidth 768 (the root's visible width); layout viewport is 818 px wide, emulated 768 px (content widened it); widest: span#grp-3.lbl right=818, button right=814; enters at: div.field.choice right=818"
+    },
+    {
+      "group": "tripwire",
+      "viewport": "768x1024",
+      "route": "#/research",
+      "name": "overflow_tripwire_expanded",
+      "pass": false,
+      "detail": "documentElement.scrollWidth 818 > clientWidth 768 (the root's visible width); body.scrollWidth 818 > clientWidth 768 (the root's visible width); layout viewport is 818 px wide, emulated 768 px (content widened it) (28/28 <details> open); widest: span#grp-3.lbl right=818, button right=814; enters at: div.field.choice right=818"
+    }
+  ],
+  "routes": [
+    {
+      "viewport": "768x1024",
+      "route": "#/research",
+      "screenshot": "receipts/ui-polish-v1/tripwire-red/768x1024-research.png",
+      "metrics": {
+        "innerWidth": 818,
+        "innerHeight": 1091,
+        "clientWidth": 768,
+        "scrollWidth": 818,
+        "bodyScrollWidth": 818,
+        "visualScale": 1,
+        "offenders": [
+          "div.field.choice right=818",
+          "span.lbl right=818",
+          "div.seg.full right=818",
+          "button right=814"
+        ],
+        "strip": {
+          "height": 82,
+          "rows": 2,
+          "chips": [
+            {
+              "id": "data",
+              "key": "DATA",
+              "value": "HISTORICAL_REAL",
+              "onScreen": true
+            },
+            {
+              "id": "replay",
+              "key": "REPLAY",
+              "value": "10:45 ET",
+              "onScreen": true
+            },
+            {
+              "id": "dataset",
+              "key": "SET",
+              "value": "iex-tops-2026-10-07",
+              "onScreen": true
+            },
+            {
+              "id": "paper",
+              "key": "",
+              "value": "PAPER ONLY — NO LIVE TRADING",
+              "onScreen": true
+            },
+            {
+              "id": "model",
+              "key": "MODEL",
+              "value": "DISCONNECTED",
+              "onScreen": true
+            },
+            {
+              "id": "kill",
+              "key": "KILL SWITCH",
+              "value": "OFF",
+              "onScreen": true
+            }
+          ],
+          "dataMode": {
+            "id": "data",
+            "key": "DATA",
+            "value": "HISTORICAL_REAL",
+            "onScreen": true
+          },
+          "paperOnly": {
+            "id": "paper",
+            "key": "",
+            "value": "PAPER ONLY — NO LIVE TRADING",
+            "onScreen": true
+          },
+          "model": {
+            "id": "model",
+            "key": "MODEL",
+            "value": "DISCONNECTED",
+            "onScreen": true
+          },
+          "kill": {
+            "id": "kill",
+            "key": "KILL SWITCH",
+            "value": "OFF",
+            "onScreen": true
+          }
+        },
+        "tabbar": {
+          "visible": false,
+          "links": [],
+          "minHeight": null
+        },
+        "sidebarVisible": true,
+        "sidebar": {
+          "visible": true,
+          "links": [
+            {
+              "text": "VECTOR overview",
+              "el": "a.lockup",
+              "w": 159,
+              "h": 32,
+              "visible": true
+            },
+            {
+              "text": "Overview",
+              "el": "a",
+              "w": 167,
+              "h": 44,
+              "visible": true
+            },
+            {
+              "text": "Research",
+              "el": "a",
+              "w": 167,
+              "h": 44,
+              "visible": true
+            },
+            {
+              "text": "Paper lab",
+              "el": "a",
+              "w": 167,
+              "h": 44,
+              "visible": true
+            },
+            {
+              "text": "Agents",
+              "el": "a",
+              "w": 167,
+              "h": 44,
+              "visible": true
+            },
+            {
+              "text": "Replay",
+              "el": "a",
+              "w": 167,
+              "h": 44,
+              "visible": true
+            },
+            {
+              "text": "Journal",
+              "el": "a",
+              "w": 167,
+              "h": 44,
+              "visible": true
+            },
+            {
+              "text": "Data sources",
+              "el": "a",
+              "w": 167,
+              "h": 44,
+              "visible": true
+            },
+            {
+              "text": "About",
+              "el": "a",
+              "w": 167,
+              "h": 44,
+              "visible": true
+            }
+          ],
+          "minHeight": 32
+        },
+        "bodyFontPx": 16,
+        "formControls": 2,
+        "formMinFontPx": 16,
+        "artifacts": [],
+        "title": "Research · VECTOR",
+        "docHeight": 3370
+      },
+      "errors": [],
+      "tripwire": {
+        "rendered": {
+          "innerWidth": 818,
+          "clientWidth": 768,
+          "scrollWidth": 818,
+          "bodyScrollWidth": 818,
+          "limit": 768,
+          "scrollX": 0,
+          "visualScale": 1,
+          "details": {
+            "total": 28,
+            "open": 1
+          },
+          "offenderCount": 4,
+          "roots": [
+            {
+              "el": "div.field.choice",
+              "tag": "div",
+              "cls": "field choice",
+              "right": 818,
+              "left": 546,
+              "width": 272,
+              "depth": 5,
+              "path": "div.shell > main#main > div.stack > div.opt-row",
+              "fixed": false,
+              "hidden": false,
+              "text": "Instruments All Common Non-common"
+            }
+          ],
+          "widest": [
+            {
+              "el": "span#grp-3.lbl",
+              "tag": "span",
+              "cls": "lbl",
+              "right": 818,
+              "left": 546,
+              "width": 272,
+              "depth": 6,
+              "path": "main#main > div.stack > div.opt-row > div.field.choice",
+              "fixed": false,
+              "hidden": false,
+              "text": "Instruments"
+            },
+            {
+              "el": "button",
+              "tag": "button",
+              "cls": null,
+              "right": 814,
+              "left": 691,
+              "width": 124,
+              "depth": 7,
+              "path": "div.stack > div.opt-row > div.field.choice > div.seg.full",
+              "fixed": false,
+              "hidden": false,
+              "text": "Non-common"
+            }
+          ]
+        },
+        "expanded": {
+          "innerWidth": 818,
+          "clientWidth": 768,
+          "scrollWidth": 818,
+          "bodyScrollWidth": 818,
+          "limit": 768,
+          "scrollX": 0,
+          "visualScale": 1,
+          "details": {
+            "total": 28,
+            "open": 28
+          },
+          "offenderCount": 4,
+          "roots": [
+            {
+              "el": "div.field.choice",
+              "tag": "div",
+              "cls": "field choice",
+              "right": 818,
+              "left": 546,
+              "width": 272,
+              "depth": 5,
+              "path": "div.shell > main#main > div.stack > div.opt-row",
+              "fixed": false,
+              "hidden": false,
+              "text": "Instruments All Common Non-common"
+            }
+          ],
+          "widest": [
+            {
+              "el": "span#grp-3.lbl",
+              "tag": "span",
+              "cls": "lbl",
+              "right": 818,
+              "left": 546,
+              "width": 272,
+              "depth": 6,
+              "path": "main#main > div.stack > div.opt-row > div.field.choice",
+              "fixed": false,
+              "hidden": false,
+              "text": "Instruments"
+            },
+            {
+              "el": "button",
+              "tag": "button",
+              "cls": null,
+              "right": 814,
+              "left": 691,
+              "width": 124,
+              "depth": 7,
+              "path": "div.stack > div.opt-row > div.field.choice > div.seg.full",
+              "fixed": false,
+              "hidden": false,
+              "text": "Non-common"
+            }
+          ],
+          "opened": 27
+        }
+      }
+    }
+  ],
+  "flows": [],
+  "screenshots": [
+    "receipts/ui-polish-v1/tripwire-red/768x1024-research.png"
+  ],
+  "tripwire": [
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/research",
+      "check": "overflow_tripwire",
+      "pass": false,
+      "reasons": [
+        "documentElement.scrollWidth 818 > clientWidth 768 (the root's visible width)",
+        "body.scrollWidth 818 > clientWidth 768 (the root's visible width)",
+        "layout viewport is 818 px wide, emulated 768 px (content widened it)"
+      ],
+      "scrollWidth": 818,
+      "bodyScrollWidth": 818,
+      "innerWidth": 818,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 1
+      },
+      "offenderCount": 4,
+      "roots": [
+        {
+          "el": "div.field.choice",
+          "tag": "div",
+          "cls": "field choice",
+          "right": 818,
+          "left": 546,
+          "width": 272,
+          "depth": 5,
+          "path": "div.shell > main#main > div.stack > div.opt-row",
+          "fixed": false,
+          "hidden": false,
+          "text": "Instruments All Common Non-common"
+        }
+      ],
+      "widest": [
+        {
+          "el": "span#grp-3.lbl",
+          "tag": "span",
+          "cls": "lbl",
+          "right": 818,
+          "left": 546,
+          "width": 272,
+          "depth": 6,
+          "path": "main#main > div.stack > div.opt-row > div.field.choice",
+          "fixed": false,
+          "hidden": false,
+          "text": "Instruments"
+        },
+        {
+          "el": "button",
+          "tag": "button",
+          "cls": null,
+          "right": 814,
+          "left": 691,
+          "width": 124,
+          "depth": 7,
+          "path": "div.stack > div.opt-row > div.field.choice > div.seg.full",
+          "fixed": false,
+          "hidden": false,
+          "text": "Non-common"
+        }
+      ]
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/research",
+      "check": "overflow_tripwire_expanded",
+      "pass": false,
+      "reasons": [
+        "documentElement.scrollWidth 818 > clientWidth 768 (the root's visible width)",
+        "body.scrollWidth 818 > clientWidth 768 (the root's visible width)",
+        "layout viewport is 818 px wide, emulated 768 px (content widened it)"
+      ],
+      "scrollWidth": 818,
+      "bodyScrollWidth": 818,
+      "innerWidth": 818,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 28
+      },
+      "offenderCount": 4,
+      "roots": [
+        {
+          "el": "div.field.choice",
+          "tag": "div",
+          "cls": "field choice",
+          "right": 818,
+          "left": 546,
+          "width": 272,
+          "depth": 5,
+          "path": "div.shell > main#main > div.stack > div.opt-row",
+          "fixed": false,
+          "hidden": false,
+          "text": "Instruments All Common Non-common"
+        }
+      ],
+      "widest": [
+        {
+          "el": "span#grp-3.lbl",
+          "tag": "span",
+          "cls": "lbl",
+          "right": 818,
+          "left": 546,
+          "width": 272,
+          "depth": 6,
+          "path": "main#main > div.stack > div.opt-row > div.field.choice",
+          "fixed": false,
+          "hidden": false,
+          "text": "Instruments"
+        },
+        {
+          "el": "button",
+          "tag": "button",
+          "cls": null,
+          "right": 814,
+          "left": 691,
+          "width": 124,
+          "depth": 7,
+          "path": "div.stack > div.opt-row > div.field.choice > div.seg.full",
+          "fixed": false,
+          "hidden": false,
+          "text": "Non-common"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-10-10T01:59:01.951Z",
+  "summary": {
+    "assertions": 10,
+    "passed": 6,
+    "failed": 4,
+    "routeChecks": 1,
+    "screenshots": 1,
+    "flows": [],
+    "tripwire": {
+      "checks": 2,
+      "failed": 2,
+      "failing": [
+        "768x1024 #/research overflow_tripwire",
+        "768x1024 #/research overflow_tripwire_expanded"
+      ]
+    },
+    "failures": [
+      "768x1024 #/research no_horizontal_overflow: scrollWidth 818, innerWidth 818, clientWidth 768, visual scale 1; sticking out: div.field.choice right=818, span.lbl right=818, div.seg.full right=818, button right=814",
+      "768x1024 #/research tablet_nav_44px: sidebar: 9 targets; under 44x44 px: \"VECTOR overview\" a.lockup 159x32px",
+      "768x1024 #/research overflow_tripwire: documentElement.scrollWidth 818 > clientWidth 768 (the root's visible width); body.scrollWidth 818 > clientWidth 768 (the root's visible width); layout viewport is 818 px wide, emulated 768 px (content widened it); widest: span#grp-3.lbl right=818, button right=814; enters at: div.field.choice right=818",
+      "768x1024 #/research overflow_tripwire_expanded: documentElement.scrollWidth 818 > clientWidth 768 (the root's visible width); body.scrollWidth 818 > clientWidth 768 (the root's visible width); layout viewport is 818 px wide, emulated 768 px (content widened it) (28/28 <details> open); widest: span#grp-3.lbl right=818, button right=814; enters at: div.field.choice right=818"
+    ]
+  }
+}

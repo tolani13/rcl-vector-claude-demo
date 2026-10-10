@@ -1,0 +1,727 @@
+{
+  "label": "REAL IEX HISTORICAL DATA — PAPER FILLS ARE ESTIMATES (not exchange executions); seed money is simulated",
+  "scenario": "autonomous-buy",
+  "covers": [
+    "autonomous paper buy",
+    "attached stop (bracket children)"
+  ],
+  "description": "First agent entry that filled: proposal -> policy accept -> entry + bracket children submitted by the agent -> estimated fill -> children activated.",
+  "dataset": "iex-tops-2026-10-07",
+  "session_id": "ses_mv1aur6xae911e68a0",
+  "generatedBy": "node --disable-warning=ExperimentalWarning test/api/e2e-real-replay.mjs --base http://127.0.0.1:8795 --ds iex-tops-2026-10-07 --db data/qa-copy.db --chunk 13 --db-copy-of data/vector.db",
+  "generatedAt": "2026-10-09T18:30:55.376Z",
+  "chain": {
+    "ok": true,
+    "checked": 5013,
+    "brokenAt": null,
+    "mode": "incremental",
+    "newlyChecked": 2488,
+    "verifiedMs": 33,
+    "scope": "full journal (all sessions)",
+    "note": "Rows appended since the last verification in this server process were re-hashed and linked to the verified prefix; verify=full re-hashes every row."
+  },
+  "rows": [
+    {
+      "seq": 2667,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381060000,
+      "ts_wall": 1791570565017,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "INTENT_PROPOSED",
+      "ref_id": "int_mv1auv89308e4c8e96",
+      "prev_hash": "20b127a77d982a212fa3eb1f62df8a4f007229ce96db5f7d22e93536b14a5f32",
+      "hash": "07deb0ee8b6a070ae9029031a488b0fd621aed36a548bae553ab71b4d0c81673",
+      "payload": {
+        "decisionMode": "rules",
+        "detail": {
+          "bidU": 5990,
+          "budgetU": 500000,
+          "cappedByDisplayed": false,
+          "estCostU": 498316,
+          "estPxU": 6734,
+          "refAskU": 6700,
+          "stopAtOrAboveBid": true,
+          "stopU": 6700,
+          "stopVsBidBps": 1185,
+          "takeProfitAltU": 23500,
+          "takeProfitU": 16800
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": "agent-cowboy-micro",
+          "attach": {
+            "stop_loss_px_u": 6700,
+            "take_profit_px_u": 16800,
+            "time_exit_band_bps": 1000,
+            "time_exit_min": 15
+          },
+          "budget_usd": 50,
+          "created_ts": 1791381060000,
+          "evidence_refs": [
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791381000000",
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791381000000",
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791380100000"
+          ],
+          "expires_ts": 1791381120000,
+          "id": "int_mv1auv89308e4c8e96",
+          "instrument": {
+            "kind": "equity",
+            "sym": "GIPR"
+          },
+          "order_type": "market",
+          "portfolio_id": "cowboy-micro",
+          "qty": 74,
+          "quote_ts": 1791381057141,
+          "rationale": "RULES handwritten-notes-example (EXPLORATORY DEFAULTS — NOT VALIDATED): ret_w 22.3% over 15 min (ref $0.4899 -> last $0.5993), accel 13.4%, relVol n/a (RELVOL_INSUFFICIENT_HISTORY), inferred aggressor share (quote rule vs IEX BBO; IEX-only) 38.1%, IEX spread 1119 bps, quote age 3 s. Buy 74 sh market (est $0.6734/sh incl 50 bps slippage; est cost $49.8316 <= budget $50.0000). Stop $0.6700 (at entry ref) — trigger, not a guaranteed price. WARNING: stop $0.6700 is at/above the as-of IEX bid $0.5990 (1185 bps above): expected to trigger on the first evaluated minute after activation (spread-induced; modelled loss ~ spread + slippage + fees, not a price move). Take-profit $1.6800 (2.5x ask ref; alternative reading 250% gain 3.5x = $2.3500, not used). Time exit 15 min if within +/-10%. Signal metrics are not recommendations.",
+          "side": "buy",
+          "source": "rules",
+          "strategy_id": "handwritten-notes-example"
+        },
+        "kind": "entry",
+        "model": null,
+        "note": "Typed proposal only — it executes nothing unless the deterministic policy gate accepts it.",
+        "signal": {
+          "accel": 0.13363476833086985,
+          "asOf": 1791381060000,
+          "baselineMin": 6,
+          "baselineVolume": 12035,
+          "buyShare": 0.3806649247679971,
+          "buyShareLabel": "inferred aggressor share (quote rule vs IEX BBO; IEX-only)",
+          "classifiedShare": 0.49591171082614716,
+          "halted": false,
+          "priceMinuteT": 1791381000000,
+          "priceU": 5993,
+          "quote": {
+            "ask": 6700,
+            "askSize": 399,
+            "bid": 5990,
+            "bidSize": 600,
+            "minuteRowT": 1791381000000,
+            "quoteTs": 1791381057141,
+            "twoSided": true
+          },
+          "quoteAgeMs": 2859,
+          "reasons": [
+            "RELVOL_INSUFFICIENT_HISTORY"
+          ],
+          "refMinuteT": 1791380100000,
+          "refPriceU": 4899,
+          "relVol": null,
+          "ret_w": 0.22331087977138186,
+          "spreadBps": 1119,
+          "sym": "GIPR",
+          "tradesW": 129,
+          "volumeW": 22381,
+          "windowMin": 15
+        },
+        "source": "rules",
+        "strategy": {
+          "id": "handwritten-notes-example",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        }
+      }
+    },
+    {
+      "seq": 2668,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381060000,
+      "ts_wall": 1791570565018,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "policy",
+      "type": "POLICY_ACCEPT",
+      "ref_id": "int_mv1auv89308e4c8e96",
+      "prev_hash": "07deb0ee8b6a070ae9029031a488b0fd621aed36a548bae553ab71b4d0c81673",
+      "hash": "b19caae007247221d3ac1c1617bf3979a649764be124feba7791f5da43b3fba0",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "detail": "kill switch released",
+            "pass": true,
+            "rule": "kill_switch"
+          },
+          {
+            "detail": "agent agent-cowboy-micro RUNNING with grant for cowboy-micro/open",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: agent intent (agent_authority applies)",
+            "pass": true,
+            "rule": "human_confirmed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a modify/cancel",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "detail": "equity allowed",
+            "pass": true,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "GIPR allowed",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "detail": "estimated cost $49.8316 (74 x $0.6734 + fees $0.0000) <= $1000.0000",
+            "pass": true,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "detail": "available cash $10000.0000 covers $49.8316 (cash $10000.0000 - reserved $0.0000 for 0 open buy order(s), fees included)",
+            "pass": true,
+            "rule": "cash_sufficient"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a sell",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "detail": "day P&L $0.0000; cap $1500.0000",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "detail": "1/8 positions after entry",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "detail": "position 0.50% of equity (held $0.0000 + pending buys $0.0000 (0 order(s)) + this $49.8316) <= 25%",
+            "pass": true,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "detail": "INFORMATIONAL (docs/OPEN_QUESTIONS.md #4, ambiguity stop-at-entry): stop $0.6700 is at/above the as-of IEX bid $0.5990 (1185 bps above) and is expected to trigger on its first evaluated minute (spread-induced loss); not denied because handwritten-notes-example is the documented handwritten-notes example",
+            "informational": true,
+            "pass": true,
+            "rule": "protective_exit_required",
+            "stopVsBidBps": 1185
+          },
+          {
+            "detail": "1/6 orders this minute",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "detail": "quote age 3s <= 300s",
+            "pass": true,
+            "rule": "quote_fresh"
+          },
+          {
+            "detail": "spread 1119 bps <= 1500 bps",
+            "pass": true,
+            "rule": "max_spread_bps"
+          },
+          {
+            "detail": "displayed ask size 399 >= 100",
+            "pass": true,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 60s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 3/3 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "ACCEPTED",
+        "estimate": {
+          "asOfEstimateOnly": true,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "costU": 498316,
+          "feesU": 0,
+          "multiplier": 1,
+          "priceU": 6734,
+          "qty": 74,
+          "segment": "micro",
+          "sizedFromBudget": false,
+          "slippageBps": 50,
+          "spendCapU": 500000
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": "agent-cowboy-micro",
+          "attach": {
+            "stop_loss_px_u": 6700,
+            "take_profit_px_u": 16800,
+            "time_exit_band_bps": 1000,
+            "time_exit_min": 15
+          },
+          "budget_usd": 50,
+          "created_ts": 1791381060000,
+          "evidence_refs": [
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791381000000",
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791381000000",
+            "iex-m1:iex-tops-2026-10-07:GIPR:1791380100000"
+          ],
+          "expires_ts": 1791381120000,
+          "id": "int_mv1auv89308e4c8e96",
+          "instrument": {
+            "kind": "equity",
+            "sym": "GIPR"
+          },
+          "order_type": "market",
+          "portfolio_id": "cowboy-micro",
+          "qty": 74,
+          "quote_ts": 1791381057141,
+          "rationale": "RULES handwritten-notes-example (EXPLORATORY DEFAULTS — NOT VALIDATED): ret_w 22.3% over 15 min (ref $0.4899 -> last $0.5993), accel 13.4%, relVol n/a (RELVOL_INSUFFICIENT_HISTORY), inferred aggressor share (quote rule vs IEX BBO; IEX-only) 38.1%, IEX spread 1119 bps, quote age 3 s. Buy 74 sh market (est $0.6734/sh incl 50 bps slippage; est cost $49.8316 <= budget $50.0000). Stop $0.6700 (at entry ref) — trigger, not a guaranteed price. WARNING: stop $0.6700 is at/above the as-of IEX bid $0.5990 (1185 bps above): expected to trigger on the first evaluated minute after activation (spread-induced; modelled loss ~ spread + slippage + fees, not a price move). Take-profit $1.6800 (2.5x ask ref; alternative reading 250% gain 3.5x = $2.3500, not used). Time exit 15 min if within +/-10%. Signal metrics are not recommendations.",
+          "side": "buy",
+          "source": "rules",
+          "strategy_id": "handwritten-notes-example"
+        },
+        "policy": {
+          "id": "policy:cowboy-micro",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": []
+      }
+    },
+    {
+      "seq": 2669,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381060000,
+      "ts_wall": 1791570565019,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1auv8bae355d02a8",
+      "prev_hash": "b19caae007247221d3ac1c1617bf3979a649764be124feba7791f5da43b3fba0",
+      "hash": "c54567b6f89b19d67aec5d8b2a11c1d69d62f883d323b8587c2ab877a9b942e2",
+      "payload": {
+        "created_ts": 1791381060000,
+        "estimatedOnly": true,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "GIPR",
+        "intent_id": "int_mv1auv89308e4c8e96",
+        "kind": "equity",
+        "limit_px": null,
+        "oco_group": null,
+        "order_id": "ord_mv1auv8bae355d02a8",
+        "paperOnly": true,
+        "parent_id": null,
+        "protective": false,
+        "qty": 74,
+        "quote": {
+          "ageMs": 2859,
+          "asOf": 1791381060000,
+          "ask": 6700,
+          "askSize": 399,
+          "bid": 5990,
+          "bidSize": 600,
+          "ds": "iex-tops-2026-10-07",
+          "halted": false,
+          "minuteRowT": 1791381000000,
+          "quoteTs": 1791381057141,
+          "spreadBps": 1119,
+          "status": "OBSERVED",
+          "sym": "GIPR",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "reason": "entry via handwritten-notes-example",
+        "role": "entry",
+        "side": "buy",
+        "spendCap": {
+          "candidates": [
+            {
+              "maxSpendU": 10000000,
+              "source": "policy:max_trade_spend_usd"
+            },
+            {
+              "maxSpendU": 500000,
+              "source": "intent:budget_usd"
+            }
+          ],
+          "maxSpendU": 500000,
+          "source": "intent:budget_usd"
+        },
+        "status": "working",
+        "stop_px": null,
+        "sym": "GIPR",
+        "triggered_ts": null,
+        "type": "market"
+      }
+    },
+    {
+      "seq": 2670,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381060000,
+      "ts_wall": 1791570565019,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1auv8bc2b28ae66c",
+      "prev_hash": "c54567b6f89b19d67aec5d8b2a11c1d69d62f883d323b8587c2ab877a9b942e2",
+      "hash": "4548c00129a9f057b5549fe2c57a2af37f16f10c01109eb31fca9af50a511b16",
+      "payload": {
+        "bracketChildOf": "ord_mv1auv8bae355d02a8",
+        "created_ts": 1791381060000,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "GIPR",
+        "intent_id": "int_mv1auv89308e4c8e96",
+        "kind": "equity",
+        "limit_px": null,
+        "note": "pending_parent until the entry fills; qty then = shares the bracket holds",
+        "oco_group": "oco_ord_mv1auv8bae355d02a8",
+        "order_id": "ord_mv1auv8bc2b28ae66c",
+        "parent_id": "ord_mv1auv8bae355d02a8",
+        "protective": true,
+        "qty": 74,
+        "quote": {
+          "ageMs": 2859,
+          "asOf": 1791381060000,
+          "ask": 6700,
+          "askSize": 399,
+          "bid": 5990,
+          "bidSize": 600,
+          "ds": "iex-tops-2026-10-07",
+          "halted": false,
+          "minuteRowT": 1791381000000,
+          "quoteTs": 1791381057141,
+          "spreadBps": 1119,
+          "status": "OBSERVED",
+          "sym": "GIPR",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "stop_loss",
+        "side": "sell",
+        "status": "pending_parent",
+        "stopCheck": {
+          "bidU": 5990,
+          "note": "stop is at/above the as-of IEX bid: expected to trigger on its first evaluated minute",
+          "stopAtOrAboveBid": true,
+          "stopPxU": 6700,
+          "stopVsBidBps": 1185,
+          "warning": "STOP_MARKETABLE_AT_SUBMIT"
+        },
+        "stop_px": 6700,
+        "sym": "GIPR",
+        "triggered_ts": null,
+        "type": "stop"
+      }
+    },
+    {
+      "seq": 2671,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381060000,
+      "ts_wall": 1791570565019,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "agent",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1auv8bd6af003521",
+      "prev_hash": "4548c00129a9f057b5549fe2c57a2af37f16f10c01109eb31fca9af50a511b16",
+      "hash": "fb2b4422aa7201bc4acc71ad94a2007fd74ab63d30f8b11bee9cdc0eec926d24",
+      "payload": {
+        "bracketChildOf": "ord_mv1auv8bae355d02a8",
+        "created_ts": 1791381060000,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "GIPR",
+        "intent_id": "int_mv1auv89308e4c8e96",
+        "kind": "equity",
+        "limit_px": 16800,
+        "note": "pending_parent until the entry fills; qty then = shares the bracket holds",
+        "oco_group": "oco_ord_mv1auv8bae355d02a8",
+        "order_id": "ord_mv1auv8bd6af003521",
+        "parent_id": "ord_mv1auv8bae355d02a8",
+        "protective": true,
+        "qty": 74,
+        "quote": {
+          "ageMs": 2859,
+          "asOf": 1791381060000,
+          "ask": 6700,
+          "askSize": 399,
+          "bid": 5990,
+          "bidSize": 600,
+          "ds": "iex-tops-2026-10-07",
+          "halted": false,
+          "minuteRowT": 1791381000000,
+          "quoteTs": 1791381057141,
+          "spreadBps": 1119,
+          "status": "OBSERVED",
+          "sym": "GIPR",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "take_profit",
+        "side": "sell",
+        "status": "pending_parent",
+        "stop_px": null,
+        "sym": "GIPR",
+        "triggered_ts": null,
+        "type": "limit"
+      }
+    },
+    {
+      "seq": 2676,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381120000,
+      "ts_wall": 1791570565023,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "engine",
+      "type": "FILL_ESTIMATED",
+      "ref_id": "fill_mv1auv8ed88d0a31bb",
+      "prev_hash": "c0af0363812dbce4daf90b81afcb64e4b9532c19774dda1da36a6d44334e838b",
+      "hash": "e0814e4be17b655f4be0ab3c3bf7f5c9912a0aba23e53685cc047083add53925",
+      "payload": {
+        "assumptions": {
+          "affordabilityReduced": false,
+          "basePriceU": 6700,
+          "consumedEarlierThisMinute": 0,
+          "displayedSizeAtMinuteStart": 399,
+          "displayedSizeCap": true,
+          "displayedSizeUsed": 399,
+          "estimated": true,
+          "fees": {
+            "commissionPerOrderU": 0,
+            "commissionU": 0,
+            "rounding": "EACH_COMPONENT_UP_TO_WHOLE_U",
+            "secFeeRatePerMillionUsd": 27.8,
+            "secFeeU": 0,
+            "tafCapU": 83000,
+            "tafPerShareU": 1.66,
+            "tafU": 0,
+            "totalU": 0
+          },
+          "maxQuoteAgeMs": 300000,
+          "maxSpreadBps": 1500,
+          "model": "iex-conservative-minute-v1",
+          "multiplier": 1,
+          "notExchangeExecution": true,
+          "omitted": [
+            "queue position at IEX",
+            "hidden and odd-lot liquidity",
+            "NBBO vs IEX BBO differences (IEX top-of-book only)",
+            "liquidity and prices on other venues",
+            "partial-fill dynamics inside the minute",
+            "market impact beyond the slippage assumption",
+            "borrow/locate (never needed: no shorting)",
+            "corporate actions on the replay day",
+            "options exercise/assignment",
+            "IEX trade breaks arriving after the trade minute are not removed from that minute; once a break is knowable, the trade evidence of that minute is withheld"
+          ],
+          "priceBasis": "WORST_IN_MINUTE",
+          "qtyLimitedBy": [],
+          "qtyRequested": 74,
+          "requestedSegment": "micro",
+          "rule": "MARKET_BUY_WORST_ASK_IN_MINUTE",
+          "segment": "micro",
+          "sizeSource": "DISPLAYED",
+          "slippageBps": 50,
+          "spendCap": {
+            "maxSpendU": 500000,
+            "spentBeforeU": 0
+          },
+          "spreadAtEndBps": 1789,
+          "spreadAtStartBps": 1119,
+          "tickRule": "REG_NMS_612_ROUNDED_AGAINST_TRADER",
+          "warnings": [
+            "SPREAD_ABOVE_COST_MODEL_MAX"
+          ]
+        },
+        "cashAfterU": 99501684,
+        "cashBeforeU": 100000000,
+        "estimated": true,
+        "feesU": 0,
+        "fill_id": "fill_mv1auv8ed88d0a31bb",
+        "grossU": 498316,
+        "instrument_id": "GIPR",
+        "kind": "equity",
+        "minuteT": 1791381060000,
+        "model": "iex-conservative-minute-v1",
+        "multiplier": 1,
+        "note": "ESTIMATED PAPER FILL — not an exchange execution",
+        "observed": {
+          "ds": "iex-tops-2026-10-07",
+          "endQuote": {
+            "ask": 6700,
+            "askSize": 399,
+            "bid": 5600,
+            "bidSize": 200,
+            "quoteTs": 1791381110003
+          },
+          "halted": false,
+          "hasRow": true,
+          "maxAsk": 6700,
+          "maxBid": 6388,
+          "minAsk": 5900,
+          "minBid": 5041,
+          "minuteT": 1791381060000,
+          "startQuote": {
+            "ask": 6700,
+            "askSize": 399,
+            "bid": 5990,
+            "bidSize": 600,
+            "quoteTs": 1791381057141
+          },
+          "sym": "GIPR",
+          "trades": {
+            "c": 6386,
+            "h": 6404,
+            "l": 5901,
+            "n": 28,
+            "o": 5990,
+            "v": 6429,
+            "vwap": 6174
+          },
+          "unavailable": false,
+          "venue": "IEX"
+        },
+        "orderFilledQtyAfter": 74,
+        "orderQty": 74,
+        "orderStatusAfter": "filled",
+        "order_id": "ord_mv1auv8bae355d02a8",
+        "positionQtyAfter": 74,
+        "positionQtyBefore": 0,
+        "priceU": 6734,
+        "qty": 74,
+        "realizedDeltaU": 0,
+        "role": "entry",
+        "side": "buy",
+        "sym": "GIPR"
+      }
+    },
+    {
+      "seq": 2677,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381120000,
+      "ts_wall": 1791570565023,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "engine",
+      "type": "BRACKET_CHILD_ACTIVATED",
+      "ref_id": "ord_mv1auv8bc2b28ae66c",
+      "prev_hash": "e0814e4be17b655f4be0ab3c3bf7f5c9912a0aba23e53685cc047083add53925",
+      "hash": "8e9173894d240ebdf07573c61f58bd153a268bb70c3d55154c62d9431e4de407",
+      "payload": {
+        "created_ts": 1791381060000,
+        "eligibleFromMinute": 1791381120000,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "GIPR",
+        "intent_id": "int_mv1auv89308e4c8e96",
+        "kind": "equity",
+        "limit_px": null,
+        "minuteT": 1791381060000,
+        "oco_group": "oco_ord_mv1auv8bae355d02a8",
+        "order_id": "ord_mv1auv8bc2b28ae66c",
+        "parentFilledQty": 74,
+        "parent_id": "ord_mv1auv8bae355d02a8",
+        "protectedQty": 74,
+        "protective": true,
+        "qty": 74,
+        "quote": {
+          "ageMs": 9997,
+          "asOf": 1791381120000,
+          "ask": 6700,
+          "askSize": 399,
+          "bid": 5600,
+          "bidSize": 200,
+          "ds": "iex-tops-2026-10-07",
+          "halted": false,
+          "minuteRowT": 1791381060000,
+          "quoteTs": 1791381110003,
+          "spreadBps": 1789,
+          "status": "OBSERVED",
+          "sym": "GIPR",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "stop_loss",
+        "side": "sell",
+        "status": "working",
+        "stopCheck": {
+          "bidU": 5600,
+          "note": "stop is at/above the as-of IEX bid: expected to trigger on its first evaluated minute",
+          "stopAtOrAboveBid": true,
+          "stopPxU": 6700,
+          "stopVsBidBps": 1964,
+          "warning": "STOP_MARKETABLE_AT_ACTIVATION"
+        },
+        "stop_px": 6700,
+        "sym": "GIPR",
+        "triggered_ts": null,
+        "type": "stop"
+      }
+    },
+    {
+      "seq": 2678,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381120000,
+      "ts_wall": 1791570565023,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "engine",
+      "type": "BRACKET_CHILD_ACTIVATED",
+      "ref_id": "ord_mv1auv8bd6af003521",
+      "prev_hash": "8e9173894d240ebdf07573c61f58bd153a268bb70c3d55154c62d9431e4de407",
+      "hash": "e455d1d43edc3042842407b68f2ef28553e743abe6d537d3f06a7b9d37224cf8",
+      "payload": {
+        "created_ts": 1791381060000,
+        "eligibleFromMinute": 1791381120000,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "GIPR",
+        "intent_id": "int_mv1auv89308e4c8e96",
+        "kind": "equity",
+        "limit_px": 16800,
+        "minuteT": 1791381060000,
+        "oco_group": "oco_ord_mv1auv8bae355d02a8",
+        "order_id": "ord_mv1auv8bd6af003521",
+        "parentFilledQty": 74,
+        "parent_id": "ord_mv1auv8bae355d02a8",
+        "protectedQty": 74,
+        "protective": true,
+        "qty": 74,
+        "role": "take_profit",
+        "side": "sell",
+        "status": "working",
+        "stop_px": null,
+        "sym": "GIPR",
+        "triggered_ts": null,
+        "type": "limit"
+      }
+    }
+  ]
+}

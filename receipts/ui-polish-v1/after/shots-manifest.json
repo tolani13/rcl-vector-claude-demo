@@ -1,0 +1,215 @@
+{
+  "tool": "scripts/ui-check.mjs",
+  "label": "VECTOR UI check — screenshots of a paper-only lab; every fill shown is an ESTIMATED PAPER FILL",
+  "mode": "shots-only (screenshots for before/after comparison; no flows, no assertions)",
+  "base": "http://127.0.0.1:8799",
+  "startedAt": "2026-10-10T02:25:46.084Z",
+  "browser": {
+    "path": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "version": "Chrome/156.0.8078.12"
+  },
+  "viewports": [
+    {
+      "name": "390x844",
+      "width": 390,
+      "height": 844,
+      "kind": "phone",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "1440x900",
+      "width": 1440,
+      "height": 900,
+      "kind": "desktop",
+      "mobile": false,
+      "dsf": 1
+    }
+  ],
+  "routesSelected": [
+    "overview",
+    "replay",
+    "agents",
+    "journal"
+  ],
+  "serverStatus": {
+    "dataMode": "HISTORICAL_REAL",
+    "dataset": "iex-tops-2026-10-07",
+    "datasetSha256": "bb405b6835f5cfc8fd27d3552ef9d1572a42670e45d612223c689aad0e458256",
+    "replay": {
+      "session_id": "ses_mv1rt3x70f0401bec7",
+      "clock": 1791384540000,
+      "clockEt": "10:49",
+      "playing": false,
+      "status": "READY"
+    },
+    "model": "DISCONNECTED",
+    "killSwitch": false
+  },
+  "prepare": null,
+  "symbols": null,
+  "web": {
+    "assets/RCL_Convergence_Full_Dark.svg": "dbd5d59054914012",
+    "assets/RCL_Convergence_Full_Light.svg": "55f455e77cda1663",
+    "assets/RCL_Convergence_Mark_Dark.svg": "abc341bceffc1a48",
+    "assets/RCL_Convergence_Mark_Light.svg": "2932c8b89c428d91",
+    "assets/RCL_Copper_Steel_Full_814x502.png": "04aaa1a664a4633f",
+    "assets/RCL_Copper_Steel_Mark_120.png": "0bdc1be5e83fca27",
+    "assets/RCL_Copper_Steel_Mark_32.png": "552d140e1bc51f3d",
+    "assets/RCL_Copper_Steel_Mark_40.png": "7050c78c554f2953",
+    "assets/RCL_Copper_Steel_Mark_64.png": "74d54f8f9a5f4c54",
+    "assets/RCL_Copper_Steel_Mark_80.png": "7c93032719d5ebc6",
+    "assets/RCL_Copper_Steel_Mark_96.png": "29d0f176fc11625a",
+    "charts.css": "8000666e49913d46",
+    "index.html": "21b5afcaac6fdf18",
+    "js/api.js": "76760e15f31997d2",
+    "js/app.js": "16c5757358441005",
+    "js/charts.js": "084c1dad02916113",
+    "js/components.js": "ba0b107e813f4c1a",
+    "js/dom.js": "6c9361e3cfd97f97",
+    "js/estimate.js": "68a00a8954de8a9f",
+    "js/format.js": "f48cb063cce8c1df",
+    "js/router.js": "83287433fe761226",
+    "js/status-strip.js": "0e8f4fb4e7b3e4b5",
+    "js/store.js": "3cf3851aab5641aa",
+    "js/strategy-schema.js": "dc4f2c683587440f",
+    "js/summaries.js": "537473f22e6340dc",
+    "js/views/about.js": "256b2758281ee023",
+    "js/views/agents.js": "9494f27ab41e103c",
+    "js/views/common.js": "f3fb437df41a8406",
+    "js/views/journal.js": "01cf21a1e4e133ec",
+    "js/views/lab.js": "f5eedb38c0527aba",
+    "js/views/more.js": "d8dd4706ca9c27fd",
+    "js/views/overview.js": "bdc6d8a7df06f42a",
+    "js/views/replay.js": "d1b15efa44660583",
+    "js/views/research.js": "9ec9f93aecdec3ad",
+    "js/views/sources.js": "d0532fde82db63a6",
+    "styles.css": "85f7ef9e19da24cb"
+  },
+  "assertions": [],
+  "routes": [
+    {
+      "viewport": "390x844",
+      "route": "#/overview",
+      "screenshot": "receipts/ui-polish-v1/after/390x844-overview.png",
+      "widths": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/replay",
+      "screenshot": "receipts/ui-polish-v1/after/390x844-replay.png",
+      "widths": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/agents",
+      "screenshot": "receipts/ui-polish-v1/after/390x844-agents.png",
+      "widths": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/journal",
+      "screenshot": "receipts/ui-polish-v1/after/390x844-journal.png",
+      "widths": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/overview",
+      "screenshot": "receipts/ui-polish-v1/after/1440x900-overview.png",
+      "widths": {
+        "innerWidth": 1440,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/replay",
+      "screenshot": "receipts/ui-polish-v1/after/1440x900-replay.png",
+      "widths": {
+        "innerWidth": 1440,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/agents",
+      "screenshot": "receipts/ui-polish-v1/after/1440x900-agents.png",
+      "widths": {
+        "innerWidth": 1440,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/journal",
+      "screenshot": "receipts/ui-polish-v1/after/1440x900-journal.png",
+      "widths": {
+        "innerWidth": 1440,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425
+      },
+      "errors": []
+    }
+  ],
+  "flows": [],
+  "screenshots": [
+    "receipts/ui-polish-v1/after/390x844-overview.png",
+    "receipts/ui-polish-v1/after/390x844-replay.png",
+    "receipts/ui-polish-v1/after/390x844-agents.png",
+    "receipts/ui-polish-v1/after/390x844-journal.png",
+    "receipts/ui-polish-v1/after/1440x900-overview.png",
+    "receipts/ui-polish-v1/after/1440x900-replay.png",
+    "receipts/ui-polish-v1/after/1440x900-agents.png",
+    "receipts/ui-polish-v1/after/1440x900-journal.png"
+  ],
+  "tripwire": [],
+  "finishedAt": "2026-10-10T02:25:51.835Z",
+  "summary": {
+    "assertions": 0,
+    "passed": 0,
+    "failed": 0,
+    "routeChecks": 8,
+    "screenshots": 8,
+    "flows": [],
+    "tripwire": {
+      "checks": 0,
+      "failed": 0,
+      "failing": []
+    },
+    "failures": []
+  }
+}

@@ -1,0 +1,17 @@
+<!doctype html>
+<!-- E11 fetch check: renders the shipped About and More views (real web/js/views/*.js, real styles.css) on a throwaway
+     127.0.0.1:8797 server that sends every app path through the real server/api/static.js serveStatic(web/) (same allow-list
+     and headers as the VECTOR server); this page itself is served from /__check/. Output: fetch-check-output.txt. -->
+<html lang="en"><head><meta charset="utf-8"><title>RCL logo fetch check</title>
+<base href="/"><link rel="stylesheet" href="styles.css"></head>
+<body><main id="about"></main><main id="more"></main><pre id="out"></pre>
+<script type="module">
+  import { render as about } from '/js/views/about.js';
+  import { render as more } from '/js/views/more.js';
+  about(document.getElementById('about'), { store: {} });
+  more(document.getElementById('more'), { store: {} });
+  addEventListener('load', () => {
+    document.getElementById('out').textContent = [...document.images].map((i) =>
+      `${i.closest('picture') ? 'picture>' : ''}img ${i.width}x${i.height} complete=${i.complete} natural=${i.naturalWidth}x${i.naturalHeight} current=${i.currentSrc.replace(location.origin, '')}`).join('\n');
+  });
+</script></body></html>

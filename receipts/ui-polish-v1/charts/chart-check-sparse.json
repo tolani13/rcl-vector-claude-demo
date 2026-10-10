@@ -1,0 +1,370 @@
+[
+  {
+    "vp": "390",
+    "route": "overview",
+    "files": [
+      "390-overview-benchmark-sparse.png",
+      "390-overview-benchmark-hover-sparse.png",
+      "390-overview-benchmark-keyboard-sparse.png",
+      "390-overview-benchmark-table-sparse.png",
+      "390-overview-macro-sparklines-sparse.png"
+    ],
+    "metricsAtRest": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "hoverTarget": "rect.v-overlay",
+    "tipMid": {
+      "visible": true,
+      "text": "10:10 ET−0.22%SPY−0.09%QQQ−0.15%IWM−0.31%DIA",
+      "inside": true,
+      "left": 157,
+      "right": 297,
+      "iw": 390
+    },
+    "metricsHover": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "edgeTarget": "rect.v-overlay",
+    "tipEdge": {
+      "visible": true,
+      "text": "10:44 ET−0.24%SPY+0.07%QQQ−0.23%IWM−0.42%DIA",
+      "inside": true,
+      "left": 215,
+      "right": 355,
+      "iw": 390
+    },
+    "metricsEdge": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "tipAfterLeave": false,
+    "keyboard": {
+      "role": "slider",
+      "tabindex": 0,
+      "now": "69",
+      "max": "74",
+      "text": "10:39 ET: SPY −0.15%, QQQ +0.10%, IWM −0.15%, DIA −0.30%",
+      "tip": true
+    },
+    "table": {
+      "rows": 75,
+      "cols": 5,
+      "head": [
+        "Time (ET)",
+        "SPY",
+        "QQQ",
+        "IWM",
+        "DIA"
+      ],
+      "scrollsY": true,
+      "scrollsX": true,
+      "firstRow": [
+        "09:30",
+        "+0.01%",
+        "+0.01%",
+        "+0.08%",
+        "+0.05%"
+      ],
+      "lastRow": [
+        "10:44",
+        "−0.24%",
+        "+0.07%",
+        "−0.23%",
+        "−0.42%"
+      ]
+    },
+    "metricsTable": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "errors": []
+  },
+  {
+    "vp": "390",
+    "route": "research/CIRC",
+    "files": [
+      "390-research-price-volume-sparse.png",
+      "390-research-price-volume-hover-sparse.png",
+      "390-research-price-volume-keyboard-sparse.png",
+      "390-research-price-volume-table-sparse.png"
+    ],
+    "metricsAtRest": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "hoverTarget": "rect.v-overlay",
+    "tipMid": {
+      "visible": true,
+      "text": "10:09 ET$0.5191Close$0.5181Open$0.5191High$0.5181Low800Volume (IEX)600▲Buyer-initiated (inferred)0▼Seller-initiated (inferred)200Unclassified",
+      "inside": true,
+      "left": 71,
+      "right": 355,
+      "iw": 390
+    },
+    "metricsHover": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "edgeTarget": "rect.v-overlay",
+    "tipEdge": {
+      "visible": true,
+      "text": "10:44 ETNo IEX trades this minute (quote updates only)",
+      "inside": true,
+      "left": 67,
+      "right": 357,
+      "iw": 390
+    },
+    "metricsEdge": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "tipAfterLeave": false,
+    "keyboard": {
+      "role": "slider",
+      "tabindex": 0,
+      "now": "44",
+      "max": "49",
+      "text": "10:37 ET: no IEX trades this minute (quote updates only)",
+      "tip": true
+    },
+    "table": {
+      "rows": 50,
+      "cols": 9,
+      "head": [
+        "Time (ET)",
+        "Open",
+        "High",
+        "Low",
+        "Close",
+        "Volume",
+        "▲Buyer-initiated (inferred)",
+        "▼Seller-initiated (inferred)",
+        "Unclassified"
+      ],
+      "scrollsY": true,
+      "scrollsX": true,
+      "firstRow": [
+        "09:30",
+        "—",
+        "—",
+        "—",
+        "—",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "lastRow": [
+        "10:44",
+        "—",
+        "—",
+        "—",
+        "—",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "metricsTable": {
+      "iw": 390,
+      "sw": 390,
+      "bsw": 390
+    },
+    "errors": []
+  },
+  {
+    "vp": "1440",
+    "route": "overview",
+    "files": [
+      "1440-overview-benchmark-sparse.png",
+      "1440-overview-benchmark-hover-sparse.png",
+      "1440-overview-benchmark-keyboard-sparse.png",
+      "1440-overview-benchmark-table-sparse.png",
+      "1440-overview-benchmark-print-sparse.png",
+      "1440-overview-macro-sparklines-sparse.png"
+    ],
+    "metricsAtRest": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "hoverTarget": "rect.v-overlay",
+    "tipMid": {
+      "visible": true,
+      "text": "10:11 ET−0.20%SPY−0.07%QQQ−0.15%IWM—DIA",
+      "inside": true,
+      "left": 1231,
+      "right": 1359,
+      "iw": 1440
+    },
+    "metricsHover": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "edgeTarget": "rect.v-overlay",
+    "tipEdge": {
+      "visible": true,
+      "text": "10:44 ET−0.24%SPY+0.07%QQQ−0.23%IWM−0.42%DIA",
+      "inside": true,
+      "left": 1237,
+      "right": 1365,
+      "iw": 1440
+    },
+    "metricsEdge": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "tipAfterLeave": false,
+    "keyboard": {
+      "role": "slider",
+      "tabindex": 0,
+      "now": "69",
+      "max": "74",
+      "text": "10:39 ET: SPY −0.15%, QQQ +0.10%, IWM −0.15%, DIA −0.30%",
+      "tip": true
+    },
+    "table": {
+      "rows": 75,
+      "cols": 5,
+      "head": [
+        "Time (ET)",
+        "SPY",
+        "QQQ",
+        "IWM",
+        "DIA"
+      ],
+      "scrollsY": true,
+      "scrollsX": false,
+      "firstRow": [
+        "09:30",
+        "+0.01%",
+        "+0.01%",
+        "+0.08%",
+        "+0.05%"
+      ],
+      "lastRow": [
+        "10:44",
+        "−0.24%",
+        "+0.07%",
+        "−0.23%",
+        "−0.42%"
+      ]
+    },
+    "metricsTable": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "errors": []
+  },
+  {
+    "vp": "1440",
+    "route": "research/CIRC",
+    "files": [
+      "1440-research-price-volume-sparse.png",
+      "1440-research-price-volume-hover-sparse.png",
+      "1440-research-price-volume-keyboard-sparse.png",
+      "1440-research-price-volume-table-sparse.png",
+      "1440-research-price-volume-print-sparse.png"
+    ],
+    "metricsAtRest": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "hoverTarget": "rect.v-overlay",
+    "tipMid": {
+      "visible": true,
+      "text": "10:13 ETNo IEX trades this minute (quote updates only)",
+      "inside": true,
+      "left": 418,
+      "right": 709,
+      "iw": 1440
+    },
+    "metricsHover": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "edgeTarget": "rect.v-overlay",
+    "tipEdge": {
+      "visible": true,
+      "text": "10:44 ETNo IEX trades this minute (quote updates only)",
+      "inside": true,
+      "left": 686,
+      "right": 976,
+      "iw": 1440
+    },
+    "metricsEdge": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "tipAfterLeave": false,
+    "keyboard": {
+      "role": "slider",
+      "tabindex": 0,
+      "now": "44",
+      "max": "49",
+      "text": "10:37 ET: no IEX trades this minute (quote updates only)",
+      "tip": true
+    },
+    "table": {
+      "rows": 50,
+      "cols": 9,
+      "head": [
+        "Time (ET)",
+        "Open",
+        "High",
+        "Low",
+        "Close",
+        "Volume",
+        "▲Buyer-initiated (inferred)",
+        "▼Seller-initiated (inferred)",
+        "Unclassified"
+      ],
+      "scrollsY": true,
+      "scrollsX": true,
+      "firstRow": [
+        "09:30",
+        "—",
+        "—",
+        "—",
+        "—",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "lastRow": [
+        "10:44",
+        "—",
+        "—",
+        "—",
+        "—",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "metricsTable": {
+      "iw": 1440,
+      "sw": 1440,
+      "bsw": 1440
+    },
+    "errors": []
+  }
+]

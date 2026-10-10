@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-10-09T04:08:27.813Z",
+  "node": "v25.2.1",
+  "command": "node scripts/ingest-sec.js",
+  "status": "BLOCKED",
+  "reason": "SEC_USER_AGENT is not set",
+  "setup": "SEC EDGAR requires a declared User-Agent that identifies you and includes a contact e-mail (SEC fair-access policy:\nhttps://www.sec.gov/os/accessing-edgar-data). Set it server-side, then run the ingestion for specific symbols:\n  PowerShell:  $env:SEC_USER_AGENT = \"<Your name or organisation> <your contact e-mail>\"\n  bash:        export SEC_USER_AGENT=\"<Your name or organisation> <your contact e-mail>\"\n  then:        npm run ingest:sec -- --symbols SYM1,SYM2\nVECTOR never invents a User-Agent or contact. Requests are limited to <= 4 per second (SEC limit is 10/s).",
+  "requests_made": 0
+}

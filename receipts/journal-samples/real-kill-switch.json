@@ -1,0 +1,416 @@
+{
+  "label": "REAL IEX HISTORICAL DATA — PAPER FILLS ARE ESTIMATES (not exchange executions); seed money is simulated",
+  "scenario": "kill-switch",
+  "covers": [
+    "global kill switch"
+  ],
+  "description": "Kill switch engaged mid-session (KEEP_PROTECTIVE): agents STOPPED, 0 open non-protective order(s) cancelled, 2 protective order(s) kept working, agent start and a new order refused while engaged, then released.",
+  "dataset": "iex-tops-2026-10-07",
+  "session_id": "ses_mv1aur6xae911e68a0",
+  "generatedBy": "node --disable-warning=ExperimentalWarning test/api/e2e-real-replay.mjs --base http://127.0.0.1:8795 --ds iex-tops-2026-10-07 --db data/qa-copy.db --chunk 13 --db-copy-of data/vector.db",
+  "generatedAt": "2026-10-09T18:30:55.379Z",
+  "chain": {
+    "ok": true,
+    "checked": 5013,
+    "brokenAt": null,
+    "mode": "incremental",
+    "newlyChecked": 2488,
+    "verifiedMs": 33,
+    "scope": "full journal (all sessions)",
+    "note": "Rows appended since the last verification in this server process were re-hashed and linked to the verified prefix; verify=full re-hashes every row."
+  },
+  "rows": [
+    {
+      "seq": 3559,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791388380000,
+      "ts_wall": 1791570595481,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "human",
+      "type": "KILL_SWITCH_ENGAGED",
+      "ref_id": "kill_switch",
+      "prev_hash": "9e6b6c7a4d62842d797dc4853170cfcf24b610f527a36e133444ec5ce9caaae9",
+      "hash": "d34ae5952373e49d26c010ffeec182acee8762da9734a505fd09154b90a2d416",
+      "payload": {
+        "alreadyEngaged": false,
+        "at": 1791570595481,
+        "at_sim": 1791388380000,
+        "by": "human",
+        "effects": "cancel all open non-protective orders; keep working protective orders (stop-loss / take-profit, and already-submitted time-exit orders); set all agents STOPPED (pending time-exit RULES are agent-monitored and are suspended while STOPPED: TIME_EXIT_SUSPENDED)",
+        "engaged": true,
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "E2E mid-session drill"
+      }
+    },
+    {
+      "seq": 3560,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791388380000,
+      "ts_wall": 1791570595481,
+      "portfolio_id": "cowboy-large",
+      "agent_id": "agent-cowboy-large",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-cowboy-large",
+      "prev_hash": "d34ae5952373e49d26c010ffeec182acee8762da9734a505fd09154b90a2d416",
+      "hash": "e2c17509b45927f971ab61c0026f4c88f2ef5cfa55c5f5e721bd9aae36f58f27",
+      "payload": {
+        "by": "human",
+        "from": "RUNNING",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 3561,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791388380000,
+      "ts_wall": 1791570595482,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-cowboy-micro",
+      "prev_hash": "e2c17509b45927f971ab61c0026f4c88f2ef5cfa55c5f5e721bd9aae36f58f27",
+      "hash": "5207a5a776923d6f47982e399c98ff50b5e32114907c43f41c6890b16a114ef2",
+      "payload": {
+        "by": "human",
+        "from": "RUNNING",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 3562,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791388380000,
+      "ts_wall": 1791570595482,
+      "portfolio_id": "pragmatist-large",
+      "agent_id": "agent-pragmatist-large",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-pragmatist-large",
+      "prev_hash": "5207a5a776923d6f47982e399c98ff50b5e32114907c43f41c6890b16a114ef2",
+      "hash": "0ef224f1a56ee98a3b2f78fb25727c2978deb383ed572e806c73e1d7f6c75adb",
+      "payload": {
+        "by": "human",
+        "from": "RUNNING",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 3563,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791388380000,
+      "ts_wall": 1791570595482,
+      "portfolio_id": "pragmatist-micro",
+      "agent_id": "agent-pragmatist-micro",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-pragmatist-micro",
+      "prev_hash": "0ef224f1a56ee98a3b2f78fb25727c2978deb383ed572e806c73e1d7f6c75adb",
+      "hash": "064314933c633024cf4d1a44419d3be4abcebbcfa097fb45bf0a73d028c9f6c8",
+      "payload": {
+        "by": "human",
+        "from": "RUNNING",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 3564,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791388380000,
+      "ts_wall": 1791570595482,
+      "portfolio_id": "tightwad-large",
+      "agent_id": "agent-tightwad-large",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-tightwad-large",
+      "prev_hash": "064314933c633024cf4d1a44419d3be4abcebbcfa097fb45bf0a73d028c9f6c8",
+      "hash": "7b6c2cb561c3cf05c1b4f7d54c03ae3d66a0adb5652471f852758973a135e097",
+      "payload": {
+        "by": "human",
+        "from": "RUNNING",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 3565,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791388380000,
+      "ts_wall": 1791570595482,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": "agent-tightwad-micro",
+      "actor": "human",
+      "type": "AGENT_STATE_CHANGED",
+      "ref_id": "agent-tightwad-micro",
+      "prev_hash": "7b6c2cb561c3cf05c1b4f7d54c03ae3d66a0adb5652471f852758973a135e097",
+      "hash": "e29f1a09bc6f3b0cd7c6358f0d599310f7c2a2cfc55537936fc1c403f41bb2d1",
+      "payload": {
+        "by": "human",
+        "from": "RUNNING",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "reason": "KILL_SWITCH_ENGAGED",
+        "to": "STOPPED"
+      }
+    },
+    {
+      "seq": 3566,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791388380000,
+      "ts_wall": 1791570595482,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "human",
+      "type": "KILL_SWITCH_EFFECTS",
+      "ref_id": "kill_switch",
+      "prev_hash": "e29f1a09bc6f3b0cd7c6358f0d599310f7c2a2cfc55537936fc1c403f41bb2d1",
+      "hash": "844add9eb2402475e600a0e59f419037aafef5705126527fea0a1d929c0be6dc",
+      "payload": {
+        "agentsStopped": [
+          "agent-cowboy-large",
+          "agent-cowboy-micro",
+          "agent-pragmatist-large",
+          "agent-pragmatist-micro",
+          "agent-tightwad-large",
+          "agent-tightwad-micro"
+        ],
+        "cancelled": [],
+        "keptProtective": [
+          "ord_mv1auwae49e968ec22",
+          "ord_mv1auwafbc55fc3578"
+        ],
+        "note": "Agents stay STOPPED after release until a human starts each one.",
+        "protective_policy": "KEEP_PROTECTIVE",
+        "timeExitsSuspended": {}
+      }
+    },
+    {
+      "seq": 3567,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791388380000,
+      "ts_wall": 1791570595484,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "actor": "human",
+      "type": "AGENT_CONTROL_REFUSED",
+      "ref_id": "agent-cowboy-micro",
+      "prev_hash": "844add9eb2402475e600a0e59f419037aafef5705126527fea0a1d929c0be6dc",
+      "hash": "358d0531c5acdf40229b077088105a3848bf5796b87f2caf9f348aa7bee64550",
+      "payload": {
+        "action": "start",
+        "code": "KILL_SWITCH_ENGAGED",
+        "message": "kill switch engaged: agents cannot be started until it is released",
+        "state": "STOPPED"
+      }
+    },
+    {
+      "seq": 3569,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791388380000,
+      "ts_wall": 1791570595486,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "policy",
+      "type": "POLICY_DENY",
+      "ref_id": "int_mv1aviqld7ddd93f81",
+      "prev_hash": "f90427050eef3f22c4bdca06269d1e0383e26a4fa5c75017bdd57f3c49aa576c",
+      "hash": "e1a3c2b2391196418a3f5fcb92d0194035eab452fa159570fb37885148f55ef8",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "code": "KILL_SWITCH_ENGAGED",
+            "detail": "kill switch engaged by human; only human cancels are permitted",
+            "pass": false,
+            "rule": "kill_switch"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (human_confirmed applies)",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "detail": "human confirmed",
+            "pass": true,
+            "rule": "human_confirmed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a modify/cancel",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "detail": "equity allowed",
+            "pass": true,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "BAC allowed",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "detail": "estimated cost $53.4500 (1 x $53.4500 + fees $0.0000) <= $2500.0000",
+            "pass": true,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "detail": "available cash $9043.4800 covers $53.4500 (cash $9043.4800 - reserved $0.0000 for 0 open buy order(s), fees included)",
+            "pass": true,
+            "rule": "cash_sufficient"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a sell",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "detail": "day P&L $4.8600; cap $2500.0000",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "detail": "adds to existing BAC exposure (1/10)",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "detail": "position 10.14% of equity (held $961.3800 + pending buys $0.0000 (0 order(s)) + this $53.4500) <= 50%",
+            "pass": true,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (sandbox brackets are optional)",
+            "pass": true,
+            "rule": "protective_exit_required"
+          },
+          {
+            "detail": "1/10 orders this minute",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "detail": "quote age 1s <= 300s",
+            "pass": true,
+            "rule": "quote_fresh"
+          },
+          {
+            "detail": "spread 2 bps <= 1500 bps",
+            "pass": true,
+            "rule": "max_spread_bps"
+          },
+          {
+            "detail": "displayed ask size 1500 >= 1",
+            "pass": true,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 300s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 0/0 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "DENIED",
+        "estimate": {
+          "asOfEstimateOnly": true,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "costU": 534500,
+          "feesU": 0,
+          "multiplier": 1,
+          "priceU": 534500,
+          "qty": 1,
+          "segment": "large",
+          "sizedFromBudget": false,
+          "slippageBps": 5,
+          "spendCapU": 25000000
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": null,
+          "created_ts": 1791388380000,
+          "evidence_refs": [],
+          "expires_ts": 1791388680000,
+          "id": "int_mv1aviqld7ddd93f81",
+          "instrument": {
+            "kind": "equity",
+            "sym": "BAC"
+          },
+          "order_type": "market",
+          "portfolio_id": "sandbox",
+          "qty": 1,
+          "quote_ts": 1791388379210,
+          "rationale": "Human sandbox paper order",
+          "side": "buy",
+          "source": "human",
+          "strategy_id": null
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": [
+          {
+            "code": "KILL_SWITCH_ENGAGED",
+            "detail": "kill switch engaged by human; only human cancels are permitted"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 3583,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791389160000,
+      "ts_wall": 1791570595499,
+      "portfolio_id": null,
+      "agent_id": null,
+      "actor": "human",
+      "type": "KILL_SWITCH_RELEASED",
+      "ref_id": "kill_switch",
+      "prev_hash": "138b5214dba41d1c3f376b1fb6a9a36ef3158f8cb61b166ebbe5b92fe0202f7f",
+      "hash": "bf5b036047282a2ddb072b94d0f5028643c9db97f02d10cd1e6ca61537a1209d",
+      "payload": {
+        "by": "human",
+        "engagedAt": 1791570595481,
+        "note": "Agents remain STOPPED; each must be started individually by a human."
+      }
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "label": "REAL IEX HISTORICAL DATA — PAPER FILLS ARE ESTIMATES (not exchange executions); seed money is simulated",
+  "scenario": "human-confirm-required",
+  "covers": [
+    "explicit human confirmation"
+  ],
+  "description": "A sandbox order without confirm:true is denied by the gate.",
+  "dataset": "iex-tops-2026-10-07",
+  "session_id": "ses_mv1aur6xae911e68a0",
+  "generatedBy": "node --disable-warning=ExperimentalWarning test/api/e2e-real-replay.mjs --base http://127.0.0.1:8795 --ds iex-tops-2026-10-07 --db data/qa-copy.db --chunk 13 --db-copy-of data/vector.db",
+  "generatedAt": "2026-10-09T18:30:55.379Z",
+  "chain": {
+    "ok": true,
+    "checked": 5013,
+    "brokenAt": null,
+    "mode": "incremental",
+    "newlyChecked": 2488,
+    "verifiedMs": 33,
+    "scope": "full journal (all sessions)",
+    "note": "Rows appended since the last verification in this server process were re-hashed and linked to the verified prefix; verify=full re-hashes every row."
+  },
+  "rows": [
+    {
+      "seq": 2713,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381360000,
+      "ts_wall": 1791570566375,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "human",
+      "type": "INTENT_PROPOSED",
+      "ref_id": "int_mv1auw9y4cad765a34",
+      "prev_hash": "522bf8f8da4d0ac301585791d2cf34b4e50ee90027204c5bd39c50090847e2ab",
+      "hash": "6743b17641ef779a1ae8eba6bbe924ee227772e60a68bfc2995168c3fa7c6aff",
+      "payload": {
+        "confirm": false,
+        "intent": {
+          "action": "open",
+          "agent_id": null,
+          "budget_usd": 1000,
+          "created_ts": 1791381360000,
+          "evidence_refs": [],
+          "expires_ts": 1791381660000,
+          "id": "int_mv1auw9y4cad765a34",
+          "instrument": {
+            "kind": "equity",
+            "sym": "BAC"
+          },
+          "order_type": "market",
+          "portfolio_id": "sandbox",
+          "quote_ts": 1791381359573,
+          "rationale": "E2E sandbox order (paper only)",
+          "side": "buy",
+          "source": "human",
+          "strategy_id": null
+        },
+        "kind": "human_open",
+        "note": "Human paper-order request; the deterministic policy gate decides.",
+        "source": "human"
+      }
+    },
+    {
+      "seq": 2714,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381360000,
+      "ts_wall": 1791570566375,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "policy",
+      "type": "POLICY_DENY",
+      "ref_id": "int_mv1auw9y4cad765a34",
+      "prev_hash": "6743b17641ef779a1ae8eba6bbe924ee227772e60a68bfc2995168c3fa7c6aff",
+      "hash": "a1be7549b3d177631818fbb621fdee42e73ef5398585c89c4bc81d46335efb3a",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "detail": "kill switch released",
+            "pass": true,
+            "rule": "kill_switch"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (human_confirmed applies)",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "code": "HUMAN_NOT_CONFIRMED",
+            "detail": "human orders require explicit confirm:true",
+            "pass": false,
+            "rule": "human_confirmed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a modify/cancel",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "detail": "equity allowed",
+            "pass": true,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "BAC allowed",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "detail": "estimated cost $956.5200 (18 x $53.1400 + fees $0.0000) <= $2500.0000",
+            "pass": true,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "detail": "available cash $10000.0000 covers $956.5200 (cash $10000.0000 - reserved $0.0000 for 0 open buy order(s), fees included)",
+            "pass": true,
+            "rule": "cash_sufficient"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a sell",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "detail": "day P&L $0.0000; cap $2500.0000",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "detail": "1/10 positions after entry",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "detail": "position 9.57% of equity (held $0.0000 + pending buys $0.0000 (0 order(s)) + this $956.5200) <= 50%",
+            "pass": true,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (sandbox brackets are optional)",
+            "pass": true,
+            "rule": "protective_exit_required"
+          },
+          {
+            "detail": "1/10 orders this minute",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "detail": "quote age 0s <= 300s",
+            "pass": true,
+            "rule": "quote_fresh"
+          },
+          {
+            "detail": "spread 4 bps <= 1500 bps",
+            "pass": true,
+            "rule": "max_spread_bps"
+          },
+          {
+            "detail": "displayed ask size 1640 >= 1",
+            "pass": true,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 300s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 0/0 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "DENIED",
+        "estimate": {
+          "asOfEstimateOnly": true,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "costU": 9565200,
+          "feesU": 0,
+          "multiplier": 1,
+          "priceU": 531400,
+          "qty": 18,
+          "segment": "large",
+          "sizedFromBudget": true,
+          "slippageBps": 5,
+          "spendCapU": 10000000
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": null,
+          "budget_usd": 1000,
+          "created_ts": 1791381360000,
+          "evidence_refs": [],
+          "expires_ts": 1791381660000,
+          "id": "int_mv1auw9y4cad765a34",
+          "instrument": {
+            "kind": "equity",
+            "sym": "BAC"
+          },
+          "order_type": "market",
+          "portfolio_id": "sandbox",
+          "quote_ts": 1791381359573,
+          "rationale": "E2E sandbox order (paper only)",
+          "side": "buy",
+          "source": "human",
+          "strategy_id": null
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": [
+          {
+            "code": "HUMAN_NOT_CONFIRMED",
+            "detail": "human orders require explicit confirm:true"
+          }
+        ]
+      }
+    }
+  ]
+}

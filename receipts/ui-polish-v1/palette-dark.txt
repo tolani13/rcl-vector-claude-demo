@@ -1,0 +1,136 @@
+VECTOR ui-polish-v1 — chart palette validation, dark mode
+Generated 2026-10-10T01:54:53.450Z with scripts/validate-palette.js (copy of the dataviz skill's validator).
+Surface: #181818 (--graphite-2, the card surface every chart sits on; the app is dark-only).
+
+==== SHIPPED categorical palette (dark): one slot, copper (--copper #B87333)
+$ node scripts/validate-palette.js "#B87333" --mode dark --surface "#181818"
+
+Palette (dark, surface #181818, categorical): 1 slots
+  [PASS] Lightness band         all 1 inside L 0.48–0.67
+  [PASS] Chroma floor           all 1 >= 0.1
+  [PASS] CVD separation         n/a
+  [PASS] Normal-vision floor    n/a
+  [PASS] Contrast vs surface    all 1 >= 3:1
+
+  → ALL CHECKS PASS  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 0)
+Multi-series line charts are small multiples (one copper line per panel, shared y-scale, panel label = series name),
+so no chart ever needs a second categorical hue. The price/volume chart uses slot 1 for the close line only.
+
+
+==== EVIDENCE: can the RCL ramps make a 4-series categorical palette? (they cannot)
+a) RCL brand tokens as-is (copper, steel, bone, copper-text):
+$ node scripts/validate-palette.js "#B87333,#A7A7A7,#F5F3EE,#D08C4E" --mode dark --surface "#181818"
+
+Palette (dark, surface #181818, categorical): 4 slots
+  [FAIL] Lightness band         outside band: [["#A7A7A7",0.728],["#F5F3EE",0.964],["#D08C4E",0.696]]
+  [FAIL] Chroma floor           below floor (reads gray): [["#A7A7A7",0],["#F5F3EE",0.007]]
+  [PASS] CVD separation         worst adjacent #A7A7A7↔#B87333 ΔE 14.7 (deutan) · tritan 16.7
+  [PASS] Normal-vision floor    worst adjacent #A7A7A7↔#B87333 ΔE 16.1 (normal)
+  [PASS] Contrast vs surface    all 4 >= 3:1
+
+  → FAILED — fix the marked checks  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 1)
+
+b) copper and steel steps snapped into the dark lightness band:
+$ node scripts/validate-palette.js "#98560C,#868686,#C68041,#636363" --mode dark --surface "#181818"
+
+Palette (dark, surface #181818, categorical): 4 slots
+  [PASS] Lightness band         all 4 inside L 0.48–0.67
+  [FAIL] Chroma floor           below floor (reads gray): [["#868686",0],["#636363",0]]
+  [PASS] CVD separation         worst adjacent #C68041↔#868686 ΔE 9.8 (protan) · tritan 13.7
+  [FAIL] Normal-vision floor    worst adjacent #C68041↔#868686 ΔE 12.4 (normal) — below 15, hard to tell apart even with full color vision
+  [WARN] Contrast vs surface    below 3:1 — relief required (visible labels or table view): [["#636363",2.96]]
+
+  → FAILED — fix the marked checks  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 1)
+
+c) four copper steps (the only chromatic RCL hue) inside the band:
+$ node scripts/validate-palette.js "#915105,#A5621E,#B97434,#C98344" --mode dark --surface "#181818"
+
+Palette (dark, surface #181818, categorical): 4 slots
+  [FAIL] Lightness band         outside band: [["#C98344",0.67]]
+  [PASS] Chroma floor           all 4 >= 0.1
+  [FAIL] CVD separation         worst adjacent #C98344↔#B97434 ΔE 4.9 (deutan) · tritan 4.9
+  [FAIL] Normal-vision floor    worst adjacent #C98344↔#B97434 ΔE 4.9 (normal) — below 15, hard to tell apart even with full color vision
+  [WARN] Contrast vs surface    below 3:1 — relief required (visible labels or table view): [["#915105",2.86]]
+
+  → FAILED — fix the marked checks  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 1)
+
+d) the PREVIOUS benchmark series colours (styles.css .s0-.s3: copper, an off-brand blue #86A9D1, bone, --up status):
+$ node scripts/validate-palette.js "#B87333,#86A9D1,#F5F3EE,#8DB596" --mode dark --surface "#181818"
+
+Palette (dark, surface #181818, categorical): 4 slots
+  [FAIL] Lightness band         outside band: [["#86A9D1",0.724],["#F5F3EE",0.964],["#8DB596",0.735]]
+  [FAIL] Chroma floor           below floor (reads gray): [["#86A9D1",0.07],["#F5F3EE",0.007],["#8DB596",0.062]]
+  [PASS] CVD separation         worst adjacent #86A9D1↔#B87333 ΔE 19.7 (deutan) · tritan 22.1
+  [PASS] Normal-vision floor    worst adjacent #86A9D1↔#B87333 ΔE 21.4 (normal)
+  [PASS] Contrast vs surface    all 4 >= 3:1
+
+  → FAILED — fix the marked checks  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 1)
+
+Result: steel and bone are achromatic (OKLCH C 0.000 / 0.007) and fail the chroma floor wherever they sit; copper
+(H 60, C 0.117) is the only chromatic RCL hue, and the dark band (L 0.48-0.67) leaves room for only two copper
+steps >= 15 apart. Exhaustive search: 0 three-slot copper-only sets pass all-pairs; a "passing" adjacent 3-slot set
+only exists by repeating a step (slot 1 = slot 3). No new brand hue was invented.
+
+
+==== EVIDENCE: the maximum distinct categorical set the RCL ramps support (2 copper steps; documented, NOT shipped)
+$ node scripts/validate-palette.js "#965407,#C88243" --mode dark --surface "#181818" --pairs all
+
+Palette (dark, surface #181818, categorical): 2 slots
+  [PASS] Lightness band         all 2 inside L 0.48–0.67
+  [PASS] Chroma floor           all 2 >= 0.1
+  [PASS] CVD separation         worst all-pairs #C88243↔#965407 ΔE 15.4 (deutan) · tritan 15.5
+  [PASS] Normal-vision floor    worst all-pairs #C88243↔#965407 ΔE 15.4 (normal)
+  [PASS] Contrast vs surface    all 2 >= 3:1
+
+  → ALL CHECKS PASS  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 0)
+
+
+==== POLARITY (status tokens, not categorical): inferred buyer / seller / unclassified volume, stacked in this order
+The validator scope note applies: its lightness-band and chroma checks are for categorical slots; --up is a status
+token (L 0.735) and the unclassified neutral is gray BY DESIGN (diverging midpoint), so those two rows are expected
+to FAIL here and are not chart defects. The rows that matter for a stack are CVD / normal-vision separation and
+contrast:
+$ node scripts/validate-palette.js "#8DB596,#D2756A,#696969" --mode dark --surface "#181818" --pairs all
+
+Palette (dark, surface #181818, categorical): 3 slots
+  [FAIL] Lightness band         outside band: [["#8DB596",0.735]]
+  [FAIL] Chroma floor           below floor (reads gray): [["#8DB596",0.062],["#696969",0]]
+  [WARN] CVD separation         worst all-pairs #D2756A↔#8DB596 ΔE 7.4 (deutan) · tritan 21.3
+  [PASS] Normal-vision floor    worst all-pairs #D2756A↔#8DB596 ΔE 17.7 (normal)
+  [PASS] Contrast vs surface    all 3 >= 3:1
+
+  → FAILED — fix the marked checks  (CVD in the 6–8 floor band is legal ONLY with secondary encoding: direct labels, gaps, or texture)
+  scope: categorical palettes only. For a lone status/text color check WCAG text contrast; for a sequential ramp, lightness monotonicity.
+(exit 1)
+CVD WARN (buyer vs seller, deutan 7.4, floor band 6-8) mitigation shipped: fixed stack order (buyer at the baseline,
+then seller, then unclassified), a sign glyph and label in the legend, tooltip and table header (▲ Buyer-initiated
+(inferred) / ▼ Seller-initiated (inferred)), a 2px surface gap between stacked segments when bars are >= 3px wide,
+and the Table view with every minute's values.
+
+
+==== WCAG contrast of the other chart colours on the dark surface (validator contrast())
+  --viz-buy  = --up (status, buyer, inferred)  #8DB596  7.76:1  >= 3 PASS
+  --viz-sell = --down (status, seller, inferred) #D2756A  5.49:1  >= 3 PASS
+  --viz-neutral (steel shade L 0.52, unclassified) #696969  3.23:1  >= 3 PASS
+  --viz-wick (steel shade L 0.52, high-low range) #696969  3.23:1  >= 3 PASS
+  --viz-ink   = --bone (values, panel labels)  #F5F3EE  16.01:1  >= 4.5 PASS
+  --viz-ink-2 = --steel (legend, secondary text) #A7A7A7  7.38:1  >= 4.5 PASS
+  --viz-ink-3 = --text-3 (axis text, 12-13px)  #8F8F8F  5.49:1  >= 4.5 PASS
+  --viz-spark = --text-3 (sparkline trend)     #8F8F8F  5.49:1  >= 3 PASS
+  --viz-cursor = --steel (crosshair)           #A7A7A7  7.38:1  >= 3 PASS
+  --viz-grid = --graphite-4 (gridlines)        #2A2A2A  1.24:1  (recessive by design)
+  --viz-axis = --graphite-5 (baseline, zero line) #3A3A3A  1.56:1  (recessive by design)
+  tooltip surface --graphite-3 #202020: ink-3 #8F8F8F 5.04:1, ink-2 #A7A7A7 6.77:1, ink #F5F3EE 14.69:1
+

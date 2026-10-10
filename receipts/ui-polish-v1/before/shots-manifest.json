@@ -1,0 +1,222 @@
+{
+  "tool": "scripts/ui-check.mjs",
+  "label": "VECTOR UI check — screenshots of a paper-only lab; every fill shown is an ESTIMATED PAPER FILL",
+  "mode": "shots-only (screenshots for before/after comparison; no flows, no assertions)",
+  "base": "http://127.0.0.1:8795",
+  "startedAt": "2026-10-10T01:37:09.639Z",
+  "browser": {
+    "path": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "version": "Chrome/156.0.8078.12"
+  },
+  "viewports": [
+    {
+      "name": "390x844",
+      "width": 390,
+      "height": 844,
+      "kind": "phone",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "1440x900",
+      "width": 1440,
+      "height": 900,
+      "kind": "desktop",
+      "mobile": false,
+      "dsf": 1
+    }
+  ],
+  "routesSelected": [
+    "overview",
+    "replay",
+    "agents",
+    "journal"
+  ],
+  "serverStatus": {
+    "dataMode": "HISTORICAL_REAL",
+    "dataset": "iex-tops-2026-10-07",
+    "datasetSha256": "bb405b6835f5cfc8fd27d3552ef9d1572a42670e45d612223c689aad0e458256",
+    "replay": {
+      "session_id": "ses_mv1q4y74b8d99cc09a",
+      "clock": 1791384300000,
+      "clockEt": "10:45",
+      "playing": false,
+      "status": "READY"
+    },
+    "model": "DISCONNECTED",
+    "killSwitch": false
+  },
+  "prepare": {
+    "ds": "iex-tops-2026-10-07",
+    "session_id": "ses_mv1q4y74b8d99cc09a",
+    "clockEt": "10:45"
+  },
+  "symbols": null,
+  "web": {
+    "assets/RCL_Convergence_Full_Dark.svg": "dbd5d59054914012",
+    "assets/RCL_Convergence_Full_Light.svg": "55f455e77cda1663",
+    "assets/RCL_Convergence_Mark_Dark.svg": "abc341bceffc1a48",
+    "assets/RCL_Convergence_Mark_Light.svg": "2932c8b89c428d91",
+    "assets/RCL_Copper_Steel_Full.svg": "d68a606c3e9d3a61",
+    "assets/RCL_Copper_Steel_Full_814x502.png": "04aaa1a664a4633f",
+    "assets/RCL_Copper_Steel_Full_814x502.webp": "1e107ab53cf7380b",
+    "assets/RCL_Copper_Steel_Mark.svg": "dc6dff6697556313",
+    "assets/RCL_Copper_Steel_Mark_120.png": "bb87e00138b6889a",
+    "assets/RCL_Copper_Steel_Mark_32.png": "07931e34c8934379",
+    "assets/RCL_Copper_Steel_Mark_40.png": "6e1ea733f56e3ea3",
+    "assets/RCL_Copper_Steel_Mark_64.png": "129db2875ac341ca",
+    "assets/RCL_Copper_Steel_Mark_80.png": "b49ac1dd9239b02b",
+    "assets/RCL_Copper_Steel_Mark_96.png": "b87b80c2ed35596f",
+    "charts.css": "e8798940d078ab63",
+    "index.html": "776ea1bd1efe2a03",
+    "js/api.js": "76760e15f31997d2",
+    "js/app.js": "16c5757358441005",
+    "js/charts.js": "d4d888cbc6c8849f",
+    "js/components.js": "a68756d767f473ae",
+    "js/dom.js": "6c9361e3cfd97f97",
+    "js/estimate.js": "68a00a8954de8a9f",
+    "js/format.js": "f48cb063cce8c1df",
+    "js/router.js": "83287433fe761226",
+    "js/status-strip.js": "0e8f4fb4e7b3e4b5",
+    "js/store.js": "3cf3851aab5641aa",
+    "js/strategy-schema.js": "dc4f2c683587440f",
+    "js/summaries.js": "537473f22e6340dc",
+    "js/views/about.js": "de68ee7aacb302a8",
+    "js/views/agents.js": "16a4ffbf0d2aeb47",
+    "js/views/common.js": "f3fb437df41a8406",
+    "js/views/journal.js": "84c6757323d03cbc",
+    "js/views/lab.js": "f5eedb38c0527aba",
+    "js/views/more.js": "a6afd073a45dbe52",
+    "js/views/overview.js": "9d540064026c2bbd",
+    "js/views/replay.js": "d1b15efa44660583",
+    "js/views/research.js": "9ec9f93aecdec3ad",
+    "js/views/sources.js": "d0532fde82db63a6",
+    "styles.css": "b90b91283ab54b00"
+  },
+  "assertions": [],
+  "routes": [
+    {
+      "viewport": "390x844",
+      "route": "#/overview",
+      "screenshot": "receipts/ui-polish-v1/before/390x844-overview.png",
+      "widths": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/replay",
+      "screenshot": "receipts/ui-polish-v1/before/390x844-replay.png",
+      "widths": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/agents",
+      "screenshot": "receipts/ui-polish-v1/before/390x844-agents.png",
+      "widths": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390
+      },
+      "errors": []
+    },
+    {
+      "viewport": "390x844",
+      "route": "#/journal",
+      "screenshot": "receipts/ui-polish-v1/before/390x844-journal.png",
+      "widths": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/overview",
+      "screenshot": "receipts/ui-polish-v1/before/1440x900-overview.png",
+      "widths": {
+        "innerWidth": 1440,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/replay",
+      "screenshot": "receipts/ui-polish-v1/before/1440x900-replay.png",
+      "widths": {
+        "innerWidth": 1440,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/agents",
+      "screenshot": "receipts/ui-polish-v1/before/1440x900-agents.png",
+      "widths": {
+        "innerWidth": 1440,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425
+      },
+      "errors": []
+    },
+    {
+      "viewport": "1440x900",
+      "route": "#/journal",
+      "screenshot": "receipts/ui-polish-v1/before/1440x900-journal.png",
+      "widths": {
+        "innerWidth": 1440,
+        "clientWidth": 1425,
+        "scrollWidth": 1425,
+        "bodyScrollWidth": 1425
+      },
+      "errors": []
+    }
+  ],
+  "flows": [],
+  "screenshots": [
+    "receipts/ui-polish-v1/before/390x844-overview.png",
+    "receipts/ui-polish-v1/before/390x844-replay.png",
+    "receipts/ui-polish-v1/before/390x844-agents.png",
+    "receipts/ui-polish-v1/before/390x844-journal.png",
+    "receipts/ui-polish-v1/before/1440x900-overview.png",
+    "receipts/ui-polish-v1/before/1440x900-replay.png",
+    "receipts/ui-polish-v1/before/1440x900-agents.png",
+    "receipts/ui-polish-v1/before/1440x900-journal.png"
+  ],
+  "tripwire": [],
+  "finishedAt": "2026-10-10T01:37:15.270Z",
+  "summary": {
+    "assertions": 0,
+    "passed": 0,
+    "failed": 0,
+    "routeChecks": 8,
+    "screenshots": 8,
+    "flows": [],
+    "tripwire": {
+      "checks": 0,
+      "failed": 0,
+      "failing": []
+    },
+    "failures": []
+  }
+}

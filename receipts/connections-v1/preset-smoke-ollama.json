@@ -1,0 +1,348 @@
+{
+  "kind": "connections-v1 preset smoke (live, $0, local Ollama)",
+  "generated_at": "2026-10-10T03:27:39.841Z",
+  "command": "node scripts/preset-smoke.mjs --model qwen3:8b --sym TOPP --step-minutes 60 --assess --out receipts/connections-v1/preset-smoke-ollama.json",
+  "node": "v25.2.1",
+  "git_head": "c5eb4e2",
+  "environment": {
+    "VECTOR_PORT": "0",
+    "VECTOR_HOST": "127.0.0.1",
+    "VECTOR_DB": "VACUUM INTO copy of data/vector.db (deleted after the run)",
+    "VECTOR_MODEL_CONFIG": "C:\\AI_Projects\\Claude\\vector-claude\\data\\preset-smoke-no-model-config.json",
+    "VECTOR_MODEL_PRESET": "ollama-local",
+    "VECTOR_MODEL_PRESET_MODEL": "qwen3:8b",
+    "VECTOR_MODEL_PIN_ALL_LENSES": "1"
+  },
+  "cost": "$0: local model through the ollama-local preset (cost free, trains_on_prompts false)",
+  "steps": {
+    "presets": {
+      "status": 200,
+      "selection": {
+        "source": "env",
+        "selection": {
+          "default": {
+            "preset": "ollama-local",
+            "model": "qwen3:8b"
+          },
+          "lenses": {},
+          "pinAllLenses": true
+        },
+        "pinAllLenses": true,
+        "sameModelAllLenses": true,
+        "lenses": {
+          "cowboy": {
+            "provider": "preset:ollama-local",
+            "kind": "ollama",
+            "model": "qwen3:8b",
+            "preset": "ollama-local",
+            "cost": "free",
+            "trains_on_prompts": false,
+            "training_cutoff": "2025-04-29",
+            "blocked": null
+          },
+          "pragmatist": {
+            "provider": "preset:ollama-local",
+            "kind": "ollama",
+            "model": "qwen3:8b",
+            "preset": "ollama-local",
+            "cost": "free",
+            "trains_on_prompts": false,
+            "training_cutoff": "2025-04-29",
+            "blocked": null
+          },
+          "tightwad": {
+            "provider": "preset:ollama-local",
+            "kind": "ollama",
+            "model": "qwen3:8b",
+            "preset": "ollama-local",
+            "cost": "free",
+            "trains_on_prompts": false,
+            "training_cutoff": "2025-04-29",
+            "blocked": null
+          }
+        },
+        "allowPaid": false
+      },
+      "preset": {
+        "id": "ollama-local",
+        "label": "Ollama (local, native API)",
+        "adapter": "ollama",
+        "base_url": "http://127.0.0.1:11434",
+        "local": true,
+        "cost": "free",
+        "trains_on_prompts": false,
+        "trains_on_prompts_source": "https://docs.ollama.com/faq",
+        "trains_on_prompts_note": "Ollama FAQ: Ollama runs locally and does not see prompts or data when you run locally. Cloud-hosted Ollama models (names ending in cloud) leave the machine and are refused by this preset.",
+        "docs_url": "https://docs.ollama.com/api",
+        "limits_url": null,
+        "any_model": true,
+        "default_model": "qwen3:8b",
+        "model_suffix_required": null,
+        "timeout_ms": 300000,
+        "training_cutoff": {
+          "qwen3:8b": {
+            "date": "2025-04-29",
+            "source": "https://qwenlm.github.io/blog/qwen3/",
+            "note": "upper bound: the Qwen3 release post date (no cutoff is published)"
+          }
+        },
+        "limits": {
+          "requests_per_minute": 30,
+          "requests_per_day": 2000,
+          "source": "local model: owner-set safety bounds, not a provider limit"
+        },
+        "key_env": null,
+        "key_present": null,
+        "allowed_by_cost_guard": true,
+        "localBudget": {
+          "perMinute": {
+            "cap": 30,
+            "used": 0,
+            "remaining": 30
+          },
+          "perDay": {
+            "cap": 2000,
+            "used": 0,
+            "remaining": 2000
+          },
+          "source": "local model: owner-set safety bounds, not a provider limit"
+        }
+      }
+    },
+    "model": {
+      "status": "CONNECTED",
+      "provider": "preset:ollama-local",
+      "preset": "ollama-local",
+      "model": "qwen3:8b",
+      "detail": "Ollama reachable at http://127.0.0.1:11434; model qwen3:8b available; every request sets num_ctx 16384; loaded now with context 16384"
+    },
+    "model_test": {
+      "http": 200,
+      "wall_ms": 7529,
+      "decision": "OK",
+      "modelStatus": "CONNECTED",
+      "provider": "ollama",
+      "preset": "ollama-local",
+      "model": "qwen3:8b",
+      "latencyMs": 7522,
+      "usage": {
+        "in": 50,
+        "out": 214
+      },
+      "fallbackUsed": false,
+      "error": null,
+      "errorKind": null,
+      "refused": false,
+      "confirmed": true,
+      "note": "Explicit connectivity test: one small request. It is not an assessment and produces no market output."
+    },
+    "replay_step": null,
+    "assessment_request": {
+      "http": 202,
+      "decision": "ACCEPTED",
+      "status": "RUNNING",
+      "run_id": "arun_mv1u37zc681b461862",
+      "sym": "TOPP",
+      "asOf": 1791383400000,
+      "session_id": "ses_mv1u323s2869c09b42",
+      "lensesTotal": 3,
+      "progress": "GET /api/status: model.running and model.inFlight.assessment (lensesDone of lensesTotal) while it runs; model.lastAssessmentRun holds the outcome. Each stored lens appears in GET /api/assessments?sym= as it completes.",
+      "note": "Three independent lens calls on the same as-of evidence packet, run in the background. Assessments never execute trades."
+    },
+    "assessment_outcome": {
+      "run_id": "arun_mv1u37zc681b461862",
+      "sym": "TOPP",
+      "asOf": 1791383400000,
+      "session_id": "ses_mv1u323s2869c09b42",
+      "mode": "async",
+      "startedAt": 1791602867496,
+      "finishedAt": 1791603164820,
+      "status": "COMPLETED",
+      "decision": "OK",
+      "stances": {
+        "cowboy": "consider_entry",
+        "pragmatist": "avoid",
+        "tightwad": "avoid"
+      },
+      "assessment_ids": [
+        "asmt_mv1u6an6f347fea7f2",
+        "asmt_mv1u7val916f0b5648",
+        "asmt_mv1u9leba81eec636c"
+      ],
+      "lensStatuses": {
+        "cowboy": "OK",
+        "pragmatist": "OK",
+        "tightwad": "OK"
+      },
+      "lensErrorKinds": {
+        "cowboy": null,
+        "pragmatist": null,
+        "tightwad": null
+      }
+    },
+    "assessments": [
+      {
+        "id": "asmt_mv1u9leba81eec636c",
+        "lens": "tightwad",
+        "status": "OK",
+        "provider": "preset:ollama-local",
+        "model": "qwen3:8b",
+        "latency_ms": 80482,
+        "stance": "avoid",
+        "error": null,
+        "audit": {
+          "intent_status": "NONE",
+          "intent_errors": [],
+          "intent_draft": null,
+          "requested_model": "qwen3:8b",
+          "served_model": "qwen3:8b",
+          "fallback_used": false,
+          "verification": {
+            "checked": true,
+            "flags": [],
+            "note": "Numbers in the model text that match no packet value (within the rounding shown, including fraction/percent conversions). Numbers the model derived itself also appear here. This is a consistency aid, not a fact check; integers 0-10 are not checked.",
+            "numbers_checked": 24,
+            "unmatched": [
+              {
+                "field": "$.thesis",
+                "value": "11.5"
+              },
+              {
+                "field": "$.thesis",
+                "value": "23.6"
+              },
+              {
+                "field": "$.exposure",
+                "value": "0.057"
+              }
+            ]
+          },
+          "hindsight": null,
+          "packet_version": "vector-evidence-packet-v3",
+          "error_kind": null
+        }
+      },
+      {
+        "id": "asmt_mv1u7val916f0b5648",
+        "lens": "pragmatist",
+        "status": "OK",
+        "provider": "preset:ollama-local",
+        "model": "qwen3:8b",
+        "latency_ms": 73415,
+        "stance": "avoid",
+        "error": null,
+        "audit": {
+          "intent_status": "NONE",
+          "intent_errors": [],
+          "intent_draft": null,
+          "requested_model": "qwen3:8b",
+          "served_model": "qwen3:8b",
+          "fallback_used": false,
+          "verification": {
+            "checked": true,
+            "flags": [],
+            "note": "Numbers in the model text that match no packet value (within the rounding shown, including fraction/percent conversions). Numbers the model derived itself also appear here. This is a consistency aid, not a fact check; integers 0-10 are not checked.",
+            "numbers_checked": 23,
+            "unmatched": [
+              {
+                "field": "$.exposure",
+                "value": "1.7"
+              }
+            ]
+          },
+          "hindsight": null,
+          "packet_version": "vector-evidence-packet-v3",
+          "error_kind": null
+        }
+      },
+      {
+        "id": "asmt_mv1u6an6f347fea7f2",
+        "lens": "cowboy",
+        "status": "OK",
+        "provider": "preset:ollama-local",
+        "model": "qwen3:8b",
+        "latency_ms": 52980,
+        "stance": "consider_entry",
+        "error": null,
+        "audit": {
+          "intent_status": "VALID",
+          "intent_errors": [],
+          "intent_draft": {
+            "action": "open",
+            "agent_id": "draft:cowboy",
+            "attach": {
+              "stop_loss_px_u": 2300,
+              "take_profit_px_u": 2677,
+              "time_exit_min": 15
+            },
+            "budget_usd": 2345,
+            "created_ts": 1791383400000,
+            "evidence_refs": [
+              "ev_27ff63f4e9361c43a515d9b6",
+              "ev_6ae454efb34a9a1095547e13",
+              "ev_fd1866f339980768ffc4cb7c",
+              "ev_a053fe762874ef2b868320ac"
+            ],
+            "expires_ts": 1791387000000,
+            "instrument": {
+              "kind": "equity",
+              "sym": "TOPP"
+            },
+            "limit_px_u": 2345,
+            "order_type": "limit",
+            "portfolio_id": "cowboy-micro",
+            "qty": 10000,
+            "quote_ts": 1791383384919,
+            "rationale": "Aggressive entry on confirmed volume expansion and buyer-initiated aggressor shares, with stop below bid and take-profit at session high. Credible fill with IEX liquidity and spread cost accounted for.",
+            "side": "buy",
+            "source": "model",
+            "strategy_id": null
+          },
+          "requested_model": "qwen3:8b",
+          "served_model": "qwen3:8b",
+          "fallback_used": false,
+          "verification": {
+            "checked": true,
+            "flags": [
+              "describes the spread as tight/narrow while the packet's IEX spread is 294 bps"
+            ],
+            "note": "Numbers in the model text that match no packet value (within the rounding shown, including fraction/percent conversions). Numbers the model derived itself also appear here. This is a consistency aid, not a fact check; integers 0-10 are not checked.",
+            "numbers_checked": 28,
+            "unmatched": [
+              {
+                "field": "$.exposure",
+                "value": "5.88"
+              }
+            ]
+          },
+          "hindsight": null,
+          "packet_version": "vector-evidence-packet-v3",
+          "error_kind": null
+        }
+      },
+      {
+        "id": "asmt_mv1u55rc7f8b3cd78c",
+        "lens": "cowboy",
+        "status": "INVALID_OUTPUT",
+        "provider": "preset:ollama-local",
+        "model": "qwen3:8b",
+        "latency_ms": 90372,
+        "stance": null,
+        "error": "SEMANTIC_INVALID: $.proposed_intent.stop_px_usd: must be null for order_type limit (stop_px_usd is the entry trigger of a stop/stop_limit order; the protective stop belongs in stop_loss_px_usd)",
+        "audit": {
+          "intent_status": "NONE",
+          "intent_errors": [],
+          "intent_draft": null,
+          "requested_model": "qwen3:8b",
+          "served_model": "qwen3:8b",
+          "fallback_used": false,
+          "verification": null,
+          "hindsight": null,
+          "packet_version": "vector-evidence-packet-v3",
+          "error_kind": "INVALID_OUTPUT"
+        }
+      }
+    ]
+  },
+  "server_log_lines": 0
+}

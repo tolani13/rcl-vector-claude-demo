@@ -1,0 +1,32 @@
+== 1. every logo URL referenced by web/index.html, about.js, more.js, fetched through the real serveStatic (HEAD)
+/assets/RCL_Copper_Steel_Full_814x502.png -> 200 image/png 449642
+/assets/RCL_Copper_Steel_Mark_120.png -> 200 image/png 20065
+/assets/RCL_Copper_Steel_Mark_32.png -> 200 image/png 2328
+/assets/RCL_Copper_Steel_Mark_40.png -> 200 image/png 3329
+/assets/RCL_Copper_Steel_Mark_64.png -> 200 image/png 7066
+/assets/RCL_Copper_Steel_Mark_80.png -> 200 image/png 10179
+/assets/RCL_Copper_Steel_Mark_96.png -> 200 image/png 13778
+/assets/RCL_Copper_Steel_Full_814x502.webp -> 404 text/plain; charset=utf-8 9
+(the last line is the WebP candidate: not in web/assets and not in the static allow-list -> 404, which is why it is not shipped)
+== 2. shipped About + More views rendered in headless Chrome (156.0.8078.12)
+-- DPR 1, 1280x900
+img 440x271 complete=true natural=814x502 current=/assets/RCL_Copper_Steel_Full_814x502.png
+img 40x40 complete=true natural=40x40 current=/assets/RCL_Copper_Steel_Mark_40.png
+-- DPR 2, 1280x900
+img 440x271 complete=true natural=814x502 current=/assets/RCL_Copper_Steel_Full_814x502.png
+img 40x40 complete=true natural=40x40 current=/assets/RCL_Copper_Steel_Mark_80.png
+-- DPR 3, 1280x900
+img 440x271 complete=true natural=814x502 current=/assets/RCL_Copper_Steel_Full_814x502.png
+img 40x40 complete=true natural=40x40 current=/assets/RCL_Copper_Steel_Mark_120.png
+== 3. image requests in the server log (3 fetch-check loads at DPR 1/2/3, then the real index.html at #/about 1280x800 DPR 2 and #/more 390x844 DPR 3)
+GET /assets/RCL_Copper_Steel_Mark_40.png 200 
+GET /assets/RCL_Copper_Steel_Full_814x502.png 200 
+GET /assets/RCL_Copper_Steel_Mark_80.png 200 
+GET /assets/RCL_Copper_Steel_Full_814x502.png 200 
+GET /assets/RCL_Copper_Steel_Mark_120.png 200 
+GET /assets/RCL_Copper_Steel_Full_814x502.png 200 
+GET /assets/RCL_Copper_Steel_Mark_80.png 200 
+GET /assets/RCL_Copper_Steel_Mark_64.png 200 
+GET /assets/RCL_Copper_Steel_Full_814x502.png 200 
+GET /assets/RCL_Copper_Steel_Mark_120.png 200 
+GET /assets/RCL_Copper_Steel_Mark_96.png 200 

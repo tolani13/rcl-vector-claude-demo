@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "note": "Model presets for VECTOR (docs/CONTRACTS.md section 8a). NO SECRETS IN THIS FILE: each preset names the server environment variable that holds its key (key_env). Free-tier terms and limits change; check each preset's source URLs and edit this file (or point VECTOR_MODEL_PRESETS at a copy) when they do. Limits are enforced locally before any call. Researched 2026-10-09.",
+  "presets": [
+    {
+      "id": "ollama-local",
+      "label": "Ollama (local, native API)",
+      "adapter": "ollama",
+      "base_url": "http://127.0.0.1:11434",
+      "key_env": null,
+      "local": true,
+      "cost": "free",
+      "trains_on_prompts": false,
+      "trains_on_prompts_source": "https://docs.ollama.com/faq",
+      "trains_on_prompts_note": "Ollama FAQ: Ollama runs locally and does not see prompts or data when you run locally. Cloud-hosted Ollama models (names ending in cloud) leave the machine and are refused by this preset.",
+      "docs_url": "https://docs.ollama.com/api",
+      "any_model": true,
+      "default_model": "qwen3:8b",
+      "num_ctx": 16384,
+      "timeout_ms": 300000,
+      "training_cutoff": {
+        "qwen3:8b": { "date": "2025-04-29", "source": "https://qwenlm.github.io/blog/qwen3/", "note": "upper bound: the Qwen3 release post date (no cutoff is published)" }
+      },
+      "limits": { "requests_per_minute": 30, "requests_per_day": 2000, "source": "local model: owner-set safety bounds, not a provider limit" }
+    },
+    {
+      "id": "lmstudio-local",
+      "label": "LM Studio (local, OpenAI-compatible server)",
+      "adapter": "openai-compatible",
+      "base_url": "http://127.0.0.1:1234/v1",
+      "key_env": null,
+      "local": true,
+      "cost": "free",
+      "trains_on_prompts": false,
+      "trains_on_prompts_source": "https://lmstudio.ai/docs/app/offline",
+      "trains_on_prompts_note": "LM Studio docs: it can operate entirely offline; local server requests use OpenAI-style endpoints but stay local.",
+      "docs_url": "https://lmstudio.ai/docs/app/api/endpoints/openai",
+      "any_model": true,
+      "default_model": null,
+      "context_tokens": 16384,
+      "timeout_ms": 300000,
+      "training_cutoff": {
+        "qwen3-8b": { "date": "2025-04-29", "source": "https://qwenlm.github.io/blog/qwen3/", "note": "upper bound: the Qwen3 release post date (no cutoff is published)" }
+      },
+      "limits": { "requests_per_minute": 30, "requests_per_day": 2000, "source": "local model: owner-set safety bounds, not a provider limit" }
+    },
+    {
+      "id": "groq",
+      "label": "Groq (free plan, OpenAI-compatible)",
+      "adapter": "openai-compatible",
+      "base_url": "https://api.groq.com/openai/v1",
+      "key_env": "VECTOR_GROQ_API_KEY",
+      "local": false,
+      "cost": "free",
+      "trains_on_prompts": "unknown",
+      "trains_on_prompts_source": "https://console.groq.com/docs/your-data",
+      "trains_on_prompts_note": "Groq's 'Your Data in GroqCloud' page covers retention (none by default; up to 30 days of logs for reliability/abuse unless Zero Data Retention is enabled) but does not state whether inputs are used for training. Not verified from the binding agreement, so: unknown.",
+      "docs_url": "https://console.groq.com/docs/openai",
+      "limits_url": "https://console.groq.com/docs/rate-limits",
+      "any_model": true,
+      "default_model": "openai/gpt-oss-20b",
+      "context_tokens": 131072,
+      "training_cutoff": {
+        "openai/gpt-oss-20b": { "date": "2024-06-30", "source": "https://developers.openai.com/api/docs/models/gpt-oss-20b", "note": "OpenAI lists a knowledge cutoff of 2024-06-01; month-end used as the upper bound" },
+        "openai/gpt-oss-120b": { "date": "2024-06-30", "source": "https://developers.openai.com/api/docs/models/gpt-oss-120b", "note": "same gpt-oss family cutoff; month-end upper bound" }
+      },
+      "limits": { "requests_per_minute": 30, "requests_per_day": 1000, "source": "https://console.groq.com/docs/rate-limits (gpt-oss rows: 30 RPM, 1K RPD; the page shows Developer-plan rows and points free accounts to their own limits page, so these are upper bounds - lower them to your account's values)" }
+    },
+    {
+      "id": "openrouter-free",
+      "label": "OpenRouter (:free models only)",
+      "adapter": "openai-compatible",
+      "base_url": "https://openrouter.ai/api/v1",
+      "key_env": "VECTOR_OPENROUTER_API_KEY",
+      "local": false,
+      "cost": "free",
+      "model_suffix_required": ":free",
+      "trains_on_prompts": "unknown",
+      "trains_on_prompts_source": "https://openrouter.ai/docs/features/privacy-and-logging",
+      "trains_on_prompts_note": "OpenRouter routes to third-party providers whose training policies differ; free and paid models have separate training settings, and opting out stops routing to providers that train. Depends on your account setting and the routed provider: unknown.",
+      "docs_url": "https://openrouter.ai/docs/api-reference/overview",
+      "limits_url": "https://openrouter.ai/docs/api-reference/limits",
+      "any_model": true,
+      "default_model": "openai/gpt-oss-20b:free",
+      "context_tokens": 32768,
+      "training_cutoff": {
+        "openai/gpt-oss-20b:free": { "date": "2024-06-30", "source": "https://developers.openai.com/api/docs/models/gpt-oss-20b", "note": "OpenAI lists a knowledge cutoff of 2024-06-01; month-end used as the upper bound" }
+      },
+      "limits": { "requests_per_minute": 20, "requests_per_day": 50, "source": "https://openrouter.ai/docs/api-reference/limits (:free variants: 20 RPM; 50 requests/day with under 10 credits purchased, 1000/day with 10 or more)" }
+    },
+    {
+      "id": "gemini-flash-free",
+      "label": "Google Gemini Flash (free tier, OpenAI-compatible endpoint)",
+      "adapter": "openai-compatible",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "key_env": "VECTOR_GEMINI_API_KEY",
+      "local": false,
+      "cost": "free",
+      "trains_on_prompts": true,
+      "trains_on_prompts_source": "https://ai.google.dev/gemini-api/terms",
+      "trains_on_prompts_note": "Gemini API Additional Terms (updated 2026-04-28): for Unpaid Services Google uses submitted content and responses to provide, improve and develop Google products, and human reviewers may read API input and output. The pricing page marks free-tier content 'used to improve our products'.",
+      "docs_url": "https://ai.google.dev/gemini-api/docs/openai",
+      "limits_url": "https://ai.google.dev/gemini-api/docs/rate-limits",
+      "any_model": true,
+      "default_model": "gemini-3.8-flash",
+      "context_tokens": 1048576,
+      "training_cutoff": {},
+      "limits": { "requests_per_minute": 5, "requests_per_day": 100, "source": "conservative local caps: Google publishes free-tier per-model limits only in AI Studio (https://aistudio.google.com/rate-limit); set these to your account's values" }
+    },
+    {
+      "id": "anthropic",
+      "label": "Anthropic Claude (paid API)",
+      "adapter": "anthropic",
+      "base_url": null,
+      "key_env": "ANTHROPIC_API_KEY",
+      "local": false,
+      "cost": "paid",
+      "trains_on_prompts": "unknown",
+      "trains_on_prompts_source": "https://www.anthropic.com/legal/commercial-terms",
+      "trains_on_prompts_note": "Not re-verified in this session: unknown until checked. Paid: refused unless VECTOR_ALLOW_PAID=1.",
+      "docs_url": "https://docs.claude.com/en/api/overview",
+      "any_model": true,
+      "default_model": "claude-opus-5-5",
+      "training_cutoff": {
+        "claude-opus-5-5": { "date": "2026-06-30", "source": "server/intel/model-provider.js KNOWN_TRAINING_CUTOFFS", "note": "built-in value" }
+      },
+      "limits": { "requests_per_minute": 10, "requests_per_day": 300, "source": "owner-set local bounds" }
+    }
+  ]
+}

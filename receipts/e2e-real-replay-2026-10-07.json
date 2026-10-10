@@ -1,0 +1,4092 @@
+{
+  "label": "REAL IEX HISTORICAL DATA — PAPER FILLS ARE ESTIMATES (not exchange executions); seed money is simulated",
+  "command": "node --disable-warning=ExperimentalWarning test/api/e2e-real-replay.mjs --base http://127.0.0.1:8795 --ds iex-tops-2026-10-07 --db data/qa-copy.db --chunk 13 --db-copy-of data/vector.db",
+  "database": {
+    "path": "data/qa-copy.db",
+    "copyOf": "data/vector.db",
+    "method": "VACUUM INTO from a read-only open of the original",
+    "disposable": true,
+    "deletedAfterRun": true
+  },
+  "caveats": [
+    "Market data: stored IEX HIST TOPS for the replay date (IEX-only top of book and trades; not NBBO, not consolidated volume). Nothing here is live.",
+    "Every fill is an ESTIMATED PAPER FILL (fill model iex-conservative-minute-v1: worst price in the minute, slippage, fees rounded up). No order reached an exchange.",
+    "agent-cowboy-micro ran the documented handwritten-notes-example preset (EXPLORATORY, not tuned for this run); the other five agents ran their lens presets. All six used decisionMode rules. The lens presets proposed no entries on this dataset; their AGENT_SCAN rows record why (per-reason skip counts).",
+    "The unconfirmed, over-budget, stale-quote, far-below limit + cancel, bracketed BUY, stop replace and SELL orders were human sandbox orders placed by this driver to exercise the policy gate and orders engine on real as-of quotes; symbols were picked at run time from the as-of scanner.",
+    "Kill switch drill (KEEP_PROTECTIVE): 0 open non-protective order(s) existed to cancel; the sandbox bracket's protective orders were kept working. Cancellation of pending entries by the kill switch is shown in the fixture sample receipts/journal-samples/fixture-agents-kill-switch.json.",
+    "No take-profit filled on real data in this run; take-profit is evidenced only by the fixture sample receipts/journal-samples/fixture-agents-take-profit.json.",
+    "Long puts: no options data provider is wired into the replay and expiration settlement is never called automatically; operational options orders are rejected (409 NO_VERIFIED_OPTIONS_DATA). The long-put lifecycle (premium x 100, mark, cash-value expiration) is evidenced only with TEST FIXTURE contracts: test/sim/options.test.js and receipts/journal-samples/fixture-sim-long-put-example.json. Model assessments: no model provider configured (MODEL DISCONNECTED) — mock-provider tests only.",
+    "Triggered stop: every stop that triggered in this run was at or above the as-of IEX bid when it went live (placement-triggered, see OPEN_QUESTIONS #4), so no price-move-triggered stop occurred on real data; the acceptance item records false.",
+    "The server ran at http://127.0.0.1:8795 on data/qa-copy.db, a disposable VACUUM INTO copy of data/vector.db made for this run (the original was opened read-only and never written; the copy was deleted afterwards, so this receipt cannot be re-read against it); journal statistics and samples were read from the copy read-only after the run. The chain field is the server's own verification (GET /api/journal)."
+  ],
+  "base": "http://127.0.0.1:8795",
+  "ds": "iex-tops-2026-10-07",
+  "startedAt": "2026-10-09T18:29:19.760Z",
+  "steps": [
+    {
+      "from": 1791379800000,
+      "to": 1791380580000,
+      "fromEt": "09:30",
+      "toEt": "09:43",
+      "minutes": 13,
+      "wallMs": 3030,
+      "perMinuteMs": {
+        "p50": 230,
+        "p95": 249,
+        "max": 249
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791380580000,
+      "to": 1791381360000,
+      "fromEt": "09:43",
+      "toEt": "09:56",
+      "minutes": 13,
+      "wallMs": 3191,
+      "perMinuteMs": {
+        "p50": 234,
+        "p95": 299,
+        "max": 299
+      },
+      "fills": 2,
+      "triggered": 1,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 2,
+      "accepted": 1,
+      "denied": 1,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791381360000,
+      "to": 1791382140000,
+      "fromEt": "09:56",
+      "toEt": "10:09",
+      "minutes": 13,
+      "wallMs": 3158,
+      "perMinuteMs": {
+        "p50": 236,
+        "p95": 272,
+        "max": 272
+      },
+      "fills": 1,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791382140000,
+      "to": 1791382920000,
+      "fromEt": "10:09",
+      "toEt": "10:22",
+      "minutes": 13,
+      "wallMs": 3135,
+      "perMinuteMs": {
+        "p50": 236,
+        "p95": 274,
+        "max": 274
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791382920000,
+      "to": 1791383700000,
+      "fromEt": "10:22",
+      "toEt": "10:35",
+      "minutes": 13,
+      "wallMs": 3157,
+      "perMinuteMs": {
+        "p50": 239,
+        "p95": 271,
+        "max": 271
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791383700000,
+      "to": 1791384480000,
+      "fromEt": "10:35",
+      "toEt": "10:48",
+      "minutes": 13,
+      "wallMs": 3193,
+      "perMinuteMs": {
+        "p50": 239,
+        "p95": 280,
+        "max": 280
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 1,
+      "accepted": 0,
+      "denied": 1,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791384480000,
+      "to": 1791385260000,
+      "fromEt": "10:48",
+      "toEt": "11:01",
+      "minutes": 13,
+      "wallMs": 3189,
+      "perMinuteMs": {
+        "p50": 241,
+        "p95": 271,
+        "max": 271
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791385260000,
+      "to": 1791386040000,
+      "fromEt": "11:01",
+      "toEt": "11:14",
+      "minutes": 13,
+      "wallMs": 3185,
+      "perMinuteMs": {
+        "p50": 244,
+        "p95": 254,
+        "max": 254
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791386040000,
+      "to": 1791386820000,
+      "fromEt": "11:14",
+      "toEt": "11:27",
+      "minutes": 13,
+      "wallMs": 3193,
+      "perMinuteMs": {
+        "p50": 239,
+        "p95": 266,
+        "max": 266
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791386820000,
+      "to": 1791387600000,
+      "fromEt": "11:27",
+      "toEt": "11:40",
+      "minutes": 13,
+      "wallMs": 3192,
+      "perMinuteMs": {
+        "p50": 239,
+        "p95": 281,
+        "max": 281
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791387600000,
+      "to": 1791388380000,
+      "fromEt": "11:40",
+      "toEt": "11:53",
+      "minutes": 13,
+      "wallMs": 3214,
+      "perMinuteMs": {
+        "p50": 244,
+        "p95": 269,
+        "max": 269
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791388380000,
+      "to": 1791389160000,
+      "fromEt": "11:53",
+      "toEt": "12:06",
+      "minutes": 13,
+      "wallMs": 10,
+      "perMinuteMs": {
+        "p50": 1,
+        "p95": 1,
+        "max": 1
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791389160000,
+      "to": 1791389940000,
+      "fromEt": "12:06",
+      "toEt": "12:19",
+      "minutes": 13,
+      "wallMs": 3232,
+      "perMinuteMs": {
+        "p50": 245,
+        "p95": 285,
+        "max": 285
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791389940000,
+      "to": 1791390720000,
+      "fromEt": "12:19",
+      "toEt": "12:32",
+      "minutes": 13,
+      "wallMs": 3234,
+      "perMinuteMs": {
+        "p50": 242,
+        "p95": 292,
+        "max": 292
+      },
+      "fills": 1,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791390720000,
+      "to": 1791391500000,
+      "fromEt": "12:32",
+      "toEt": "12:45",
+      "minutes": 13,
+      "wallMs": 3200,
+      "perMinuteMs": {
+        "p50": 242,
+        "p95": 265,
+        "max": 265
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791391500000,
+      "to": 1791392280000,
+      "fromEt": "12:45",
+      "toEt": "12:58",
+      "minutes": 13,
+      "wallMs": 3197,
+      "perMinuteMs": {
+        "p50": 243,
+        "p95": 261,
+        "max": 261
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791392280000,
+      "to": 1791393060000,
+      "fromEt": "12:58",
+      "toEt": "13:11",
+      "minutes": 13,
+      "wallMs": 3287,
+      "perMinuteMs": {
+        "p50": 249,
+        "p95": 301,
+        "max": 301
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791393060000,
+      "to": 1791393840000,
+      "fromEt": "13:11",
+      "toEt": "13:24",
+      "minutes": 13,
+      "wallMs": 3321,
+      "perMinuteMs": {
+        "p50": 248,
+        "p95": 287,
+        "max": 287
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791393840000,
+      "to": 1791394620000,
+      "fromEt": "13:24",
+      "toEt": "13:37",
+      "minutes": 13,
+      "wallMs": 3190,
+      "perMinuteMs": {
+        "p50": 245,
+        "p95": 253,
+        "max": 253
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791394620000,
+      "to": 1791395400000,
+      "fromEt": "13:37",
+      "toEt": "13:50",
+      "minutes": 13,
+      "wallMs": 3311,
+      "perMinuteMs": {
+        "p50": 250,
+        "p95": 287,
+        "max": 287
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 1,
+      "accepted": 0,
+      "denied": 1,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791395400000,
+      "to": 1791396180000,
+      "fromEt": "13:50",
+      "toEt": "14:03",
+      "minutes": 13,
+      "wallMs": 3268,
+      "perMinuteMs": {
+        "p50": 244,
+        "p95": 284,
+        "max": 284
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791396180000,
+      "to": 1791396960000,
+      "fromEt": "14:03",
+      "toEt": "14:16",
+      "minutes": 13,
+      "wallMs": 3288,
+      "perMinuteMs": {
+        "p50": 249,
+        "p95": 277,
+        "max": 277
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791396960000,
+      "to": 1791397740000,
+      "fromEt": "14:16",
+      "toEt": "14:29",
+      "minutes": 13,
+      "wallMs": 3326,
+      "perMinuteMs": {
+        "p50": 246,
+        "p95": 332,
+        "max": 332
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791397740000,
+      "to": 1791398520000,
+      "fromEt": "14:29",
+      "toEt": "14:42",
+      "minutes": 13,
+      "wallMs": 3246,
+      "perMinuteMs": {
+        "p50": 247,
+        "p95": 267,
+        "max": 267
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 2,
+      "accepted": 0,
+      "denied": 2,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791398520000,
+      "to": 1791399300000,
+      "fromEt": "14:42",
+      "toEt": "14:55",
+      "minutes": 13,
+      "wallMs": 3262,
+      "perMinuteMs": {
+        "p50": 247,
+        "p95": 283,
+        "max": 283
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791399300000,
+      "to": 1791400080000,
+      "fromEt": "14:55",
+      "toEt": "15:08",
+      "minutes": 13,
+      "wallMs": 3327,
+      "perMinuteMs": {
+        "p50": 248,
+        "p95": 287,
+        "max": 287
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791400080000,
+      "to": 1791400860000,
+      "fromEt": "15:08",
+      "toEt": "15:21",
+      "minutes": 13,
+      "wallMs": 3302,
+      "perMinuteMs": {
+        "p50": 249,
+        "p95": 265,
+        "max": 265
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791400860000,
+      "to": 1791401640000,
+      "fromEt": "15:21",
+      "toEt": "15:34",
+      "minutes": 13,
+      "wallMs": 3312,
+      "perMinuteMs": {
+        "p50": 248,
+        "p95": 293,
+        "max": 293
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791401640000,
+      "to": 1791402420000,
+      "fromEt": "15:34",
+      "toEt": "15:47",
+      "minutes": 13,
+      "wallMs": 3388,
+      "perMinuteMs": {
+        "p50": 251,
+        "p95": 296,
+        "max": 296
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": false
+    },
+    {
+      "from": 1791402420000,
+      "to": 1791403200000,
+      "fromEt": "15:47",
+      "toEt": "16:00",
+      "minutes": 13,
+      "wallMs": 3049,
+      "perMinuteMs": {
+        "p50": 251,
+        "p95": 265,
+        "max": 265
+      },
+      "fills": 0,
+      "triggered": 0,
+      "withheld": 0,
+      "expired": 0,
+      "intents": 0,
+      "accepted": 0,
+      "denied": 0,
+      "faults": 0,
+      "blocked": 0,
+      "closed": true
+    }
+  ],
+  "actions": [
+    {
+      "name": "replay-reset",
+      "at": null,
+      "atEt": null,
+      "status": 200,
+      "ms": 7,
+      "request": {
+        "ds": "iex-tops-2026-10-07"
+      },
+      "response": {
+        "decision": "OK",
+        "session_id": "ses_mv1aur6xae911e68a0",
+        "startingCashU": 100000000,
+        "restorePresets": false,
+        "strategies": [
+          {
+            "agent_id": "agent-cowboy-micro",
+            "strategy_id": "handwritten-notes-example",
+            "strategy_source": "carried",
+            "strategy_sha256": "78bbbded285fce3f2ee42fce39598fc9b56aa70f2d8914a06ecc2b9e04707a5c",
+            "matchesPreset": false,
+            "strategyChanged": false,
+            "state": "PAUSED",
+            "previousState": "PAUSED"
+          },
+          {
+            "agent_id": "agent-pragmatist-micro",
+            "strategy_id": "preset:pragmatist-micro",
+            "strategy_source": "carried",
+            "strategy_sha256": "1d5ac5584faf24f71571e2b29d118c2bed646d38e3c2f10c1294f3d6f075d34b",
+            "matchesPreset": false,
+            "strategyChanged": false,
+            "state": "PAUSED",
+            "previousState": "PAUSED"
+          },
+          {
+            "agent_id": "agent-tightwad-micro",
+            "strategy_id": "preset:tightwad-micro",
+            "strategy_source": "carried",
+            "strategy_sha256": "3ff789554ef0b718513d5497bc8de2d691145de6850cc9338f03245a055aa279",
+            "matchesPreset": false,
+            "strategyChanged": false,
+            "state": "PAUSED",
+            "previousState": "PAUSED"
+          },
+          {
+            "agent_id": "agent-cowboy-large",
+            "strategy_id": "preset:cowboy-large",
+            "strategy_source": "carried",
+            "strategy_sha256": "555ebddc500aa33c966be931600da4d2cb2731bc0c99683a813b58fdc44cc6af",
+            "matchesPreset": false,
+            "strategyChanged": false,
+            "state": "PAUSED",
+            "previousState": "PAUSED"
+          },
+          {
+            "agent_id": "agent-pragmatist-large",
+            "strategy_id": "preset:pragmatist-large",
+            "strategy_source": "carried",
+            "strategy_sha256": "903945d60a52126909796fd0f88eb6b150c5ba92160fd790d6e426607365525f",
+            "matchesPreset": false,
+            "strategyChanged": false,
+            "state": "PAUSED",
+            "previousState": "PAUSED"
+          },
+          {
+            "agent_id": "agent-tightwad-large",
+            "strategy_id": "preset:tightwad-large",
+            "strategy_source": "carried",
+            "strategy_sha256": "f0fd108b0c23e771c18913c9ec88f066efe5ae13bd05b93ef6ca3446f7adac2e",
+            "matchesPreset": false,
+            "strategyChanged": false,
+            "state": "PAUSED",
+            "previousState": "PAUSED"
+          }
+        ],
+        "note": "New session. All agents start PAUSED; a human must start each one. Seed money is the only simulated input. Agents keep their current strategies.",
+        "state": {
+          "status": "READY",
+          "clock": 1791379800000,
+          "playing": false
+        }
+      }
+    },
+    {
+      "name": "strategy:agent-cowboy-micro:handwritten-notes-example",
+      "at": 1791379800000,
+      "atEt": "09:30",
+      "status": 200,
+      "ms": 2,
+      "request": {
+        "strategy_id": "handwritten-notes-example"
+      },
+      "response": {
+        "decision": "OK",
+        "agent": {
+          "id": "agent-cowboy-micro",
+          "portfolio_id": "cowboy-micro",
+          "lens": "cowboy",
+          "segment": "micro",
+          "state": "PAUSED",
+          "state_reason": "replay reset: agents start PAUSED; a human must start each one",
+          "strategy": {
+            "id": "handwritten-notes-example",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Handwritten notes example — $50 cap, +22% in 15 min (exploratory)",
+            "lens": null,
+            "segment": "micro",
+            "decisionMode": "rules",
+            "description": "The owner's handwritten example represented as an exploratory rule set for paper simulation only. Not validated, not an execution mandate.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 22,
+              "minAccelPct": null,
+              "minRelVol": null,
+              "minBuyShare": null,
+              "requireBuyShare": false,
+              "minTradesW": 1,
+              "minVolumeW": null,
+              "maxSpreadBps": null,
+              "maxQuoteAgeMs": null,
+              "minPriceU": null,
+              "maxPriceU": 10000,
+              "orderType": "market",
+              "limitOffsetBps": 0,
+              "budgetUsd": 50,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "at_entry_ref"
+              },
+              "takeProfit": {
+                "basis": "multiple_of_entry",
+                "multiple": 2.5,
+                "alternative": {
+                  "basis": "multiple_of_entry",
+                  "multiple": 3.5,
+                  "reading": "250% gain"
+                }
+              },
+              "timeExit": {
+                "minutes": 15,
+                "bandPct": 10
+              },
+              "breakevenAtGainPct": null
+            },
+            "management": {
+              "cancelEntryAfterMin": 3,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 1,
+              "maxOrdersPerStep": 3,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 1
+            },
+            "ambiguities": [
+              {
+                "id": "take-profit-250",
+                "note": "\"Auto sell @ ... 250% gain\" vs \"auto sell @ 250% of purchase price\" are not equivalent.",
+                "readings": {
+                  "pct_of_price_250": "250% OF purchase price => exit at 2.5x entry",
+                  "gain_250": "250% GAIN => exit at 3.5x entry"
+                },
+                "default": "multiple_of_entry 2.5 (the lower, more conservative target); both prices are shown on every proposal.",
+                "workedExampleInconsistency": "The notes sell at $2.50 after buying at $1.22 (about 2.05x, about +105%), matching neither reading; not used as a rule."
+              },
+              {
+                "id": "budget-50-vs-42-shares",
+                "note": "\"$50 dollar limit\" vs \"42 shares @ $1.22\" = $51.24, which breaches a strict $50 cap.",
+                "default": "Hard cap: whole shares are sized so the estimated cost INCLUDING slippage and fees never exceeds $50 (at a $1.22 ask with 50 bps slippage the estimate is $1.23/share => 40 shares = $49.20, not 42)."
+              },
+              {
+                "id": "stop-at-entry",
+                "note": "\"Set stop order of (current/purchase cost)\" / \"if dips — sell @ $1.22 prevent loss\".",
+                "default": "Stop trigger placed AT the entry reference price (the decision-time IEX ask). A stop is a trigger, not a guaranteed price: the fill model sells at the worst observed bid in the trigger minute less slippage, so losses below entry are modelled. Because the bid is below the ask that was paid, a sell stop at the purchase price is usually already at/above the bid and triggers in the first evaluated minute after activation: this preset makes that cost (spread + slippage + fees) visible.",
+                "open": "Should the stop sit below entry to reduce churn?"
+              },
+              {
+                "id": "stagnation-exit-reference",
+                "note": "\"If not +/-10% for 15 min — sell @ current level\": reference (entry, signal price or rolling) and timing are ambiguous.",
+                "default": "Reference = entry FILL price; level = last IEX trade as-of; checked at every step at/after 15 minutes from the entry fill; exit at market while the level is within +/-10% of the reference. Alternative readings (single check at 15 minutes; rolling reference) are not implemented."
+              },
+              {
+                "id": "price-tier-vs-example",
+                "note": "Target \"stocks below $1.00 per share\", but the worked example buys at $1.22 after a move from $1.00.",
+                "default": "The < $1.00 filter applies to the latest as-of IEX trade (the same rule as the micro segment universe and the policy gate's symbol_allowed check), so an entry at $1.22 would not be proposed and would be denied (SYMBOL_NOT_IN_SEGMENT). Not changed silently.",
+                "open": "Should the price filter apply to the pre-move reference price instead?"
+              },
+              {
+                "id": "velocity-intent-volume",
+                "note": "\"Has velocity — Buy/share count\", \"1.1M shares bought\".",
+                "default": "Volume is never treated as buying intent. \"Intent\" is the inferred aggressor share (quote rule vs IEX BBO; IEX-only), null when too little volume is classifiable. The 1.1M-share example is not used as a threshold: IEX volume is only a fraction of consolidated volume."
+              }
+            ],
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Represents the handwritten example; thresholds are not empirically validated.",
+              "Quote/spread freshness is left to the policy gate (maxSpreadBps/maxQuoteAgeMs null here), which is always applied.",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume per minute / per-minute volume of the regular-session minutes BEFORE the window (one definition shared with the scanner: server/data/marketdata.js relativeVolume). null when that baseline is under 15 minutes (BASELINE_TOO_SHORT), has no volume (NO_BASELINE_VOLUME) or fewer than 1000 IEX shares (BASELINE_VOLUME_TOO_SMALL), and before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "cowboy-micro"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570559792,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 0,
+            "firstScanTs": null,
+            "lastScanTs": null,
+            "symbolMinutesScanned": 0,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {},
+            "nearMisses": {},
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+      }
+    },
+    {
+      "name": "agent-start:agent-cowboy-large:session-start",
+      "at": 1791379800000,
+      "atEt": "09:30",
+      "status": 200,
+      "ms": 2,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-cowboy-large",
+          "portfolio_id": "cowboy-large",
+          "lens": "cowboy",
+          "segment": "large",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "preset:cowboy-large",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Cowboy · Large-cap momentum (exploratory)",
+            "lens": "cowboy",
+            "segment": "large",
+            "decisionMode": "rules",
+            "description": "Aggressive large-cap: short-horizon velocity with volume expansion; market entry.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 1.5,
+              "minAccelPct": 0,
+              "minRelVol": 2,
+              "minBuyShare": 0.5,
+              "requireBuyShare": false,
+              "minTradesW": 10,
+              "minVolumeW": null,
+              "maxSpreadBps": 50,
+              "maxQuoteAgeMs": 60000,
+              "minPriceU": null,
+              "maxPriceU": null,
+              "orderType": "market",
+              "limitOffsetBps": 0,
+              "budgetUsd": 1000,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "pct_below_entry_ref",
+                "pct": 2
+              },
+              "takeProfit": {
+                "basis": "pct_gain",
+                "pct": 4
+              },
+              "timeExit": {
+                "minutes": 30,
+                "bandPct": 0.5
+              },
+              "breakevenAtGainPct": 1
+            },
+            "management": {
+              "cancelEntryAfterMin": 3,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 3,
+              "maxOrdersPerStep": 4,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 2
+            },
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Thresholds are configuration for paper simulation, not tested trading rules.",
+              "Entry reference price = the as-of IEX ask at the decision minute; stop/take-profit prices are anchored to it, not to the later estimated fill.",
+              "A stop is a trigger, not a guaranteed price: iex-conservative-minute-v1 fills a triggered stop at the worst bid in the minute less slippage (worse-than-stop fills are modelled).",
+              "Time exit: at or after N minutes from the entry fill, if the last IEX trade is within +/- band of the entry fill price, sell at market (assumption).",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume / (session-to-date volume per elapsed minute x window minutes); null before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "cowboy-large"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570559805,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 0,
+            "firstScanTs": null,
+            "lastScanTs": null,
+            "symbolMinutesScanned": 0,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {},
+            "nearMisses": {},
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "agent-start:agent-cowboy-micro:session-start",
+      "at": 1791379800000,
+      "atEt": "09:30",
+      "status": 200,
+      "ms": 2,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-cowboy-micro",
+          "portfolio_id": "cowboy-micro",
+          "lens": "cowboy",
+          "segment": "micro",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "handwritten-notes-example",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Handwritten notes example — $50 cap, +22% in 15 min (exploratory)",
+            "lens": null,
+            "segment": "micro",
+            "decisionMode": "rules",
+            "description": "The owner's handwritten example represented as an exploratory rule set for paper simulation only. Not validated, not an execution mandate.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 22,
+              "minAccelPct": null,
+              "minRelVol": null,
+              "minBuyShare": null,
+              "requireBuyShare": false,
+              "minTradesW": 1,
+              "minVolumeW": null,
+              "maxSpreadBps": null,
+              "maxQuoteAgeMs": null,
+              "minPriceU": null,
+              "maxPriceU": 10000,
+              "orderType": "market",
+              "limitOffsetBps": 0,
+              "budgetUsd": 50,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "at_entry_ref"
+              },
+              "takeProfit": {
+                "basis": "multiple_of_entry",
+                "multiple": 2.5,
+                "alternative": {
+                  "basis": "multiple_of_entry",
+                  "multiple": 3.5,
+                  "reading": "250% gain"
+                }
+              },
+              "timeExit": {
+                "minutes": 15,
+                "bandPct": 10
+              },
+              "breakevenAtGainPct": null
+            },
+            "management": {
+              "cancelEntryAfterMin": 3,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 1,
+              "maxOrdersPerStep": 3,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 1
+            },
+            "ambiguities": [
+              {
+                "id": "take-profit-250",
+                "note": "\"Auto sell @ ... 250% gain\" vs \"auto sell @ 250% of purchase price\" are not equivalent.",
+                "readings": {
+                  "pct_of_price_250": "250% OF purchase price => exit at 2.5x entry",
+                  "gain_250": "250% GAIN => exit at 3.5x entry"
+                },
+                "default": "multiple_of_entry 2.5 (the lower, more conservative target); both prices are shown on every proposal.",
+                "workedExampleInconsistency": "The notes sell at $2.50 after buying at $1.22 (about 2.05x, about +105%), matching neither reading; not used as a rule."
+              },
+              {
+                "id": "budget-50-vs-42-shares",
+                "note": "\"$50 dollar limit\" vs \"42 shares @ $1.22\" = $51.24, which breaches a strict $50 cap.",
+                "default": "Hard cap: whole shares are sized so the estimated cost INCLUDING slippage and fees never exceeds $50 (at a $1.22 ask with 50 bps slippage the estimate is $1.23/share => 40 shares = $49.20, not 42)."
+              },
+              {
+                "id": "stop-at-entry",
+                "note": "\"Set stop order of (current/purchase cost)\" / \"if dips — sell @ $1.22 prevent loss\".",
+                "default": "Stop trigger placed AT the entry reference price (the decision-time IEX ask). A stop is a trigger, not a guaranteed price: the fill model sells at the worst observed bid in the trigger minute less slippage, so losses below entry are modelled. Because the bid is below the ask that was paid, a sell stop at the purchase price is usually already at/above the bid and triggers in the first evaluated minute after activation: this preset makes that cost (spread + slippage + fees) visible.",
+                "open": "Should the stop sit below entry to reduce churn?"
+              },
+              {
+                "id": "stagnation-exit-reference",
+                "note": "\"If not +/-10% for 15 min — sell @ current level\": reference (entry, signal price or rolling) and timing are ambiguous.",
+                "default": "Reference = entry FILL price; level = last IEX trade as-of; checked at every step at/after 15 minutes from the entry fill; exit at market while the level is within +/-10% of the reference. Alternative readings (single check at 15 minutes; rolling reference) are not implemented."
+              },
+              {
+                "id": "price-tier-vs-example",
+                "note": "Target \"stocks below $1.00 per share\", but the worked example buys at $1.22 after a move from $1.00.",
+                "default": "The < $1.00 filter applies to the latest as-of IEX trade (the same rule as the micro segment universe and the policy gate's symbol_allowed check), so an entry at $1.22 would not be proposed and would be denied (SYMBOL_NOT_IN_SEGMENT). Not changed silently.",
+                "open": "Should the price filter apply to the pre-move reference price instead?"
+              },
+              {
+                "id": "velocity-intent-volume",
+                "note": "\"Has velocity — Buy/share count\", \"1.1M shares bought\".",
+                "default": "Volume is never treated as buying intent. \"Intent\" is the inferred aggressor share (quote rule vs IEX BBO; IEX-only), null when too little volume is classifiable. The 1.1M-share example is not used as a threshold: IEX volume is only a fraction of consolidated volume."
+              }
+            ],
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Represents the handwritten example; thresholds are not empirically validated.",
+              "Quote/spread freshness is left to the policy gate (maxSpreadBps/maxQuoteAgeMs null here), which is always applied.",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume per minute / per-minute volume of the regular-session minutes BEFORE the window (one definition shared with the scanner: server/data/marketdata.js relativeVolume). null when that baseline is under 15 minutes (BASELINE_TOO_SHORT), has no volume (NO_BASELINE_VOLUME) or fewer than 1000 IEX shares (BASELINE_VOLUME_TOO_SMALL), and before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "cowboy-micro"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570559807,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 0,
+            "firstScanTs": null,
+            "lastScanTs": null,
+            "symbolMinutesScanned": 0,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {},
+            "nearMisses": {},
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "agent-start:agent-pragmatist-large:session-start",
+      "at": 1791379800000,
+      "atEt": "09:30",
+      "status": 200,
+      "ms": 1,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-pragmatist-large",
+          "portfolio_id": "pragmatist-large",
+          "lens": "pragmatist",
+          "segment": "large",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "preset:pragmatist-large",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Pragmatist · Large-cap momentum (exploratory)",
+            "lens": "pragmatist",
+            "segment": "large",
+            "decisionMode": "rules",
+            "description": "Moderate large-cap: velocity with volume confirmation; marketable limit entry.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 1,
+              "minAccelPct": 0,
+              "minRelVol": 2.5,
+              "minBuyShare": 0.55,
+              "requireBuyShare": false,
+              "minTradesW": 15,
+              "minVolumeW": null,
+              "maxSpreadBps": 30,
+              "maxQuoteAgeMs": 60000,
+              "minPriceU": null,
+              "maxPriceU": null,
+              "orderType": "limit",
+              "limitOffsetBps": 5,
+              "budgetUsd": 500,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "pct_below_entry_ref",
+                "pct": 1.5
+              },
+              "takeProfit": {
+                "basis": "pct_gain",
+                "pct": 3
+              },
+              "timeExit": {
+                "minutes": 30,
+                "bandPct": 0.4
+              },
+              "breakevenAtGainPct": 0.75
+            },
+            "management": {
+              "cancelEntryAfterMin": 2,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 3,
+              "maxOrdersPerStep": 4,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 2
+            },
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Thresholds are configuration for paper simulation, not tested trading rules.",
+              "Entry reference price = the as-of IEX ask at the decision minute; stop/take-profit prices are anchored to it, not to the later estimated fill.",
+              "A stop is a trigger, not a guaranteed price: iex-conservative-minute-v1 fills a triggered stop at the worst bid in the minute less slippage (worse-than-stop fills are modelled).",
+              "Time exit: at or after N minutes from the entry fill, if the last IEX trade is within +/- band of the entry fill price, sell at market (assumption).",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume / (session-to-date volume per elapsed minute x window minutes); null before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "pragmatist-large"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570559810,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 0,
+            "firstScanTs": null,
+            "lastScanTs": null,
+            "symbolMinutesScanned": 0,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {},
+            "nearMisses": {},
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "agent-start:agent-pragmatist-micro:session-start",
+      "at": 1791379800000,
+      "atEt": "09:30",
+      "status": 200,
+      "ms": 2,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-pragmatist-micro",
+          "portfolio_id": "pragmatist-micro",
+          "lens": "pragmatist",
+          "segment": "micro",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "preset:pragmatist-micro",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Pragmatist · Microcap momentum (exploratory)",
+            "lens": "pragmatist",
+            "segment": "micro",
+            "decisionMode": "rules",
+            "description": "Moderate: velocity plus volume confirmation and a modest buyer-initiated tilt when classifiable; marketable limit entry.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 10,
+              "minAccelPct": 0,
+              "minRelVol": 3,
+              "minBuyShare": 0.55,
+              "requireBuyShare": false,
+              "minTradesW": 8,
+              "minVolumeW": null,
+              "maxSpreadBps": 600,
+              "maxQuoteAgeMs": 180000,
+              "minPriceU": null,
+              "maxPriceU": null,
+              "orderType": "limit",
+              "limitOffsetBps": 25,
+              "budgetUsd": 250,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "pct_below_entry_ref",
+                "pct": 8
+              },
+              "takeProfit": {
+                "basis": "pct_gain",
+                "pct": 25
+              },
+              "timeExit": {
+                "minutes": 20,
+                "bandPct": 4
+              },
+              "breakevenAtGainPct": 6
+            },
+            "management": {
+              "cancelEntryAfterMin": 2,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 3,
+              "maxOrdersPerStep": 4,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 2
+            },
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Thresholds are configuration for paper simulation, not tested trading rules.",
+              "Entry reference price = the as-of IEX ask at the decision minute; stop/take-profit prices are anchored to it, not to the later estimated fill.",
+              "A stop is a trigger, not a guaranteed price: iex-conservative-minute-v1 fills a triggered stop at the worst bid in the minute less slippage (worse-than-stop fills are modelled).",
+              "Time exit: at or after N minutes from the entry fill, if the last IEX trade is within +/- band of the entry fill price, sell at market (assumption).",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume / (session-to-date volume per elapsed minute x window minutes); null before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "pragmatist-micro"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570559811,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 0,
+            "firstScanTs": null,
+            "lastScanTs": null,
+            "symbolMinutesScanned": 0,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {},
+            "nearMisses": {},
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "agent-start:agent-tightwad-large:session-start",
+      "at": 1791379800000,
+      "atEt": "09:30",
+      "status": 200,
+      "ms": 2,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-tightwad-large",
+          "portfolio_id": "tightwad-large",
+          "lens": "tightwad",
+          "segment": "large",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "preset:tightwad-large",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Tightwad · Large-cap momentum (exploratory)",
+            "lens": "tightwad",
+            "segment": "large",
+            "decisionMode": "rules",
+            "description": "Very conservative large-cap: classifiable buyer tilt required, tight spread, limit at the ask, tight stop.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 0.75,
+              "minAccelPct": 0,
+              "minRelVol": 3,
+              "minBuyShare": 0.6,
+              "requireBuyShare": true,
+              "minTradesW": 20,
+              "minVolumeW": null,
+              "maxSpreadBps": 15,
+              "maxQuoteAgeMs": 30000,
+              "minPriceU": null,
+              "maxPriceU": null,
+              "orderType": "limit",
+              "limitOffsetBps": 0,
+              "budgetUsd": 250,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "pct_below_entry_ref",
+                "pct": 1
+              },
+              "takeProfit": {
+                "basis": "pct_gain",
+                "pct": 2
+              },
+              "timeExit": {
+                "minutes": 20,
+                "bandPct": 0.3
+              },
+              "breakevenAtGainPct": 0.5
+            },
+            "management": {
+              "cancelEntryAfterMin": 2,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 3,
+              "maxOrdersPerStep": 4,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 2
+            },
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Thresholds are configuration for paper simulation, not tested trading rules.",
+              "Entry reference price = the as-of IEX ask at the decision minute; stop/take-profit prices are anchored to it, not to the later estimated fill.",
+              "A stop is a trigger, not a guaranteed price: iex-conservative-minute-v1 fills a triggered stop at the worst bid in the minute less slippage (worse-than-stop fills are modelled).",
+              "Time exit: at or after N minutes from the entry fill, if the last IEX trade is within +/- band of the entry fill price, sell at market (assumption).",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume / (session-to-date volume per elapsed minute x window minutes); null before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "tightwad-large"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570559813,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 0,
+            "firstScanTs": null,
+            "lastScanTs": null,
+            "symbolMinutesScanned": 0,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {},
+            "nearMisses": {},
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "agent-start:agent-tightwad-micro:session-start",
+      "at": 1791379800000,
+      "atEt": "09:30",
+      "status": 200,
+      "ms": 1,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-tightwad-micro",
+          "portfolio_id": "tightwad-micro",
+          "lens": "tightwad",
+          "segment": "micro",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "preset:tightwad-micro",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Tightwad · Microcap momentum (exploratory)",
+            "lens": "tightwad",
+            "segment": "micro",
+            "decisionMode": "rules",
+            "description": "Very conservative: requires classifiable buyer-initiated tilt, tight spread, small budget, limit at the ask, tight stop.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 8,
+              "minAccelPct": 0,
+              "minRelVol": 4,
+              "minBuyShare": 0.6,
+              "requireBuyShare": true,
+              "minTradesW": 12,
+              "minVolumeW": null,
+              "maxSpreadBps": 400,
+              "maxQuoteAgeMs": 120000,
+              "minPriceU": null,
+              "maxPriceU": null,
+              "orderType": "limit",
+              "limitOffsetBps": 0,
+              "budgetUsd": 100,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "pct_below_entry_ref",
+                "pct": 5
+              },
+              "takeProfit": {
+                "basis": "pct_gain",
+                "pct": 15
+              },
+              "timeExit": {
+                "minutes": 15,
+                "bandPct": 3
+              },
+              "breakevenAtGainPct": 4
+            },
+            "management": {
+              "cancelEntryAfterMin": 2,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 3,
+              "maxOrdersPerStep": 4,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 2
+            },
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Thresholds are configuration for paper simulation, not tested trading rules.",
+              "Entry reference price = the as-of IEX ask at the decision minute; stop/take-profit prices are anchored to it, not to the later estimated fill.",
+              "A stop is a trigger, not a guaranteed price: iex-conservative-minute-v1 fills a triggered stop at the worst bid in the minute less slippage (worse-than-stop fills are modelled).",
+              "Time exit: at or after N minutes from the entry fill, if the last IEX trade is within +/- band of the entry fill price, sell at market (assumption).",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume / (session-to-date volume per elapsed minute x window minutes); null before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "tightwad-micro"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570559815,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 0,
+            "firstScanTs": null,
+            "lastScanTs": null,
+            "symbolMinutesScanned": 0,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {},
+            "nearMisses": {},
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "sandbox-buy-unconfirmed",
+      "at": 1791381360000,
+      "atEt": "09:56",
+      "status": 409,
+      "ms": 2,
+      "request": {
+        "action": "open",
+        "instrument": {
+          "kind": "equity",
+          "sym": "BAC"
+        },
+        "side": "buy",
+        "order_type": "market",
+        "rationale": "E2E sandbox order (paper only)",
+        "budget_usd": 1000
+      },
+      "response": {
+        "decision": "DENIED",
+        "intent_id": "int_mv1auw9y4cad765a34",
+        "reasons": [
+          {
+            "code": "HUMAN_NOT_CONFIRMED",
+            "detail": "human orders require explicit confirm:true"
+          }
+        ],
+        "estimate": {
+          "priceU": 531400,
+          "qty": 18,
+          "multiplier": 1,
+          "feesU": 0,
+          "costU": 9565200,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "sizedFromBudget": true,
+          "slippageBps": 5,
+          "segment": "large",
+          "spendCapU": 10000000,
+          "asOfEstimateOnly": true
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "error": {
+          "code": "HUMAN_NOT_CONFIRMED",
+          "message": "Policy gate DENIED: HUMAN_NOT_CONFIRMED (human orders require explicit confirm:true)"
+        },
+        "failedChecks": [
+          {
+            "rule": "human_confirmed",
+            "code": "HUMAN_NOT_CONFIRMED",
+            "detail": "human orders require explicit confirm:true"
+          }
+        ]
+      }
+    },
+    {
+      "name": "sandbox-buy-over-budget",
+      "at": 1791381360000,
+      "atEt": "09:56",
+      "status": 409,
+      "ms": 2,
+      "request": {
+        "action": "open",
+        "instrument": {
+          "kind": "equity",
+          "sym": "BAC"
+        },
+        "side": "buy",
+        "order_type": "market",
+        "rationale": "E2E sandbox order (paper only)",
+        "qty": 57,
+        "confirm": true
+      },
+      "response": {
+        "decision": "DENIED",
+        "intent_id": "int_mv1auwa13f07c8c19d",
+        "reasons": [
+          {
+            "code": "BUDGET_EXCEEDED",
+            "detail": "estimated cost $3028.9800 exceeds max trade spend $2500.0000"
+          }
+        ],
+        "estimate": {
+          "priceU": 531400,
+          "qty": 57,
+          "multiplier": 1,
+          "feesU": 0,
+          "costU": 30289800,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "sizedFromBudget": false,
+          "slippageBps": 5,
+          "segment": "large",
+          "spendCapU": 25000000,
+          "asOfEstimateOnly": true
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "error": {
+          "code": "BUDGET_EXCEEDED",
+          "message": "Policy gate DENIED: BUDGET_EXCEEDED (estimated cost $3028.9800 exceeds max trade spend $2500.0000)"
+        },
+        "failedChecks": [
+          {
+            "rule": "max_trade_spend_usd",
+            "code": "BUDGET_EXCEEDED",
+            "detail": "estimated cost $3028.9800 exceeds max trade spend $2500.0000"
+          }
+        ]
+      }
+    },
+    {
+      "name": "sandbox-limit-buy-far-below",
+      "at": 1791381360000,
+      "atEt": "09:56",
+      "status": 201,
+      "ms": 3,
+      "request": {
+        "action": "open",
+        "instrument": {
+          "kind": "equity",
+          "sym": "BAC"
+        },
+        "side": "buy",
+        "order_type": "limit",
+        "rationale": "E2E sandbox order (paper only)",
+        "limit_px_u": 265400,
+        "qty": 1,
+        "confirm": true
+      },
+      "response": {
+        "decision": "ACCEPTED",
+        "intent_id": "int_mv1auwa62da29ce806",
+        "order": {
+          "id": "ord_mv1auwa80eef8e3b91",
+          "session_id": "ses_mv1aur6xae911e68a0",
+          "portfolio_id": "sandbox",
+          "agent_id": null,
+          "intent_id": "int_mv1auwa62da29ce806",
+          "parent_id": null,
+          "oco_group": null,
+          "instrument_id": "BAC",
+          "sym": "BAC",
+          "kind": "equity",
+          "side": "buy",
+          "type": "limit",
+          "role": "entry",
+          "qty": 1,
+          "filled_qty": 0,
+          "limit_px": 265400,
+          "stop_px": null,
+          "status": "working",
+          "protective": false,
+          "created_ts": 1791381360000,
+          "updated_ts": 1791381360000,
+          "expires_ts": 1791403200000,
+          "triggered_ts": null,
+          "reason": "E2E sandbox order (paper only)",
+          "meta": {
+            "source": "human",
+            "confirmed": true,
+            "cost_segment": "large",
+            "gate_estimate": {
+              "priceU": 265400,
+              "qty": 1,
+              "costU": 265400,
+              "basis": "LIMIT_PRICE (max payable)",
+              "slippageBps": 5
+            },
+            "tif": "DAY",
+            "expiryBasis": "SESSION_CLOSE",
+            "maxSpendU": 25000000,
+            "spendCap": {
+              "maxSpendU": 25000000,
+              "source": "policy:max_trade_spend_usd",
+              "candidates": [
+                {
+                  "maxSpendU": 25000000,
+                  "source": "policy:max_trade_spend_usd"
+                }
+              ]
+            },
+            "submitEstimate": {
+              "priceU": 265400,
+              "basis": "LIMIT_PRICE (max payable)"
+            }
+          }
+        },
+        "children": [],
+        "estimate": {
+          "priceU": 265400,
+          "qty": 1,
+          "multiplier": 1,
+          "feesU": 0,
+          "costU": 265400,
+          "basis": "LIMIT_PRICE (max payable)",
+          "sizedFromBudget": false,
+          "slippageBps": 5,
+          "segment": "large",
+          "spendCapU": 25000000,
+          "asOfEstimateOnly": true
+        },
+        "reasons": [],
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "note": "Accepted paper order. It is evaluated after the next completed replay minute; any fill is an ESTIMATED PAPER FILL, or is withheld (UNFILLABLE) when it cannot be credibly modelled.",
+        "failedChecks": []
+      }
+    },
+    {
+      "name": "sandbox-cancel-unconfirmed",
+      "at": 1791381360000,
+      "atEt": "09:56",
+      "status": 409,
+      "ms": 2,
+      "request": {},
+      "response": {
+        "decision": "DENIED",
+        "intent_id": "int_mv1auwa969d00cf978",
+        "reasons": [
+          {
+            "code": "HUMAN_NOT_CONFIRMED",
+            "detail": "human orders require explicit confirm:true"
+          }
+        ],
+        "estimate": null,
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "error": {
+          "code": "HUMAN_NOT_CONFIRMED",
+          "message": "Policy gate DENIED: HUMAN_NOT_CONFIRMED (human orders require explicit confirm:true)"
+        },
+        "failedChecks": [
+          {
+            "rule": "human_confirmed",
+            "code": "HUMAN_NOT_CONFIRMED",
+            "detail": "human orders require explicit confirm:true"
+          }
+        ]
+      }
+    },
+    {
+      "name": "sandbox-cancel",
+      "at": 1791381360000,
+      "atEt": "09:56",
+      "status": 200,
+      "ms": 2,
+      "request": {
+        "confirm": true
+      },
+      "response": {
+        "decision": "ACCEPTED",
+        "intent_id": "int_mv1auwab3c3d19a97f",
+        "order": {
+          "id": "ord_mv1auwa80eef8e3b91",
+          "session_id": "ses_mv1aur6xae911e68a0",
+          "portfolio_id": "sandbox",
+          "agent_id": null,
+          "intent_id": "int_mv1auwa62da29ce806",
+          "parent_id": null,
+          "oco_group": null,
+          "instrument_id": "BAC",
+          "sym": "BAC",
+          "kind": "equity",
+          "side": "buy",
+          "type": "limit",
+          "role": "entry",
+          "qty": 1,
+          "filled_qty": 0,
+          "limit_px": 265400,
+          "stop_px": null,
+          "status": "cancelled",
+          "protective": false,
+          "created_ts": 1791381360000,
+          "updated_ts": 1791381360000,
+          "expires_ts": 1791403200000,
+          "triggered_ts": null,
+          "reason": "CANCELLED_BY_HUMAN: E2E human cancel",
+          "meta": {
+            "source": "human",
+            "confirmed": true,
+            "cost_segment": "large",
+            "gate_estimate": {
+              "priceU": 265400,
+              "qty": 1,
+              "costU": 265400,
+              "basis": "LIMIT_PRICE (max payable)",
+              "slippageBps": 5
+            },
+            "tif": "DAY",
+            "expiryBasis": "SESSION_CLOSE",
+            "maxSpendU": 25000000,
+            "spendCap": {
+              "maxSpendU": 25000000,
+              "source": "policy:max_trade_spend_usd",
+              "candidates": [
+                {
+                  "maxSpendU": 25000000,
+                  "source": "policy:max_trade_spend_usd"
+                }
+              ]
+            },
+            "submitEstimate": {
+              "priceU": 265400,
+              "basis": "LIMIT_PRICE (max payable)"
+            }
+          }
+        },
+        "cascaded": [],
+        "failedChecks": []
+      }
+    },
+    {
+      "name": "sandbox-market-buy-with-bracket",
+      "at": 1791381360000,
+      "atEt": "09:56",
+      "status": 201,
+      "ms": 2,
+      "request": {
+        "action": "open",
+        "instrument": {
+          "kind": "equity",
+          "sym": "BAC"
+        },
+        "side": "buy",
+        "order_type": "market",
+        "rationale": "E2E sandbox order (paper only)",
+        "budget_usd": 1000,
+        "attach": {
+          "stop_loss_px_u": 520200,
+          "take_profit_px_u": 541800
+        },
+        "confirm": true
+      },
+      "response": {
+        "decision": "ACCEPTED",
+        "intent_id": "int_mv1auwadbf76eab7b4",
+        "order": {
+          "id": "ord_mv1auwae5b1a2a608b",
+          "session_id": "ses_mv1aur6xae911e68a0",
+          "portfolio_id": "sandbox",
+          "agent_id": null,
+          "intent_id": "int_mv1auwadbf76eab7b4",
+          "parent_id": null,
+          "oco_group": null,
+          "instrument_id": "BAC",
+          "sym": "BAC",
+          "kind": "equity",
+          "side": "buy",
+          "type": "market",
+          "role": "entry",
+          "qty": 18,
+          "filled_qty": 0,
+          "limit_px": null,
+          "stop_px": null,
+          "status": "working",
+          "protective": false,
+          "created_ts": 1791381360000,
+          "updated_ts": 1791381360000,
+          "expires_ts": 1791403200000,
+          "triggered_ts": null,
+          "reason": "E2E sandbox order (paper only)",
+          "meta": {
+            "source": "human",
+            "confirmed": true,
+            "cost_segment": "large",
+            "gate_estimate": {
+              "priceU": 531400,
+              "qty": 18,
+              "costU": 9565200,
+              "basis": "IEX_ASK_PLUS_SLIPPAGE",
+              "slippageBps": 5
+            },
+            "tif": "DAY",
+            "expiryBasis": "SESSION_CLOSE",
+            "maxSpendU": 10000000,
+            "spendCap": {
+              "maxSpendU": 10000000,
+              "source": "intent:budget_usd",
+              "candidates": [
+                {
+                  "maxSpendU": 25000000,
+                  "source": "policy:max_trade_spend_usd"
+                },
+                {
+                  "maxSpendU": 10000000,
+                  "source": "intent:budget_usd"
+                }
+              ]
+            },
+            "submitEstimate": {
+              "priceU": 531400,
+              "basis": "IEX_ASK_PLUS_SLIPPAGE",
+              "asOf": 1791381360000
+            }
+          }
+        },
+        "children": [
+          {
+            "id": "ord_mv1auwae49e968ec22",
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "portfolio_id": "sandbox",
+            "agent_id": null,
+            "intent_id": "int_mv1auwadbf76eab7b4",
+            "parent_id": "ord_mv1auwae5b1a2a608b",
+            "oco_group": "oco_ord_mv1auwae5b1a2a608b",
+            "instrument_id": "BAC",
+            "sym": "BAC",
+            "kind": "equity",
+            "side": "sell",
+            "type": "stop",
+            "role": "stop_loss",
+            "qty": 18,
+            "filled_qty": 0,
+            "limit_px": null,
+            "stop_px": 520200,
+            "status": "pending_parent",
+            "protective": true,
+            "created_ts": 1791381360000,
+            "updated_ts": 1791381360000,
+            "expires_ts": 1791403200000,
+            "triggered_ts": null,
+            "reason": "bracket child: activates when the entry fills",
+            "meta": {
+              "tif": "DAY",
+              "bracket": true,
+              "expiryBasis": "SESSION_CLOSE"
+            }
+          },
+          {
+            "id": "ord_mv1auwafbc55fc3578",
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "portfolio_id": "sandbox",
+            "agent_id": null,
+            "intent_id": "int_mv1auwadbf76eab7b4",
+            "parent_id": "ord_mv1auwae5b1a2a608b",
+            "oco_group": "oco_ord_mv1auwae5b1a2a608b",
+            "instrument_id": "BAC",
+            "sym": "BAC",
+            "kind": "equity",
+            "side": "sell",
+            "type": "limit",
+            "role": "take_profit",
+            "qty": 18,
+            "filled_qty": 0,
+            "limit_px": 541800,
+            "stop_px": null,
+            "status": "pending_parent",
+            "protective": true,
+            "created_ts": 1791381360000,
+            "updated_ts": 1791381360000,
+            "expires_ts": 1791403200000,
+            "triggered_ts": null,
+            "reason": "bracket child: activates when the entry fills",
+            "meta": {
+              "tif": "DAY",
+              "bracket": true,
+              "expiryBasis": "SESSION_CLOSE"
+            }
+          }
+        ],
+        "estimate": {
+          "priceU": 531400,
+          "qty": 18,
+          "multiplier": 1,
+          "feesU": 0,
+          "costU": 9565200,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "sizedFromBudget": true,
+          "slippageBps": 5,
+          "segment": "large",
+          "spendCapU": 10000000,
+          "asOfEstimateOnly": true
+        },
+        "reasons": [],
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "note": "Accepted paper order. It is evaluated after the next completed replay minute; any fill is an ESTIMATED PAPER FILL, or is withheld (UNFILLABLE) when it cannot be credibly modelled.",
+        "failedChecks": []
+      }
+    },
+    {
+      "name": "sandbox-buy-stale-quote",
+      "at": 1791381360000,
+      "atEt": "09:56",
+      "status": 409,
+      "ms": 13,
+      "request": {
+        "action": "open",
+        "instrument": {
+          "kind": "equity",
+          "sym": "NXAT"
+        },
+        "side": "buy",
+        "order_type": "market",
+        "qty": 10,
+        "confirm": true,
+        "rationale": "E2E stale-quote check"
+      },
+      "response": {
+        "decision": "DENIED",
+        "intent_id": "int_mv1auwea4c2fcf0995",
+        "reasons": [
+          {
+            "code": "QUOTE_STALE",
+            "detail": "quote age 478s > max 300s"
+          }
+        ],
+        "estimate": {
+          "priceU": 7439,
+          "qty": 10,
+          "multiplier": 1,
+          "feesU": 0,
+          "costU": 74390,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "sizedFromBudget": false,
+          "slippageBps": 50,
+          "segment": "micro",
+          "spendCapU": 25000000,
+          "asOfEstimateOnly": true
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "error": {
+          "code": "QUOTE_STALE",
+          "message": "Policy gate DENIED: QUOTE_STALE (quote age 478s > max 300s)"
+        },
+        "failedChecks": [
+          {
+            "rule": "quote_fresh",
+            "code": "QUOTE_STALE",
+            "detail": "quote age 478s > max 300s"
+          }
+        ]
+      }
+    },
+    {
+      "name": "sandbox-replace-stop",
+      "at": 1791382140000,
+      "atEt": "10:09",
+      "status": 200,
+      "ms": 3,
+      "request": {
+        "stop_px_u": 520300,
+        "confirm": true
+      },
+      "response": {
+        "decision": "ACCEPTED",
+        "intent_id": "int_mv1auyuifb342c4db4",
+        "order": {
+          "id": "ord_mv1auwae49e968ec22",
+          "session_id": "ses_mv1aur6xae911e68a0",
+          "portfolio_id": "sandbox",
+          "agent_id": null,
+          "intent_id": "int_mv1auwadbf76eab7b4",
+          "parent_id": "ord_mv1auwae5b1a2a608b",
+          "oco_group": "oco_ord_mv1auwae5b1a2a608b",
+          "instrument_id": "BAC",
+          "sym": "BAC",
+          "kind": "equity",
+          "side": "sell",
+          "type": "stop",
+          "role": "stop_loss",
+          "qty": 18,
+          "filled_qty": 0,
+          "limit_px": null,
+          "stop_px": 520300,
+          "status": "working",
+          "protective": true,
+          "created_ts": 1791381360000,
+          "updated_ts": 1791382140000,
+          "expires_ts": 1791403200000,
+          "triggered_ts": null,
+          "reason": "REPLACED: E2E raise stop by one tick",
+          "meta": {
+            "tif": "DAY",
+            "bracket": true,
+            "expiryBasis": "SESSION_CLOSE"
+          }
+        },
+        "failedChecks": []
+      }
+    },
+    {
+      "name": "kill-engage",
+      "at": 1791388380000,
+      "atEt": "11:53",
+      "status": 200,
+      "ms": 3,
+      "request": {
+        "protective_policy": "KEEP_PROTECTIVE"
+      },
+      "response": {
+        "decision": "OK",
+        "status": "ENGAGED",
+        "kill": {
+          "engaged": true,
+          "at": 1791570595481,
+          "by": "human",
+          "protective_policy": "KEEP_PROTECTIVE",
+          "source": "kill_switch"
+        },
+        "cancelled": [],
+        "keptProtective": [
+          "ord_mv1auwae49e968ec22",
+          "ord_mv1auwafbc55fc3578"
+        ],
+        "agentsStopped": [
+          "agent-cowboy-large",
+          "agent-cowboy-micro",
+          "agent-pragmatist-large",
+          "agent-pragmatist-micro",
+          "agent-tightwad-large",
+          "agent-tightwad-micro"
+        ],
+        "alreadyEngaged": false
+      }
+    },
+    {
+      "name": "agent-start-while-killed",
+      "at": 1791388380000,
+      "atEt": "11:53",
+      "status": 409,
+      "ms": 1,
+      "request": null,
+      "response": {
+        "error": {
+          "code": "KILL_SWITCH_ENGAGED",
+          "message": "kill switch engaged: agents cannot be started until it is released"
+        }
+      }
+    },
+    {
+      "name": "sandbox-buy-while-killed",
+      "at": 1791388380000,
+      "atEt": "11:53",
+      "status": 409,
+      "ms": 2,
+      "request": null,
+      "response": {
+        "decision": "DENIED",
+        "intent_id": "int_mv1aviqld7ddd93f81",
+        "reasons": [
+          {
+            "code": "KILL_SWITCH_ENGAGED",
+            "detail": "kill switch engaged by human; only human cancels are permitted"
+          }
+        ],
+        "estimate": {
+          "priceU": 534500,
+          "qty": 1,
+          "multiplier": 1,
+          "feesU": 0,
+          "costU": 534500,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "sizedFromBudget": false,
+          "slippageBps": 5,
+          "segment": "large",
+          "spendCapU": 25000000,
+          "asOfEstimateOnly": true
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "error": {
+          "code": "KILL_SWITCH_ENGAGED",
+          "message": "Policy gate DENIED: KILL_SWITCH_ENGAGED (kill switch engaged by human; only human cancels are permitted)"
+        },
+        "failedChecks": [
+          {
+            "rule": "kill_switch",
+            "code": "KILL_SWITCH_ENGAGED",
+            "detail": "kill switch engaged by human; only human cancels are permitted"
+          }
+        ]
+      }
+    },
+    {
+      "name": "kill-release",
+      "at": 1791389160000,
+      "atEt": "12:06",
+      "status": 200,
+      "ms": 1,
+      "request": {},
+      "response": {
+        "decision": "OK",
+        "status": "RELEASED",
+        "kill": {
+          "engaged": false,
+          "at": 1791570595481,
+          "by": "human",
+          "protective_policy": "KEEP_PROTECTIVE",
+          "source": "kill_switch"
+        },
+        "alreadyReleased": false,
+        "note": "Agents remain STOPPED; start each one individually."
+      }
+    },
+    {
+      "name": "agent-start:agent-cowboy-large:after-kill-release",
+      "at": 1791389160000,
+      "atEt": "12:06",
+      "status": 200,
+      "ms": 1,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-cowboy-large",
+          "portfolio_id": "cowboy-large",
+          "lens": "cowboy",
+          "segment": "large",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "preset:cowboy-large",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Cowboy · Large-cap momentum (exploratory)",
+            "lens": "cowboy",
+            "segment": "large",
+            "decisionMode": "rules",
+            "description": "Aggressive large-cap: short-horizon velocity with volume expansion; market entry.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 1.5,
+              "minAccelPct": 0,
+              "minRelVol": 2,
+              "minBuyShare": 0.5,
+              "requireBuyShare": false,
+              "minTradesW": 10,
+              "minVolumeW": null,
+              "maxSpreadBps": 50,
+              "maxQuoteAgeMs": 60000,
+              "minPriceU": null,
+              "maxPriceU": null,
+              "orderType": "market",
+              "limitOffsetBps": 0,
+              "budgetUsd": 1000,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "pct_below_entry_ref",
+                "pct": 2
+              },
+              "takeProfit": {
+                "basis": "pct_gain",
+                "pct": 4
+              },
+              "timeExit": {
+                "minutes": 30,
+                "bandPct": 0.5
+              },
+              "breakevenAtGainPct": 1
+            },
+            "management": {
+              "cancelEntryAfterMin": 3,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 3,
+              "maxOrdersPerStep": 4,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 2
+            },
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Thresholds are configuration for paper simulation, not tested trading rules.",
+              "Entry reference price = the as-of IEX ask at the decision minute; stop/take-profit prices are anchored to it, not to the later estimated fill.",
+              "A stop is a trigger, not a guaranteed price: iex-conservative-minute-v1 fills a triggered stop at the worst bid in the minute less slippage (worse-than-stop fills are modelled).",
+              "Time exit: at or after N minutes from the entry fill, if the last IEX trade is within +/- band of the entry fill price, sell at market (assumption).",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume / (session-to-date volume per elapsed minute x window minutes); null before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "cowboy-large"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570595501,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 143,
+            "firstScanTs": 1791379860000,
+            "lastScanTs": 1791388380000,
+            "symbolMinutesScanned": 2858,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {
+              "RET_BELOW_MIN": 2667,
+              "RELVOL_BELOW_MIN": 2262,
+              "ACCEL_BELOW_MIN": 1317,
+              "BUYSHARE_BELOW_MIN": 992,
+              "SPREAD_ABOVE_MAX": 869,
+              "RELVOL_UNAVAILABLE": 387,
+              "INSUFFICIENT_DATA": 103,
+              "STALE_REFERENCE": 88,
+              "QUOTE_OLDER_THAN_STRATEGY_MAX": 7
+            },
+            "nearMisses": {},
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "agent-start:agent-cowboy-micro:after-kill-release",
+      "at": 1791389160000,
+      "atEt": "12:06",
+      "status": 200,
+      "ms": 1,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-cowboy-micro",
+          "portfolio_id": "cowboy-micro",
+          "lens": "cowboy",
+          "segment": "micro",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "handwritten-notes-example",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Handwritten notes example — $50 cap, +22% in 15 min (exploratory)",
+            "lens": null,
+            "segment": "micro",
+            "decisionMode": "rules",
+            "description": "The owner's handwritten example represented as an exploratory rule set for paper simulation only. Not validated, not an execution mandate.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 22,
+              "minAccelPct": null,
+              "minRelVol": null,
+              "minBuyShare": null,
+              "requireBuyShare": false,
+              "minTradesW": 1,
+              "minVolumeW": null,
+              "maxSpreadBps": null,
+              "maxQuoteAgeMs": null,
+              "minPriceU": null,
+              "maxPriceU": 10000,
+              "orderType": "market",
+              "limitOffsetBps": 0,
+              "budgetUsd": 50,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "at_entry_ref"
+              },
+              "takeProfit": {
+                "basis": "multiple_of_entry",
+                "multiple": 2.5,
+                "alternative": {
+                  "basis": "multiple_of_entry",
+                  "multiple": 3.5,
+                  "reading": "250% gain"
+                }
+              },
+              "timeExit": {
+                "minutes": 15,
+                "bandPct": 10
+              },
+              "breakevenAtGainPct": null
+            },
+            "management": {
+              "cancelEntryAfterMin": 3,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 1,
+              "maxOrdersPerStep": 3,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 1
+            },
+            "ambiguities": [
+              {
+                "id": "take-profit-250",
+                "note": "\"Auto sell @ ... 250% gain\" vs \"auto sell @ 250% of purchase price\" are not equivalent.",
+                "readings": {
+                  "pct_of_price_250": "250% OF purchase price => exit at 2.5x entry",
+                  "gain_250": "250% GAIN => exit at 3.5x entry"
+                },
+                "default": "multiple_of_entry 2.5 (the lower, more conservative target); both prices are shown on every proposal.",
+                "workedExampleInconsistency": "The notes sell at $2.50 after buying at $1.22 (about 2.05x, about +105%), matching neither reading; not used as a rule."
+              },
+              {
+                "id": "budget-50-vs-42-shares",
+                "note": "\"$50 dollar limit\" vs \"42 shares @ $1.22\" = $51.24, which breaches a strict $50 cap.",
+                "default": "Hard cap: whole shares are sized so the estimated cost INCLUDING slippage and fees never exceeds $50 (at a $1.22 ask with 50 bps slippage the estimate is $1.23/share => 40 shares = $49.20, not 42)."
+              },
+              {
+                "id": "stop-at-entry",
+                "note": "\"Set stop order of (current/purchase cost)\" / \"if dips — sell @ $1.22 prevent loss\".",
+                "default": "Stop trigger placed AT the entry reference price (the decision-time IEX ask). A stop is a trigger, not a guaranteed price: the fill model sells at the worst observed bid in the trigger minute less slippage, so losses below entry are modelled. Because the bid is below the ask that was paid, a sell stop at the purchase price is usually already at/above the bid and triggers in the first evaluated minute after activation: this preset makes that cost (spread + slippage + fees) visible.",
+                "open": "Should the stop sit below entry to reduce churn?"
+              },
+              {
+                "id": "stagnation-exit-reference",
+                "note": "\"If not +/-10% for 15 min — sell @ current level\": reference (entry, signal price or rolling) and timing are ambiguous.",
+                "default": "Reference = entry FILL price; level = last IEX trade as-of; checked at every step at/after 15 minutes from the entry fill; exit at market while the level is within +/-10% of the reference. Alternative readings (single check at 15 minutes; rolling reference) are not implemented."
+              },
+              {
+                "id": "price-tier-vs-example",
+                "note": "Target \"stocks below $1.00 per share\", but the worked example buys at $1.22 after a move from $1.00.",
+                "default": "The < $1.00 filter applies to the latest as-of IEX trade (the same rule as the micro segment universe and the policy gate's symbol_allowed check), so an entry at $1.22 would not be proposed and would be denied (SYMBOL_NOT_IN_SEGMENT). Not changed silently.",
+                "open": "Should the price filter apply to the pre-move reference price instead?"
+              },
+              {
+                "id": "velocity-intent-volume",
+                "note": "\"Has velocity — Buy/share count\", \"1.1M shares bought\".",
+                "default": "Volume is never treated as buying intent. \"Intent\" is the inferred aggressor share (quote rule vs IEX BBO; IEX-only), null when too little volume is classifiable. The 1.1M-share example is not used as a threshold: IEX volume is only a fraction of consolidated volume."
+              }
+            ],
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Represents the handwritten example; thresholds are not empirically validated.",
+              "Quote/spread freshness is left to the policy gate (maxSpreadBps/maxQuoteAgeMs null here), which is always applied.",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume per minute / per-minute volume of the regular-session minutes BEFORE the window (one definition shared with the scanner: server/data/marketdata.js relativeVolume). null when that baseline is under 15 minutes (BASELINE_TOO_SHORT), has no volume (NO_BASELINE_VOLUME) or fewer than 1000 IEX shares (BASELINE_VOLUME_TOO_SMALL), and before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "cowboy-micro"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": {
+            "ts_sim": 1791381060000,
+            "wall": 1791570565019,
+            "kind": "entry",
+            "sym": "GIPR",
+            "intent_id": "int_mv1auv89308e4c8e96",
+            "action": "open",
+            "order_ids": [
+              "ord_mv1auv8bae355d02a8",
+              "ord_mv1auv8bc2b28ae66c",
+              "ord_mv1auv8bd6af003521"
+            ]
+          },
+          "last_fail": {
+            "ts_sim": 1791383940000,
+            "wall": 1791570576950,
+            "stage": "policy",
+            "kind": "entry",
+            "sym": "SBFM",
+            "intent_id": "int_mv1av4fob21e9257a4",
+            "action": "open",
+            "code": "SPREAD_TOO_WIDE",
+            "reasons": [
+              {
+                "code": "SPREAD_TOO_WIDE",
+                "detail": "spread 2981 bps > max 1500 bps"
+              }
+            ]
+          },
+          "updated_wall": 1791570595503,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 143,
+            "firstScanTs": 1791379860000,
+            "lastScanTs": 1791388380000,
+            "symbolMinutesScanned": 18405,
+            "candidates": 3,
+            "entriesPlanned": 3,
+            "skipped": {
+              "RET_BELOW_MIN": 11082,
+              "INSUFFICIENT_DATA": 4544,
+              "STALE_REFERENCE": 2827,
+              "MAX_ENTRIES_PER_SYMBOL": 122,
+              "REENTRY_COOLDOWN": 30,
+              "HALTED": 25,
+              "ALREADY_HOLDING": 1
+            },
+            "nearMisses": {
+              "RET_BELOW_MIN": 10963
+            },
+            "modelNotConfirmed": 0,
+            "intentsProposed": 3,
+            "policyAccepted": 1,
+            "policyDenied": {
+              "SPREAD_TOO_WIDE": 2
+            },
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "agent-start:agent-pragmatist-large:after-kill-release",
+      "at": 1791389160000,
+      "atEt": "12:06",
+      "status": 200,
+      "ms": 1,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-pragmatist-large",
+          "portfolio_id": "pragmatist-large",
+          "lens": "pragmatist",
+          "segment": "large",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "preset:pragmatist-large",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Pragmatist · Large-cap momentum (exploratory)",
+            "lens": "pragmatist",
+            "segment": "large",
+            "decisionMode": "rules",
+            "description": "Moderate large-cap: velocity with volume confirmation; marketable limit entry.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 1,
+              "minAccelPct": 0,
+              "minRelVol": 2.5,
+              "minBuyShare": 0.55,
+              "requireBuyShare": false,
+              "minTradesW": 15,
+              "minVolumeW": null,
+              "maxSpreadBps": 30,
+              "maxQuoteAgeMs": 60000,
+              "minPriceU": null,
+              "maxPriceU": null,
+              "orderType": "limit",
+              "limitOffsetBps": 5,
+              "budgetUsd": 500,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "pct_below_entry_ref",
+                "pct": 1.5
+              },
+              "takeProfit": {
+                "basis": "pct_gain",
+                "pct": 3
+              },
+              "timeExit": {
+                "minutes": 30,
+                "bandPct": 0.4
+              },
+              "breakevenAtGainPct": 0.75
+            },
+            "management": {
+              "cancelEntryAfterMin": 2,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 3,
+              "maxOrdersPerStep": 4,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 2
+            },
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Thresholds are configuration for paper simulation, not tested trading rules.",
+              "Entry reference price = the as-of IEX ask at the decision minute; stop/take-profit prices are anchored to it, not to the later estimated fill.",
+              "A stop is a trigger, not a guaranteed price: iex-conservative-minute-v1 fills a triggered stop at the worst bid in the minute less slippage (worse-than-stop fills are modelled).",
+              "Time exit: at or after N minutes from the entry fill, if the last IEX trade is within +/- band of the entry fill price, sell at market (assumption).",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume / (session-to-date volume per elapsed minute x window minutes); null before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "pragmatist-large"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570595504,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 143,
+            "firstScanTs": 1791379860000,
+            "lastScanTs": 1791388380000,
+            "symbolMinutesScanned": 2856,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {
+              "RET_BELOW_MIN": 2663,
+              "RELVOL_BELOW_MIN": 2275,
+              "ACCEL_BELOW_MIN": 1317,
+              "BUYSHARE_BELOW_MIN": 1128,
+              "SPREAD_ABOVE_MAX": 1099,
+              "RELVOL_UNAVAILABLE": 387,
+              "INSUFFICIENT_DATA": 102,
+              "STALE_REFERENCE": 87,
+              "QUOTE_OLDER_THAN_STRATEGY_MAX": 7
+            },
+            "nearMisses": {},
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "agent-start:agent-pragmatist-micro:after-kill-release",
+      "at": 1791389160000,
+      "atEt": "12:06",
+      "status": 200,
+      "ms": 1,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-pragmatist-micro",
+          "portfolio_id": "pragmatist-micro",
+          "lens": "pragmatist",
+          "segment": "micro",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "preset:pragmatist-micro",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Pragmatist · Microcap momentum (exploratory)",
+            "lens": "pragmatist",
+            "segment": "micro",
+            "decisionMode": "rules",
+            "description": "Moderate: velocity plus volume confirmation and a modest buyer-initiated tilt when classifiable; marketable limit entry.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 10,
+              "minAccelPct": 0,
+              "minRelVol": 3,
+              "minBuyShare": 0.55,
+              "requireBuyShare": false,
+              "minTradesW": 8,
+              "minVolumeW": null,
+              "maxSpreadBps": 600,
+              "maxQuoteAgeMs": 180000,
+              "minPriceU": null,
+              "maxPriceU": null,
+              "orderType": "limit",
+              "limitOffsetBps": 25,
+              "budgetUsd": 250,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "pct_below_entry_ref",
+                "pct": 8
+              },
+              "takeProfit": {
+                "basis": "pct_gain",
+                "pct": 25
+              },
+              "timeExit": {
+                "minutes": 20,
+                "bandPct": 4
+              },
+              "breakevenAtGainPct": 6
+            },
+            "management": {
+              "cancelEntryAfterMin": 2,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 3,
+              "maxOrdersPerStep": 4,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 2
+            },
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Thresholds are configuration for paper simulation, not tested trading rules.",
+              "Entry reference price = the as-of IEX ask at the decision minute; stop/take-profit prices are anchored to it, not to the later estimated fill.",
+              "A stop is a trigger, not a guaranteed price: iex-conservative-minute-v1 fills a triggered stop at the worst bid in the minute less slippage (worse-than-stop fills are modelled).",
+              "Time exit: at or after N minutes from the entry fill, if the last IEX trade is within +/- band of the entry fill price, sell at market (assumption).",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume / (session-to-date volume per elapsed minute x window minutes); null before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "pragmatist-micro"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570595505,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 143,
+            "firstScanTs": 1791379860000,
+            "lastScanTs": 1791388380000,
+            "symbolMinutesScanned": 5680,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {
+              "RET_BELOW_MIN": 4759,
+              "SPREAD_ABOVE_MAX": 3802,
+              "RELVOL_BELOW_MIN": 3402,
+              "ACCEL_BELOW_MIN": 2365,
+              "QUOTE_OLDER_THAN_STRATEGY_MAX": 1653,
+              "RELVOL_UNAVAILABLE": 871,
+              "BUYSHARE_BELOW_MIN": 700,
+              "INSUFFICIENT_DATA": 676,
+              "STALE_REFERENCE": 190,
+              "HALTED": 25
+            },
+            "nearMisses": {
+              "RET_BELOW_MIN": 28,
+              "RELVOL_BELOW_MIN": 2,
+              "SPREAD_ABOVE_MAX": 1
+            },
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "agent-start:agent-tightwad-large:after-kill-release",
+      "at": 1791389160000,
+      "atEt": "12:06",
+      "status": 200,
+      "ms": 1,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-tightwad-large",
+          "portfolio_id": "tightwad-large",
+          "lens": "tightwad",
+          "segment": "large",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "preset:tightwad-large",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Tightwad · Large-cap momentum (exploratory)",
+            "lens": "tightwad",
+            "segment": "large",
+            "decisionMode": "rules",
+            "description": "Very conservative large-cap: classifiable buyer tilt required, tight spread, limit at the ask, tight stop.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 0.75,
+              "minAccelPct": 0,
+              "minRelVol": 3,
+              "minBuyShare": 0.6,
+              "requireBuyShare": true,
+              "minTradesW": 20,
+              "minVolumeW": null,
+              "maxSpreadBps": 15,
+              "maxQuoteAgeMs": 30000,
+              "minPriceU": null,
+              "maxPriceU": null,
+              "orderType": "limit",
+              "limitOffsetBps": 0,
+              "budgetUsd": 250,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "pct_below_entry_ref",
+                "pct": 1
+              },
+              "takeProfit": {
+                "basis": "pct_gain",
+                "pct": 2
+              },
+              "timeExit": {
+                "minutes": 20,
+                "bandPct": 0.3
+              },
+              "breakevenAtGainPct": 0.5
+            },
+            "management": {
+              "cancelEntryAfterMin": 2,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 3,
+              "maxOrdersPerStep": 4,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 2
+            },
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Thresholds are configuration for paper simulation, not tested trading rules.",
+              "Entry reference price = the as-of IEX ask at the decision minute; stop/take-profit prices are anchored to it, not to the later estimated fill.",
+              "A stop is a trigger, not a guaranteed price: iex-conservative-minute-v1 fills a triggered stop at the worst bid in the minute less slippage (worse-than-stop fills are modelled).",
+              "Time exit: at or after N minutes from the entry fill, if the last IEX trade is within +/- band of the entry fill price, sell at market (assumption).",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume / (session-to-date volume per elapsed minute x window minutes); null before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "tightwad-large"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570595506,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 143,
+            "firstScanTs": 1791379860000,
+            "lastScanTs": 1791388380000,
+            "symbolMinutesScanned": 2854,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {
+              "RET_BELOW_MIN": 2633,
+              "RELVOL_BELOW_MIN": 2276,
+              "SPREAD_ABOVE_MAX": 1378,
+              "ACCEL_BELOW_MIN": 1317,
+              "BUYSHARE_BELOW_MIN": 1248,
+              "BUYSHARE_UNAVAILABLE": 1011,
+              "RELVOL_UNAVAILABLE": 387,
+              "INSUFFICIENT_DATA": 100,
+              "STALE_REFERENCE": 87,
+              "QUOTE_OLDER_THAN_STRATEGY_MAX": 29
+            },
+            "nearMisses": {},
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "agent-start:agent-tightwad-micro:after-kill-release",
+      "at": 1791389160000,
+      "atEt": "12:06",
+      "status": 200,
+      "ms": 1,
+      "request": null,
+      "response": {
+        "decision": "OK",
+        "action": "start",
+        "unchanged": false,
+        "agent": {
+          "id": "agent-tightwad-micro",
+          "portfolio_id": "tightwad-micro",
+          "lens": "tightwad",
+          "segment": "micro",
+          "state": "RUNNING",
+          "state_reason": "started by human",
+          "strategy": {
+            "id": "preset:tightwad-micro",
+            "version": 1,
+            "label": "EXPLORATORY DEFAULTS — NOT VALIDATED",
+            "name": "Tightwad · Microcap momentum (exploratory)",
+            "lens": "tightwad",
+            "segment": "micro",
+            "decisionMode": "rules",
+            "description": "Very conservative: requires classifiable buyer-initiated tilt, tight spread, small budget, limit at the ask, tight stop.",
+            "signal": {
+              "windowMin": 15,
+              "minHistoryMin": 30,
+              "minClassifiedShares": 1000
+            },
+            "entry": {
+              "minRetPct": 8,
+              "minAccelPct": 0,
+              "minRelVol": 4,
+              "minBuyShare": 0.6,
+              "requireBuyShare": true,
+              "minTradesW": 12,
+              "minVolumeW": null,
+              "maxSpreadBps": 400,
+              "maxQuoteAgeMs": 120000,
+              "minPriceU": null,
+              "maxPriceU": null,
+              "orderType": "limit",
+              "limitOffsetBps": 0,
+              "budgetUsd": 100,
+              "capQtyToDisplayedAsk": true,
+              "noEntryLastMin": 15
+            },
+            "exits": {
+              "stopLoss": {
+                "basis": "pct_below_entry_ref",
+                "pct": 5
+              },
+              "takeProfit": {
+                "basis": "pct_gain",
+                "pct": 15
+              },
+              "timeExit": {
+                "minutes": 15,
+                "bandPct": 3
+              },
+              "breakevenAtGainPct": 4
+            },
+            "management": {
+              "cancelEntryAfterMin": 2,
+              "maxScanSymbols": 150,
+              "maxCandidatesPerStep": 3,
+              "maxOrdersPerStep": 4,
+              "maxEntriesPerSymbol": 1,
+              "reentryCooldownMin": 30,
+              "intentTtlSec": 60,
+              "maxModelCallsPerStep": 2
+            },
+            "notes": [
+              "EXPLORATORY DEFAULTS — NOT VALIDATED. Thresholds are configuration for paper simulation, not tested trading rules.",
+              "Entry reference price = the as-of IEX ask at the decision minute; stop/take-profit prices are anchored to it, not to the later estimated fill.",
+              "A stop is a trigger, not a guaranteed price: iex-conservative-minute-v1 fills a triggered stop at the worst bid in the minute less slippage (worse-than-stop fills are modelled).",
+              "Time exit: at or after N minutes from the entry fill, if the last IEX trade is within +/- band of the entry fill price, sell at market (assumption).",
+              "All metrics are IEX-only: IEX volume is a fraction of consolidated U.S. volume and the IEX BBO is not the NBBO.",
+              "ret_w = last IEX trade as-of / last IEX trade before the window start - 1 (fraction).",
+              "accel = return over the recent half-window minus the return over the prior half-window (fraction).",
+              "relVol = window volume / (session-to-date volume per elapsed minute x window minutes); null before minHistoryMin.",
+              "buyShare = inferred aggressor share (quote rule vs IEX BBO; IEX-only); null when classified window volume < minClassifiedShares. Volume alone is not buying intent."
+            ]
+          },
+          "grants": {
+            "portfolios": [
+              "tightwad-micro"
+            ],
+            "actions": [
+              "open",
+              "close",
+              "modify",
+              "cancel"
+            ],
+            "instruments": [
+              "equity"
+            ]
+          },
+          "last_ok": null,
+          "last_fail": null,
+          "updated_wall": 1791570595507,
+          "scan_summary": {
+            "session_id": "ses_mv1aur6xae911e68a0",
+            "scans": 143,
+            "firstScanTs": 1791379860000,
+            "lastScanTs": 1791388380000,
+            "symbolMinutesScanned": 3959,
+            "candidates": 0,
+            "entriesPlanned": 0,
+            "skipped": {
+              "RET_BELOW_MIN": 3273,
+              "SPREAD_ABOVE_MAX": 2714,
+              "RELVOL_BELOW_MIN": 2586,
+              "BUYSHARE_UNAVAILABLE": 2075,
+              "ACCEL_BELOW_MIN": 1629,
+              "QUOTE_OLDER_THAN_STRATEGY_MAX": 1268,
+              "BUYSHARE_BELOW_MIN": 674,
+              "RELVOL_UNAVAILABLE": 547,
+              "INSUFFICIENT_DATA": 476,
+              "STALE_REFERENCE": 121,
+              "HALTED": 25
+            },
+            "nearMisses": {
+              "RET_BELOW_MIN": 14,
+              "RELVOL_BELOW_MIN": 1
+            },
+            "modelNotConfirmed": 0,
+            "intentsProposed": 0,
+            "policyAccepted": 0,
+            "policyDenied": {},
+            "note": "Cumulative for this replay session. skipped = symbol-minute entry-rule rejections by reason (one symbol can fail several rules in the same minute); nearMisses = symbol-minutes that failed exactly ONE threshold rule (that rule); policyDenied = gate denial reasons. Thresholds are EXPLORATORY DEFAULTS — NOT VALIDATED; counts are not recommendations."
+          }
+        },
+        "cancelled": []
+      }
+    },
+    {
+      "name": "sandbox-market-sell",
+      "at": 1791389940000,
+      "atEt": "12:19",
+      "status": 201,
+      "ms": 3,
+      "request": {
+        "action": "close",
+        "instrument": {
+          "kind": "equity",
+          "sym": "BAC"
+        },
+        "side": "sell",
+        "order_type": "market",
+        "qty": 18,
+        "confirm": true,
+        "rationale": "E2E sandbox sell"
+      },
+      "response": {
+        "decision": "ACCEPTED",
+        "intent_id": "int_mv1avl93323d1f158a",
+        "order": {
+          "id": "ord_mv1avl94cc19d3ba45",
+          "session_id": "ses_mv1aur6xae911e68a0",
+          "portfolio_id": "sandbox",
+          "agent_id": null,
+          "intent_id": "int_mv1avl93323d1f158a",
+          "parent_id": null,
+          "oco_group": null,
+          "instrument_id": "BAC",
+          "sym": "BAC",
+          "kind": "equity",
+          "side": "sell",
+          "type": "market",
+          "role": "exit",
+          "qty": 18,
+          "filled_qty": 0,
+          "limit_px": null,
+          "stop_px": null,
+          "status": "working",
+          "protective": false,
+          "created_ts": 1791389940000,
+          "updated_ts": 1791389940000,
+          "expires_ts": 1791403200000,
+          "triggered_ts": null,
+          "reason": "E2E sandbox sell",
+          "meta": {
+            "source": "human",
+            "confirmed": true,
+            "cost_segment": "large",
+            "tif": "DAY",
+            "expiryBasis": "SESSION_CLOSE"
+          }
+        },
+        "children": [],
+        "estimate": null,
+        "reasons": [],
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "note": "Accepted paper order. It is evaluated after the next completed replay minute; any fill is an ESTIMATED PAPER FILL, or is withheld (UNFILLABLE) when it cannot be credibly modelled.",
+        "failedChecks": []
+      }
+    }
+  ],
+  "latency": [
+    {
+      "tag": "open",
+      "path": "/api/status",
+      "status": 200,
+      "ms": 2
+    },
+    {
+      "tag": "open",
+      "path": "/api/research/opportunities?segment=micro",
+      "status": 200,
+      "ms": 98,
+      "rows": 1
+    },
+    {
+      "tag": "open",
+      "path": "/api/research/opportunities?segment=large",
+      "status": 200,
+      "ms": 103,
+      "rows": 14
+    },
+    {
+      "tag": "open",
+      "path": "/api/portfolios",
+      "status": 200,
+      "ms": 2,
+      "rows": 7
+    },
+    {
+      "tag": "midday",
+      "path": "/api/status",
+      "status": 200,
+      "ms": 7
+    },
+    {
+      "tag": "midday",
+      "path": "/api/research/opportunities?segment=micro",
+      "status": 200,
+      "ms": 158,
+      "rows": 303
+    },
+    {
+      "tag": "midday",
+      "path": "/api/research/opportunities?segment=large",
+      "status": 200,
+      "ms": 144,
+      "rows": 20
+    },
+    {
+      "tag": "midday",
+      "path": "/api/portfolios",
+      "status": 200,
+      "ms": 1,
+      "rows": 7
+    },
+    {
+      "tag": "close",
+      "path": "/api/status",
+      "status": 200,
+      "ms": 11
+    },
+    {
+      "tag": "close",
+      "path": "/api/research/opportunities?segment=micro",
+      "status": 200,
+      "ms": 193,
+      "rows": 404
+    },
+    {
+      "tag": "close",
+      "path": "/api/research/opportunities?segment=large",
+      "status": 200,
+      "ms": 182,
+      "rows": 20
+    },
+    {
+      "tag": "close",
+      "path": "/api/portfolios",
+      "status": 200,
+      "ms": 1,
+      "rows": 7
+    }
+  ],
+  "errors": [],
+  "serverStatusBefore": {
+    "data": "HISTORICAL_REAL",
+    "model": {
+      "status": "DISCONNECTED",
+      "provider": "none",
+      "kind": "none",
+      "endpointFamily": null,
+      "model": null,
+      "detail": "No model provider configured (VECTOR_MODEL_PROVIDER=none). MODEL DISCONNECTED / ASSESSMENT NOT RUN.",
+      "running": false,
+      "inFlight": {
+        "assessment": null,
+        "modelTest": null,
+        "agentCalls": 0
+      },
+      "lastAssessmentRun": null
+    },
+    "kill": {
+      "engaged": false,
+      "at": 1791522842351,
+      "by": "human",
+      "protective_policy": "KEEP_PROTECTIVE"
+    },
+    "options": {
+      "status": "NO_VERIFIED_OPTIONS_DATA",
+      "detail": "No options provider has returned real contracts and quotes in this process. Operational options orders are rejected."
+    }
+  },
+  "session_id": "ses_mv1aur6xae911e68a0",
+  "clock": 1791403200000,
+  "strategies": [
+    {
+      "id": "agent-cowboy-large",
+      "strategy_id": "preset:cowboy-large",
+      "decisionMode": "rules",
+      "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+    },
+    {
+      "id": "agent-cowboy-micro",
+      "strategy_id": "handwritten-notes-example",
+      "decisionMode": "rules",
+      "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+    },
+    {
+      "id": "agent-pragmatist-large",
+      "strategy_id": "preset:pragmatist-large",
+      "decisionMode": "rules",
+      "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+    },
+    {
+      "id": "agent-pragmatist-micro",
+      "strategy_id": "preset:pragmatist-micro",
+      "decisionMode": "rules",
+      "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+    },
+    {
+      "id": "agent-tightwad-large",
+      "strategy_id": "preset:tightwad-large",
+      "decisionMode": "rules",
+      "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+    },
+    {
+      "id": "agent-tightwad-micro",
+      "strategy_id": "preset:tightwad-micro",
+      "decisionMode": "rules",
+      "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+    }
+  ],
+  "sandboxSymbol": {
+    "sym": "BAC",
+    "segment": "large",
+    "quote": {
+      "bid": 530900,
+      "ask": 531100,
+      "bidSize": 911,
+      "askSize": 1640,
+      "quoteTs": 1791381359573,
+      "ageMs": 427,
+      "spreadBps": 4,
+      "twoSided": true,
+      "halted": false
+    }
+  },
+  "staleSymbol": {
+    "sym": "NXAT",
+    "segment": "micro",
+    "quoteAgeMs": 478033
+  },
+  "killEffects": {
+    "cancelled": [],
+    "keptProtective": [
+      "ord_mv1auwae49e968ec22",
+      "ord_mv1auwafbc55fc3578"
+    ],
+    "agentsStopped": [
+      "agent-cowboy-large",
+      "agent-cowboy-micro",
+      "agent-pragmatist-large",
+      "agent-pragmatist-micro",
+      "agent-tightwad-large",
+      "agent-tightwad-micro"
+    ]
+  },
+  "agentsAfterRelease": [
+    {
+      "id": "agent-cowboy-large",
+      "state": "STOPPED"
+    },
+    {
+      "id": "agent-cowboy-micro",
+      "state": "STOPPED"
+    },
+    {
+      "id": "agent-pragmatist-large",
+      "state": "STOPPED"
+    },
+    {
+      "id": "agent-pragmatist-micro",
+      "state": "STOPPED"
+    },
+    {
+      "id": "agent-tightwad-large",
+      "state": "STOPPED"
+    },
+    {
+      "id": "agent-tightwad-micro",
+      "state": "STOPPED"
+    }
+  ],
+  "sandboxPositionAfterKill": {
+    "qty": 18,
+    "markU": 534300,
+    "workingProtective": [
+      {
+        "id": "ord_mv1auwae49e968ec22",
+        "role": "stop_loss",
+        "status": "working"
+      },
+      {
+        "id": "ord_mv1auwafbc55fc3578",
+        "role": "take_profit",
+        "status": "working"
+      }
+    ]
+  },
+  "finalReplay": {
+    "status": "SESSION_CLOSED",
+    "session_id": "ses_mv1aur6xae911e68a0",
+    "ds": "iex-tops-2026-10-07",
+    "t_start": 1791379800000,
+    "t_end": 1791403200000,
+    "clock": 1791403200000,
+    "playing": false,
+    "tick_wall_ms": 1500,
+    "minutesElapsed": 390,
+    "minutesRemaining": 0,
+    "busy": false,
+    "lastTickError": null,
+    "complete": true,
+    "coverage_end": null,
+    "truncated": false,
+    "beyondCoverage": false,
+    "session_close": 1791403200000,
+    "truncation_note": null
+  },
+  "agentsFinal": [
+    {
+      "id": "agent-cowboy-large",
+      "portfolio_id": "cowboy-large",
+      "lens": "cowboy",
+      "segment": "large",
+      "state": "RUNNING",
+      "state_reason": "started by human",
+      "last_ok": null,
+      "last_fail": null,
+      "decisionMode": "rules",
+      "strategy_id": "preset:cowboy-large"
+    },
+    {
+      "id": "agent-cowboy-micro",
+      "portfolio_id": "cowboy-micro",
+      "lens": "cowboy",
+      "segment": "micro",
+      "state": "RUNNING",
+      "state_reason": "started by human",
+      "last_ok": {
+        "ts_sim": 1791381060000,
+        "wall": 1791570565019,
+        "kind": "entry",
+        "sym": "GIPR",
+        "intent_id": "int_mv1auv89308e4c8e96",
+        "action": "open",
+        "order_ids": [
+          "ord_mv1auv8bae355d02a8",
+          "ord_mv1auv8bc2b28ae66c",
+          "ord_mv1auv8bd6af003521"
+        ]
+      },
+      "last_fail": {
+        "ts_sim": 1791398400000,
+        "wall": 1791570634119,
+        "stage": "policy",
+        "kind": "entry",
+        "sym": "CNEY",
+        "intent_id": "int_mv1awcjp1676128a30",
+        "action": "open",
+        "code": "SPREAD_TOO_WIDE",
+        "reasons": [
+          {
+            "code": "SPREAD_TOO_WIDE",
+            "detail": "spread 2353 bps > max 1500 bps"
+          }
+        ]
+      },
+      "decisionMode": "rules",
+      "strategy_id": "handwritten-notes-example"
+    },
+    {
+      "id": "agent-pragmatist-large",
+      "portfolio_id": "pragmatist-large",
+      "lens": "pragmatist",
+      "segment": "large",
+      "state": "RUNNING",
+      "state_reason": "started by human",
+      "last_ok": null,
+      "last_fail": null,
+      "decisionMode": "rules",
+      "strategy_id": "preset:pragmatist-large"
+    },
+    {
+      "id": "agent-pragmatist-micro",
+      "portfolio_id": "pragmatist-micro",
+      "lens": "pragmatist",
+      "segment": "micro",
+      "state": "RUNNING",
+      "state_reason": "started by human",
+      "last_ok": null,
+      "last_fail": null,
+      "decisionMode": "rules",
+      "strategy_id": "preset:pragmatist-micro"
+    },
+    {
+      "id": "agent-tightwad-large",
+      "portfolio_id": "tightwad-large",
+      "lens": "tightwad",
+      "segment": "large",
+      "state": "RUNNING",
+      "state_reason": "started by human",
+      "last_ok": null,
+      "last_fail": null,
+      "decisionMode": "rules",
+      "strategy_id": "preset:tightwad-large"
+    },
+    {
+      "id": "agent-tightwad-micro",
+      "portfolio_id": "tightwad-micro",
+      "lens": "tightwad",
+      "segment": "micro",
+      "state": "RUNNING",
+      "state_reason": "started by human",
+      "last_ok": null,
+      "last_fail": null,
+      "decisionMode": "rules",
+      "strategy_id": "preset:tightwad-micro"
+    }
+  ],
+  "portfolios": [
+    {
+      "id": "cowboy-micro",
+      "name": "Cowboy · Microcap",
+      "startingCashU": 100000000,
+      "cashU": 99913877,
+      "equityU": 99913877,
+      "pnlU": -86123,
+      "realizedU": -86123,
+      "unrealizedU": 0,
+      "feesU": 135,
+      "equityBasis": "CASH_PLUS_IEX_BID_MARKS",
+      "positions": [],
+      "openOrders": 0
+    },
+    {
+      "id": "pragmatist-micro",
+      "name": "Pragmatist · Microcap",
+      "startingCashU": 100000000,
+      "cashU": 100000000,
+      "equityU": 100000000,
+      "pnlU": 0,
+      "realizedU": 0,
+      "unrealizedU": 0,
+      "feesU": 0,
+      "equityBasis": "CASH_PLUS_IEX_BID_MARKS",
+      "positions": [],
+      "openOrders": 0
+    },
+    {
+      "id": "tightwad-micro",
+      "name": "Tightwad · Microcap",
+      "startingCashU": 100000000,
+      "cashU": 100000000,
+      "equityU": 100000000,
+      "pnlU": 0,
+      "realizedU": 0,
+      "unrealizedU": 0,
+      "feesU": 0,
+      "equityBasis": "CASH_PLUS_IEX_BID_MARKS",
+      "positions": [],
+      "openOrders": 0
+    },
+    {
+      "id": "cowboy-large",
+      "name": "Cowboy · Large-cap",
+      "startingCashU": 100000000,
+      "cashU": 100000000,
+      "equityU": 100000000,
+      "pnlU": 0,
+      "realizedU": 0,
+      "unrealizedU": 0,
+      "feesU": 0,
+      "equityBasis": "CASH_PLUS_IEX_BID_MARKS",
+      "positions": [],
+      "openOrders": 0
+    },
+    {
+      "id": "pragmatist-large",
+      "name": "Pragmatist · Large-cap",
+      "startingCashU": 100000000,
+      "cashU": 100000000,
+      "equityU": 100000000,
+      "pnlU": 0,
+      "realizedU": 0,
+      "unrealizedU": 0,
+      "feesU": 0,
+      "equityBasis": "CASH_PLUS_IEX_BID_MARKS",
+      "positions": [],
+      "openOrders": 0
+    },
+    {
+      "id": "tightwad-large",
+      "name": "Tightwad · Large-cap",
+      "startingCashU": 100000000,
+      "cashU": 100000000,
+      "equityU": 100000000,
+      "pnlU": 0,
+      "realizedU": 0,
+      "unrealizedU": 0,
+      "feesU": 0,
+      "equityBasis": "CASH_PLUS_IEX_BID_MARKS",
+      "positions": [],
+      "openOrders": 0
+    },
+    {
+      "id": "sandbox",
+      "name": "Manual sandbox",
+      "startingCashU": 100000000,
+      "cashU": 100042902,
+      "equityU": 100042902,
+      "pnlU": 42902,
+      "realizedU": 42902,
+      "unrealizedU": 0,
+      "feesU": 298,
+      "equityBasis": "CASH_PLUS_IEX_BID_MARKS",
+      "positions": [],
+      "openOrders": 0
+    }
+  ],
+  "chain": {
+    "ok": true,
+    "checked": 5013,
+    "brokenAt": null,
+    "mode": "incremental",
+    "newlyChecked": 2488,
+    "verifiedMs": 33,
+    "scope": "full journal (all sessions)",
+    "note": "Rows appended since the last verification in this server process were re-hashed and linked to the verified prefix; verify=full re-hashes every row."
+  },
+  "studyCheck": {
+    "status": 200,
+    "ms": 657,
+    "label": "RETROSPECTIVE — uses data after each signal; never visible to agents",
+    "counts": {
+      "symbolsScanned": 417,
+      "signals": 6,
+      "continued": 1,
+      "stalled": 0,
+      "reversed": 4,
+      "no_trades_after_signal": 0,
+      "no_session_after_signal": 1
+    }
+  },
+  "finishedAt": "2026-10-09T18:30:55.343Z",
+  "acceptance": [
+    {
+      "item": "autonomous paper buy",
+      "occurredOnRealData": true
+    },
+    {
+      "item": "attached stop",
+      "occurredOnRealData": true
+    },
+    {
+      "item": "triggered stop (stop below the bid when live, then a price move)",
+      "occurredOnRealData": false
+    },
+    {
+      "item": "placement-triggered stop (stop at/above the bid when live)",
+      "occurredOnRealData": true
+    },
+    {
+      "item": "worse-than-stop modelled fill",
+      "occurredOnRealData": true
+    },
+    {
+      "item": "take-profit",
+      "occurredOnRealData": false
+    },
+    {
+      "item": "stop modification (replace)",
+      "occurredOnRealData": true
+    },
+    {
+      "item": "cancellation",
+      "occurredOnRealData": true
+    },
+    {
+      "item": "rejection on budget",
+      "occurredOnRealData": true
+    },
+    {
+      "item": "rejection on stale quote",
+      "occurredOnRealData": true
+    },
+    {
+      "item": "global kill switch",
+      "occurredOnRealData": true
+    },
+    {
+      "item": "long put",
+      "occurredOnRealData": false
+    },
+    {
+      "item": "model-adapter assessments",
+      "occurredOnRealData": false
+    }
+  ],
+  "timing": {
+    "chunks": 30,
+    "minutes": 390,
+    "chunkWallMs": {
+      "min": 10,
+      "max": 3388,
+      "total": 93587
+    },
+    "perMinuteMsP50Max": 251,
+    "perMinuteMsP95Max": 332,
+    "perMinuteMsMax": 332
+  },
+  "journal": {
+    "counts": {
+      "PORTFOLIO_CREATED": 7,
+      "REPLAY_RESET": 1,
+      "STRATEGY_CHANGED": 1,
+      "AGENT_STATE_CHANGED": 18,
+      "AGENT_SCAN": 2256,
+      "INTENT_PROPOSED": 16,
+      "POLICY_DENY": 10,
+      "POLICY_ACCEPT": 6,
+      "ORDER_SUBMITTED": 8,
+      "FILL_ESTIMATED": 4,
+      "BRACKET_CHILD_ACTIVATED": 4,
+      "MARK_TO_MARKET": 144,
+      "STOP_TRIGGERED": 1,
+      "ORDER_CANCELLED": 4,
+      "ORDER_REPLACED": 1,
+      "KILL_SWITCH_ENGAGED": 1,
+      "KILL_SWITCH_EFFECTS": 1,
+      "AGENT_CONTROL_REFUSED": 1,
+      "KILL_SWITCH_RELEASED": 1,
+      "REPLAY_SESSION_CLOSED": 1
+    },
+    "policyDenyReasonCodes": {
+      "SPREAD_TOO_WIDE": 5,
+      "HUMAN_NOT_CONFIRMED": 2,
+      "BUDGET_EXCEEDED": 1,
+      "QUOTE_STALE": 1,
+      "KILL_SWITCH_ENGAGED": 1
+    },
+    "rowsThisSession": 2486,
+    "chain": {
+      "ok": true,
+      "checked": 5013,
+      "brokenAt": null,
+      "mode": "incremental",
+      "newlyChecked": 2488,
+      "verifiedMs": 33,
+      "scope": "full journal (all sessions)",
+      "note": "Rows appended since the last verification in this server process were re-hashed and linked to the verified prefix; verify=full re-hashes every row."
+    }
+  },
+  "intents": [
+    {
+      "source": "human",
+      "decision": "ACCEPTED",
+      "n": 5
+    },
+    {
+      "source": "human",
+      "decision": "DENIED",
+      "n": 5
+    },
+    {
+      "source": "rules",
+      "decision": "ACCEPTED",
+      "n": 1
+    },
+    {
+      "source": "rules",
+      "decision": "DENIED",
+      "n": 5
+    }
+  ],
+  "orders": {
+    "total": 8,
+    "byStatus": {
+      "cancelled": 4,
+      "filled": 4
+    },
+    "byRole": {
+      "take_profit": 2,
+      "entry": 3,
+      "stop_loss": 2,
+      "exit": 1
+    }
+  },
+  "fills": [
+    {
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "sym": "GIPR",
+      "side": "buy",
+      "role": "entry",
+      "qty": 74,
+      "priceU": 6734,
+      "feesU": 0,
+      "ts": 1791381060000,
+      "tsEt": "09:51"
+    },
+    {
+      "portfolio_id": "cowboy-micro",
+      "agent_id": "agent-cowboy-micro",
+      "sym": "GIPR",
+      "side": "sell",
+      "role": "stop_loss",
+      "qty": 74,
+      "priceU": 5572,
+      "feesU": 135,
+      "ts": 1791381120000,
+      "tsEt": "09:52"
+    },
+    {
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "sym": "BAC",
+      "side": "buy",
+      "role": "entry",
+      "qty": 18,
+      "priceU": 531400,
+      "feesU": 0,
+      "ts": 1791381360000,
+      "tsEt": "09:56"
+    },
+    {
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "sym": "BAC",
+      "side": "sell",
+      "role": "exit",
+      "qty": 18,
+      "priceU": 533800,
+      "feesU": 298,
+      "ts": 1791389940000,
+      "tsEt": "12:19"
+    }
+  ],
+  "samplesWritten": [
+    "receipts/journal-samples/real-autonomous-buy.json",
+    "receipts/journal-samples/real-stop-modification.json",
+    "receipts/journal-samples/real-triggered-stop.json",
+    "receipts/journal-samples/real-cancellation.json",
+    "receipts/journal-samples/real-budget-rejection.json",
+    "receipts/journal-samples/real-stale-quote-rejection.json",
+    "receipts/journal-samples/real-spread-rejection.json",
+    "receipts/journal-samples/real-human-confirm-required.json",
+    "receipts/journal-samples/real-kill-switch.json",
+    "receipts/journal-samples/real-sandbox-buy-sell.json"
+  ]
+}

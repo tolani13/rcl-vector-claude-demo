@@ -1,0 +1,12 @@
+w=390   topA container=202.4x44.0 img=32.0x32.0 imgTopInContainer=6.0 imgCenterOffset=0.0 current=RCL_Copper_Steel_Mark_32.png
+w=390 topB container=202.4x44.0 img=32.0x32.0 imgTopInContainer=3.0 imgCenterOffset=-3.0 current=RCL_Copper_Steel_Full_814x502.webp
+w=390 sideA container=477.0x40.0 img=40.0x40.0 imgTopInContainer=0.0 imgCenterOffset=0.0 current=RCL_Copper_Steel_Mark_40.png
+w=390 sideB container=477.0x46.0 img=40.0x40.0 imgTopInContainer=0.0 imgCenterOffset=-3.0 current=RCL_Copper_Steel_Full_814x502.webp
+w=390 aboutA container=485.0x324.8 img=440.0x271.3 imgTopInContainer=17.0 imgCenterOffset=-9.8 mottoGap=0.0 current=RCL_Copper_Steel_Full_814x502.png
+w=390 aboutB container=485.0x324.8 img=440.0x271.3 imgTopInContainer=17.0 imgCenterOffset=-9.8 mottoGap=0.0 current=RCL_Copper_Steel_Full_814x502.webp
+w=1280   topA container=0.0x0.0 img=0.0x0.0 imgTopInContainer=0.0 imgCenterOffset=0.0 current=RCL_Copper_Steel_Mark_32.png
+w=1280 topB container=0.0x0.0 img=0.0x0.0 imgTopInContainer=0.0 imgCenterOffset=0.0 current=RCL_Copper_Steel_Full_814x502.webp
+w=1280 sideA container=1256.0x40.0 img=40.0x40.0 imgTopInContainer=0.0 imgCenterOffset=0.0 current=RCL_Copper_Steel_Mark_40.png
+w=1280 sideB container=1256.0x46.0 img=40.0x40.0 imgTopInContainer=0.0 imgCenterOffset=-3.0 current=RCL_Copper_Steel_Full_814x502.webp
+w=1280 aboutA container=1264.0x324.8 img=440.0x271.3 imgTopInContainer=17.0 imgCenterOffset=-9.8 mottoGap=0.0 current=RCL_Copper_Steel_Full_814x502.png
+w=1280 aboutB container=1264.0x324.8 img=440.0x271.3 imgTopInContainer=17.0 imgCenterOffset=-9.8 mottoGap=0.0 current=RCL_Copper_Steel_Full_814x502.webp

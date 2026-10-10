@@ -1,0 +1,970 @@
+{
+  "label": "TEST FIXTURE — NOT MARKET DATA",
+  "scenario": "long-put-example",
+  "description": "TEST FIXTURE — NOT MARKET DATA. A paper long-put lifecycle on a synthetic contract (FIXP 2099-01-05 $4.00 put). Without a verified options provider quote the gate DENIES (NO_VERIFIED_OPTIONS_DATA), the engine REJECTS the order, and an accepted order is WITHHELD when no provider is wired (as in this build's replay). With a hand-written fixture \"verified\" quote the buy-to-open fills 3 contracts at $0.48 (ask $0.47 + 50 bps, rounded up to a cent) for $144.00 (premium x 100 x 3), the position is marked at a fixture bid, and at 16:00 ET the cash value max(0, K - S) x 100 x 3 = $120.00 is credited (S = last fixture print $3.60): realized P&L -$24.00, never worse than the premium paid.",
+  "generatedBy": "node --test test/sim (fixture scenario; synthetic data, not market observations)",
+  "generatedAt": "2026-10-10T01:27:32.279Z",
+  "dataset": {
+    "id": "test-fixture-sim-2099-01-05",
+    "provider": "TEST FIXTURE — NOT MARKET DATA",
+    "tradeDate": "2099-01-05"
+  },
+  "chain": {
+    "ok": true,
+    "checked": 14,
+    "brokenAt": null
+  },
+  "contract": {
+    "occ": "FIXP990105P00004000",
+    "underlying": "FIXP",
+    "expiry": "2099-01-05",
+    "strike": 40000,
+    "right": "P",
+    "multiplier": 100
+  },
+  "fixtureQuotes": {
+    "atEntry": {
+      "status": "SUPPORTED_VERIFIED",
+      "provider": "TEST FIXTURE — NOT MARKET DATA",
+      "dataset": "test-fixture-options-2099-01-05",
+      "source_url": null,
+      "contract": {
+        "occ": "FIXP990105P00004000",
+        "underlying": "FIXP",
+        "expiry": "2099-01-05",
+        "strike": 40000,
+        "right": "P",
+        "multiplier": 100
+      },
+      "bid": 4500,
+      "ask": 4700,
+      "bidSize": 20,
+      "askSize": 10,
+      "quoteTs": 4071308370000
+    },
+    "atMark": {
+      "status": "SUPPORTED_VERIFIED",
+      "provider": "TEST FIXTURE — NOT MARKET DATA",
+      "dataset": "test-fixture-options-2099-01-05",
+      "source_url": null,
+      "contract": {
+        "occ": "FIXP990105P00004000",
+        "underlying": "FIXP",
+        "expiry": "2099-01-05",
+        "strike": 40000,
+        "right": "P",
+        "multiplier": 100
+      },
+      "bid": 6000,
+      "ask": 6200,
+      "bidSize": 20,
+      "askSize": 10,
+      "quoteTs": 4071315590000
+    }
+  },
+  "arithmetic": {
+    "premiumCost": {
+      "premiumU": 4800,
+      "contracts": 3,
+      "multiplier": 100,
+      "premiumTotalU": 1440000,
+      "feesU": 0,
+      "totalCostU": 1440000,
+      "maxLossU": 1440000
+    },
+    "outcomeAtSettlementPrice": {
+      "expirationValueU": 1200000,
+      "totalCostU": 1440000,
+      "pnlU": -240000,
+      "maxLossU": 1440000,
+      "worstCasePnlU": -1440000,
+      "breakevenUnderlyingU": 35200,
+      "settlementModel": "CASH_VALUE_AT_EXPIRATION (real options are physically settled; exercise/assignment not modelled)"
+    },
+    "outcomeIfUnderlyingAboveStrike": {
+      "expirationValueU": 0,
+      "totalCostU": 1440000,
+      "pnlU": -1440000,
+      "maxLossU": 1440000,
+      "worstCasePnlU": -1440000,
+      "breakevenUnderlyingU": 35200,
+      "settlementModel": "CASH_VALUE_AT_EXPIRATION (real options are physically settled; exercise/assignment not modelled)"
+    }
+  },
+  "mark": {
+    "asOf": 4071315600000,
+    "position": {
+      "instrument_id": "FIXP990105P00004000",
+      "sym": "FIXP",
+      "kind": "option",
+      "qty": 3,
+      "multiplier": 100,
+      "costBasisU": 1440000,
+      "openedTs": 4071308460000,
+      "markU": 6000,
+      "markBasis": "VERIFIED_OPTIONS_BID",
+      "markTs": 4071315590000,
+      "status": "MARKED",
+      "valueU": 1800000,
+      "unrealizedU": 360000,
+      "quote": {
+        "provider": "TEST FIXTURE — NOT MARKET DATA",
+        "dataset": "test-fixture-options-2099-01-05",
+        "bid": 6000,
+        "ask": 6200,
+        "bidSize": 20,
+        "askSize": 10,
+        "quoteTs": 4071315590000
+      }
+    },
+    "withoutProvider": {
+      "instrument_id": "FIXP990105P00004000",
+      "sym": "FIXP",
+      "kind": "option",
+      "qty": 3,
+      "multiplier": 100,
+      "costBasisU": 1440000,
+      "openedTs": 4071308460000,
+      "markU": null,
+      "markBasis": "UNMARKED",
+      "status": "NO_VERIFIED_OPTIONS_DATA",
+      "valueU": null,
+      "unrealizedU": null,
+      "quote": null
+    }
+  },
+  "settlement": {
+    "ok": true,
+    "expirationValueU": 1200000,
+    "realizedDeltaU": -240000,
+    "cashU": 99760000,
+    "contracts": 3
+  },
+  "optionsStatusInThisBuild": {
+    "status": "NO_VERIFIED_OPTIONS_DATA",
+    "detail": "No verified options contracts/quotes provider is configured. Operational options orders are rejected. Long-put arithmetic (premium x 100, capped premium loss, expiration value) and the paper buy/expiration path are tested with TEST FIXTURE contracts only (test/sim/options.test.js). Not implemented in the replay: an options quote provider and automatic expiration settlement.",
+    "supported": {
+      "instrument": "long put",
+      "short": false,
+      "calls": false,
+      "margin": false
+    },
+    "notImplemented": [
+      "options quote provider: the replay engine passes no optionsProvider, so a verified options order can never fill in this build",
+      "automatic expiration settlement: the replay engine never calls ledger.settleLongPutAtExpiration",
+      "exercise/assignment and physical settlement (expiration is modelled as cash value max(0, K - S) x 100)"
+    ]
+  },
+  "rows": [
+    {
+      "seq": 1,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595652268,
+      "portfolio_id": "cowboy-micro",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "cowboy-micro",
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "3d96ddb05824ce9a8a43a5065a3afd6451f6dffdf27c88d9c7cb791ef4b070fa",
+      "payload": {
+        "kind": "agent",
+        "lens": "cowboy",
+        "name": "Cowboy · Microcap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "micro",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 2,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595652268,
+      "portfolio_id": "pragmatist-micro",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "pragmatist-micro",
+      "prev_hash": "3d96ddb05824ce9a8a43a5065a3afd6451f6dffdf27c88d9c7cb791ef4b070fa",
+      "hash": "6c98eea3f8d1b5b427a95df22fa4f476fedb42c45159cdc02f46f6419fe3800a",
+      "payload": {
+        "kind": "agent",
+        "lens": "pragmatist",
+        "name": "Pragmatist · Microcap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "micro",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 3,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595652268,
+      "portfolio_id": "tightwad-micro",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "tightwad-micro",
+      "prev_hash": "6c98eea3f8d1b5b427a95df22fa4f476fedb42c45159cdc02f46f6419fe3800a",
+      "hash": "b7b3b23eef0cf8ab049d108865214401eb576c7b7d2b13e5a2c6d8a01a1c4464",
+      "payload": {
+        "kind": "agent",
+        "lens": "tightwad",
+        "name": "Tightwad · Microcap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "micro",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 4,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595652268,
+      "portfolio_id": "cowboy-large",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "cowboy-large",
+      "prev_hash": "b7b3b23eef0cf8ab049d108865214401eb576c7b7d2b13e5a2c6d8a01a1c4464",
+      "hash": "49fbae29cad87c554b3a2b009bbf21fa05c701d3e79eef354c57a1687604be00",
+      "payload": {
+        "kind": "agent",
+        "lens": "cowboy",
+        "name": "Cowboy · Large-cap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "large",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 5,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595652268,
+      "portfolio_id": "pragmatist-large",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "pragmatist-large",
+      "prev_hash": "49fbae29cad87c554b3a2b009bbf21fa05c701d3e79eef354c57a1687604be00",
+      "hash": "ec8a312bcfc9372964813c7a79a104dc15cccf791bb7267ff647fc3ae4036554",
+      "payload": {
+        "kind": "agent",
+        "lens": "pragmatist",
+        "name": "Pragmatist · Large-cap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "large",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 6,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595652269,
+      "portfolio_id": "tightwad-large",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "tightwad-large",
+      "prev_hash": "ec8a312bcfc9372964813c7a79a104dc15cccf791bb7267ff647fc3ae4036554",
+      "hash": "dfa92846529bdcfa8a091d1273eca4159080ca132c9aff67f66221bbc1d28be6",
+      "payload": {
+        "kind": "agent",
+        "lens": "tightwad",
+        "name": "Tightwad · Large-cap",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": "large",
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 7,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071306600000,
+      "ts_wall": 1791595652269,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "system",
+      "type": "PORTFOLIO_CREATED",
+      "ref_id": "sandbox",
+      "prev_hash": "dfa92846529bdcfa8a091d1273eca4159080ca132c9aff67f66221bbc1d28be6",
+      "hash": "e761a33737442db38bb8f732119ecf4e34e811f2c81e24c1195860d8d3de5890",
+      "payload": {
+        "kind": "sandbox",
+        "lens": null,
+        "name": "Manual sandbox",
+        "note": "Seed money is simulated; it is the only fictional input.",
+        "segment": null,
+        "startingCashU": 100000000
+      }
+    },
+    {
+      "seq": 8,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071308400000,
+      "ts_wall": 1791595652272,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "policy",
+      "type": "POLICY_DENY",
+      "ref_id": "int_fixture_4071308400000",
+      "prev_hash": "e761a33737442db38bb8f732119ecf4e34e811f2c81e24c1195860d8d3de5890",
+      "hash": "22f49530f3c04a51b38029198c30f4c42c96a7b6e6ec5b9821067e9f62d6b3c6",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "detail": "kill switch released",
+            "pass": true,
+            "rule": "kill_switch"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (human_confirmed applies)",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "detail": "human confirmed",
+            "pass": true,
+            "rule": "human_confirmed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a modify/cancel",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "code": "NO_VERIFIED_OPTIONS_DATA",
+            "detail": "no verified options provider returned this contract and an as-of quote",
+            "pass": false,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "FIXP allowed",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "code": "NO_PRICE_ESTIMATE",
+            "detail": "cannot estimate cost (no two-sided quote / price)",
+            "pass": false,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "code": "NO_PRICE_ESTIMATE",
+            "detail": "cannot estimate cost",
+            "pass": false,
+            "rule": "cash_sufficient"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a sell",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "detail": "day P&L $0.0000; cap $2500.0000",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "detail": "1/10 positions after entry",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "code": "NO_PRICE_ESTIMATE",
+            "detail": "cannot estimate cost",
+            "pass": false,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (sandbox brackets are optional)",
+            "pass": true,
+            "rule": "protective_exit_required"
+          },
+          {
+            "detail": "1/10 orders this minute",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "code": "NO_VERIFIED_OPTIONS_DATA",
+            "detail": "no verified options quote",
+            "pass": false,
+            "rule": "quote_fresh"
+          },
+          {
+            "code": "NO_VERIFIED_OPTIONS_DATA",
+            "detail": "no verified options quote",
+            "pass": false,
+            "rule": "max_spread_bps"
+          },
+          {
+            "code": "NO_DISPLAYED_SIZE",
+            "detail": "displayed ask size unknown",
+            "pass": false,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 60s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 0/0 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "DENIED",
+        "estimate": null,
+        "intent": {
+          "action": "open",
+          "agent_id": null,
+          "created_ts": 4071308400000,
+          "evidence_refs": [],
+          "expires_ts": 4071308460000,
+          "id": "int_fixture_4071308400000",
+          "instrument": {
+            "contract": {
+              "expiry": "2099-01-05",
+              "multiplier": 100,
+              "occ": "FIXP990105P00004000",
+              "right": "P",
+              "strike": 40000,
+              "underlying": "FIXP"
+            },
+            "kind": "option",
+            "sym": "FIXP"
+          },
+          "order_type": "market",
+          "portfolio_id": "sandbox",
+          "qty": 3,
+          "quote_ts": 4071308370000,
+          "rationale": "TEST FIXTURE — NOT MARKET DATA: long-put lifecycle example",
+          "side": "buy",
+          "source": "human",
+          "strategy_id": null
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": [
+          {
+            "code": "NO_VERIFIED_OPTIONS_DATA",
+            "detail": "no verified options provider returned this contract and an as-of quote"
+          },
+          {
+            "code": "NO_PRICE_ESTIMATE",
+            "detail": "cannot estimate cost (no two-sided quote / price)"
+          },
+          {
+            "code": "NO_PRICE_ESTIMATE",
+            "detail": "cannot estimate cost"
+          },
+          {
+            "code": "NO_PRICE_ESTIMATE",
+            "detail": "cannot estimate cost"
+          },
+          {
+            "code": "NO_VERIFIED_OPTIONS_DATA",
+            "detail": "no verified options quote"
+          },
+          {
+            "code": "NO_VERIFIED_OPTIONS_DATA",
+            "detail": "no verified options quote"
+          },
+          {
+            "code": "NO_DISPLAYED_SIZE",
+            "detail": "displayed ask size unknown"
+          }
+        ]
+      }
+    },
+    {
+      "seq": 9,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071308400000,
+      "ts_wall": 1791595652273,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "human",
+      "type": "ORDER_REJECTED",
+      "ref_id": "ord_mv1pskohc1c3aad436",
+      "prev_hash": "22f49530f3c04a51b38029198c30f4c42c96a7b6e6ec5b9821067e9f62d6b3c6",
+      "hash": "acad961a68bce98ef5249485c8bdf30b9c42f36de8bc4628fa67e53ec580c124",
+      "payload": {
+        "created_ts": 4071308400000,
+        "errors": [
+          {
+            "code": "NO_VERIFIED_OPTIONS_DATA",
+            "detail": "no verified options provider returned this contract and an as-of quote"
+          }
+        ],
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXP",
+        "intent_id": null,
+        "kind": "option",
+        "limit_px": null,
+        "oco_group": null,
+        "order_id": "ord_mv1pskohc1c3aad436",
+        "parent_id": null,
+        "protective": false,
+        "qty": 3,
+        "quote": {
+          "status": "NO_VERIFIED_OPTIONS_DATA"
+        },
+        "role": "entry",
+        "side": "buy",
+        "stage": "business",
+        "status": "rejected",
+        "stop_px": null,
+        "sym": "FIXP",
+        "triggered_ts": null,
+        "type": "market"
+      }
+    },
+    {
+      "seq": 10,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071308400000,
+      "ts_wall": 1791595652274,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "policy",
+      "type": "POLICY_ACCEPT",
+      "ref_id": "int_fixture_4071308400000",
+      "prev_hash": "acad961a68bce98ef5249485c8bdf30b9c42f36de8bc4628fa67e53ec580c124",
+      "hash": "a35f79cc48dd52d4777ccf13c27c21edc52393180a295d6e78f68bb9918ea13d",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "detail": "kill switch released",
+            "pass": true,
+            "rule": "kill_switch"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (human_confirmed applies)",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "detail": "human confirmed",
+            "pass": true,
+            "rule": "human_confirmed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a modify/cancel",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "detail": "long put with verified options quote",
+            "pass": true,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "FIXP allowed",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "detail": "estimated cost $144.0000 (3 x $0.4800 + fees $0.0000) <= $2500.0000",
+            "pass": true,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "detail": "available cash $10000.0000 covers $144.0000 (cash $10000.0000 - reserved $0.0000 for 0 open buy order(s), fees included)",
+            "pass": true,
+            "rule": "cash_sufficient"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a sell",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "detail": "day P&L $0.0000; cap $2500.0000",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "detail": "1/10 positions after entry",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "detail": "position 1.44% of equity (held $0.0000 + pending buys $0.0000 (0 order(s)) + this $144.0000) <= 50%",
+            "pass": true,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (sandbox brackets are optional)",
+            "pass": true,
+            "rule": "protective_exit_required"
+          },
+          {
+            "detail": "2/10 orders this minute",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "detail": "options quote age 30s",
+            "pass": true,
+            "rule": "quote_fresh"
+          },
+          {
+            "detail": "spread 435 bps <= 1500 bps",
+            "pass": true,
+            "rule": "max_spread_bps"
+          },
+          {
+            "detail": "displayed ask size 10 >= 1",
+            "pass": true,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 60s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 0/0 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "ACCEPTED",
+        "estimate": {
+          "asOfEstimateOnly": true,
+          "basis": "VERIFIED_OPTIONS_ASK_PLUS_SLIPPAGE",
+          "costU": 1440000,
+          "feesU": 0,
+          "multiplier": 100,
+          "priceU": 4800,
+          "qty": 3,
+          "segment": "micro",
+          "sizedFromBudget": false,
+          "slippageBps": 50,
+          "spendCapU": 25000000
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": null,
+          "created_ts": 4071308400000,
+          "evidence_refs": [],
+          "expires_ts": 4071308460000,
+          "id": "int_fixture_4071308400000",
+          "instrument": {
+            "contract": {
+              "expiry": "2099-01-05",
+              "multiplier": 100,
+              "occ": "FIXP990105P00004000",
+              "right": "P",
+              "strike": 40000,
+              "underlying": "FIXP"
+            },
+            "kind": "option",
+            "sym": "FIXP"
+          },
+          "order_type": "market",
+          "portfolio_id": "sandbox",
+          "qty": 3,
+          "quote_ts": 4071308370000,
+          "rationale": "TEST FIXTURE — NOT MARKET DATA: long-put lifecycle example",
+          "side": "buy",
+          "source": "human",
+          "strategy_id": null
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": []
+      }
+    },
+    {
+      "seq": 11,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071308400000,
+      "ts_wall": 1791595652274,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "human",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1pskoi30ef5ff046",
+      "prev_hash": "a35f79cc48dd52d4777ccf13c27c21edc52393180a295d6e78f68bb9918ea13d",
+      "hash": "d135bff00b28404d11f9858880c4b1d38bf9bff163055e0b3c2abead0b2ced5c",
+      "payload": {
+        "created_ts": 4071308400000,
+        "estimatedOnly": true,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXP990105P00004000",
+        "intent_id": null,
+        "kind": "option",
+        "limit_px": null,
+        "oco_group": null,
+        "order_id": "ord_mv1pskoi30ef5ff046",
+        "paperOnly": true,
+        "parent_id": null,
+        "protective": false,
+        "qty": 3,
+        "quote": {
+          "ask": 4700,
+          "askSize": 10,
+          "bid": 4500,
+          "bidSize": 20,
+          "dataset": "test-fixture-options-2099-01-05",
+          "provider": "TEST FIXTURE — NOT MARKET DATA",
+          "quoteTs": 4071308370000,
+          "source_url": null,
+          "status": "SUPPORTED_VERIFIED"
+        },
+        "reason": null,
+        "role": "entry",
+        "side": "buy",
+        "spendCap": {
+          "candidates": [
+            {
+              "maxSpendU": 25000000,
+              "source": "policy:max_trade_spend_usd"
+            }
+          ],
+          "maxSpendU": 25000000,
+          "source": "policy:max_trade_spend_usd"
+        },
+        "status": "working",
+        "stop_px": null,
+        "sym": "FIXP",
+        "triggered_ts": null,
+        "type": "market"
+      }
+    },
+    {
+      "seq": 12,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071308460000,
+      "ts_wall": 1791595652275,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "engine",
+      "type": "FILL_WITHHELD",
+      "ref_id": "ord_mv1pskoi30ef5ff046",
+      "prev_hash": "d135bff00b28404d11f9858880c4b1d38bf9bff163055e0b3c2abead0b2ced5c",
+      "hash": "907d6eac1e8dc1a0a94b5e37fae45b3f64e91de94744d367a2bd900596f2ccd1",
+      "payload": {
+        "created_ts": 4071308400000,
+        "expires_ts": 4071330000000,
+        "filled_qty": 0,
+        "instrument_id": "FIXP990105P00004000",
+        "intent_id": null,
+        "kind": "option",
+        "limit_px": null,
+        "minuteT": 4071308400000,
+        "note": "UNFILLABLE this minute — no fill manufactured; order stays open until it fills, is cancelled or expires",
+        "observed": {
+          "minuteT": 4071308400000,
+          "status": "NO_VERIFIED_OPTIONS_DATA"
+        },
+        "oco_group": null,
+        "order_id": "ord_mv1pskoi30ef5ff046",
+        "parent_id": null,
+        "protective": false,
+        "qty": 3,
+        "reason": "NO_VERIFIED_OPTIONS_DATA",
+        "retryNextMinute": "yes",
+        "role": "entry",
+        "side": "buy",
+        "status": "working",
+        "stop_px": null,
+        "sym": "FIXP",
+        "triggered_ts": null,
+        "type": "market"
+      }
+    },
+    {
+      "seq": 13,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071308520000,
+      "ts_wall": 1791595652276,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "engine",
+      "type": "FILL_ESTIMATED",
+      "ref_id": "fill_mv1pskok1d97897438",
+      "prev_hash": "907d6eac1e8dc1a0a94b5e37fae45b3f64e91de94744d367a2bd900596f2ccd1",
+      "hash": "8b7c11416c178b3d7a04280e36dc3c87baaa1f88441eb257a654d8a27c43e243",
+      "payload": {
+        "assumptions": {
+          "basePriceU": 4700,
+          "displayedSizeUsed": 10,
+          "estimated": true,
+          "fees": {
+            "commissionU": 0,
+            "rounding": "EACH_COMPONENT_UP_TO_WHOLE_U",
+            "secFeeU": 0,
+            "tafU": 0,
+            "totalU": 0
+          },
+          "model": "verified-options-quote-conservative-v1",
+          "multiplier": 100,
+          "notExchangeExecution": true,
+          "omitted": [
+            "queue position at IEX",
+            "hidden and odd-lot liquidity",
+            "NBBO vs IEX BBO differences (IEX top-of-book only)",
+            "liquidity and prices on other venues",
+            "partial-fill dynamics inside the minute",
+            "market impact beyond the slippage assumption",
+            "borrow/locate (never needed: no shorting)",
+            "corporate actions on the replay day",
+            "options exercise/assignment",
+            "IEX trade breaks arriving after the trade minute are not removed from that minute; once a break is knowable, the trade evidence of that minute is withheld",
+            "per-contract options exchange/ORF/TAF fees"
+          ],
+          "priceBasis": "VERIFIED_PROVIDER_ASK",
+          "settlementModel": "CASH_VALUE_AT_EXPIRATION; exercise/assignment not modelled",
+          "slippageBps": 50,
+          "spendCap": {
+            "maxSpendU": 25000000,
+            "spentBeforeU": 0
+          },
+          "tickRule": "WHOLE_CENT_AGAINST_TRADER (penny-increment assumption)"
+        },
+        "cashAfterU": 98560000,
+        "cashBeforeU": 100000000,
+        "estimated": true,
+        "feesU": 0,
+        "fill_id": "fill_mv1pskok1d97897438",
+        "grossU": 1440000,
+        "instrument_id": "FIXP990105P00004000",
+        "kind": "option",
+        "minuteT": 4071308460000,
+        "model": "verified-options-quote-conservative-v1",
+        "multiplier": 100,
+        "note": "ESTIMATED PAPER FILL — not an exchange execution",
+        "observed": {
+          "ask": 4700,
+          "askSize": 10,
+          "bid": 4500,
+          "bidSize": 20,
+          "dataset": "test-fixture-options-2099-01-05",
+          "occ": "FIXP990105P00004000",
+          "provider": "TEST FIXTURE — NOT MARKET DATA",
+          "quoteTs": 4071308500000,
+          "source_url": null
+        },
+        "orderFilledQtyAfter": 3,
+        "orderQty": 3,
+        "orderStatusAfter": "filled",
+        "order_id": "ord_mv1pskoi30ef5ff046",
+        "positionQtyAfter": 3,
+        "positionQtyBefore": 0,
+        "priceU": 4800,
+        "qty": 3,
+        "realizedDeltaU": 0,
+        "role": "entry",
+        "side": "buy",
+        "sym": "FIXP"
+      }
+    },
+    {
+      "seq": 14,
+      "session_id": "test-sim-long-put",
+      "ts_sim": 4071330000000,
+      "ts_wall": 1791595652277,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "engine",
+      "type": "OPTION_EXPIRED",
+      "ref_id": "FIXP990105P00004000",
+      "prev_hash": "8b7c11416c178b3d7a04280e36dc3c87baaa1f88441eb257a654d8a27c43e243",
+      "hash": "225bd066c7880840ddc38ce6e25de272a2f2f145e687866956daa9ba3794a05e",
+      "payload": {
+        "cashAfterU": 99760000,
+        "cashBeforeU": 98560000,
+        "contract": {
+          "expiry": "2099-01-05",
+          "multiplier": 100,
+          "occ": "FIXP990105P00004000",
+          "right": "P",
+          "strike": 40000,
+          "underlying": "FIXP"
+        },
+        "contracts": 3,
+        "costBasisU": 1440000,
+        "expirationValueU": 1200000,
+        "expiresAt": 4071330000000,
+        "instrument_id": "FIXP990105P00004000",
+        "intrinsicPerShareU": 4000,
+        "multiplier": 100,
+        "note": "Loss is capped at the premium paid incl. fees: expiration value is never negative.",
+        "realizedDeltaU": -240000,
+        "settlementModel": "CASH_VALUE_AT_EXPIRATION (real options are physically settled; exercise/assignment not modelled)",
+        "underlyingBasis": "LAST_IEX_TRADE_AS_OF (TEST FIXTURE)",
+        "underlyingKnowableTs": 4071330000000,
+        "underlyingPriceU": 36000,
+        "underlyingSource": {
+          "ds": "test-fixture-sim-2099-01-05",
+          "minuteT": 4071329940000,
+          "sym": "FIXP"
+        }
+      }
+    }
+  ]
+}

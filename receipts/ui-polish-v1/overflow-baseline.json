@@ -1,0 +1,3169 @@
+{
+  "tool": "scripts/ui-check.mjs (overflow tripwire)",
+  "base": "http://127.0.0.1:8795",
+  "startedAt": "2026-10-10T01:37:32.870Z",
+  "finishedAt": "2026-10-10T01:38:56.319Z",
+  "browser": {
+    "path": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "version": "Chrome/156.0.8078.12"
+  },
+  "serverStatus": {
+    "dataMode": "HISTORICAL_REAL",
+    "dataset": "iex-tops-2026-10-07",
+    "datasetSha256": "bb405b6835f5cfc8fd27d3552ef9d1572a42670e45d612223c689aad0e458256",
+    "replay": {
+      "session_id": "ses_mv1q5g4gcff53d9a16",
+      "clock": 1791384300000,
+      "clockEt": "10:45",
+      "playing": false,
+      "status": "READY"
+    },
+    "model": "DISCONNECTED",
+    "killSwitch": false
+  },
+  "prepare": {
+    "ds": "iex-tops-2026-10-07",
+    "session_id": "ses_mv1q5g4gcff53d9a16",
+    "clockEt": "10:45"
+  },
+  "symbols": {
+    "research": "CAN",
+    "trade": "NVDA",
+    "tradeBasis": "segment large: two-sided IEX quote <= 60 s old, spread 1 bps, 1108 trades in the scan window (most active qualifying row)"
+  },
+  "web": {
+    "assets/RCL_Convergence_Full_Dark.svg": "dbd5d59054914012",
+    "assets/RCL_Convergence_Full_Light.svg": "55f455e77cda1663",
+    "assets/RCL_Convergence_Mark_Dark.svg": "abc341bceffc1a48",
+    "assets/RCL_Convergence_Mark_Light.svg": "2932c8b89c428d91",
+    "assets/RCL_Copper_Steel_Full.svg": "d68a606c3e9d3a61",
+    "assets/RCL_Copper_Steel_Full_814x502.png": "04aaa1a664a4633f",
+    "assets/RCL_Copper_Steel_Full_814x502.webp": "1e107ab53cf7380b",
+    "assets/RCL_Copper_Steel_Mark.svg": "dc6dff6697556313",
+    "assets/RCL_Copper_Steel_Mark_120.png": "bb87e00138b6889a",
+    "assets/RCL_Copper_Steel_Mark_32.png": "07931e34c8934379",
+    "assets/RCL_Copper_Steel_Mark_40.png": "6e1ea733f56e3ea3",
+    "assets/RCL_Copper_Steel_Mark_64.png": "129db2875ac341ca",
+    "assets/RCL_Copper_Steel_Mark_80.png": "b49ac1dd9239b02b",
+    "assets/RCL_Copper_Steel_Mark_96.png": "b87b80c2ed35596f",
+    "charts.css": "e8798940d078ab63",
+    "index.html": "776ea1bd1efe2a03",
+    "js/api.js": "76760e15f31997d2",
+    "js/app.js": "16c5757358441005",
+    "js/charts.js": "d4d888cbc6c8849f",
+    "js/components.js": "a68756d767f473ae",
+    "js/dom.js": "6c9361e3cfd97f97",
+    "js/estimate.js": "68a00a8954de8a9f",
+    "js/format.js": "f48cb063cce8c1df",
+    "js/router.js": "83287433fe761226",
+    "js/status-strip.js": "0e8f4fb4e7b3e4b5",
+    "js/store.js": "3cf3851aab5641aa",
+    "js/strategy-schema.js": "dc4f2c683587440f",
+    "js/summaries.js": "537473f22e6340dc",
+    "js/views/about.js": "de68ee7aacb302a8",
+    "js/views/agents.js": "16a4ffbf0d2aeb47",
+    "js/views/common.js": "f3fb437df41a8406",
+    "js/views/journal.js": "84c6757323d03cbc",
+    "js/views/lab.js": "f5eedb38c0527aba",
+    "js/views/more.js": "a6afd073a45dbe52",
+    "js/views/overview.js": "9d540064026c2bbd",
+    "js/views/replay.js": "d1b15efa44660583",
+    "js/views/research.js": "9ec9f93aecdec3ad",
+    "js/views/sources.js": "d0532fde82db63a6",
+    "styles.css": "b90b91283ab54b00"
+  },
+  "sizes": [
+    {
+      "name": "360x780",
+      "kind": "phone",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "390x844",
+      "kind": "phone",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "430x932",
+      "kind": "phone",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "768x1024",
+      "kind": "tablet",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "1024x1366",
+      "kind": "tablet",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "1024x768",
+      "kind": "tablet",
+      "mobile": true,
+      "dsf": 2
+    },
+    {
+      "name": "1440x900",
+      "kind": "desktop",
+      "mobile": false,
+      "dsf": 1
+    },
+    {
+      "name": "1920x1080",
+      "kind": "desktop",
+      "mobile": false,
+      "dsf": 1
+    }
+  ],
+  "routes": [
+    "#/overview",
+    "#/research",
+    "#/research/CAN",
+    "#/lab",
+    "#/agents",
+    "#/replay",
+    "#/journal",
+    "#/sources",
+    "#/about",
+    "#/more"
+  ],
+  "rule": "FAIL when documentElement.scrollWidth or body.scrollWidth exceeds window.innerWidth (or the root clientWidth beside a desktop scrollbar), or the layout viewport is wider than the emulated width / visual scale is not 1. overflow_tripwire = as rendered; overflow_tripwire_expanded = after opening every <details>. roots = offending elements whose parent does not overflow (where the overflow enters); widest = offending elements without overflowing descendants, furthest right first. Elements inside an overflow-x clipping/scrolling ancestor are not offenders.",
+  "fatal": null,
+  "summary": {
+    "checks": 160,
+    "failed": 2,
+    "failingPairs": 1,
+    "pairs": [
+      "768x1024 #/research"
+    ]
+  },
+  "failures": [
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/research",
+      "check": "overflow_tripwire",
+      "pass": false,
+      "reasons": [
+        "documentElement.scrollWidth 818 > clientWidth 768 (beside the scrollbar)",
+        "body.scrollWidth 818 > clientWidth 768 (beside the scrollbar)",
+        "layout viewport is 818 px wide, emulated 768 px (content widened it)"
+      ],
+      "scrollWidth": 818,
+      "bodyScrollWidth": 818,
+      "innerWidth": 818,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 1
+      },
+      "offenderCount": 4,
+      "roots": [
+        {
+          "el": "div.field.choice",
+          "tag": "div",
+          "cls": "field.choice",
+          "right": 818,
+          "left": 546,
+          "width": 272,
+          "depth": 5,
+          "path": "div.shell > main#main > div.stack > div.opt-row",
+          "fixed": false,
+          "hidden": false,
+          "text": "Instruments All Common Non-common"
+        }
+      ],
+      "widest": [
+        {
+          "el": "span#grp-3.lbl",
+          "tag": "span",
+          "cls": "lbl",
+          "right": 818,
+          "left": 546,
+          "width": 272,
+          "depth": 6,
+          "path": "main#main > div.stack > div.opt-row > div.field.choice",
+          "fixed": false,
+          "hidden": false,
+          "text": "Instruments"
+        },
+        {
+          "el": "button",
+          "tag": "button",
+          "cls": null,
+          "right": 814,
+          "left": 691,
+          "width": 124,
+          "depth": 7,
+          "path": "div.stack > div.opt-row > div.field.choice > div.seg.full",
+          "fixed": false,
+          "hidden": false,
+          "text": "Non-common"
+        }
+      ]
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/research",
+      "check": "overflow_tripwire_expanded",
+      "pass": false,
+      "reasons": [
+        "documentElement.scrollWidth 818 > clientWidth 768 (beside the scrollbar)",
+        "body.scrollWidth 818 > clientWidth 768 (beside the scrollbar)",
+        "layout viewport is 818 px wide, emulated 768 px (content widened it)"
+      ],
+      "scrollWidth": 818,
+      "bodyScrollWidth": 818,
+      "innerWidth": 818,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 28
+      },
+      "offenderCount": 4,
+      "roots": [
+        {
+          "el": "div.field.choice",
+          "tag": "div",
+          "cls": "field.choice",
+          "right": 818,
+          "left": 546,
+          "width": 272,
+          "depth": 5,
+          "path": "div.shell > main#main > div.stack > div.opt-row",
+          "fixed": false,
+          "hidden": false,
+          "text": "Instruments All Common Non-common"
+        }
+      ],
+      "widest": [
+        {
+          "el": "span#grp-3.lbl",
+          "tag": "span",
+          "cls": "lbl",
+          "right": 818,
+          "left": 546,
+          "width": 272,
+          "depth": 6,
+          "path": "main#main > div.stack > div.opt-row > div.field.choice",
+          "fixed": false,
+          "hidden": false,
+          "text": "Instruments"
+        },
+        {
+          "el": "button",
+          "tag": "button",
+          "cls": null,
+          "right": 814,
+          "left": 691,
+          "width": 124,
+          "depth": 7,
+          "path": "div.stack > div.opt-row > div.field.choice > div.seg.full",
+          "fixed": false,
+          "hidden": false,
+          "text": "Non-common"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/overview",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/overview",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 3
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/research",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/research",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 28
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/lab",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/lab",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/agents",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/agents",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 24
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/replay",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/replay",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/journal",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/journal",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 8
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 16
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/about",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/about",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "360x780",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 360,
+      "bodyScrollWidth": 360,
+      "innerWidth": 360,
+      "clientWidth": 360,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/overview",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/overview",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 3
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/research",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/research",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 28
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/lab",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/lab",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/agents",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/agents",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 24
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/replay",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/replay",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/journal",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/journal",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 8
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 16
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/about",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/about",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "390x844",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/overview",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/overview",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 3
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/research",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/research",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 28
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/lab",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/lab",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/agents",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/agents",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 24
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/replay",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/replay",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/journal",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/journal",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 8
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 16
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/about",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/about",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "430x932",
+      "kind": "phone",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 430,
+      "bodyScrollWidth": 430,
+      "innerWidth": 430,
+      "clientWidth": 430,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/overview",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 1
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/overview",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 3
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/research",
+      "check": "overflow_tripwire",
+      "pass": false,
+      "reasons": [
+        "documentElement.scrollWidth 818 > clientWidth 768 (beside the scrollbar)",
+        "body.scrollWidth 818 > clientWidth 768 (beside the scrollbar)",
+        "layout viewport is 818 px wide, emulated 768 px (content widened it)"
+      ],
+      "scrollWidth": 818,
+      "bodyScrollWidth": 818,
+      "innerWidth": 818,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 1
+      },
+      "offenderCount": 4
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/research",
+      "check": "overflow_tripwire_expanded",
+      "pass": false,
+      "reasons": [
+        "documentElement.scrollWidth 818 > clientWidth 768 (beside the scrollbar)",
+        "body.scrollWidth 818 > clientWidth 768 (beside the scrollbar)",
+        "layout viewport is 818 px wide, emulated 768 px (content widened it)"
+      ],
+      "scrollWidth": 818,
+      "bodyScrollWidth": 818,
+      "innerWidth": 818,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 28
+      },
+      "offenderCount": 4
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/lab",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/lab",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/agents",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/agents",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 24
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/replay",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/replay",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/journal",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/journal",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 8
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 16
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/about",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/about",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "768x1024",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 768,
+      "bodyScrollWidth": 768,
+      "innerWidth": 768,
+      "clientWidth": 768,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/overview",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 1
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/overview",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 3
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/research",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 1
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/research",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 28
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/lab",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/lab",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/agents",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/agents",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 24
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/replay",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/replay",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/journal",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/journal",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 8
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 16
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/about",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/about",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x1366",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/overview",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 1
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/overview",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 3
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/research",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 1
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/research",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 28
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/lab",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/lab",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/agents",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/agents",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 24
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/replay",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/replay",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/journal",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/journal",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 8
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 16
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/about",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/about",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1024x768",
+      "kind": "tablet",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1024,
+      "bodyScrollWidth": 1024,
+      "innerWidth": 1024,
+      "clientWidth": 1024,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/overview",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 1
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/overview",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 3
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/research",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 1
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/research",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 28
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/lab",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/lab",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/agents",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/agents",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 24
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/replay",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/replay",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/journal",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/journal",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 8
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 16
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/about",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/about",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "innerWidth": 1440,
+      "clientWidth": 1425,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1440,
+      "bodyScrollWidth": 1440,
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1440x900",
+      "kind": "desktop",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1440,
+      "bodyScrollWidth": 1440,
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/overview",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 1
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/overview",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 3,
+        "open": 3
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/research",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 1
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/research",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 28,
+        "open": 28
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/research/CAN",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/lab",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/lab",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/agents",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/agents",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 24,
+        "open": 24
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/replay",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1920,
+      "bodyScrollWidth": 1920,
+      "innerWidth": 1920,
+      "clientWidth": 1920,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/replay",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1920,
+      "bodyScrollWidth": 1920,
+      "innerWidth": 1920,
+      "clientWidth": 1920,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/journal",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/journal",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 8,
+        "open": 8
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/sources",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/sources",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1905,
+      "bodyScrollWidth": 1905,
+      "innerWidth": 1920,
+      "clientWidth": 1905,
+      "visualScale": 1,
+      "details": {
+        "total": 16,
+        "open": 16
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/about",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1920,
+      "bodyScrollWidth": 1920,
+      "innerWidth": 1920,
+      "clientWidth": 1920,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/about",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1920,
+      "bodyScrollWidth": 1920,
+      "innerWidth": 1920,
+      "clientWidth": 1920,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/more",
+      "check": "overflow_tripwire",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1920,
+      "bodyScrollWidth": 1920,
+      "innerWidth": 1920,
+      "clientWidth": 1920,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    },
+    {
+      "viewport": "1920x1080",
+      "kind": "desktop",
+      "route": "#/more",
+      "check": "overflow_tripwire_expanded",
+      "pass": true,
+      "reasons": [],
+      "scrollWidth": 1920,
+      "bodyScrollWidth": 1920,
+      "innerWidth": 1920,
+      "clientWidth": 1920,
+      "visualScale": 1,
+      "details": {
+        "total": 0,
+        "open": 0
+      },
+      "offenderCount": 0
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+Chrome 156.0.8078.12; ffmpeg version 8.0.1-full_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers
+candidate  dpr region   PSNR(dB)  SSIM
+new         1x mark32      33.85  0.9931
+new         1x mark40      30.44  0.9818
+new         1x full814       inf  1.0000
+new         1x full440     61.42  1.0000
+new         2x mark32      35.51  0.9922
+new         2x mark40      33.03  0.9829
+new         2x full814     43.86  0.9981
+new         2x full440     59.70  0.9999
+new         3x mark32      37.10  0.9906
+new         3x mark40      37.88  0.9904
+new         3x full814     43.70  1.0000
+new         3x full440     53.56  0.9991
+new-webp    1x mark32      33.85  0.9931
+new-webp    1x mark40      30.44  0.9818
+new-webp    1x full814     41.59  0.9709
+new-webp    1x full440     43.63  0.9843
+new-webp    2x mark32      35.51  0.9922
+new-webp    2x mark40      33.03  0.9829
+new-webp    2x full814     40.78  0.9736
+new-webp    2x full440     43.31  0.9787
+new-webp    3x mark32      37.10  0.9906
+new-webp    3x mark40      37.88  0.9904
+new-webp    3x full814     40.46  0.9721
+new-webp    3x full440     43.04  0.9751
+control     1x mark32      32.15  0.9906
+control     1x mark40      31.40  0.9870
+control     1x full814       inf  1.0000
+control     1x full440     61.42  1.0000
+control     2x mark32      33.06  0.9868
+control     2x mark40      32.63  0.9815
+control     2x full814     43.86  0.9981
+control     2x full440     59.70  0.9999
+control     3x mark32        inf  1.0000
+control     3x mark40      53.87  0.9999
+control     3x full814     43.70  1.0000
+control     3x full440     53.56  0.9991
+bytes before 5258191 (RCL_Copper_Steel_Mark.svg 2629089, RCL_Copper_Steel_Full.svg 2629102)
+bytes after  506387 (RCL_Copper_Steel_Full_814x502.png 449642, RCL_Copper_Steel_Mark_120.png 20065, RCL_Copper_Steel_Mark_32.png 2328, RCL_Copper_Steel_Mark_40.png 3329, RCL_Copper_Steel_Mark_64.png 7066, RCL_Copper_Steel_Mark_80.png 10179, RCL_Copper_Steel_Mark_96.png 13778)

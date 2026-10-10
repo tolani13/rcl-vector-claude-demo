@@ -1,0 +1,168 @@
+/* VECTOR charts: chart-specific styles (owned by the dataviz pass). Loads after styles.css; brand tokens come from
+ * :root there. Everything is scoped to the .viz host that web/js/charts.js puts on each chart.
+ *
+ * Colour roles (validated with scripts/validate-palette.js; receipts/ui-polish-v1/palette-dark.txt and -light.txt):
+ *   series   one categorical slot, copper. The RCL ramps have a single chromatic hue (steel and bone are achromatic),
+ *            which passes the categorical checks for at most two distinct series, so multi-series line charts are
+ *            drawn as small multiples (one copper line per panel) instead of hues that would fail.
+ *   polarity inferred buyer / seller volume = the --up / --down status tokens, with a steel-shade neutral for
+ *            unclassified (the diverging midpoint). Always paired with a sign glyph and label.
+ *   chrome   text tokens for every label and value; grid and axes are solid hairlines one step off the surface.
+ * The app is dark-only. The light step set below is validated against bone (#F5F3EE) and used for print.
+ */
+.viz {
+  --viz-surface: var(--graphite-2);   /* chart surface = the card it sits on (#181818) */
+  --viz-ink: var(--bone);
+  --viz-ink-2: var(--steel);
+  --viz-ink-3: var(--text-3);         /* axis text: 5.5:1 on the surface */
+  --viz-grid: var(--graphite-4);
+  --viz-axis: var(--graphite-5);
+  --viz-cursor: var(--steel);
+  --viz-hover: rgba(245, 243, 238, 0.06);
+  --viz-s1: var(--copper);            /* categorical slot 1 */
+  --viz-buy: var(--up);
+  --viz-sell: var(--down);
+  --viz-neutral: #696969;             /* steel shade, OKLCH L 0.52 C 0: unclassified (diverging midpoint), 3.2:1 */
+  --viz-wick: #696969;                /* steel shade: high–low range (de-emphasis) */
+  --viz-spark: var(--text-3);         /* sparkline trend line (de-emphasis) */
+  --viz-tip-bg: var(--graphite-3);
+  --viz-tip-line: var(--graphite-5);
+}
+
+/* ------------------------------------------------------------------ plot box */
+.viz .chart { position: relative; width: 100%; min-width: 0; border-radius: 4px; }
+.viz .chart svg { display: block; width: 100%; height: auto; touch-action: pan-y; overflow: hidden; }
+.viz .chart:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+
+/* SVG text wears text tokens only — never a series colour. */
+.viz .chart text { font: 12px/1 var(--font-sans); fill: var(--viz-ink-3); font-variant-numeric: tabular-nums; }
+.viz .chart text.v-plabel { font-size: 13px; font-weight: 600; fill: var(--viz-ink); letter-spacing: 0.02em; }
+.viz .chart text.v-pvalue { font-size: 13px; fill: var(--viz-ink-2); }
+.viz .chart text.v-empty { font-size: 14px; fill: var(--viz-ink-2); }
+
+/* Recessive chrome: solid hairlines (never dashed). */
+.viz .v-grid { stroke: var(--viz-grid); stroke-width: 1; }
+.viz .v-axis, .viz .v-zero { stroke: var(--viz-axis); stroke-width: 1; }
+.viz .v-cursor { stroke: var(--viz-cursor); stroke-width: 1; pointer-events: none; }
+.viz .v-hover { fill: var(--viz-hover); pointer-events: none; }
+.viz .v-overlay { fill: transparent; cursor: crosshair; }
+
+/* Marks: 2px lines with round joins, 8px markers with a 2px surface ring. */
+.viz .v-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.viz .v-s1 { stroke: var(--viz-s1); }
+.viz .v-end, .viz .v-lone, .viz .v-hdot { fill: var(--viz-s1); stroke: var(--viz-surface); stroke-width: 2; pointer-events: none; }
+.viz .v-wick { stroke: var(--viz-wick); stroke-width: 1; }
+.viz .v-buy { fill: var(--viz-buy); }
+.viz .v-sell { fill: var(--viz-sell); }
+.viz .v-neutral { fill: var(--viz-neutral); }
+
+/* ------------------------------------------------------------------ readout, legend, keys */
+.viz .chart-readout { color: var(--viz-ink-2); }
+.viz .legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; margin-top: 10px; font-size: 13px; color: var(--viz-ink-2); }
+.viz .legend > span { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+.viz .key { display: inline-block; flex: none; }
+.viz .key.line { width: 16px; height: 2px; border-radius: 1px; }
+.viz .key.tick { width: 2px; height: 12px; margin: 0 7px; border-radius: 1px; }
+.viz .key.box { width: 10px; height: 10px; border-radius: 2px; }
+.viz .key.none { width: 16px; }
+.viz .k-s1 { background: var(--viz-s1); }
+.viz .k-zero { background: var(--viz-axis); }
+.viz .k-wick { background: var(--viz-wick); }
+.viz .k-buy { background: var(--viz-buy); }
+.viz .k-sell { background: var(--viz-sell); }
+.viz .k-neutral { background: var(--viz-neutral); }
+.viz .glyph { color: var(--viz-ink-2); font-size: 0.8em; }
+
+/* ------------------------------------------------------------------ tooltip (values lead, names follow) */
+.viz .chart-tip {
+  position: absolute; top: 4px; left: 0; z-index: 3; pointer-events: none;
+  min-width: 8rem; max-width: min(22rem, calc(100% - 4px));
+  padding: 8px 10px; border: 1px solid var(--viz-tip-line); border-radius: 6px;
+  background: var(--viz-tip-bg); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  font-size: 13px; line-height: 1.35; color: var(--viz-ink-2); font-variant-numeric: tabular-nums;
+}
+.viz .tip-h { margin-bottom: 4px; color: var(--viz-ink-2); }
+.viz .tip-rows { display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: center; gap: 2px 8px; }
+.viz .tip-row { display: contents; }
+.viz .tip-v { color: var(--viz-ink); font-weight: 600; text-align: right; white-space: nowrap; }
+.viz .tip-n { color: var(--viz-ink-2); overflow-wrap: anywhere; }
+.viz .tip-n .glyph { margin-right: 4px; }
+.viz .tip-note { grid-column: 1 / -1; color: var(--viz-ink); }
+
+/* ------------------------------------------------------------------ table view (scrolls inside its own box) */
+.viz .chart-table { margin-top: 4px; }
+.viz .chart-table-scroll {
+  max-height: 18rem; overflow: auto; overscroll-behavior: contain;
+  border: 1px solid var(--graphite-4); border-radius: var(--radius-sm); background: var(--viz-surface);
+}
+.viz .chart-table-t { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; font-variant-numeric: tabular-nums; }
+.viz .chart-table-t th, .viz .chart-table-t td { padding: 6px 10px; white-space: nowrap; border-bottom: 1px solid var(--graphite-3); text-align: right; }
+.viz .chart-table-t th[scope="row"], .viz .chart-table-t thead th:first-child { text-align: left; }
+.viz .chart-table-t td { color: var(--viz-ink); }
+.viz .chart-table-t thead th {
+  position: sticky; top: 0; z-index: 1; background: var(--graphite-3);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--viz-ink-3); border-bottom-color: var(--graphite-5);
+}
+.viz .chart-table-t tbody th { position: sticky; left: 0; background: var(--viz-surface); font-weight: 500; color: var(--viz-ink-2); }
+.viz .chart-table-t thead th:first-child { left: 0; z-index: 2; }
+.viz .chart-table-t .glyph { margin-right: 4px; }
+
+/* ------------------------------------------------------------------ sparkline (trend glyph: de-emphasis + accent end) */
+.viz.spark .v-spark-line { fill: none; stroke: var(--viz-spark); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.viz.spark .v-spark-ring { stroke: var(--viz-surface); stroke-width: 12; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.viz.spark .v-spark-end { stroke: var(--viz-s1); stroke-width: 8; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+
+/* ------------------------------------------------------------------ phones: data text >= 15px, captions >= 13px */
+@media (max-width: 767px) {
+  .viz .chart text { font-size: 13px; }
+  .viz .chart text.v-plabel, .viz .chart text.v-pvalue { font-size: 15px; }
+  .viz .chart text.v-empty { font-size: 16px; }
+  .viz .legend, .viz .chart-tip, .viz .chart-table-t { font-size: 15px; }
+  .viz .chart-table-t thead th { font-size: 13px; }
+}
+
+/* ------------------------------------------------------------------ print: the validated light step set on bone */
+@media print {
+  .viz {
+    --viz-surface: var(--bone);
+    --viz-ink: var(--obsidian);
+    --viz-ink-2: #484848;             /* steel shade L 0.40: 8.3:1 on bone */
+    --viz-ink-3: #636363;             /* steel shade L 0.50: 5.4:1 on bone */
+    --viz-grid: #E0DED9;              /* bone shade L 0.90 */
+    --viz-axis: #C6C4BF;              /* bone shade L 0.82 */
+    --viz-s1: var(--copper);          /* 3.4:1 on bone */
+    --viz-buy: #6A9174;               /* --up shade L 0.62: 3.2:1 */
+    --viz-sell: #A95047;              /* --down shade L 0.54: 4.8:1 */
+    --viz-neutral: #484848;           /* steel shade L 0.40 */
+    --viz-wick: #808080;              /* steel shade L 0.60: 3.6:1 */
+    --viz-spark: #636363;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  /* The whole chart block (readout, plot, legend, table) prints on the bone surface, whatever the page does. */
+  .viz:not(.spark) { padding: 8px; border-radius: 6px; background: var(--viz-surface); color: var(--viz-ink); }
+  .viz.spark { background: var(--viz-surface); }
+  .viz .chart-readout, .viz .legend, .viz .chart-table > summary { color: var(--viz-ink-2); }
+  .viz .chart-table-t td { color: var(--viz-ink); }
+  .viz .chart-tip, .viz .v-cursor, .viz .v-hdot, .viz .v-hover { display: none !important; }
+  .viz .chart-table-scroll { max-height: none; overflow: visible; }
+  .viz .chart-table-t thead th, .viz .chart-table-t tbody th { position: static; background: var(--viz-surface); }
+}
+
+/* ------------------------------------------------------------------ forced colours: keep marks and keys distinct */
+@media (forced-colors: active) {
+  .viz .v-line, .viz .v-s1 { stroke: CanvasText; }
+  .viz .v-grid, .viz .v-axis, .viz .v-zero, .viz .v-wick { stroke: GrayText; }
+  .viz .v-cursor { stroke: Highlight; }
+  .viz .v-end, .viz .v-lone, .viz .v-hdot { fill: CanvasText; stroke: Canvas; }
+  .viz .v-buy { fill: CanvasText; }
+  .viz .v-sell { fill: GrayText; }
+  .viz .v-neutral { fill: Canvas; stroke: GrayText; stroke-width: 1; }
+  .viz .chart text { fill: CanvasText; }
+  .viz .key { forced-color-adjust: none; }
+  .viz .k-s1, .viz .k-buy { background: CanvasText; }
+  .viz .k-zero, .viz .k-wick, .viz .k-sell { background: GrayText; }
+  .viz .k-neutral { background: Canvas; outline: 1px solid GrayText; }
+  .viz.spark .v-spark-line { stroke: GrayText; }
+  .viz.spark .v-spark-end { stroke: CanvasText; }
+  .viz.spark .v-spark-ring { stroke: Canvas; }
+}

@@ -1,0 +1,244 @@
+{
+  "label": "REAL IEX HISTORICAL DATA — PAPER FILLS ARE ESTIMATES (not exchange executions); seed money is simulated",
+  "scenario": "stale-quote-rejection",
+  "covers": [
+    "rejection on stale quote"
+  ],
+  "description": "POLICY_DENY QUOTE_STALE (human sandbox intent); nothing submitted.",
+  "dataset": "iex-tops-2026-10-07",
+  "session_id": "ses_mv1aur6xae911e68a0",
+  "generatedBy": "node --disable-warning=ExperimentalWarning test/api/e2e-real-replay.mjs --base http://127.0.0.1:8795 --ds iex-tops-2026-10-07 --db data/qa-copy.db --chunk 13 --db-copy-of data/vector.db",
+  "generatedAt": "2026-10-09T18:30:55.378Z",
+  "chain": {
+    "ok": true,
+    "checked": 5013,
+    "brokenAt": null,
+    "mode": "incremental",
+    "newlyChecked": 2488,
+    "verifiedMs": 33,
+    "scope": "full journal (all sessions)",
+    "note": "Rows appended since the last verification in this server process were re-hashed and linked to the verified prefix; verify=full re-hashes every row."
+  },
+  "rows": [
+    {
+      "seq": 2730,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381360000,
+      "ts_wall": 1791570566530,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "human",
+      "type": "INTENT_PROPOSED",
+      "ref_id": "int_mv1auwea4c2fcf0995",
+      "prev_hash": "9647ca384dc355117890221026f228a21726c1e39284c48bcd947977215c01e4",
+      "hash": "83f2b36be2a9c8dc45e6f311fb561f5c189c96394126410eb06692c01819e864",
+      "payload": {
+        "confirm": true,
+        "intent": {
+          "action": "open",
+          "agent_id": null,
+          "created_ts": 1791381360000,
+          "evidence_refs": [],
+          "expires_ts": 1791381660000,
+          "id": "int_mv1auwea4c2fcf0995",
+          "instrument": {
+            "kind": "equity",
+            "sym": "NXAT"
+          },
+          "order_type": "market",
+          "portfolio_id": "sandbox",
+          "qty": 10,
+          "quote_ts": 1791380881967,
+          "rationale": "E2E stale-quote check",
+          "side": "buy",
+          "source": "human",
+          "strategy_id": null
+        },
+        "kind": "human_open",
+        "note": "Human paper-order request; the deterministic policy gate decides.",
+        "source": "human"
+      }
+    },
+    {
+      "seq": 2731,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381360000,
+      "ts_wall": 1791570566532,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "policy",
+      "type": "POLICY_DENY",
+      "ref_id": "int_mv1auwea4c2fcf0995",
+      "prev_hash": "83f2b36be2a9c8dc45e6f311fb561f5c189c96394126410eb06692c01819e864",
+      "hash": "4204d6ecc62a4cad50d0568a4f2251bd7649bc59852101fd445f04baea473c7d",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "detail": "kill switch released",
+            "pass": true,
+            "rule": "kill_switch"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (human_confirmed applies)",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "detail": "human confirmed",
+            "pass": true,
+            "rule": "human_confirmed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a modify/cancel",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "detail": "equity allowed",
+            "pass": true,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "NXAT allowed",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "detail": "estimated cost $7.4390 (10 x $0.7439 + fees $0.0000) <= $2500.0000",
+            "pass": true,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "detail": "available cash $9039.1600 covers $7.4390 (cash $10000.0000 - reserved $960.8400 for 1 open buy order(s), fees included)",
+            "pass": true,
+            "rule": "cash_sufficient"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a sell",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "detail": "day P&L $0.0000; cap $2500.0000",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "detail": "2/10 positions after entry",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "detail": "position 0.07% of equity (held $0.0000 + pending buys $0.0000 (0 order(s)) + this $7.4390) <= 50%",
+            "pass": true,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (sandbox brackets are optional)",
+            "pass": true,
+            "rule": "protective_exit_required"
+          },
+          {
+            "detail": "5/10 orders this minute",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "code": "QUOTE_STALE",
+            "detail": "quote age 478s > max 300s",
+            "pass": false,
+            "rule": "quote_fresh"
+          },
+          {
+            "detail": "spread 4 bps <= 1500 bps",
+            "pass": true,
+            "rule": "max_spread_bps"
+          },
+          {
+            "detail": "displayed ask size 402 >= 1",
+            "pass": true,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 300s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 0/0 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "DENIED",
+        "estimate": {
+          "asOfEstimateOnly": true,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "costU": 74390,
+          "feesU": 0,
+          "multiplier": 1,
+          "priceU": 7439,
+          "qty": 10,
+          "segment": "micro",
+          "sizedFromBudget": false,
+          "slippageBps": 50,
+          "spendCapU": 25000000
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": null,
+          "created_ts": 1791381360000,
+          "evidence_refs": [],
+          "expires_ts": 1791381660000,
+          "id": "int_mv1auwea4c2fcf0995",
+          "instrument": {
+            "kind": "equity",
+            "sym": "NXAT"
+          },
+          "order_type": "market",
+          "portfolio_id": "sandbox",
+          "qty": 10,
+          "quote_ts": 1791380881967,
+          "rationale": "E2E stale-quote check",
+          "side": "buy",
+          "source": "human",
+          "strategy_id": null
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": [
+          {
+            "code": "QUOTE_STALE",
+            "detail": "quote age 478s > max 300s"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,935 @@
+{
+  "label": "REAL IEX HISTORICAL DATA — PAPER FILLS ARE ESTIMATES (not exchange executions); seed money is simulated",
+  "scenario": "stop-modification",
+  "covers": [
+    "modify a working stop (replace)"
+  ],
+  "description": "ORDER_REPLACED by human through a gated modify intent.",
+  "dataset": "iex-tops-2026-10-07",
+  "session_id": "ses_mv1aur6xae911e68a0",
+  "generatedBy": "node --disable-warning=ExperimentalWarning test/api/e2e-real-replay.mjs --base http://127.0.0.1:8795 --ds iex-tops-2026-10-07 --db data/qa-copy.db --chunk 13 --db-copy-of data/vector.db",
+  "generatedAt": "2026-10-09T18:30:55.376Z",
+  "chain": {
+    "ok": true,
+    "checked": 5013,
+    "brokenAt": null,
+    "mode": "incremental",
+    "newlyChecked": 2488,
+    "verifiedMs": 33,
+    "scope": "full journal (all sessions)",
+    "note": "Rows appended since the last verification in this server process were re-hashed and linked to the verified prefix; verify=full re-hashes every row."
+  },
+  "rows": [
+    {
+      "seq": 2725,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381360000,
+      "ts_wall": 1791570566390,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "human",
+      "type": "INTENT_PROPOSED",
+      "ref_id": "int_mv1auwadbf76eab7b4",
+      "prev_hash": "56c8b74f0f7d626fc67a52fdf53c103f71509da843915b7ec32d9068d45ef471",
+      "hash": "ce4c7be0d815823eb2f40b5d29ed4eff0877bb001be16694fe663f7ec80a4881",
+      "payload": {
+        "confirm": true,
+        "intent": {
+          "action": "open",
+          "agent_id": null,
+          "attach": {
+            "stop_loss_px_u": 520200,
+            "take_profit_px_u": 541800
+          },
+          "budget_usd": 1000,
+          "created_ts": 1791381360000,
+          "evidence_refs": [],
+          "expires_ts": 1791381660000,
+          "id": "int_mv1auwadbf76eab7b4",
+          "instrument": {
+            "kind": "equity",
+            "sym": "BAC"
+          },
+          "order_type": "market",
+          "portfolio_id": "sandbox",
+          "quote_ts": 1791381359573,
+          "rationale": "E2E sandbox order (paper only)",
+          "side": "buy",
+          "source": "human",
+          "strategy_id": null
+        },
+        "kind": "human_open",
+        "note": "Human paper-order request; the deterministic policy gate decides.",
+        "source": "human"
+      }
+    },
+    {
+      "seq": 2726,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381360000,
+      "ts_wall": 1791570566390,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "policy",
+      "type": "POLICY_ACCEPT",
+      "ref_id": "int_mv1auwadbf76eab7b4",
+      "prev_hash": "ce4c7be0d815823eb2f40b5d29ed4eff0877bb001be16694fe663f7ec80a4881",
+      "hash": "6a7abe76bb8bc8a9eb66ceffcdb3b2de9c4b7620dcf0cbe8ec0a02a7b3d30bff",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "detail": "kill switch released",
+            "pass": true,
+            "rule": "kill_switch"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (human_confirmed applies)",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "detail": "human confirmed",
+            "pass": true,
+            "rule": "human_confirmed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a modify/cancel",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "detail": "equity allowed",
+            "pass": true,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "BAC allowed",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "detail": "estimated cost $956.5200 (18 x $53.1400 + fees $0.0000) <= $2500.0000",
+            "pass": true,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "detail": "available cash $10000.0000 covers $956.5200 (cash $10000.0000 - reserved $0.0000 for 0 open buy order(s), fees included)",
+            "pass": true,
+            "rule": "cash_sufficient"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a sell",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "detail": "day P&L $0.0000; cap $2500.0000",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "detail": "1/10 positions after entry",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "detail": "position 9.57% of equity (held $0.0000 + pending buys $0.0000 (0 order(s)) + this $956.5200) <= 50%",
+            "pass": true,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (sandbox brackets are optional)",
+            "pass": true,
+            "rule": "protective_exit_required"
+          },
+          {
+            "detail": "2/10 orders this minute",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "detail": "quote age 0s <= 300s",
+            "pass": true,
+            "rule": "quote_fresh"
+          },
+          {
+            "detail": "spread 4 bps <= 1500 bps",
+            "pass": true,
+            "rule": "max_spread_bps"
+          },
+          {
+            "detail": "displayed ask size 1640 >= 1",
+            "pass": true,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 300s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 0/0 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "ACCEPTED",
+        "estimate": {
+          "asOfEstimateOnly": true,
+          "basis": "IEX_ASK_PLUS_SLIPPAGE",
+          "costU": 9565200,
+          "feesU": 0,
+          "multiplier": 1,
+          "priceU": 531400,
+          "qty": 18,
+          "segment": "large",
+          "sizedFromBudget": true,
+          "slippageBps": 5,
+          "spendCapU": 10000000
+        },
+        "intent": {
+          "action": "open",
+          "agent_id": null,
+          "attach": {
+            "stop_loss_px_u": 520200,
+            "take_profit_px_u": 541800
+          },
+          "budget_usd": 1000,
+          "created_ts": 1791381360000,
+          "evidence_refs": [],
+          "expires_ts": 1791381660000,
+          "id": "int_mv1auwadbf76eab7b4",
+          "instrument": {
+            "kind": "equity",
+            "sym": "BAC"
+          },
+          "order_type": "market",
+          "portfolio_id": "sandbox",
+          "quote_ts": 1791381359573,
+          "rationale": "E2E sandbox order (paper only)",
+          "side": "buy",
+          "source": "human",
+          "strategy_id": null
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": []
+      }
+    },
+    {
+      "seq": 2727,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381360000,
+      "ts_wall": 1791570566390,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "human",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1auwae5b1a2a608b",
+      "prev_hash": "6a7abe76bb8bc8a9eb66ceffcdb3b2de9c4b7620dcf0cbe8ec0a02a7b3d30bff",
+      "hash": "97f65934417e763140e3c418d9d7561e41b9e38bb2f1c03672ca90da9383bfa1",
+      "payload": {
+        "created_ts": 1791381360000,
+        "estimatedOnly": true,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "BAC",
+        "intent_id": "int_mv1auwadbf76eab7b4",
+        "kind": "equity",
+        "limit_px": null,
+        "oco_group": null,
+        "order_id": "ord_mv1auwae5b1a2a608b",
+        "paperOnly": true,
+        "parent_id": null,
+        "protective": false,
+        "qty": 18,
+        "quote": {
+          "ageMs": 427,
+          "asOf": 1791381360000,
+          "ask": 531100,
+          "askSize": 1640,
+          "bid": 530900,
+          "bidSize": 911,
+          "ds": "iex-tops-2026-10-07",
+          "halted": false,
+          "minuteRowT": 1791381300000,
+          "quoteTs": 1791381359573,
+          "spreadBps": 4,
+          "status": "OBSERVED",
+          "sym": "BAC",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "reason": "E2E sandbox order (paper only)",
+        "role": "entry",
+        "side": "buy",
+        "spendCap": {
+          "candidates": [
+            {
+              "maxSpendU": 25000000,
+              "source": "policy:max_trade_spend_usd"
+            },
+            {
+              "maxSpendU": 10000000,
+              "source": "intent:budget_usd"
+            }
+          ],
+          "maxSpendU": 10000000,
+          "source": "intent:budget_usd"
+        },
+        "status": "working",
+        "stop_px": null,
+        "sym": "BAC",
+        "triggered_ts": null,
+        "type": "market"
+      }
+    },
+    {
+      "seq": 2728,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381360000,
+      "ts_wall": 1791570566391,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "human",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1auwae49e968ec22",
+      "prev_hash": "97f65934417e763140e3c418d9d7561e41b9e38bb2f1c03672ca90da9383bfa1",
+      "hash": "486d2e581fff1c80632b7dec8959b5c2091641936bd3b241e98f57dc0e8d33c0",
+      "payload": {
+        "bracketChildOf": "ord_mv1auwae5b1a2a608b",
+        "created_ts": 1791381360000,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "BAC",
+        "intent_id": "int_mv1auwadbf76eab7b4",
+        "kind": "equity",
+        "limit_px": null,
+        "note": "pending_parent until the entry fills; qty then = shares the bracket holds",
+        "oco_group": "oco_ord_mv1auwae5b1a2a608b",
+        "order_id": "ord_mv1auwae49e968ec22",
+        "parent_id": "ord_mv1auwae5b1a2a608b",
+        "protective": true,
+        "qty": 18,
+        "quote": {
+          "ageMs": 427,
+          "asOf": 1791381360000,
+          "ask": 531100,
+          "askSize": 1640,
+          "bid": 530900,
+          "bidSize": 911,
+          "ds": "iex-tops-2026-10-07",
+          "halted": false,
+          "minuteRowT": 1791381300000,
+          "quoteTs": 1791381359573,
+          "spreadBps": 4,
+          "status": "OBSERVED",
+          "sym": "BAC",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "stop_loss",
+        "side": "sell",
+        "status": "pending_parent",
+        "stopCheck": {
+          "bidU": 530900,
+          "stopAtOrAboveBid": false,
+          "stopPxU": 520200,
+          "stopVsBidBps": -202
+        },
+        "stop_px": 520200,
+        "sym": "BAC",
+        "triggered_ts": null,
+        "type": "stop"
+      }
+    },
+    {
+      "seq": 2729,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381360000,
+      "ts_wall": 1791570566391,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "human",
+      "type": "ORDER_SUBMITTED",
+      "ref_id": "ord_mv1auwafbc55fc3578",
+      "prev_hash": "486d2e581fff1c80632b7dec8959b5c2091641936bd3b241e98f57dc0e8d33c0",
+      "hash": "9647ca384dc355117890221026f228a21726c1e39284c48bcd947977215c01e4",
+      "payload": {
+        "bracketChildOf": "ord_mv1auwae5b1a2a608b",
+        "created_ts": 1791381360000,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "BAC",
+        "intent_id": "int_mv1auwadbf76eab7b4",
+        "kind": "equity",
+        "limit_px": 541800,
+        "note": "pending_parent until the entry fills; qty then = shares the bracket holds",
+        "oco_group": "oco_ord_mv1auwae5b1a2a608b",
+        "order_id": "ord_mv1auwafbc55fc3578",
+        "parent_id": "ord_mv1auwae5b1a2a608b",
+        "protective": true,
+        "qty": 18,
+        "quote": {
+          "ageMs": 427,
+          "asOf": 1791381360000,
+          "ask": 531100,
+          "askSize": 1640,
+          "bid": 530900,
+          "bidSize": 911,
+          "ds": "iex-tops-2026-10-07",
+          "halted": false,
+          "minuteRowT": 1791381300000,
+          "quoteTs": 1791381359573,
+          "spreadBps": 4,
+          "status": "OBSERVED",
+          "sym": "BAC",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "take_profit",
+        "side": "sell",
+        "status": "pending_parent",
+        "stop_px": null,
+        "sym": "BAC",
+        "triggered_ts": null,
+        "type": "limit"
+      }
+    },
+    {
+      "seq": 2732,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381420000,
+      "ts_wall": 1791570566545,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "engine",
+      "type": "FILL_ESTIMATED",
+      "ref_id": "fill_mv1auwepe2b12341c2",
+      "prev_hash": "4204d6ecc62a4cad50d0568a4f2251bd7649bc59852101fd445f04baea473c7d",
+      "hash": "8be5c4fffe4d3b3ebecd1effffe97a307d466a758fd365c993b3bb2fdec53630",
+      "payload": {
+        "assumptions": {
+          "affordabilityReduced": false,
+          "basePriceU": 531100,
+          "consumedEarlierThisMinute": 0,
+          "displayedSizeAtMinuteStart": 1640,
+          "displayedSizeCap": true,
+          "displayedSizeUsed": 1640,
+          "estimated": true,
+          "fees": {
+            "commissionPerOrderU": 0,
+            "commissionU": 0,
+            "rounding": "EACH_COMPONENT_UP_TO_WHOLE_U",
+            "secFeeRatePerMillionUsd": 27.8,
+            "secFeeU": 0,
+            "tafCapU": 83000,
+            "tafPerShareU": 1.66,
+            "tafU": 0,
+            "totalU": 0
+          },
+          "maxQuoteAgeMs": 60000,
+          "maxSpreadBps": 50,
+          "model": "iex-conservative-minute-v1",
+          "multiplier": 1,
+          "notExchangeExecution": true,
+          "omitted": [
+            "queue position at IEX",
+            "hidden and odd-lot liquidity",
+            "NBBO vs IEX BBO differences (IEX top-of-book only)",
+            "liquidity and prices on other venues",
+            "partial-fill dynamics inside the minute",
+            "market impact beyond the slippage assumption",
+            "borrow/locate (never needed: no shorting)",
+            "corporate actions on the replay day",
+            "options exercise/assignment",
+            "IEX trade breaks arriving after the trade minute are not removed from that minute; once a break is knowable, the trade evidence of that minute is withheld"
+          ],
+          "priceBasis": "WORST_IN_MINUTE",
+          "qtyLimitedBy": [],
+          "qtyRequested": 18,
+          "requestedSegment": "large",
+          "rule": "MARKET_BUY_WORST_ASK_IN_MINUTE",
+          "segment": "large",
+          "sizeSource": "DISPLAYED",
+          "slippageBps": 5,
+          "spendCap": {
+            "maxSpendU": 10000000,
+            "spentBeforeU": 0
+          },
+          "spreadAtEndBps": 4,
+          "spreadAtStartBps": 4,
+          "tickRule": "REG_NMS_612_ROUNDED_AGAINST_TRADER",
+          "warnings": []
+        },
+        "cashAfterU": 90434800,
+        "cashBeforeU": 100000000,
+        "estimated": true,
+        "feesU": 0,
+        "fill_id": "fill_mv1auwepe2b12341c2",
+        "grossU": 9565200,
+        "instrument_id": "BAC",
+        "kind": "equity",
+        "minuteT": 1791381360000,
+        "model": "iex-conservative-minute-v1",
+        "multiplier": 1,
+        "note": "ESTIMATED PAPER FILL — not an exchange execution",
+        "observed": {
+          "ds": "iex-tops-2026-10-07",
+          "endQuote": {
+            "ask": 530500,
+            "askSize": 200,
+            "bid": 530300,
+            "bidSize": 1389,
+            "quoteTs": 1791381419519
+          },
+          "halted": false,
+          "hasRow": true,
+          "maxAsk": 531100,
+          "maxBid": 531000,
+          "minAsk": 530300,
+          "minBid": 530200,
+          "minuteT": 1791381360000,
+          "startQuote": {
+            "ask": 531100,
+            "askSize": 1640,
+            "bid": 530900,
+            "bidSize": 911,
+            "quoteTs": 1791381359573
+          },
+          "sym": "BAC",
+          "trades": {
+            "c": 530400,
+            "h": 531000,
+            "l": 530300,
+            "n": 36,
+            "o": 531000,
+            "v": 3896,
+            "vwap": 530454
+          },
+          "unavailable": false,
+          "venue": "IEX"
+        },
+        "orderFilledQtyAfter": 18,
+        "orderQty": 18,
+        "orderStatusAfter": "filled",
+        "order_id": "ord_mv1auwae5b1a2a608b",
+        "positionQtyAfter": 18,
+        "positionQtyBefore": 0,
+        "priceU": 531400,
+        "qty": 18,
+        "realizedDeltaU": 0,
+        "role": "entry",
+        "side": "buy",
+        "sym": "BAC"
+      }
+    },
+    {
+      "seq": 2733,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381420000,
+      "ts_wall": 1791570566545,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "engine",
+      "type": "BRACKET_CHILD_ACTIVATED",
+      "ref_id": "ord_mv1auwae49e968ec22",
+      "prev_hash": "8be5c4fffe4d3b3ebecd1effffe97a307d466a758fd365c993b3bb2fdec53630",
+      "hash": "03ba3fcca61f38bab7e24dc0d388a5fa213d5aa737d53d767c2148cc097e383c",
+      "payload": {
+        "created_ts": 1791381360000,
+        "eligibleFromMinute": 1791381420000,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "BAC",
+        "intent_id": "int_mv1auwadbf76eab7b4",
+        "kind": "equity",
+        "limit_px": null,
+        "minuteT": 1791381360000,
+        "oco_group": "oco_ord_mv1auwae5b1a2a608b",
+        "order_id": "ord_mv1auwae49e968ec22",
+        "parentFilledQty": 18,
+        "parent_id": "ord_mv1auwae5b1a2a608b",
+        "protectedQty": 18,
+        "protective": true,
+        "qty": 18,
+        "quote": {
+          "ageMs": 481,
+          "asOf": 1791381420000,
+          "ask": 530500,
+          "askSize": 200,
+          "bid": 530300,
+          "bidSize": 1389,
+          "ds": "iex-tops-2026-10-07",
+          "halted": false,
+          "minuteRowT": 1791381360000,
+          "quoteTs": 1791381419519,
+          "spreadBps": 4,
+          "status": "OBSERVED",
+          "sym": "BAC",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "role": "stop_loss",
+        "side": "sell",
+        "status": "working",
+        "stopCheck": {
+          "bidU": 530300,
+          "stopAtOrAboveBid": false,
+          "stopPxU": 520200,
+          "stopVsBidBps": -190
+        },
+        "stop_px": 520200,
+        "sym": "BAC",
+        "triggered_ts": null,
+        "type": "stop"
+      }
+    },
+    {
+      "seq": 2734,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791381420000,
+      "ts_wall": 1791570566545,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "engine",
+      "type": "BRACKET_CHILD_ACTIVATED",
+      "ref_id": "ord_mv1auwafbc55fc3578",
+      "prev_hash": "03ba3fcca61f38bab7e24dc0d388a5fa213d5aa737d53d767c2148cc097e383c",
+      "hash": "e1ef26f73562b11728a4ba57e2ec57aab499e8d18633984925605ee3e35399bb",
+      "payload": {
+        "created_ts": 1791381360000,
+        "eligibleFromMinute": 1791381420000,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "BAC",
+        "intent_id": "int_mv1auwadbf76eab7b4",
+        "kind": "equity",
+        "limit_px": 541800,
+        "minuteT": 1791381360000,
+        "oco_group": "oco_ord_mv1auwae5b1a2a608b",
+        "order_id": "ord_mv1auwafbc55fc3578",
+        "parentFilledQty": 18,
+        "parent_id": "ord_mv1auwae5b1a2a608b",
+        "protectedQty": 18,
+        "protective": true,
+        "qty": 18,
+        "role": "take_profit",
+        "side": "sell",
+        "status": "working",
+        "stop_px": null,
+        "sym": "BAC",
+        "triggered_ts": null,
+        "type": "limit"
+      }
+    },
+    {
+      "seq": 2826,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791382140000,
+      "ts_wall": 1791570569706,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "human",
+      "type": "INTENT_PROPOSED",
+      "ref_id": "int_mv1auyuifb342c4db4",
+      "prev_hash": "2b52780512900f9f7d2186c77029afa0faa1c2e5244b36a5fd7761401125dd5a",
+      "hash": "04a9cdea012d62facc194c62e45360dae53951f3e74a23ef137276b80cb3dd5e",
+      "payload": {
+        "confirm": true,
+        "intent": {
+          "action": "modify",
+          "agent_id": null,
+          "created_ts": 1791382140000,
+          "evidence_refs": [],
+          "expires_ts": 1791382440000,
+          "id": "int_mv1auyuifb342c4db4",
+          "instrument": {
+            "kind": "equity",
+            "sym": "BAC"
+          },
+          "order_type": "stop",
+          "portfolio_id": "sandbox",
+          "qty": 18,
+          "quote_ts": 1791382139398,
+          "rationale": "E2E raise stop by one tick",
+          "side": "sell",
+          "source": "human",
+          "stop_px_u": 520300,
+          "strategy_id": null,
+          "target_order_id": "ord_mv1auwae49e968ec22"
+        },
+        "kind": "human_modify",
+        "note": "Human paper-order request; the deterministic policy gate decides.",
+        "source": "human"
+      }
+    },
+    {
+      "seq": 2827,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791382140000,
+      "ts_wall": 1791570569707,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "policy",
+      "type": "POLICY_ACCEPT",
+      "ref_id": "int_mv1auyuifb342c4db4",
+      "prev_hash": "04a9cdea012d62facc194c62e45360dae53951f3e74a23ef137276b80cb3dd5e",
+      "hash": "8fd2d41fe3f857315a1abf54bcd74fcdb7212ffcc2e9d6a11deee8abcf62ac42",
+      "payload": {
+        "checks": [
+          {
+            "detail": "strict schema ok",
+            "pass": true,
+            "rule": "intent_valid"
+          },
+          {
+            "detail": "paper-only constant; estimated fills only",
+            "pass": true,
+            "rule": "paper_only"
+          },
+          {
+            "detail": "kill switch released",
+            "pass": true,
+            "rule": "kill_switch"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (human_confirmed applies)",
+            "pass": true,
+            "rule": "agent_authority"
+          },
+          {
+            "detail": "human confirmed",
+            "pass": true,
+            "rule": "human_confirmed"
+          },
+          {
+            "detail": "target ord_mv1auwae49e968ec22 (working) matches session, portfolio, BAC equity sell stop",
+            "pass": true,
+            "rule": "target_order_matches"
+          },
+          {
+            "detail": "equity allowed",
+            "pass": true,
+            "rule": "instrument_allowed"
+          },
+          {
+            "detail": "exit / non-increasing modify / cancel: universe filters not applied (never trap a position)",
+            "pass": true,
+            "rule": "symbol_allowed"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a buy",
+            "pass": true,
+            "rule": "max_trade_spend_usd"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not a buy",
+            "pass": true,
+            "rule": "cash_sufficient"
+          },
+          {
+            "detail": "sell 18 <= held 18",
+            "pass": true,
+            "rule": "no_short"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: only blocks new entries and risk-increasing buy modifies",
+            "pass": true,
+            "rule": "daily_loss_cap_usd"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not an entry",
+            "pass": true,
+            "rule": "max_open_positions"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: not an entry or a risk-increasing buy modify",
+            "pass": true,
+            "rule": "max_position_pct_equity"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: human intent (sandbox brackets are optional)",
+            "pass": true,
+            "rule": "protective_exit_required"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: risk-reducing intent (exits and cancels are never rate-limited)",
+            "pass": true,
+            "rule": "order_rate_per_min"
+          },
+          {
+            "detail": "regular session",
+            "pass": true,
+            "rule": "market_hours"
+          },
+          {
+            "detail": "quote age 1s <= 300s",
+            "pass": true,
+            "rule": "quote_fresh"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: risk-reducing intent (exits are not trapped by spread filters)",
+            "pass": true,
+            "rule": "max_spread_bps"
+          },
+          {
+            "applicable": false,
+            "detail": "not applicable: risk-reducing intent",
+            "pass": true,
+            "rule": "min_displayed_size"
+          },
+          {
+            "detail": "expires in 300s",
+            "pass": true,
+            "rule": "intent_not_expired"
+          },
+          {
+            "detail": "intent timestamps <= clock; 0/0 evidence refs resolved and knowable",
+            "pass": true,
+            "rule": "evidence_not_future"
+          },
+          {
+            "detail": "all prices on valid ticks",
+            "pass": true,
+            "rule": "tick_valid"
+          }
+        ],
+        "decision": "ACCEPTED",
+        "estimate": null,
+        "intent": {
+          "action": "modify",
+          "agent_id": null,
+          "created_ts": 1791382140000,
+          "evidence_refs": [],
+          "expires_ts": 1791382440000,
+          "id": "int_mv1auyuifb342c4db4",
+          "instrument": {
+            "kind": "equity",
+            "sym": "BAC"
+          },
+          "order_type": "stop",
+          "portfolio_id": "sandbox",
+          "qty": 18,
+          "quote_ts": 1791382139398,
+          "rationale": "E2E raise stop by one tick",
+          "side": "sell",
+          "source": "human",
+          "stop_px_u": 520300,
+          "strategy_id": null,
+          "target_order_id": "ord_mv1auwae49e968ec22"
+        },
+        "policy": {
+          "id": "policy:sandbox",
+          "label": "EXPLORATORY DEFAULTS — NOT VALIDATED"
+        },
+        "reasons": []
+      }
+    },
+    {
+      "seq": 2828,
+      "session_id": "ses_mv1aur6xae911e68a0",
+      "ts_sim": 1791382140000,
+      "ts_wall": 1791570569707,
+      "portfolio_id": "sandbox",
+      "agent_id": null,
+      "actor": "human",
+      "type": "ORDER_REPLACED",
+      "ref_id": "ord_mv1auwae49e968ec22",
+      "prev_hash": "8fd2d41fe3f857315a1abf54bcd74fcdb7212ffcc2e9d6a11deee8abcf62ac42",
+      "hash": "bacffab2d0b678e52aa46a39a613ae4115e12705c030972b49a8631b902a1384",
+      "payload": {
+        "after": {
+          "limit_px": null,
+          "qty": 18,
+          "stop_px": 520300
+        },
+        "before": {
+          "limit_px": null,
+          "qty": 18,
+          "stop_px": 520200
+        },
+        "by": "human",
+        "cascaded": [],
+        "created_ts": 1791381360000,
+        "expires_ts": 1791403200000,
+        "filled_qty": 0,
+        "instrument_id": "BAC",
+        "intent_id": "int_mv1auwadbf76eab7b4",
+        "kind": "equity",
+        "limit_px": null,
+        "oco_group": "oco_ord_mv1auwae5b1a2a608b",
+        "order_id": "ord_mv1auwae49e968ec22",
+        "parent_id": "ord_mv1auwae5b1a2a608b",
+        "protective": true,
+        "qty": 18,
+        "quote": {
+          "ageMs": 602,
+          "asOf": 1791382140000,
+          "ask": 533500,
+          "askSize": 1670,
+          "bid": 533400,
+          "bidSize": 1000,
+          "ds": "iex-tops-2026-10-07",
+          "halted": false,
+          "minuteRowT": 1791382080000,
+          "quoteTs": 1791382139398,
+          "spreadBps": 2,
+          "status": "OBSERVED",
+          "sym": "BAC",
+          "twoSided": true,
+          "venue": "IEX"
+        },
+        "reason": "E2E raise stop by one tick",
+        "role": "stop_loss",
+        "side": "sell",
+        "status": "working",
+        "stopCheck": {
+          "bidU": 533400,
+          "stopAtOrAboveBid": false,
+          "stopPxU": 520300,
+          "stopVsBidBps": -246
+        },
+        "stop_px": 520300,
+        "sym": "BAC",
+        "triggered_ts": null,
+        "type": "stop"
+      }
+    }
+  ]
+}

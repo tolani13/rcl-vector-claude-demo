@@ -1,0 +1,67 @@
+connections-v1 adversarial checks (TEST FIXTURE / MOCK; no network)
+generated_at 2026-10-10T03:40:23.209Z  node v25.2.1
+
+(a) NO TRADING
+  $ git grep --untracked -nIE '<SnapTrade trading surface>' -- server web
+  (no matches)
+  $ git grep --untracked -nIiE '<any order/trade code>' -- <the four real-account files>
+  (no matches)
+  GET /api/real/orders -> 404 NOT_FOUND
+  POST /api/real/orders -> 404 NOT_FOUND
+  PUT /api/real/orders -> 404 NOT_FOUND
+  DELETE /api/real/orders -> 404 NOT_FOUND
+  GET /api/real/trade -> 404 NOT_FOUND
+  POST /api/real/trade -> 404 NOT_FOUND
+  PUT /api/real/trade -> 404 NOT_FOUND
+  DELETE /api/real/trade -> 404 NOT_FOUND
+  GET /api/real/trades -> 404 NOT_FOUND
+  POST /api/real/trades -> 404 NOT_FOUND
+  PUT /api/real/trades -> 404 NOT_FOUND
+  DELETE /api/real/trades -> 404 NOT_FOUND
+  GET /api/real/order/impact -> 404 NOT_FOUND
+  POST /api/real/order/impact -> 404 NOT_FOUND
+  PUT /api/real/order/impact -> 404 NOT_FOUND
+  DELETE /api/real/order/impact -> 404 NOT_FOUND
+  GET /api/real/accounts/acc-demo-1/orders -> 404 NOT_FOUND
+  POST /api/real/accounts/acc-demo-1/orders -> 404 NOT_FOUND
+  PUT /api/real/accounts/acc-demo-1/orders -> 404 NOT_FOUND
+  DELETE /api/real/accounts/acc-demo-1/orders -> 404 NOT_FOUND
+  GET /api/real/orders/x/cancel -> 404 NOT_FOUND
+  POST /api/real/orders/x/cancel -> 404 NOT_FOUND
+  PUT /api/real/orders/x/cancel -> 404 NOT_FOUND
+  DELETE /api/real/orders/x/cancel -> 404 NOT_FOUND
+
+(b) NO SECRET LEAKS (sentinel values set for every SnapTrade and model key)
+  POST /api/real/connect -> 200
+  POST /api/real/sync -> 200 OK
+  GET /api/real/status -> 200 READY
+  mode=ok: scanned 9 responses, 0 log lines, 28 DB tables (journal included) -> sentinel hits: 0
+  POST /api/real/connect -> 502 SNAPTRADE_AUTH_REJECTED
+  POST /api/real/sync -> 502 SNAPTRADE_AUTH_REJECTED
+  GET /api/real/status -> 200 READY
+  mode=401: scanned 9 responses, 0 log lines, 28 DB tables (journal included) -> sentinel hits: 0
+  POST /api/real/connect -> 502 SNAPTRADE_UNREACHABLE
+  POST /api/real/sync -> 502 SNAPTRADE_UNREACHABLE
+  GET /api/real/status -> 200 READY
+  mode=network: scanned 9 responses, 0 log lines, 28 DB tables (journal included) -> sentinel hits: 0
+
+(c) PRIVACY GATE (assessment with real-account data)
+  preset groq (unknown): POST /api/assessments/run {includeRealAccount:true} -> 403 REAL_DATA_PRIVACY_BLOCK blocked=["cowboy:unknown","pragmatist:unknown","tightwad:unknown"]; model requests sent: 0
+  preset gemini-flash-free (true): POST /api/assessments/run {includeRealAccount:true} -> 403 REAL_DATA_PRIVACY_BLOCK blocked=["cowboy:true","pragmatist:true","tightwad:true"]; model requests sent: 0
+  preset ollama-local + tightwad=groq: POST /api/assessments/run {includeRealAccount:true} -> 403 REAL_DATA_PRIVACY_BLOCK blocked=["tightwad:unknown"]; model requests sent: 0
+  preset ollama-local (false): POST /api/assessments/run {includeRealAccount:true} -> 409 REAL_ACCOUNT_NOT_SYNCED; model requests sent: 0
+
+(d) $0 GUARD
+  POST /api/model/test {preset:'anthropic'} -> 409 PAID_PROVIDER_BLOCKED: BLOCKED: PAID_PROVIDER_BLOCKED — preset anthropic declares cost "paid"; VECTOR's budget is $0. Set VECTOR_ALLOW_PAID=1 in the server environment to allow it.
+  legacy VECTOR_MODEL_PROVIDER=anthropic: GET /api/model -> status FAULT, blocked PAID_PROVIDER_BLOCKED
+  with VECTOR_ALLOW_PAID=1: preset anthropic allowed_by_cost_guard=true (the paid preset may start; nothing was called here)
+
+(e) PUBLIC / STATIC BUILD
+  web/ files: 38; data files (.json/.csv/.db/.env): 0
+  web/ files mentioning api.snaptrade.com or a sentinel: 0
+  GET /config/model-presets.json -> 404
+  GET /server/api/real.js -> 404
+  GET /data/vector.db -> 404
+  GET /.env -> 404
+  web/js/views/real.js: loopback host guard before any /api/real request: true
+  git ls-files: *.db tracked = 0, .env tracked = 0

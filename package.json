@@ -1,0 +1,24 @@
+{
+  "name": "vector-rcl",
+  "version": "0.1.0",
+  "private": true,
+  "description": "VECTOR — paper-only market research and agent-operated paper-trading laboratory. A Recursive Chaos Labs product. Real sourced data only; simulated seed money only.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server/index.js",
+    "test": "node --disable-warning=ExperimentalWarning --test --test-concurrency=1 \"test/**/*.test.js\"",
+    "ingest:iex": "node --disable-warning=ExperimentalWarning --max-old-space-size=8192 scripts/ingest-iex.js",
+    "ingest:fred": "node --disable-warning=ExperimentalWarning scripts/ingest-fred.js",
+    "ingest:symdir": "node --disable-warning=ExperimentalWarning scripts/ingest-symdir.js",
+    "ingest:finra": "node --disable-warning=ExperimentalWarning scripts/ingest-finra.js",
+    "ingest:sec": "node --disable-warning=ExperimentalWarning scripts/ingest-sec.js",
+    "ingest:csv": "node --disable-warning=ExperimentalWarning scripts/ingest-csv.js",
+    "ui-check": "node --disable-warning=ExperimentalWarning scripts/ui-check.mjs"
+  },
+  "optionalDependencies": {
+    "@anthropic-ai/sdk": "^0.132.1"
+  }
+}
